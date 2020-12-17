@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://lutao.tk/"/>
-  <updated>2020-12-17T06:23:50.525Z</updated>
+  <updated>2020-12-17T09:29:32.957Z</updated>
   <id>http://lutao.tk/</id>
   
   <author>
@@ -20,10 +20,10 @@
     <link href="http://lutao.tk/SpringCloud%20Alibaba%20%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AE%9E%E6%88%98-%E5%9F%BA%E7%A1%80%E7%8E%AF%E5%A2%83/"/>
     <id>http://lutao.tk/SpringCloud Alibaba 微服务实战-基础环境/</id>
     <published>2020-06-10T01:02:00.000Z</published>
-    <updated>2020-12-17T06:23:50.525Z</updated>
+    <updated>2020-12-17T09:29:32.957Z</updated>
     
     <content type="html"><![CDATA[<!-- 展示图片 -->
-<p><img src="https://image.baidu.com/search/detail?ct=503316480&amp;z=undefined&amp;tn=baiduimagedetail&amp;ipn=d&amp;word=%E9%80%82%E5%90%88%E5%81%9A%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E7%9A%84%E6%96%87%E7%AB%A0%E5%B0%81%E9%9D%A2%E7%9A%84%E5%9B%BE%E7%89%87&amp;step_word=&amp;ie=utf-8&amp;in=&amp;cl=2&amp;lm=-1&amp;st=undefined&amp;hd=undefined&amp;latest=undefined&amp;copyright=undefined&amp;cs=3276619383,3699355242&amp;os=2294321585,555342428&amp;simid=4051703847,525471093&amp;pn=14&amp;rn=1&amp;di=50160&amp;ln=1391&amp;fr=&amp;fmq=1608185988963_R&amp;fm=&amp;ic=undefined&amp;s=undefined&amp;se=&amp;sme=&amp;tab=0&amp;width=undefined&amp;height=undefined&amp;face=undefined&amp;is=0,0&amp;istype=0&amp;ist=&amp;jit=&amp;bdtype=0&amp;spn=0&amp;pi=0&amp;gsm=0&amp;objurl=http%3A%2F%2Fs2.sinaimg.cn%2Fmiddle%2F5f7c27f9x833b8d7ccb61%26690&amp;rpstart=0&amp;rpnum=0&amp;adpicid=0&amp;force=undefined" alt="Mou_icon"></p>
+<p><img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3276619383,3699355242&amp;fm=26&amp;gp=0.jpg" alt="Mou_icon"></p>
 <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><pre><code>很多人可能会问，有了spring cloud这个微服务的框架，为什么又要使用spring cloud alibaba这个框架了？最重要的原因在于spring cloud中的几乎所有的组件都使用Netflix公司的产品，然后在其基础上做了一层封装。然而Netflix的服务发现组件Eureka已经停止更新，我们公司在使用的时候就发现过其一个细小的Bug；而其他的众多组件预计会在明年(即2020年)停止维护。所以急需其他的一些替代产品，也就是spring cloud alibaba，目前正处于蓬勃发展的态式。
 </code></pre><p><img src="http://blog.lutao1726.top/nacos集群-01.png" alt="Mou_icon"></p>
 <h4 id="MySQL数据源配置"><a href="#MySQL数据源配置" class="headerlink" title="MySQL数据源配置"></a>MySQL数据源配置</h4><p>在进行集群配置之前，先完成对MySQL数据源的初始化和配置。主要分以下两步：</p>
@@ -58,7 +58,7 @@
     <summary type="html">
     
       &lt;!-- 展示图片 --&gt;
-&lt;p&gt;&lt;img src=&quot;https://image.baidu.com/search/detail?ct=503316480&amp;amp;z=undefined&amp;amp;tn=baiduimagedetail&amp;amp;ipn=d&amp;amp;word=%E9
+&lt;p&gt;&lt;img src=&quot;https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3276619383,3699355242&amp;amp;fm=26&amp;amp;gp=0.jpg&quot; alt=&quot;Mou_
     
     </summary>
     
