@@ -334,17 +334,6 @@
   
 </nav>
 
-<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
-<script>
-    const btw = new BTWPlugin();
-    btw.init({
-        id: 'container1',
-        blogId: '25071-1608261299158-736',
-        name: 'Java一学习那些事',
-        qrcode: 'http://blog.lutao1726.top/qrcode_for_gzh.jpg',
-        keyword: 'more',
-    });
-</script>
 
  </div>
     </header>
@@ -352,9 +341,8 @@
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          <div id="container1">
-            <div id="content" class="content">
-              
+          <div id="content" class="content">
+            
 
   <div id="posts" class="posts-expand">
     
@@ -494,7 +482,7 @@
       
 
       
-        <h6 id="下载postgres-exporter插件"><a href="#下载postgres-exporter插件" class="headerlink" title="下载postgres_exporter插件"></a>下载<a href="http://blog.lutao1726.top/postgres_exporter" target="_blank" rel="noopener">postgres_exporter插件</a></h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/wrouesnel/postgres_exporter/releases/download/v0.5.1/postgres_exporter_v0.5.1_linux-amd64.tar.gz</span><br></pre></td></tr></table></figure>
+        <div id="vip-container"><h6 id="下载postgres-exporter插件"><a href="#下载postgres-exporter插件" class="headerlink" title="下载postgres_exporter插件"></a>下载<a href="http://blog.lutao1726.top/postgres_exporter" target="_blank" rel="noopener">postgres_exporter插件</a></h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/wrouesnel/postgres_exporter/releases/download/v0.5.1/postgres_exporter_v0.5.1_linux-amd64.tar.gz</span><br></pre></td></tr></table></figure>
 <h6 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar xf postgre_exporter-*.tar.gz</span><br></pre></td></tr></table></figure>
 <h6 id="启动postgre-exporter"><a href="#启动postgre-exporter" class="headerlink" title="启动postgre_exporter"></a>启动postgre_exporter</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> DATA_SOURCE_NAME=<span class="string">"postgresql://postgres:lt123456@127.0.0.1:5432/postgres?sslmode=disable"</span></span><br><span class="line">setsid ./postgre_exporter &amp;</span><br></pre></td></tr></table></figure>
 <h6 id="查看postgre-exporter是否开启"><a href="#查看postgre-exporter是否开启" class="headerlink" title="查看postgre_exporter是否开启"></a>查看postgre_exporter是否开启</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">netstat -lntp</span><br><span class="line">tcp        0      0 :::9187                     :::*                        LISTEN      13614/./postgres_ex</span><br></pre></td></tr></table></figure>
@@ -504,7 +492,23 @@
 <h4 id="grafana配置"><a href="#grafana配置" class="headerlink" title="grafana配置"></a>grafana配置</h4><p>配置prometheus数据源<br>添加prometheus插件，然后配置<br><img src="http://blog.lutao1726.top/grafana-redis-01.png" alt="Mou_icon"><br><img src="http://blog.lutao1726.top/grafana-redis-02.png" alt="Mou_icon"><br><img src="http://blog.lutao1726.top/grafana-redis-03.png" alt="Mou_icon"></p>
 <h4 id="下载仪表盘模板"><a href="#下载仪表盘模板" class="headerlink" title="下载仪表盘模板"></a>下载仪表盘模板</h4><p><img src="http://blog.lutao1726.top/grafana-postgre-04.png" alt="Mou_icon"></p>
 <h6 id="导入模板"><a href="#导入模板" class="headerlink" title="导入模板"></a>导入模板</h6><p><img src="http://blog.lutao1726.top/grafana-redis-05.png" alt="Mou_icon"><br><img src="http://blog.lutao1726.top/grafana-postgre-06.png" alt="Mou_icon"></p>
+</div>
 
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "25071-1608261299158-736",
+			        "name": "Java一学习那些事",
+			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
+			        "keyword": "more"
+			    });
+			}
+			</script>
+		
       
     </div>
 
@@ -638,7 +642,6 @@
   </div>
 
 
-            </div>
           </div>
           
 

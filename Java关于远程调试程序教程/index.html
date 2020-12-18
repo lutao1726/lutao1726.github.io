@@ -331,17 +331,6 @@
   
 </nav>
 
-<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
-<script>
-    const btw = new BTWPlugin();
-    btw.init({
-        id: 'container1',
-        blogId: '25071-1608261299158-736',
-        name: 'Java一学习那些事',
-        qrcode: 'http://blog.lutao1726.top/qrcode_for_gzh.jpg',
-        keyword: 'more',
-    });
-</script>
 
  </div>
     </header>
@@ -349,9 +338,8 @@
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          <div id="container1">
-            <div id="content" class="content">
-              
+          <div id="content" class="content">
+            
 
   <div id="posts" class="posts-expand">
     
@@ -491,7 +479,7 @@
       
 
       
-        <!-- 展示图片 -->
+        <div id="vip-container"><!-- 展示图片 -->
 <p><img src="http://biddingcs.lutao1726.top/java-flag-001.jpg" alt="Mou_icon"><br><a id="more"></a></p>
 <p>写一个简单程序打成jar丢到远程服务器运行，模拟远程Server在运行。就拿Java调用shell脚本提交作业程序为例分析。源码如下<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.InputStream;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JavaShell</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            String grant = <span class="string">"chmod u+x submit-job.sh"</span>;</span><br><span class="line">            Runtime runtime = Runtime.getRuntime();</span><br><span class="line"></span><br><span class="line">            Process grantProc = runtime.exec(grant);</span><br><span class="line">            <span class="keyword">int</span> resultCode = grantProc.waitFor();</span><br><span class="line">            System.out.println(resultCode);</span><br><span class="line">            grantProc = runtime.exec(<span class="string">"./submit-job.sh"</span>);</span><br><span class="line">            resultCode = grantProc.waitFor();</span><br><span class="line"></span><br><span class="line">            System.out.println(resultCode);</span><br><span class="line">            InputStream in = grantProc.getInputStream();</span><br><span class="line">            <span class="keyword">byte</span>[] buffer = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</span><br><span class="line">            <span class="keyword">int</span> code;</span><br><span class="line">            <span class="keyword">while</span> ((code = in.read(buffer, <span class="number">0</span>, buffer.length)) != -<span class="number">1</span>) &#123;</span><br><span class="line">                System.out.print(<span class="keyword">new</span> String(buffer, <span class="number">0</span>, code));</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            <span class="comment">/**</span></span><br><span class="line"><span class="comment">             * 死循环阻止debugger没有连接上之前程序退出（测试suspend参数功能） </span></span><br><span class="line"><span class="comment">             */</span></span><br><span class="line">            System.out.println(<span class="string">"shell脚本执行完毕，接下来开始进行定时打印任务！"</span>);</span><br><span class="line">            <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">                Thread.sleep(<span class="number">2000</span>);</span><br><span class="line">                System.out.println(<span class="string">"这是第"</span> + (++i) + <span class="string">"次循环！"</span>);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            System.out.println(<span class="string">"this is a excption !"</span>);</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>打成Jar包提交到远程服务器之后运行：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java  -Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,address=9999,server=y,<span class="built_in">suspend</span>=y  -jar  JavaShell.jar</span><br></pre></td></tr></table></figure></p>
@@ -519,7 +507,23 @@
 <p>tomcat启动后会自动调用setenv文件，进行jvm参数设置</p>
 <h6 id="启动调试"><a href="#启动调试" class="headerlink" title="启动调试"></a>启动调试</h6><p>点击调试按钮，控制台输出如下提示就成功了。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Connected to the target VM, address: <span class="string">'192.168.66.252:5006'</span>, transport: <span class="string">'socket'</span></span><br></pre></td></tr></table></figure></p>
 <p>然后先在代码处打上断点，然后操作java程序即可进入断点。</p>
+</div>
 
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "25071-1608261299158-736",
+			        "name": "Java一学习那些事",
+			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
+			        "keyword": "more"
+			    });
+			}
+			</script>
+		
       
     </div>
 
@@ -653,7 +657,6 @@
   </div>
 
 
-            </div>
           </div>
           
 

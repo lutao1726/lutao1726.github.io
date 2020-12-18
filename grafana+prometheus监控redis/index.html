@@ -334,17 +334,6 @@
   
 </nav>
 
-<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
-<script>
-    const btw = new BTWPlugin();
-    btw.init({
-        id: 'container1',
-        blogId: '25071-1608261299158-736',
-        name: 'Java一学习那些事',
-        qrcode: 'http://blog.lutao1726.top/qrcode_for_gzh.jpg',
-        keyword: 'more',
-    });
-</script>
 
  </div>
     </header>
@@ -352,9 +341,8 @@
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          <div id="container1">
-            <div id="content" class="content">
-              
+          <div id="content" class="content">
+            
 
   <div id="posts" class="posts-expand">
     
@@ -494,7 +482,7 @@
       
 
       
-        <h4 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h4><hr>
+        <div id="vip-container"><h4 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h4><hr>
 <p>监控服务器状态是运维必不可少的一部分,这里给大家介绍的是一种监控系统grafana,grafana仅仅只是提供界面显示, 所以他需要从influxdb或prometheus中获取数据, 而influxdb或prometheus中的数据又需要从其他地方收集过来, 常用的收集工具是collectd和telegraf, 其中collectd这里不做介绍, 有些数据不是太适合, 而 influxdb 自身集成 telegraf插件, 不需要进行专门的配置</p>
 <h4 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h4><blockquote>
 <p>collectd/telegraf或prometheus插件(收集数据)  ——-&gt;   influxdb/prometheus(保存数据)  ——-&gt; grafana(显示数据)</p>
@@ -508,7 +496,23 @@
 <h4 id="grafana配置"><a href="#grafana配置" class="headerlink" title="grafana配置"></a>grafana配置</h4><p>配置prometheus数据源<br>添加prometheus插件，然后配置<br><img src="http://blog.lutao1726.top/grafana-redis-01.png" alt="Mou_icon"><br><img src="http://blog.lutao1726.top/grafana-redis-02.png" alt="Mou_icon"><br><img src="http://blog.lutao1726.top/grafana-redis-03.png" alt="Mou_icon"></p>
 <h4 id="下载redis仪表盘模板"><a href="#下载redis仪表盘模板" class="headerlink" title="下载redis仪表盘模板"></a>下载redis仪表盘模板</h4><p><img src="http://blog.lutao1726.top/grafana-redis-04.png" alt="Mou_icon"></p>
 <h6 id="导入模板"><a href="#导入模板" class="headerlink" title="导入模板"></a>导入模板</h6><p><img src="http://blog.lutao1726.top/grafana-redis-05.png" alt="Mou_icon"><br><img src="http://blog.lutao1726.top/grafana-redis-06.png" alt="Mou_icon"></p>
+</div>
 
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "25071-1608261299158-736",
+			        "name": "Java一学习那些事",
+			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
+			        "keyword": "more"
+			    });
+			}
+			</script>
+		
       
     </div>
 
@@ -642,7 +646,6 @@
   </div>
 
 
-            </div>
           </div>
           
 

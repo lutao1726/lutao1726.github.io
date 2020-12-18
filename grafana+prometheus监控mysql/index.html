@@ -334,17 +334,6 @@
   
 </nav>
 
-<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
-<script>
-    const btw = new BTWPlugin();
-    btw.init({
-        id: 'container1',
-        blogId: '25071-1608261299158-736',
-        name: 'Java一学习那些事',
-        qrcode: 'http://blog.lutao1726.top/qrcode_for_gzh.jpg',
-        keyword: 'more',
-    });
-</script>
 
  </div>
     </header>
@@ -352,9 +341,8 @@
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          <div id="container1">
-            <div id="content" class="content">
-              
+          <div id="content" class="content">
+            
 
   <div id="posts" class="posts-expand">
     
@@ -494,7 +482,7 @@
       
 
       
-        <h4 id="下载mysqld-exporter插件"><a href="#下载mysqld-exporter插件" class="headerlink" title="下载mysqld_exporter插件"></a>下载<a href="https://github.com/prometheus/mysqld_exporter" target="_blank" rel="noopener">mysqld_exporter插件</a></h4><h6 id="在被监控端mysql服务器上创建账号用于mysql-exporter收集使用"><a href="#在被监控端mysql服务器上创建账号用于mysql-exporter收集使用" class="headerlink" title="在被监控端mysql服务器上创建账号用于mysql exporter收集使用"></a>在被监控端mysql服务器上创建账号用于mysql exporter收集使用</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GRANT</span> <span class="keyword">REPLICATION</span> <span class="keyword">CLIENT</span>, PROCESS <span class="keyword">ON</span>  *.*  <span class="keyword">to</span> <span class="string">'exporter'</span>@<span class="string">'%'</span> <span class="keyword">identified</span> <span class="keyword">by</span> <span class="string">'123456'</span>;</span><br><span class="line"><span class="keyword">GRANT</span> <span class="keyword">SELECT</span> <span class="keyword">ON</span> performance_schema.* <span class="keyword">TO</span> <span class="string">'exporter'</span>@<span class="string">'%'</span>;</span><br><span class="line"><span class="keyword">flush</span> <span class="keyword">privileges</span>;</span><br></pre></td></tr></table></figure>
+        <div id="vip-container"><h4 id="下载mysqld-exporter插件"><a href="#下载mysqld-exporter插件" class="headerlink" title="下载mysqld_exporter插件"></a>下载<a href="https://github.com/prometheus/mysqld_exporter" target="_blank" rel="noopener">mysqld_exporter插件</a></h4><h6 id="在被监控端mysql服务器上创建账号用于mysql-exporter收集使用"><a href="#在被监控端mysql服务器上创建账号用于mysql-exporter收集使用" class="headerlink" title="在被监控端mysql服务器上创建账号用于mysql exporter收集使用"></a>在被监控端mysql服务器上创建账号用于mysql exporter收集使用</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GRANT</span> <span class="keyword">REPLICATION</span> <span class="keyword">CLIENT</span>, PROCESS <span class="keyword">ON</span>  *.*  <span class="keyword">to</span> <span class="string">'exporter'</span>@<span class="string">'%'</span> <span class="keyword">identified</span> <span class="keyword">by</span> <span class="string">'123456'</span>;</span><br><span class="line"><span class="keyword">GRANT</span> <span class="keyword">SELECT</span> <span class="keyword">ON</span> performance_schema.* <span class="keyword">TO</span> <span class="string">'exporter'</span>@<span class="string">'%'</span>;</span><br><span class="line"><span class="keyword">flush</span> <span class="keyword">privileges</span>;</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/prometheus/mysqld_exporter/releases/download/v0.12.1/mysqld_exporter-0.12.1.linux-amd64.tar.gz</span><br></pre></td></tr></table></figure>
 <h6 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar xf tar -xvf mysqld_exporter-*.tar.gz -C /app/runtime/prometheus</span><br></pre></td></tr></table></figure>
 <h6 id="配置文件-my-cnf"><a href="#配置文件-my-cnf" class="headerlink" title="配置文件 .my.cnf"></a>配置文件 <strong><em>.my.cnf</em></strong></h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[client]</span><br><span class="line">user=exporter</span><br><span class="line">password=123456</span><br></pre></td></tr></table></figure>
@@ -505,7 +493,23 @@
 <h4 id="grafana配置"><a href="#grafana配置" class="headerlink" title="grafana配置"></a>grafana配置</h4><p>配置prometheus数据源<br>添加prometheus插件，然后配置<br><img src="http://blog.lutao1726.top/grafana-redis-01.png" alt="Mou_icon"><br><img src="http://blog.lutao1726.top/grafana-redis-02.png" alt="Mou_icon"><br><img src="http://blog.lutao1726.top/grafana-redis-03.png" alt="Mou_icon"></p>
 <h4 id="下载仪表盘模板"><a href="#下载仪表盘模板" class="headerlink" title="下载仪表盘模板"></a>下载仪表盘模板</h4><p><img src="http://blog.lutao1726.top/grafana-mysql-01.png" alt="Mou_icon"></p>
 <h6 id="导入模板"><a href="#导入模板" class="headerlink" title="导入模板"></a>导入模板</h6><p><img src="http://blog.lutao1726.top/grafana-redis-05.png" alt="Mou_icon"><br><img src="http://blog.lutao1726.top/grafana-mysql-02.png" alt="Mou_icon"></p>
+</div>
 
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "25071-1608261299158-736",
+			        "name": "Java一学习那些事",
+			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
+			        "keyword": "more"
+			    });
+			}
+			</script>
+		
       
     </div>
 
@@ -639,7 +643,6 @@
   </div>
 
 
-            </div>
           </div>
           
 

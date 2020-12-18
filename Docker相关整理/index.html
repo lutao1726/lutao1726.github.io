@@ -330,17 +330,6 @@
   
 </nav>
 
-<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
-<script>
-    const btw = new BTWPlugin();
-    btw.init({
-        id: 'container1',
-        blogId: '25071-1608261299158-736',
-        name: 'Java一学习那些事',
-        qrcode: 'http://blog.lutao1726.top/qrcode_for_gzh.jpg',
-        keyword: 'more',
-    });
-</script>
 
  </div>
     </header>
@@ -348,9 +337,8 @@
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          <div id="container1">
-            <div id="content" class="content">
-              
+          <div id="content" class="content">
+            
 
   <div id="posts" class="posts-expand">
     
@@ -490,7 +478,7 @@
       
 
       
-        <a id="more"></a>
+        <div id="vip-container"><a id="more"></a>
 <h1 id="CentOS-Docker-安装"><a href="#CentOS-Docker-安装" class="headerlink" title="CentOS Docker 安装"></a>CentOS Docker 安装</h1><h2 id="使用-yum-安装"><a href="#使用-yum-安装" class="headerlink" title="使用 yum 安装"></a>使用 yum 安装</h2><p>Docker 要求 CentOS 系统的内核版本高于 3.10 ，查看本页面的前提条件来验证你的CentOS 版本是否支持 Docker 。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname -r</span><br></pre></td></tr></table></figure></p>
 <p><img src="http://www.runoob.com/wp-content/uploads/2016/05/docker08.png" alt=""></p>
 <h2 id="安装-Docker"><a href="#安装-Docker" class="headerlink" title="安装 Docker"></a>安装 Docker</h2><p>从 2017 年 3 月开始 docker 在原来的基础上分为两个分支版本: Docker CE 和 Docker EE。<br>Docker CE 即社区免费版，Docker EE 即企业版，强调安全，但需付费使用。<br>本文介绍 Docker CE 的安装使用。<br>移除旧的版本：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">sudo yum remove docker \</span><br><span class="line">              docker-client \</span><br><span class="line">              docker-client-latest \</span><br><span class="line">              docker-common \</span><br><span class="line">              docker-latest \</span><br><span class="line">              docker-latest-logrotate \</span><br><span class="line">              docker-logrotate \</span><br><span class="line">              docker-selinux \</span><br><span class="line">              docker-engine-selinux \</span><br><span class="line">              docker-engine</span><br></pre></td></tr></table></figure></p>
@@ -504,7 +492,23 @@
 <p>重新启动docker服务（下面是CentOS7的命令）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service docker restart或sudo systemctl restart docker</span><br></pre></td></tr></table></figure></p>
 <p>当前用户退出系统重新登陆即可</p>
 <p>dockerexec不同用户登入<br>docker exec -it –user root &lt;容器ID&gt; /bin/bash<br><img src="https://www.2cto.com/uploadfile/Collfiles/20180403/201804030931161219.png" alt=""></p>
+</div>
 
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "25071-1608261299158-736",
+			        "name": "Java一学习那些事",
+			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
+			        "keyword": "more"
+			    });
+			}
+			</script>
+		
       
     </div>
 
@@ -640,7 +644,6 @@
   </div>
 
 
-            </div>
           </div>
           
 

@@ -327,17 +327,6 @@
   
 </nav>
 
-<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
-<script>
-    const btw = new BTWPlugin();
-    btw.init({
-        id: 'container1',
-        blogId: '25071-1608261299158-736',
-        name: 'Java一学习那些事',
-        qrcode: 'http://blog.lutao1726.top/qrcode_for_gzh.jpg',
-        keyword: 'more',
-    });
-</script>
 
  </div>
     </header>
@@ -345,9 +334,8 @@
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          <div id="container1">
-            <div id="content" class="content">
-              
+          <div id="content" class="content">
+            
 
   <div id="posts" class="posts-expand">
     
@@ -487,7 +475,7 @@
       
 
       
-        <a id="more"></a>
+        <div id="vip-container"><a id="more"></a>
 <h1 id="zookeeper和dubbo的关系"><a href="#zookeeper和dubbo的关系" class="headerlink" title="zookeeper和dubbo的关系"></a>zookeeper和dubbo的关系</h1><blockquote>
 <p>Dubbo建议使用Zookeeper作为服务的注册中心。</p>
 </blockquote>
@@ -507,7 +495,23 @@
 <p><em>生产者配置</em><br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dubbo:application</span> <span class="attr">name</span>=<span class="string">"dubbo_provider_resourcesw"</span>&gt;</span><span class="tag">&lt;/<span class="name">dubbo:application</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dubbo:protocol</span> <span class="attr">name</span>=<span class="string">"dubbo"</span> <span class="attr">port</span>=<span class="string">"20885"</span> /&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 使用zookeeper注册中心暴露服务地址 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dubbo:registry</span> <span class="attr">address</span>=<span class="string">"zookeeper://127.0.0.1:2181"</span> <span class="attr">check</span>=<span class="string">"false"</span> <span class="attr">subscribe</span>=<span class="string">"false"</span> <span class="attr">register</span>=<span class="string">""</span>&gt;</span><span class="tag">&lt;/<span class="name">dubbo:registry</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 要暴露的服务接口 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dubbo:service</span> <span class="attr">interface</span>=<span class="string">"com.cn.xxx.xxxControl"</span> <span class="attr">ref</span>=<span class="string">"xxxControl"</span> /&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p><em>消费者配置</em><br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dubbo:application</span> <span class="attr">name</span>=<span class="string">"dubbo_consumer"</span>&gt;</span><span class="tag">&lt;/<span class="name">dubbo:application</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 使用zookeeper注册中心暴露服务地址 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dubbo:registry</span> <span class="attr">address</span>=<span class="string">"zookeeper://127.0.0.1:2181"</span> <span class="attr">check</span>=<span class="string">"false"</span>&gt;</span><span class="tag">&lt;/<span class="name">dubbo:registry</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 要引用的服务 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dubbo:reference</span> <span class="attr">interface</span>=<span class="string">"com.cn.xxx.xxxControl"</span> <span class="attr">id</span>=<span class="string">"xxxControl"</span> <span class="attr">timeout</span>=<span class="string">"180000"</span>&gt;</span><span class="tag">&lt;/<span class="name">dubbo:reference</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p><strong>总结小记</strong></p>
+</div>
 
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "25071-1608261299158-736",
+			        "name": "Java一学习那些事",
+			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
+			        "keyword": "more"
+			    });
+			}
+			</script>
+		
       
     </div>
 
@@ -641,7 +645,6 @@
   </div>
 
 
-            </div>
           </div>
           
 

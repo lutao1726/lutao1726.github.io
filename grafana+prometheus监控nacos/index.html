@@ -333,17 +333,6 @@
   
 </nav>
 
-<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
-<script>
-    const btw = new BTWPlugin();
-    btw.init({
-        id: 'container1',
-        blogId: '25071-1608261299158-736',
-        name: 'Java一学习那些事',
-        qrcode: 'http://blog.lutao1726.top/qrcode_for_gzh.jpg',
-        keyword: 'more',
-    });
-</script>
 
  </div>
     </header>
@@ -351,9 +340,8 @@
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          <div id="container1">
-            <div id="content" class="content">
-              
+          <div id="content" class="content">
+            
 
   <div id="posts" class="posts-expand">
     
@@ -493,13 +481,29 @@
       
 
       
-        <h6 id="安装Nacos"><a href="#安装Nacos" class="headerlink" title="安装Nacos"></a>安装<a href="http://lutao.tk/SpringCloud%20nacos%E8%87%AA%E5%AE%9A%E4%B9%89%E7%94%A8%E6%88%B7/">Nacos</a></h6><h6 id="修改配置文件-application-properties-暴露metrics数据"><a href="#修改配置文件-application-properties-暴露metrics数据" class="headerlink" title="修改配置文件 application.properties 暴露metrics数据"></a>修改配置文件 <strong><em>application.properties</em></strong> 暴露metrics数据</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">management.endpoints.web.exposure.include=*</span><br></pre></td></tr></table></figure>
+        <div id="vip-container"><h6 id="安装Nacos"><a href="#安装Nacos" class="headerlink" title="安装Nacos"></a>安装<a href="http://lutao.tk/SpringCloud%20nacos%E8%87%AA%E5%AE%9A%E4%B9%89%E7%94%A8%E6%88%B7/">Nacos</a></h6><h6 id="修改配置文件-application-properties-暴露metrics数据"><a href="#修改配置文件-application-properties-暴露metrics数据" class="headerlink" title="修改配置文件 application.properties 暴露metrics数据"></a>修改配置文件 <strong><em>application.properties</em></strong> 暴露metrics数据</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">management.endpoints.web.exposure.include=*</span><br></pre></td></tr></table></figure>
 <p>访问{ip}:8848/nacos/actuator/prometheus，看是否能访问到metrics数据</p>
 <h6 id="修改prometheus配置文件"><a href="#修改prometheus配置文件" class="headerlink" title="修改prometheus配置文件"></a>修改prometheus配置文件</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- job_name: nacos</span><br><span class="line">  metrics_path: &apos;/nacos/actuator/prometheus&apos;</span><br><span class="line">  static_configs:</span><br><span class="line">    - targets: [&apos;192.168.1.238:8848&apos;]</span><br></pre></td></tr></table></figure>
 <h6 id="重启prometheus"><a href="#重启prometheus" class="headerlink" title="重启prometheus"></a>重启prometheus</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup ./prometheus --config.file=./prometheus.yml &amp;</span><br></pre></td></tr></table></figure>
 <h4 id="grafana配置"><a href="#grafana配置" class="headerlink" title="grafana配置"></a>grafana配置</h4><p>配置prometheus数据源<br>添加prometheus插件，然后配置<br><img src="http://blog.lutao1726.top/grafana-redis-01.png" alt="Mou_icon"><br><img src="http://blog.lutao1726.top/grafana-redis-02.png" alt="Mou_icon"><br><img src="http://blog.lutao1726.top/grafana-redis-03.png" alt="Mou_icon"></p>
 <h4 id="下载仪表盘模板"><a href="#下载仪表盘模板" class="headerlink" title="下载仪表盘模板"></a>下载<a href="https://github.com/nacos-group/nacos-template/blob/master/nacos-sync-grafana" target="_blank" rel="noopener">仪表盘模板</a></h4><h6 id="导入模板"><a href="#导入模板" class="headerlink" title="导入模板"></a>导入模板</h6><p><img src="http://blog.lutao1726.top/grafana-redis-05.png" alt="Mou_icon"><br><img src="http://blog.lutao1726.top/grafana-nacos-02.png" alt="Mou_icon"></p>
+</div>
 
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "25071-1608261299158-736",
+			        "name": "Java一学习那些事",
+			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
+			        "keyword": "more"
+			    });
+			}
+			</script>
+		
       
     </div>
 
@@ -633,7 +637,6 @@
   </div>
 
 
-            </div>
           </div>
           
 

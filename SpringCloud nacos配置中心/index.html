@@ -331,17 +331,6 @@
   
 </nav>
 
-<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
-<script>
-    const btw = new BTWPlugin();
-    btw.init({
-        id: 'container1',
-        blogId: '25071-1608261299158-736',
-        name: 'Java一学习那些事',
-        qrcode: 'http://blog.lutao1726.top/qrcode_for_gzh.jpg',
-        keyword: 'more',
-    });
-</script>
 
  </div>
     </header>
@@ -349,9 +338,8 @@
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          <div id="container1">
-            <div id="content" class="content">
-              
+          <div id="content" class="content">
+            
 
   <div id="posts" class="posts-expand">
     
@@ -491,7 +479,7 @@
       
 
       
-        <!-- 展示图片 -->
+        <div id="vip-container"><!-- 展示图片 -->
 <p><img src="http://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1560241798416&amp;di=8f77845c978cea7c21034bde02f972cb&amp;imgtype=0&amp;src=http%3A%2F%2Fimg2018.cnblogs.com%2Fblog%2F1531118%2F201812%2F1531118-20181221102849890-1290850884.png" alt="Mou_icon"></p>
 <h2 id="nacos作为注册中心"><a href="#nacos作为注册中心" class="headerlink" title="nacos作为注册中心"></a>nacos作为注册中心</h2><ol>
 <li>先在官网上下载nacos中间件 下面教程有启动步骤<blockquote>
@@ -532,7 +520,23 @@
 <p>多环境注意：不论用哪一种方式实现。对于指定环境的配置（spring.profiles.active=DEV、spring.cloud.nacos.config.group=DEV_GROUP、spring.cloud.nacos.config.namespace=83eed625-d166-4619-b923-93df2088883a），都不要配置在应用的bootstrap.properties中。而是在发布脚本的启动命令中，用-Dspring.profiles.active=DEV的方式来动态指定，会更加灵活！。    </p>
 <p>Nacos使用注意<br><br> Nacos本身的相关配置必须都放在bootstrap.yml文件中<br> 如果在Nacos添加了应用的配置文件<br> 1. 应用读取配置后只会覆盖本地相同key的配置<br> 2. 应用读取配置后会缓存起来，就算停掉Nacos也会生效</p>
 </blockquote>
+</div>
 
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "25071-1608261299158-736",
+			        "name": "Java一学习那些事",
+			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
+			        "keyword": "more"
+			    });
+			}
+			</script>
+		
       
     </div>
 
@@ -668,7 +672,6 @@
   </div>
 
 
-            </div>
           </div>
           
 
