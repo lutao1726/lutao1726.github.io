@@ -13,9 +13,9 @@
         
         <tag>Java</tag>
          
-        <tag>SpringCloud Alibaba</tag>
-         
         <tag>SpringCloud</tag>
+         
+        <tag>SpringCloud Alibaba</tag>
          
          
            
@@ -29,6 +29,26 @@
     
     
     
+    
+  <url>
+    <loc>http://lutao.tk/%E9%9D%9E%E6%8A%80%E6%9C%AF%E7%9B%B8%E5%85%B3%E9%9D%A2%E8%AF%95/</loc>
+    <lastmod>2020-12-17T05:19:57.574Z</lastmod>
+    <data>
+        <display>
+        <title>非技术相关面试</title>
+        <pubTime>2018-01-18T01:00:32.000Z</pubTime>
+        
+        <tag>Interview</tag>
+         
+         
+           
+             
+              <breadCrumb title="面试" url="http://lutao.tk/categories/%E9%9D%A2%E8%AF%95/"/>
+          
+        </display>
+    </data>
+    </url>
+
     
   <url>
     <loc>http://lutao.tk/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3java%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%80%BB%E7%BB%93/</loc>
@@ -46,26 +66,6 @@
            
              
               <breadCrumb title="框架" url="http://lutao.tk/categories/%E6%A1%86%E6%9E%B6/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://lutao.tk/%E9%9D%9E%E6%8A%80%E6%9C%AF%E7%9B%B8%E5%85%B3%E9%9D%A2%E8%AF%95/</loc>
-    <lastmod>2020-12-17T05:19:57.574Z</lastmod>
-    <data>
-        <display>
-        <title>非技术相关面试</title>
-        <pubTime>2018-01-18T01:00:32.000Z</pubTime>
-        
-        <tag>Interview</tag>
-         
-         
-           
-             
-              <breadCrumb title="面试" url="http://lutao.tk/categories/%E9%9D%A2%E8%AF%95/"/>
           
         </display>
     </data>
@@ -110,6 +110,30 @@
            
              
               <breadCrumb title="hexo教程" url="http://lutao.tk/categories/hexo%E6%95%99%E7%A8%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://lutao.tk/%E6%90%AD%E5%BB%BAELK%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90%E5%B9%B3%E5%8F%B0/</loc>
+    <lastmod>2020-12-17T05:19:57.572Z</lastmod>
+    <data>
+        <display>
+        <title>搭建ELK日志分析平台</title>
+        <pubTime>2018-08-20T09:29:00.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>Linux</tag>
+         
+        <tag>运维</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux教程" url="http://lutao.tk/categories/Linux%E6%95%99%E7%A8%8B/"/>
           
         </display>
     </data>
@@ -189,23 +213,23 @@
 
     
   <url>
-    <loc>http://lutao.tk/%E6%90%AD%E5%BB%BAELK%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90%E5%B9%B3%E5%8F%B0/</loc>
-    <lastmod>2020-12-17T05:19:57.572Z</lastmod>
+    <loc>http://lutao.tk/zookeeper%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/</loc>
+    <lastmod>2020-12-17T05:19:57.571Z</lastmod>
     <data>
         <display>
-        <title>搭建ELK日志分析平台</title>
-        <pubTime>2018-08-20T09:29:00.000Z</pubTime>
+        <title>zookeeper使用总结</title>
+        <pubTime>2018-05-16T09:29:00.000Z</pubTime>
         
         <tag>Java</tag>
          
-        <tag>Linux</tag>
+        <tag>微服务</tag>
          
-        <tag>运维</tag>
+        <tag>分布式</tag>
          
          
            
              
-              <breadCrumb title="Linux教程" url="http://lutao.tk/categories/Linux%E6%95%99%E7%A8%8B/"/>
+              <breadCrumb title="面试" url="http://lutao.tk/categories/%E9%9D%A2%E8%AF%95/"/>
           
         </display>
     </data>
@@ -285,23 +309,23 @@
 
     
   <url>
-    <loc>http://lutao.tk/zookeeper%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/</loc>
-    <lastmod>2020-12-17T05:19:57.571Z</lastmod>
+    <loc>http://lutao.tk/linux%E5%AE%89%E8%A3%85%E5%AD%97%E4%BD%93/</loc>
+    <lastmod>2020-12-17T05:19:57.570Z</lastmod>
     <data>
         <display>
-        <title>zookeeper使用总结</title>
-        <pubTime>2018-05-16T09:29:00.000Z</pubTime>
+        <title>linux安装字体</title>
+        <pubTime>2019-04-18T06:02:00.000Z</pubTime>
         
         <tag>Java</tag>
          
-        <tag>微服务</tag>
+        <tag>Linux</tag>
          
-        <tag>分布式</tag>
+        <tag>运维</tag>
          
          
            
              
-              <breadCrumb title="面试" url="http://lutao.tk/categories/%E9%9D%A2%E8%AF%95/"/>
+              <breadCrumb title="Linux教程" url="http://lutao.tk/categories/Linux%E6%95%99%E7%A8%8B/"/>
           
         </display>
     </data>
@@ -371,30 +395,6 @@
         <tag>运维</tag>
          
         <tag>Jenkins</tag>
-         
-         
-           
-             
-              <breadCrumb title="Linux教程" url="http://lutao.tk/categories/Linux%E6%95%99%E7%A8%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://lutao.tk/linux%E5%AE%89%E8%A3%85%E5%AD%97%E4%BD%93/</loc>
-    <lastmod>2020-12-17T05:19:57.570Z</lastmod>
-    <data>
-        <display>
-        <title>linux安装字体</title>
-        <pubTime>2019-04-18T06:02:00.000Z</pubTime>
-        
-        <tag>Java</tag>
-         
-        <tag>Linux</tag>
-         
-        <tag>运维</tag>
          
          
            
@@ -492,12 +492,12 @@
 
     
   <url>
-    <loc>http://lutao.tk/grafana+prometheus%E7%9B%91%E6%8E%A7Jvm/</loc>
+    <loc>http://lutao.tk/grafana+prometheus%E7%9B%91%E6%8E%A7jenkins/</loc>
     <lastmod>2020-12-17T05:19:57.568Z</lastmod>
     <data>
         <display>
-        <title>grafana+prometheus监控Jvm</title>
-        <pubTime>2019-08-03T09:02:00.000Z</pubTime>
+        <title>grafana+prometheus监控jenkins</title>
+        <pubTime>2019-07-28T09:02:00.000Z</pubTime>
         
         <tag>Linux</tag>
          
@@ -536,28 +536,6 @@
 
     
   <url>
-    <loc>http://lutao.tk/grafana+prometheus%E7%9B%91%E6%8E%A7jenkins/</loc>
-    <lastmod>2020-12-17T05:19:57.568Z</lastmod>
-    <data>
-        <display>
-        <title>grafana+prometheus监控jenkins</title>
-        <pubTime>2019-07-28T09:02:00.000Z</pubTime>
-        
-        <tag>Linux</tag>
-         
-        <tag>运维</tag>
-         
-         
-           
-             
-              <breadCrumb title="Linux教程" url="http://lutao.tk/categories/Linux%E6%95%99%E7%A8%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://lutao.tk/grafana+prometheus%E7%9B%91%E6%8E%A7mysql/</loc>
     <lastmod>2020-12-17T05:19:57.568Z</lastmod>
     <data>
@@ -580,15 +558,13 @@
 
     
   <url>
-    <loc>http://lutao.tk/centos7%E5%AE%89%E8%A3%85OpenResty%E4%BB%A3%E6%9B%BFnginx/</loc>
-    <lastmod>2020-12-17T05:19:57.567Z</lastmod>
+    <loc>http://lutao.tk/grafana+prometheus%E7%9B%91%E6%8E%A7Jvm/</loc>
+    <lastmod>2020-12-17T05:19:57.568Z</lastmod>
     <data>
         <display>
-        <title>centos7安装OpenResty代替nginx</title>
-        <pubTime>2019-06-19T08:41:00.000Z</pubTime>
+        <title>grafana+prometheus监控Jvm</title>
+        <pubTime>2019-08-03T09:02:00.000Z</pubTime>
         
-        <tag>Java</tag>
-         
         <tag>Linux</tag>
          
         <tag>运维</tag>
@@ -596,7 +572,7 @@
          
            
              
-              <breadCrumb title="框架" url="http://lutao.tk/categories/%E6%A1%86%E6%9E%B6/"/>
+              <breadCrumb title="Linux教程" url="http://lutao.tk/categories/Linux%E6%95%99%E7%A8%8B/"/>
           
         </display>
     </data>
@@ -672,6 +648,52 @@
 
     
   <url>
+    <loc>http://lutao.tk/centos7%E5%AE%89%E8%A3%85OpenResty%E4%BB%A3%E6%9B%BFnginx/</loc>
+    <lastmod>2020-12-17T05:19:57.567Z</lastmod>
+    <data>
+        <display>
+        <title>centos7安装OpenResty代替nginx</title>
+        <pubTime>2019-06-19T08:41:00.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>Linux</tag>
+         
+        <tag>运维</tag>
+         
+         
+           
+             
+              <breadCrumb title="框架" url="http://lutao.tk/categories/%E6%A1%86%E6%9E%B6/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://lutao.tk/SpringMVC%E6%80%BB%E7%BB%93/</loc>
+    <lastmod>2020-12-17T05:19:57.566Z</lastmod>
+    <data>
+        <display>
+        <title>SpringMVC总结</title>
+        <pubTime>2019-01-18T01:00:32.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>Spring</tag>
+         
+         
+           
+             
+              <breadCrumb title="框架" url="http://lutao.tk/categories/%E6%A1%86%E6%9E%B6/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://lutao.tk/Swagger%E6%B3%A8%E8%A7%A3%E9%87%8A%E4%B9%89%E4%B8%8ESpringBoot%E7%9A%84%E9%9B%86%E6%88%90/</loc>
     <lastmod>2020-12-17T05:19:57.566Z</lastmod>
     <data>
@@ -687,28 +709,6 @@
            
              
               <breadCrumb title="Java教程" url="http://lutao.tk/categories/Java%E6%95%99%E7%A8%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://lutao.tk/Spring%E6%80%BB%E7%BB%93/</loc>
-    <lastmod>2020-12-17T05:19:57.566Z</lastmod>
-    <data>
-        <display>
-        <title>Spring总结</title>
-        <pubTime>2019-01-18T01:00:32.000Z</pubTime>
-        
-        <tag>Java</tag>
-         
-        <tag>Spring</tag>
-         
-         
-           
-             
-              <breadCrumb title="框架" url="http://lutao.tk/categories/%E6%A1%86%E6%9E%B6/"/>
           
         </display>
     </data>
@@ -740,11 +740,11 @@
 
     
   <url>
-    <loc>http://lutao.tk/SpringMVC%E6%80%BB%E7%BB%93/</loc>
+    <loc>http://lutao.tk/Spring%E6%80%BB%E7%BB%93/</loc>
     <lastmod>2020-12-17T05:19:57.566Z</lastmod>
     <data>
         <display>
-        <title>SpringMVC总结</title>
+        <title>Spring总结</title>
         <pubTime>2019-01-18T01:00:32.000Z</pubTime>
         
         <tag>Java</tag>
@@ -767,54 +767,6 @@
     <data>
         <display>
         <title>SpringCloud Nacos集群部署</title>
-        <pubTime>2019-06-10T01:02:00.000Z</pubTime>
-        
-        <tag>Java</tag>
-         
-        <tag>Spring</tag>
-         
-        <tag>SpringCloud</tag>
-         
-         
-           
-             
-              <breadCrumb title="框架" url="http://lutao.tk/categories/%E6%A1%86%E6%9E%B6/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://lutao.tk/SpringCloud%20nacos%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/</loc>
-    <lastmod>2020-12-17T05:19:57.565Z</lastmod>
-    <data>
-        <display>
-        <title>SpringCloud Nacos配置中心</title>
-        <pubTime>2019-06-13T01:02:00.000Z</pubTime>
-        
-        <tag>Java</tag>
-         
-        <tag>Spring</tag>
-         
-        <tag>SpringCloud</tag>
-         
-         
-           
-             
-              <breadCrumb title="框架" url="http://lutao.tk/categories/%E6%A1%86%E6%9E%B6/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://lutao.tk/SpringCloud%20nacos%E8%87%AA%E5%AE%9A%E4%B9%89%E7%94%A8%E6%88%B7/</loc>
-    <lastmod>2020-12-17T05:19:57.565Z</lastmod>
-    <data>
-        <display>
-        <title>SpringCloud Nacos自定义用户</title>
         <pubTime>2019-06-10T01:02:00.000Z</pubTime>
         
         <tag>Java</tag>
@@ -858,6 +810,54 @@
 
     
   <url>
+    <loc>http://lutao.tk/SpringCloud%20nacos%E8%87%AA%E5%AE%9A%E4%B9%89%E7%94%A8%E6%88%B7/</loc>
+    <lastmod>2020-12-17T05:19:57.565Z</lastmod>
+    <data>
+        <display>
+        <title>SpringCloud Nacos自定义用户</title>
+        <pubTime>2019-06-10T01:02:00.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>Spring</tag>
+         
+        <tag>SpringCloud</tag>
+         
+         
+           
+             
+              <breadCrumb title="框架" url="http://lutao.tk/categories/%E6%A1%86%E6%9E%B6/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://lutao.tk/SpringCloud%20nacos%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/</loc>
+    <lastmod>2020-12-17T05:19:57.565Z</lastmod>
+    <data>
+        <display>
+        <title>SpringCloud Nacos配置中心</title>
+        <pubTime>2019-06-13T01:02:00.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>Spring</tag>
+         
+        <tag>SpringCloud</tag>
+         
+         
+           
+             
+              <breadCrumb title="框架" url="http://lutao.tk/categories/%E6%A1%86%E6%9E%B6/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://lutao.tk/SpringCloud%20gateway%E5%88%9D%E4%BD%93%E9%AA%8C/</loc>
     <lastmod>2020-12-17T05:19:57.564Z</lastmod>
     <data>
@@ -882,12 +882,12 @@
 
     
   <url>
-    <loc>http://lutao.tk/SpringCloud%20gateway%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1/</loc>
+    <loc>http://lutao.tk/SpringCloud%20gateway%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/</loc>
     <lastmod>2020-12-17T05:19:57.564Z</lastmod>
     <data>
         <display>
-        <title>SpringCloud gateway动态路由</title>
-        <pubTime>2019-05-15T09:02:00.000Z</pubTime>
+        <title>SpringCloud gateway异常处理</title>
+        <pubTime>2019-05-15T09:07:00.000Z</pubTime>
         
         <tag>Java</tag>
          
@@ -906,12 +906,12 @@
 
     
   <url>
-    <loc>http://lutao.tk/SpringCloud%20gateway%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/</loc>
+    <loc>http://lutao.tk/SpringCloud%20gateway%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1/</loc>
     <lastmod>2020-12-17T05:19:57.564Z</lastmod>
     <data>
         <display>
-        <title>SpringCloud gateway异常处理</title>
-        <pubTime>2019-05-15T09:07:00.000Z</pubTime>
+        <title>SpringCloud gateway动态路由</title>
+        <pubTime>2019-05-15T09:02:00.000Z</pubTime>
         
         <tag>Java</tag>
          
@@ -978,12 +978,12 @@
 
     
   <url>
-    <loc>http://lutao.tk/SpringCloud%20consul%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E4%B8%8E%E5%8F%91%E7%8E%B0/</loc>
+    <loc>http://lutao.tk/SpringCloud%20eureka%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E4%B8%8E%E5%8F%91%E7%8E%B0/</loc>
     <lastmod>2020-12-17T05:19:57.563Z</lastmod>
     <data>
         <display>
-        <title>SpringCloud consul服务注册与发现</title>
-        <pubTime>2019-05-22T09:02:00.000Z</pubTime>
+        <title>SpringCloud eureka服务注册与发现</title>
+        <pubTime>2019-05-16T09:02:00.000Z</pubTime>
         
         <tag>Java</tag>
          
@@ -1002,12 +1002,12 @@
 
     
   <url>
-    <loc>http://lutao.tk/SpringCloud%20eureka%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E4%B8%8E%E5%8F%91%E7%8E%B0/</loc>
+    <loc>http://lutao.tk/SpringCloud%20consul%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E4%B8%8E%E5%8F%91%E7%8E%B0/</loc>
     <lastmod>2020-12-17T05:19:57.563Z</lastmod>
     <data>
         <display>
-        <title>SpringCloud eureka服务注册与发现</title>
-        <pubTime>2019-05-16T09:02:00.000Z</pubTime>
+        <title>SpringCloud consul服务注册与发现</title>
+        <pubTime>2019-05-22T09:02:00.000Z</pubTime>
         
         <tag>Java</tag>
          
@@ -1234,6 +1234,28 @@
 
     
   <url>
+    <loc>http://lutao.tk/Java%E5%9F%BA%E7%A1%80%E5%9B%9E%E9%A1%BE(2)/</loc>
+    <lastmod>2020-12-17T05:19:57.560Z</lastmod>
+    <data>
+        <display>
+        <title>Java基础回顾(2)-基础语法</title>
+        <pubTime>2017-09-20T09:29:00.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>Java基础</tag>
+         
+         
+           
+             
+              <breadCrumb title="Java教程" url="http://lutao.tk/categories/Java%E6%95%99%E7%A8%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://lutao.tk/Java%E5%B8%B8%E7%94%A8%E7%AE%97%E6%B3%95%E6%B1%87%E6%80%BB/</loc>
     <lastmod>2020-12-17T05:19:57.560Z</lastmod>
     <data>
@@ -1264,28 +1286,6 @@
         <display>
         <title>Java基础回顾-多线程(1)</title>
         <pubTime>2017-09-25T09:29:00.000Z</pubTime>
-        
-        <tag>Java</tag>
-         
-        <tag>Java基础</tag>
-         
-         
-           
-             
-              <breadCrumb title="Java教程" url="http://lutao.tk/categories/Java%E6%95%99%E7%A8%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://lutao.tk/Java%E5%9F%BA%E7%A1%80%E5%9B%9E%E9%A1%BE(2)/</loc>
-    <lastmod>2020-12-17T05:19:57.560Z</lastmod>
-    <data>
-        <display>
-        <title>Java基础回顾(2)-基础语法</title>
-        <pubTime>2017-09-20T09:29:00.000Z</pubTime>
         
         <tag>Java</tag>
          
@@ -1486,6 +1486,28 @@
 
     
   <url>
+    <loc>http://lutao.tk/DesignPatterns(4)/</loc>
+    <lastmod>2020-12-17T05:19:57.558Z</lastmod>
+    <data>
+        <display>
+        <title>设计模式(4)-单例模式</title>
+        <pubTime>2018-06-05T08:41:00.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>设计模式</tag>
+         
+         
+           
+             
+              <breadCrumb title="设计模式教程" url="http://lutao.tk/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E6%95%99%E7%A8%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://lutao.tk/Docker%E7%9B%B8%E5%85%B3%E6%95%B4%E7%90%86/</loc>
     <lastmod>2020-12-17T05:19:57.558Z</lastmod>
     <data>
@@ -1503,28 +1525,6 @@
            
              
               <breadCrumb title="Linux教程" url="http://lutao.tk/categories/Linux%E6%95%99%E7%A8%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://lutao.tk/DesignPatterns(4)/</loc>
-    <lastmod>2020-12-17T05:19:57.558Z</lastmod>
-    <data>
-        <display>
-        <title>设计模式(4)-单例模式</title>
-        <pubTime>2018-06-05T08:41:00.000Z</pubTime>
-        
-        <tag>Java</tag>
-         
-        <tag>设计模式</tag>
-         
-         
-           
-             
-              <breadCrumb title="设计模式教程" url="http://lutao.tk/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E6%95%99%E7%A8%8B/"/>
           
         </display>
     </data>
