@@ -16,14 +16,14 @@
   </url>
   
   <url>
-    <loc>http://lutao.tk/categories/index.html</loc>
+    <loc>http://lutao.tk/about/index.html</loc>
     
     <lastmod>2020-12-17T05:19:57.575Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://lutao.tk/about/index.html</loc>
+    <loc>http://lutao.tk/categories/index.html</loc>
     
     <lastmod>2020-12-17T05:19:57.575Z</lastmod>
     
@@ -184,14 +184,14 @@
   </url>
   
   <url>
-    <loc>http://lutao.tk/grafana+prometheus%E7%9B%91%E6%8E%A7mysql/</loc>
+    <loc>http://lutao.tk/grafana+prometheus%E7%9B%91%E6%8E%A7jenkins/</loc>
     
     <lastmod>2020-12-17T05:19:57.568Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://lutao.tk/grafana+prometheus%E7%9B%91%E6%8E%A7jenkins/</loc>
+    <loc>http://lutao.tk/grafana+prometheus%E7%9B%91%E6%8E%A7mysql/</loc>
     
     <lastmod>2020-12-17T05:19:57.568Z</lastmod>
     
@@ -317,14 +317,14 @@
   </url>
   
   <url>
-    <loc>http://lutao.tk/SpringCloud%20eureka%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E4%B8%8E%E5%8F%91%E7%8E%B0/</loc>
+    <loc>http://lutao.tk/SpringCloud%20consul%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E4%B8%8E%E5%8F%91%E7%8E%B0/</loc>
     
     <lastmod>2020-12-17T05:19:57.563Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://lutao.tk/SpringCloud%20consul%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E4%B8%8E%E5%8F%91%E7%8E%B0/</loc>
+    <loc>http://lutao.tk/SpringCloud%20eureka%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E4%B8%8E%E5%8F%91%E7%8E%B0/</loc>
     
     <lastmod>2020-12-17T05:19:57.563Z</lastmod>
     
@@ -464,13 +464,6 @@
   </url>
   
   <url>
-    <loc>http://lutao.tk/DesignPatterns(4)/</loc>
-    
-    <lastmod>2020-12-17T05:19:57.558Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://lutao.tk/Docker%E7%AE%A1%E7%90%86%E5%AE%B9%E5%99%A8/</loc>
     
     <lastmod>2020-12-17T05:19:57.558Z</lastmod>
@@ -485,7 +478,14 @@
   </url>
   
   <url>
-    <loc>http://lutao.tk/DesignPatterns(1)/</loc>
+    <loc>http://lutao.tk/DesignPatterns(4)/</loc>
+    
+    <lastmod>2020-12-17T05:19:57.558Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://lutao.tk/DesignPatterns(2)/</loc>
     
     <lastmod>2020-12-17T05:19:57.557Z</lastmod>
     
@@ -499,7 +499,7 @@
   </url>
   
   <url>
-    <loc>http://lutao.tk/DesignPatterns(2)/</loc>
+    <loc>http://lutao.tk/DesignPatterns(1)/</loc>
     
     <lastmod>2020-12-17T05:19:57.557Z</lastmod>
     

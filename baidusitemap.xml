@@ -536,12 +536,12 @@
 
     
   <url>
-    <loc>http://lutao.tk/grafana+prometheus%E7%9B%91%E6%8E%A7mysql/</loc>
+    <loc>http://lutao.tk/grafana+prometheus%E7%9B%91%E6%8E%A7jenkins/</loc>
     <lastmod>2020-12-17T05:19:57.568Z</lastmod>
     <data>
         <display>
-        <title>grafana+prometheus监控mysql</title>
-        <pubTime>2019-07-21T09:02:00.000Z</pubTime>
+        <title>grafana+prometheus监控jenkins</title>
+        <pubTime>2019-07-28T09:02:00.000Z</pubTime>
         
         <tag>Linux</tag>
          
@@ -558,12 +558,12 @@
 
     
   <url>
-    <loc>http://lutao.tk/grafana+prometheus%E7%9B%91%E6%8E%A7jenkins/</loc>
+    <loc>http://lutao.tk/grafana+prometheus%E7%9B%91%E6%8E%A7mysql/</loc>
     <lastmod>2020-12-17T05:19:57.568Z</lastmod>
     <data>
         <display>
-        <title>grafana+prometheus监控jenkins</title>
-        <pubTime>2019-07-28T09:02:00.000Z</pubTime>
+        <title>grafana+prometheus监控mysql</title>
+        <pubTime>2019-07-21T09:02:00.000Z</pubTime>
         
         <tag>Linux</tag>
          
@@ -978,12 +978,12 @@
 
     
   <url>
-    <loc>http://lutao.tk/SpringCloud%20eureka%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E4%B8%8E%E5%8F%91%E7%8E%B0/</loc>
+    <loc>http://lutao.tk/SpringCloud%20consul%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E4%B8%8E%E5%8F%91%E7%8E%B0/</loc>
     <lastmod>2020-12-17T05:19:57.563Z</lastmod>
     <data>
         <display>
-        <title>SpringCloud eureka服务注册与发现</title>
-        <pubTime>2019-05-16T09:02:00.000Z</pubTime>
+        <title>SpringCloud consul服务注册与发现</title>
+        <pubTime>2019-05-22T09:02:00.000Z</pubTime>
         
         <tag>Java</tag>
          
@@ -1002,12 +1002,12 @@
 
     
   <url>
-    <loc>http://lutao.tk/SpringCloud%20consul%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E4%B8%8E%E5%8F%91%E7%8E%B0/</loc>
+    <loc>http://lutao.tk/SpringCloud%20eureka%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E4%B8%8E%E5%8F%91%E7%8E%B0/</loc>
     <lastmod>2020-12-17T05:19:57.563Z</lastmod>
     <data>
         <display>
-        <title>SpringCloud consul服务注册与发现</title>
-        <pubTime>2019-05-22T09:02:00.000Z</pubTime>
+        <title>SpringCloud eureka服务注册与发现</title>
+        <pubTime>2019-05-16T09:02:00.000Z</pubTime>
         
         <tag>Java</tag>
          
@@ -1462,28 +1462,6 @@
 
     
   <url>
-    <loc>http://lutao.tk/DesignPatterns(4)/</loc>
-    <lastmod>2020-12-17T05:19:57.558Z</lastmod>
-    <data>
-        <display>
-        <title>设计模式(4)-单例模式</title>
-        <pubTime>2018-06-05T08:41:00.000Z</pubTime>
-        
-        <tag>Java</tag>
-         
-        <tag>设计模式</tag>
-         
-         
-           
-             
-              <breadCrumb title="设计模式教程" url="http://lutao.tk/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E6%95%99%E7%A8%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://lutao.tk/Docker%E7%AE%A1%E7%90%86%E5%AE%B9%E5%99%A8/</loc>
     <lastmod>2020-12-17T05:19:57.558Z</lastmod>
     <data>
@@ -1532,12 +1510,34 @@
 
     
   <url>
-    <loc>http://lutao.tk/DesignPatterns(1)/</loc>
+    <loc>http://lutao.tk/DesignPatterns(4)/</loc>
+    <lastmod>2020-12-17T05:19:57.558Z</lastmod>
+    <data>
+        <display>
+        <title>设计模式(4)-单例模式</title>
+        <pubTime>2018-06-05T08:41:00.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>设计模式</tag>
+         
+         
+           
+             
+              <breadCrumb title="设计模式教程" url="http://lutao.tk/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E6%95%99%E7%A8%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://lutao.tk/DesignPatterns(2)/</loc>
     <lastmod>2020-12-17T05:19:57.557Z</lastmod>
     <data>
         <display>
-        <title>设计模式(1)-总览</title>
-        <pubTime>2018-05-19T08:41:00.000Z</pubTime>
+        <title>设计模式(2)-工厂模式</title>
+        <pubTime>2018-05-25T08:41:00.000Z</pubTime>
         
         <tag>Java</tag>
          
@@ -1576,12 +1576,12 @@
 
     
   <url>
-    <loc>http://lutao.tk/DesignPatterns(2)/</loc>
+    <loc>http://lutao.tk/DesignPatterns(1)/</loc>
     <lastmod>2020-12-17T05:19:57.557Z</lastmod>
     <data>
         <display>
-        <title>设计模式(2)-工厂模式</title>
-        <pubTime>2018-05-25T08:41:00.000Z</pubTime>
+        <title>设计模式(1)-总览</title>
+        <pubTime>2018-05-19T08:41:00.000Z</pubTime>
         
         <tag>Java</tag>
          
