@@ -119,7 +119,7 @@
 <meta property="og:site_name" content="LuTao">
 <meta property="og:description" content="工作整理-常用到的sql去重12345--去重并插入新表中select * into 表1_distfrom 表1 pa where pa.字段1=(select pal.字段1 from 表1 pal where pal.字段2=pa.字段2 and pal.字段3=pa.字段3 limit 1 ) 数据表迁移123456789101112131415161718192021222324//货">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-12-17T05:19:57.572Z">
+<meta property="og:updated_time" content="2021-03-05T06:01:45.305Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="工作中常用到的sql">
 <meta name="twitter:description" content="工作整理-常用到的sql去重12345--去重并插入新表中select * into 表1_distfrom 表1 pa where pa.字段1=(select pal.字段1 from 表1 pal where pal.字段2=pa.字段2 and pal.字段3=pa.字段3 limit 1 ) 数据表迁移123456789101112131415161718192021222324//货">
@@ -439,7 +439,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  256
+                  409
                 </span>
               
 
@@ -455,7 +455,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -476,7 +476,10 @@
         <div id="vip-container"><a id="more"></a>
 <h1 id="工作整理-常用到的sql"><a href="#工作整理-常用到的sql" class="headerlink" title="工作整理-常用到的sql"></a>工作整理-常用到的sql</h1><h2 id="去重"><a href="#去重" class="headerlink" title="去重"></a>去重</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--去重并插入新表中</span></span><br><span class="line"><span class="keyword">select</span> * </span><br><span class="line"><span class="keyword">into</span> 表<span class="number">1</span>_dist</span><br><span class="line"><span class="keyword">from</span> 表<span class="number">1</span> pa </span><br><span class="line"><span class="keyword">where</span> pa.字段<span class="number">1</span>=(<span class="keyword">select</span> pal.字段<span class="number">1</span> <span class="keyword">from</span> 表<span class="number">1</span> pal <span class="keyword">where</span> pal.字段<span class="number">2</span>=pa.字段<span class="number">2</span> <span class="keyword">and</span> pal.字段<span class="number">3</span>=pa.字段<span class="number">3</span> <span class="keyword">limit</span> <span class="number">1</span> )</span><br></pre></td></tr></table></figure>
 <h2 id="数据表迁移"><a href="#数据表迁移" class="headerlink" title="数据表迁移"></a>数据表迁移</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">//货品明细规格详情</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">OR</span> <span class="keyword">REPLACE</span> <span class="keyword">FUNCTION</span> <span class="string">"test"</span>.<span class="string">"transfer_goods_value_spec_data"</span>()</span><br><span class="line">  <span class="keyword">RETURNS</span> <span class="string">"pg_catalog"</span>.<span class="string">"void"</span> <span class="keyword">AS</span> $<span class="keyword">BODY</span>$</span><br><span class="line"><span class="keyword">declare</span> </span><br><span class="line">goods_id <span class="built_in">integer</span>;</span><br><span class="line"><span class="comment">--value_id integer;</span></span><br><span class="line">prod_attr_id integer;</span><br><span class="line">value varchar(144);</span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line">  <span class="keyword">for</span> goods_id,  prod_attr_id,<span class="keyword">value</span></span><br><span class="line">	<span class="keyword">in</span>(<span class="keyword">select</span> t.goods_id <span class="keyword">as</span> <span class="string">"goods_id"</span>,  t.prod_attr_id <span class="keyword">as</span> <span class="string">"prod_attr_id"</span> ,t.value <span class="keyword">as</span> <span class="string">"value"</span></span><br><span class="line">	<span class="keyword">from</span> </span><br><span class="line">	dblink(<span class="string">'host=120.76.214.182  port=5432 dbname=lzy201808 user=odoo password=odoo'</span>,</span><br><span class="line">	<span class="string">'SELECT pp.id as goods_id,pal.id as prod_attr_id,pav.name as value FROM product_attribute_value_product_product_rel pavpp left join product_product pp on pp.id =pavpp.prod_id left join product_attribute_value pav on pav.id = pavpp.att_id left join product_attribute pa on pa.id = pav.attribute_id left join product_attribute_line pal on pal.product_tmpl_id =pp.product_tmpl_id and pal.attribute_id = pav.attribute_id where pa.type = 1 ORDER BY pp.id asc</span></span><br><span class="line"><span class="string">	</span></span><br><span class="line"><span class="string">	'</span>) <span class="keyword">as</span> t (goods_id <span class="built_in">int</span>,prod_attr_id <span class="built_in">int</span> ,<span class="keyword">value</span> <span class="built_in">VARCHAR</span> ))</span><br><span class="line"><span class="keyword">loop</span></span><br><span class="line">		<span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="string">"test"</span>.<span class="string">"prod_goods_value"</span> (<span class="string">"goods_id"</span>, <span class="string">"prod_attr_id"</span>,<span class="string">"attr_value"</span>,<span class="string">"attr_type"</span>) </span><br><span class="line">		<span class="keyword">VALUES</span> (goods_id, prod_attr_id,<span class="keyword">value</span>,<span class="number">1</span>);</span><br><span class="line"><span class="keyword">END</span> <span class="keyword">loop</span>;</span><br><span class="line"><span class="keyword">END</span>;  </span><br><span class="line">$BODY$</span><br><span class="line">  LANGUAGE plpgsql VOLATILE</span><br><span class="line">  COST 100</span><br></pre></td></tr></table></figure>
-<h2 id="postgresql"><a href="#postgresql" class="headerlink" title="postgresql"></a>postgresql</h2></div>
+<h2 id="postgresql"><a href="#postgresql" class="headerlink" title="postgresql"></a>postgresql</h2><p>mysql使用GROUP_CONCAT子查询多字符返回</p>
+<h2 id="需求描述"><a href="#需求描述" class="headerlink" title="需求描述"></a>需求描述</h2><p>一个订单有多个类型，数据库保存type_ids字段为多个id用，隔开，查询某个订单所属类型详情时，返回类型对应的名称，即返回type_names为多个名称用，隔开。<br>解决方案<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> i.id, order_id,type_ids,</span><br><span class="line">(<span class="keyword">SELECT</span> <span class="keyword">GROUP_CONCAT</span>(t.<span class="string">`name`</span>) <span class="keyword">FROM</span> t_gas_type t <span class="keyword">WHERE</span> FIND_IN_SET(t.id,type_ids)) <span class="keyword">AS</span> type_names</span><br><span class="line"><span class="keyword">FROM</span> t_inspect i</span><br></pre></td></tr></table></figure></p>
+<p>在一开始的应用中，使用了如下的解决方案，但是结果返回不正确。<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">SELECT</span> i.id, order_id,gas_type_ids,</span><br><span class="line">(<span class="keyword">SELECT</span> <span class="keyword">GROUP_CONCAT</span>(t.<span class="string">`name`</span>) <span class="keyword">FROM</span> t_gas_type t <span class="keyword">WHERE</span> t.id <span class="keyword">in</span>(gas_type_ids)) <span class="keyword">AS</span> gas_type_names</span><br><span class="line"><span class="keyword">FROM</span> t_inspect i</span><br></pre></td></tr></table></figure></p>
+</div>
 
 			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
 			<script>
@@ -682,7 +685,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">69</span>
+                <span class="site-state-item-count">70</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -788,7 +791,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#工作整理-常用到的sql"><span class="nav-number">1.</span> <span class="nav-text">工作整理-常用到的sql</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#去重"><span class="nav-number">1.1.</span> <span class="nav-text">去重</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据表迁移"><span class="nav-number">1.2.</span> <span class="nav-text">数据表迁移</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#postgresql"><span class="nav-number">1.3.</span> <span class="nav-text">postgresql</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#工作整理-常用到的sql"><span class="nav-number">1.</span> <span class="nav-text">工作整理-常用到的sql</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#去重"><span class="nav-number">1.1.</span> <span class="nav-text">去重</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据表迁移"><span class="nav-number">1.2.</span> <span class="nav-text">数据表迁移</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#postgresql"><span class="nav-number">1.3.</span> <span class="nav-text">postgresql</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#需求描述"><span class="nav-number">1.4.</span> <span class="nav-text">需求描述</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -812,7 +815,7 @@
 <div class="copyright">
   
   &copy;  2017 - 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
