@@ -1,6 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>设计模式(1)-总览</title>
+    <url>/DesignPatterns(1)/</url>
+    <content><![CDATA[<div id="vip-container"><a id="more"></a>
+<h1 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h1><blockquote>
+<p>设计模式（Design pattern）代表了最佳的实践，通常被有经验的面向对象的软件开发人员所采用。设计模式是软件开发人员在软件开发过程中面临的一般问题的解决方案。这些解决方案是众多软件开发人员经过相当长的一段时间的试验和错误总结出来的。<br>设计模式是一套被反复使用的、多数人知晓的、经过分类编目的、代码设计经验的总结。使用设计模式是为了重用代码、让代码更容易被他人理解、保证代码可靠性。 毫无疑问，设计模式于己于他人于系统都是多赢的，设计模式使代码编制真正工程化，设计模式是软件工程的基石，如同大厦的一块块砖石一样。项目中合理地运用设计模式可以完美地解决很多问题，每种模式在现实中都有相应的原理来与之对应，每种模式都描述了一个在我们周围不断重复发生的问题，以及该问题的核心解决方案，这也是设计模式能被广泛应用的原因。</p>
+</blockquote>
+<p><img src="http://www.runoob.com/wp-content/uploads/2014/08/the-relationship-between-design-patterns.jpg" alt="Mou icon"></p>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th style="text-align:left">模式&amp;描述</th>
+<th style="text-align:center">包括</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td style="text-align:left"><strong>创建型模式</strong><br><code>这些设计模式提供了一种在创建对象的同时隐藏创建逻辑的方式，</code><br><code>而不是使用 new 运算符直接实例化对象。这使得程序在判断针对某个</code><br><code>给定实例需要创建哪些对象时更加灵活。</code></td>
+<td style="text-align:center"><a href="https://gitee.com/lutao1726/DesignPatterns/tree/master/src/cn/com/lutao/factoryMethod" target="_blank" rel="noopener">工厂方法模式（Factory Method）</a><br> <a href="https://gitee.com/lutao1726/DesignPatterns/tree/master/src/cn/com/lutao/abstractFactory" target="_blank" rel="noopener">抽象工厂模式（Abstract Factory）</a><br><a href="https://gitee.com/lutao1726/DesignPatterns/tree/master/src/cn/com/lutao/singleton" target="_blank" rel="noopener">单例模式（Singleton）</a><br><a href="https://gitee.com/lutao1726/DesignPatterns/tree/master/src/cn/com/lutao/builder" target="_blank" rel="noopener">建造者模式</a><br>原型模式（Prototype Pattern）</td>
+</tr>
+<tr>
+<td>2</td>
+<td style="text-align:left"><strong>结构型模式</strong> <br><code>这些设计模式关注类和对象的组合。继承的概念被用来组合接口和定义</code><br><code>组合对象获得新功能的方式。</code></td>
+<td style="text-align:center"><a href="https://gitee.com/lutao1726/DesignPatterns/tree/master/src/cn/com/lutao/adapter" target="_blank" rel="noopener">适配器模式</a><br> 桥接模式（Bridge Pattern）<br>过滤器模式（Filter、Criteria Pattern）<br>组合模式（Composite Pattern）<br>装饰器模式（Decorator Pattern）<br>外观模式（Facade Pattern）<br>享元模式（Flyweight Pattern）<br>代理模式（Proxy Pattern）</td>
+</tr>
+<tr>
+<td>3</td>
+<td style="text-align:left"><strong>行为型模式</strong><br><code>这些设计模式特别关注对象之间的通信。</code></td>
+<td style="text-align:center">责任链模式（Chain of Responsibility Pattern）<br>命令模式（Command Pattern）<br>解释器模式（Interpreter Pattern）<br>迭代器模式（Iterator Pattern）<br>中介者模式（Mediator Pattern） <br>备忘录模式（Memento Pattern） <br>观察者模式（Observer Pattern） <br>状态模式（State Pattern）<br>空对象模式（Null Object Pattern）<br> 策略模式（Strategy Pattern）<br>模板模式（Template Pattern）<br> 访问者模式（Visitor Pattern）</td>
+</tr>
+</tbody>
+</table>
+<h2 id="设计模式的六大原则"><a href="#设计模式的六大原则" class="headerlink" title="设计模式的六大原则"></a>设计模式的六大原则</h2><p><strong>1、开闭原则（Open Close Principle）</strong></p>
+<blockquote>
+<p>开闭原则的意思是：对扩展开放，对修改关闭。在程序需要进行拓展的时候，不能去修改原有的代码，实现一个热插拔的效果。简言之，是为了使程序的扩展性好，易于维护和升级。想要达到这样的效果，我们需要使用接口和抽象类，后面的具体设计中我们会提到这点。</p>
+</blockquote>
+<p><strong>2、里氏代换原则（Liskov Substitution Principle）</strong></p>
+<blockquote>
+<p>里氏代换原则是面向对象设计的基本原则之一。 里氏代换原则中说，任何基类可以出现的地方，子类一定可以出现。LSP 是继承复用的基石，只有当派生类可以替换掉基类，且软件单位的功能不受到影响时，基类才能真正被复用，而派生类也能够在基类的基础上增加新的行为。里氏代换原则是对开闭原则的补充。实现开闭原则的关键步骤就是抽象化，而基类与子类的继承关系就是抽象化的具体实现，所以里氏代换原则是对实现抽象化的具体步骤的规范。</p>
+</blockquote>
+<p><strong>3、依赖倒转原则（Dependence Inversion Principle）</strong></p>
+<blockquote>
+<p>这个原则是开闭原则的基础，具体内容：针对接口编程，依赖于抽象而不依赖于具体。</p>
+</blockquote>
+<p><strong>4、接口隔离原则（Interface Segregation Principle）</strong></p>
+<blockquote>
+<p>这个原则的意思是：使用多个隔离的接口，比使用单个接口要好。它还有另外一个意思是：降低类之间的耦合度。由此可见，其实设计模式就是从大型软件架构出发、便于升级和维护的软件设计思想，它强调降低依赖，降低耦合。</p>
+</blockquote>
+<p><strong>5、迪米特法则，又称最少知道原则（Demeter Principle）</strong></p>
+<blockquote>
+<p>最少知道原则是指：一个实体应当尽量少地与其他实体之间发生相互作用，使得系统功能模块相对独立。</p>
+</blockquote>
+<p><strong>6、合成复用原则（Composite Reuse Principle）</strong></p>
+<blockquote>
+<p>合成复用原则是指：尽量使用合成/聚合的方式，而不是使用继承。</p>
+</blockquote>
+<p><strong>总结小记</strong></p>
+<p>开闭原则：实现热插拔，提高扩展性。</p>
+<p>里氏代换原则：实现抽象的规范，实现子父类互相替换；</p>
+<p>依赖倒转原则：针对接口编程，实现开闭原则的基础；</p>
+<p>接口隔离原则：降低耦合度，接口单独设计，互相隔离；</p>
+<p>迪米特法则，又称不知道原则：功能模块尽量独立；</p>
+<p>合成复用原则：尽量使用聚合，组合，而不是继承；</p>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "25071-1608261299158-736",
+			        "name": "Java一学习那些事",
+			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
+			        "keyword": "more"
+			    });
+			}
+			</script>
+		]]></content>
+      <categories>
+        <category>设计模式教程</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>设计模式</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>设计模式(2)-工厂模式</title>
     <url>/DesignPatterns(2)/</url>
     <content><![CDATA[<div id="vip-container"><a id="more"></a>
@@ -147,101 +237,22 @@
       </tags>
   </entry>
   <entry>
-    <title>Dubbo使用总结</title>
-    <url>/Dubbo%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<div id="vip-container"><!-- 展示图片 -->
-<p><img src="http://justyy.com/wp-content/uploads/2016/01/markdown-syntax-language.png" alt="Mou_icon"></p>
-</div>
-
-			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
-			<script>
-			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
-			if (!isMobile) {
-			    var btw = new BTWPlugin();
-			    btw.init({
-			        "id": "vip-container",
-			        "blogId": "25071-1608261299158-736",
-			        "name": "Java一学习那些事",
-			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
-			        "keyword": "more"
-			    });
-			}
-			</script>
-		]]></content>
-      <categories>
-        <category>面试</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>微服务</tag>
-        <tag>分布式</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>设计模式(1)-总览</title>
-    <url>/DesignPatterns(1)/</url>
+    <title>Docker相关整理</title>
+    <url>/Docker%E7%9B%B8%E5%85%B3%E6%95%B4%E7%90%86/</url>
     <content><![CDATA[<div id="vip-container"><a id="more"></a>
-<h1 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h1><blockquote>
-<p>设计模式（Design pattern）代表了最佳的实践，通常被有经验的面向对象的软件开发人员所采用。设计模式是软件开发人员在软件开发过程中面临的一般问题的解决方案。这些解决方案是众多软件开发人员经过相当长的一段时间的试验和错误总结出来的。<br>设计模式是一套被反复使用的、多数人知晓的、经过分类编目的、代码设计经验的总结。使用设计模式是为了重用代码、让代码更容易被他人理解、保证代码可靠性。 毫无疑问，设计模式于己于他人于系统都是多赢的，设计模式使代码编制真正工程化，设计模式是软件工程的基石，如同大厦的一块块砖石一样。项目中合理地运用设计模式可以完美地解决很多问题，每种模式在现实中都有相应的原理来与之对应，每种模式都描述了一个在我们周围不断重复发生的问题，以及该问题的核心解决方案，这也是设计模式能被广泛应用的原因。</p>
-</blockquote>
-<p><img src="http://www.runoob.com/wp-content/uploads/2014/08/the-relationship-between-design-patterns.jpg" alt="Mou icon"></p>
-<table>
-<thead>
-<tr>
-<th>序号</th>
-<th style="text-align:left">模式&amp;描述</th>
-<th style="text-align:center">包括</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td style="text-align:left"><strong>创建型模式</strong><br><code>这些设计模式提供了一种在创建对象的同时隐藏创建逻辑的方式，</code><br><code>而不是使用 new 运算符直接实例化对象。这使得程序在判断针对某个</code><br><code>给定实例需要创建哪些对象时更加灵活。</code></td>
-<td style="text-align:center"><a href="https://gitee.com/lutao1726/DesignPatterns/tree/master/src/cn/com/lutao/factoryMethod" target="_blank" rel="noopener">工厂方法模式（Factory Method）</a><br> <a href="https://gitee.com/lutao1726/DesignPatterns/tree/master/src/cn/com/lutao/abstractFactory" target="_blank" rel="noopener">抽象工厂模式（Abstract Factory）</a><br><a href="https://gitee.com/lutao1726/DesignPatterns/tree/master/src/cn/com/lutao/singleton" target="_blank" rel="noopener">单例模式（Singleton）</a><br><a href="https://gitee.com/lutao1726/DesignPatterns/tree/master/src/cn/com/lutao/builder" target="_blank" rel="noopener">建造者模式</a><br>原型模式（Prototype Pattern）</td>
-</tr>
-<tr>
-<td>2</td>
-<td style="text-align:left"><strong>结构型模式</strong> <br><code>这些设计模式关注类和对象的组合。继承的概念被用来组合接口和定义</code><br><code>组合对象获得新功能的方式。</code></td>
-<td style="text-align:center"><a href="https://gitee.com/lutao1726/DesignPatterns/tree/master/src/cn/com/lutao/adapter" target="_blank" rel="noopener">适配器模式</a><br> 桥接模式（Bridge Pattern）<br>过滤器模式（Filter、Criteria Pattern）<br>组合模式（Composite Pattern）<br>装饰器模式（Decorator Pattern）<br>外观模式（Facade Pattern）<br>享元模式（Flyweight Pattern）<br>代理模式（Proxy Pattern）</td>
-</tr>
-<tr>
-<td>3</td>
-<td style="text-align:left"><strong>行为型模式</strong><br><code>这些设计模式特别关注对象之间的通信。</code></td>
-<td style="text-align:center">责任链模式（Chain of Responsibility Pattern）<br>命令模式（Command Pattern）<br>解释器模式（Interpreter Pattern）<br>迭代器模式（Iterator Pattern）<br>中介者模式（Mediator Pattern） <br>备忘录模式（Memento Pattern） <br>观察者模式（Observer Pattern） <br>状态模式（State Pattern）<br>空对象模式（Null Object Pattern）<br> 策略模式（Strategy Pattern）<br>模板模式（Template Pattern）<br> 访问者模式（Visitor Pattern）</td>
-</tr>
-</tbody>
-</table>
-<h2 id="设计模式的六大原则"><a href="#设计模式的六大原则" class="headerlink" title="设计模式的六大原则"></a>设计模式的六大原则</h2><p><strong>1、开闭原则（Open Close Principle）</strong></p>
-<blockquote>
-<p>开闭原则的意思是：对扩展开放，对修改关闭。在程序需要进行拓展的时候，不能去修改原有的代码，实现一个热插拔的效果。简言之，是为了使程序的扩展性好，易于维护和升级。想要达到这样的效果，我们需要使用接口和抽象类，后面的具体设计中我们会提到这点。</p>
-</blockquote>
-<p><strong>2、里氏代换原则（Liskov Substitution Principle）</strong></p>
-<blockquote>
-<p>里氏代换原则是面向对象设计的基本原则之一。 里氏代换原则中说，任何基类可以出现的地方，子类一定可以出现。LSP 是继承复用的基石，只有当派生类可以替换掉基类，且软件单位的功能不受到影响时，基类才能真正被复用，而派生类也能够在基类的基础上增加新的行为。里氏代换原则是对开闭原则的补充。实现开闭原则的关键步骤就是抽象化，而基类与子类的继承关系就是抽象化的具体实现，所以里氏代换原则是对实现抽象化的具体步骤的规范。</p>
-</blockquote>
-<p><strong>3、依赖倒转原则（Dependence Inversion Principle）</strong></p>
-<blockquote>
-<p>这个原则是开闭原则的基础，具体内容：针对接口编程，依赖于抽象而不依赖于具体。</p>
-</blockquote>
-<p><strong>4、接口隔离原则（Interface Segregation Principle）</strong></p>
-<blockquote>
-<p>这个原则的意思是：使用多个隔离的接口，比使用单个接口要好。它还有另外一个意思是：降低类之间的耦合度。由此可见，其实设计模式就是从大型软件架构出发、便于升级和维护的软件设计思想，它强调降低依赖，降低耦合。</p>
-</blockquote>
-<p><strong>5、迪米特法则，又称最少知道原则（Demeter Principle）</strong></p>
-<blockquote>
-<p>最少知道原则是指：一个实体应当尽量少地与其他实体之间发生相互作用，使得系统功能模块相对独立。</p>
-</blockquote>
-<p><strong>6、合成复用原则（Composite Reuse Principle）</strong></p>
-<blockquote>
-<p>合成复用原则是指：尽量使用合成/聚合的方式，而不是使用继承。</p>
-</blockquote>
-<p><strong>总结小记</strong></p>
-<p>开闭原则：实现热插拔，提高扩展性。</p>
-<p>里氏代换原则：实现抽象的规范，实现子父类互相替换；</p>
-<p>依赖倒转原则：针对接口编程，实现开闭原则的基础；</p>
-<p>接口隔离原则：降低耦合度，接口单独设计，互相隔离；</p>
-<p>迪米特法则，又称不知道原则：功能模块尽量独立；</p>
-<p>合成复用原则：尽量使用聚合，组合，而不是继承；</p>
+<h1 id="CentOS-Docker-安装"><a href="#CentOS-Docker-安装" class="headerlink" title="CentOS Docker 安装"></a>CentOS Docker 安装</h1><h2 id="使用-yum-安装"><a href="#使用-yum-安装" class="headerlink" title="使用 yum 安装"></a>使用 yum 安装</h2><p>Docker 要求 CentOS 系统的内核版本高于 3.10 ，查看本页面的前提条件来验证你的CentOS 版本是否支持 Docker 。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">uname -r</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://www.runoob.com/wp-content/uploads/2016/05/docker08.png" alt></p>
+<h2 id="安装-Docker"><a href="#安装-Docker" class="headerlink" title="安装 Docker"></a>安装 Docker</h2><p>从 2017 年 3 月开始 docker 在原来的基础上分为两个分支版本: Docker CE 和 Docker EE。<br>Docker CE 即社区免费版，Docker EE 即企业版，强调安全，但需付费使用。<br>本文介绍 Docker CE 的安装使用。<br>移除旧的版本：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo yum remove docker \</span><br><span class="line">              docker-client \</span><br><span class="line">              docker-client-latest \</span><br><span class="line">              docker-common \</span><br><span class="line">              docker-latest \</span><br><span class="line">              docker-latest-logrotate \</span><br><span class="line">              docker-logrotate \</span><br><span class="line">              docker-selinux \</span><br><span class="line">              docker-engine-selinux \</span><br><span class="line">              docker-engine</span><br></pre></td></tr></table></figure></p>
+<p>安装一些必要的系统工具：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo yum install -y yum-utils device-mapper-persistent-data lvm2</span><br></pre></td></tr></table></figure></p>
+<p>添加软件源信息：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</span><br></pre></td></tr></table></figure></p>
+<p>更新 yum 缓存：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo yum makecache fast</span><br></pre></td></tr></table></figure></p>
+<p>安装docker-ce<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo yum -y install docker-ce</span><br></pre></td></tr></table></figure></p>
+<p>启动 Docker 后台服务<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo systemctl start docker</span><br></pre></td></tr></table></figure></p>
+<h1 id="解决非root用户使用docker的办法"><a href="#解决非root用户使用docker的办法" class="headerlink" title="解决非root用户使用docker的办法"></a>解决非root用户使用docker的办法</h1><p>创建docker组<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo groupadd docker</span><br></pre></td></tr></table></figure></p>
+<p>将当前用户加入docker组<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo gpasswd -a $&#123;USER&#125; docker</span><br></pre></td></tr></table></figure></p>
+<p>重新启动docker服务（下面是CentOS7的命令）<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo service docker restart或sudo systemctl restart docker</span><br></pre></td></tr></table></figure></p>
+<p>当前用户退出系统重新登陆即可</p>
+<p>dockerexec不同用户登入<br>docker exec -it –user root &lt;容器ID&gt; /bin/bash<br><img src="https://www.2cto.com/uploadfile/Collfiles/20180403/201804030931161219.png" alt></p>
 </div>
 
 			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
@@ -260,11 +271,12 @@
 			</script>
 		]]></content>
       <categories>
-        <category>设计模式教程</category>
+        <category>Linux教程</category>
       </categories>
       <tags>
         <tag>Java</tag>
-        <tag>设计模式</tag>
+        <tag>Linux</tag>
+        <tag>运维</tag>
       </tags>
   </entry>
   <entry>
@@ -332,6 +344,37 @@
       </tags>
   </entry>
   <entry>
+    <title>Dubbo使用总结</title>
+    <url>/Dubbo%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<div id="vip-container"><!-- 展示图片 -->
+<p><img src="http://justyy.com/wp-content/uploads/2016/01/markdown-syntax-language.png" alt="Mou_icon"></p>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "25071-1608261299158-736",
+			        "name": "Java一学习那些事",
+			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
+			        "keyword": "more"
+			    });
+			}
+			</script>
+		]]></content>
+      <categories>
+        <category>面试</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>微服务</tag>
+        <tag>分布式</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>分布式-zookeeper与dubbo</title>
     <url>/Java-%E5%88%86%E5%B8%83%E5%BC%8F-1/</url>
     <content><![CDATA[<div id="vip-container"><a id="more"></a>
@@ -377,80 +420,6 @@
       <tags>
         <tag>Java</tag>
         <tag>分布式</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java分布式事务总结</title>
-    <url>/Java%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<div id="vip-container"><!-- 展示图片 -->
-<p><img src="http://justyy.com/wp-content/uploads/2016/01/markdown-syntax-language.png" alt="Mou_icon"></p>
-</div>
-
-			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
-			<script>
-			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
-			if (!isMobile) {
-			    var btw = new BTWPlugin();
-			    btw.init({
-			        "id": "vip-container",
-			        "blogId": "25071-1608261299158-736",
-			        "name": "Java一学习那些事",
-			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
-			        "keyword": "more"
-			    });
-			}
-			</script>
-		]]></content>
-      <categories>
-        <category>面试</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>微服务</tag>
-        <tag>分布式</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Docker相关整理</title>
-    <url>/Docker%E7%9B%B8%E5%85%B3%E6%95%B4%E7%90%86/</url>
-    <content><![CDATA[<div id="vip-container"><a id="more"></a>
-<h1 id="CentOS-Docker-安装"><a href="#CentOS-Docker-安装" class="headerlink" title="CentOS Docker 安装"></a>CentOS Docker 安装</h1><h2 id="使用-yum-安装"><a href="#使用-yum-安装" class="headerlink" title="使用 yum 安装"></a>使用 yum 安装</h2><p>Docker 要求 CentOS 系统的内核版本高于 3.10 ，查看本页面的前提条件来验证你的CentOS 版本是否支持 Docker 。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">uname -r</span><br></pre></td></tr></table></figure></p>
-<p><img src="http://www.runoob.com/wp-content/uploads/2016/05/docker08.png" alt></p>
-<h2 id="安装-Docker"><a href="#安装-Docker" class="headerlink" title="安装 Docker"></a>安装 Docker</h2><p>从 2017 年 3 月开始 docker 在原来的基础上分为两个分支版本: Docker CE 和 Docker EE。<br>Docker CE 即社区免费版，Docker EE 即企业版，强调安全，但需付费使用。<br>本文介绍 Docker CE 的安装使用。<br>移除旧的版本：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo yum remove docker \</span><br><span class="line">              docker-client \</span><br><span class="line">              docker-client-latest \</span><br><span class="line">              docker-common \</span><br><span class="line">              docker-latest \</span><br><span class="line">              docker-latest-logrotate \</span><br><span class="line">              docker-logrotate \</span><br><span class="line">              docker-selinux \</span><br><span class="line">              docker-engine-selinux \</span><br><span class="line">              docker-engine</span><br></pre></td></tr></table></figure></p>
-<p>安装一些必要的系统工具：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo yum install -y yum-utils device-mapper-persistent-data lvm2</span><br></pre></td></tr></table></figure></p>
-<p>添加软件源信息：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</span><br></pre></td></tr></table></figure></p>
-<p>更新 yum 缓存：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo yum makecache fast</span><br></pre></td></tr></table></figure></p>
-<p>安装docker-ce<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo yum -y install docker-ce</span><br></pre></td></tr></table></figure></p>
-<p>启动 Docker 后台服务<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo systemctl start docker</span><br></pre></td></tr></table></figure></p>
-<h1 id="解决非root用户使用docker的办法"><a href="#解决非root用户使用docker的办法" class="headerlink" title="解决非root用户使用docker的办法"></a>解决非root用户使用docker的办法</h1><p>创建docker组<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo groupadd docker</span><br></pre></td></tr></table></figure></p>
-<p>将当前用户加入docker组<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo gpasswd -a $&#123;USER&#125; docker</span><br></pre></td></tr></table></figure></p>
-<p>重新启动docker服务（下面是CentOS7的命令）<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo service docker restart或sudo systemctl restart docker</span><br></pre></td></tr></table></figure></p>
-<p>当前用户退出系统重新登陆即可</p>
-<p>dockerexec不同用户登入<br>docker exec -it –user root &lt;容器ID&gt; /bin/bash<br><img src="https://www.2cto.com/uploadfile/Collfiles/20180403/201804030931161219.png" alt></p>
-</div>
-
-			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
-			<script>
-			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
-			if (!isMobile) {
-			    var btw = new BTWPlugin();
-			    btw.init({
-			        "id": "vip-container",
-			        "blogId": "25071-1608261299158-736",
-			        "name": "Java一学习那些事",
-			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
-			        "keyword": "more"
-			    });
-			}
-			</script>
-		]]></content>
-      <categories>
-        <category>Linux教程</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>Linux</tag>
-        <tag>运维</tag>
       </tags>
   </entry>
   <entry>
@@ -541,6 +510,37 @@
   <entry>
     <title>Java分布式事务总结</title>
     <url>/Java%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<div id="vip-container"><!-- 展示图片 -->
+<p><img src="http://justyy.com/wp-content/uploads/2016/01/markdown-syntax-language.png" alt="Mou_icon"></p>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "25071-1608261299158-736",
+			        "name": "Java一学习那些事",
+			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
+			        "keyword": "more"
+			    });
+			}
+			</script>
+		]]></content>
+      <categories>
+        <category>面试</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>微服务</tag>
+        <tag>分布式</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java分布式事务总结</title>
+    <url>/Java%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<div id="vip-container"><!-- 展示图片 -->
 <p><img src="http://justyy.com/wp-content/uploads/2016/01/markdown-syntax-language.png" alt="Mou_icon"></p>
 </div>
@@ -953,6 +953,35 @@ JRE：JVM+类库
       </tags>
   </entry>
   <entry>
+    <title>Java基础回顾-集合(1)</title>
+    <url>/Java%E5%9F%BA%E7%A1%80%E5%9B%9E%E9%A1%BE-%E9%9B%86%E5%90%88/</url>
+    <content><![CDATA[<div id="vip-container"><a id="more"></a>
+<h2 id="Java集合"><a href="#Java集合" class="headerlink" title=" Java集合"></a> Java集合</h2></div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "25071-1608261299158-736",
+			        "name": "Java一学习那些事",
+			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
+			        "keyword": "more"
+			    });
+			}
+			</script>
+		]]></content>
+      <categories>
+        <category>Java教程</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Java基础</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java常用算法汇总</title>
     <url>/Java%E5%B8%B8%E7%94%A8%E7%AE%97%E6%B3%95%E6%B1%87%E6%80%BB/</url>
     <content><![CDATA[<div id="vip-container"><!-- 展示图片 -->
@@ -1015,6 +1044,36 @@ JRE：JVM+类库
       </tags>
   </entry>
   <entry>
+    <title>Java锁汇总</title>
+    <url>/Java%E9%94%81%E6%B1%87%E6%80%BB/</url>
+    <content><![CDATA[<div id="vip-container"><!-- 展示图片 -->
+<p><img src="http://justyy.com/wp-content/uploads/2016/01/markdown-syntax-language.png" alt="Mou_icon"></p>
+<h3 id="Java锁汇总"><a href="#Java锁汇总" class="headerlink" title="Java锁汇总"></a>Java锁汇总</h3><p>各种锁汇总，乐观锁、悲观锁、分布式锁、可重入锁、互斥锁、读写锁、分段锁、类锁、行级锁等</p>
+<h4 id="乐观锁"><a href="#乐观锁" class="headerlink" title="乐观锁"></a>乐观锁</h4></div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "25071-1608261299158-736",
+			        "name": "Java一学习那些事",
+			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
+			        "keyword": "more"
+			    });
+			}
+			</script>
+		]]></content>
+      <categories>
+        <category>Java教程</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>MQ相关总结</title>
     <url>/MQ%E7%9B%B8%E5%85%B3%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<div id="vip-container"><!-- 展示图片 -->
@@ -1044,36 +1103,6 @@ JRE：JVM+类库
         <tag>Java</tag>
         <tag>微服务</tag>
         <tag>分布式</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java锁汇总</title>
-    <url>/Java%E9%94%81%E6%B1%87%E6%80%BB/</url>
-    <content><![CDATA[<div id="vip-container"><!-- 展示图片 -->
-<p><img src="http://justyy.com/wp-content/uploads/2016/01/markdown-syntax-language.png" alt="Mou_icon"></p>
-<h3 id="Java锁汇总"><a href="#Java锁汇总" class="headerlink" title="Java锁汇总"></a>Java锁汇总</h3><p>各种锁汇总，乐观锁、悲观锁、分布式锁、可重入锁、互斥锁、读写锁、分段锁、类锁、行级锁等</p>
-<h4 id="乐观锁"><a href="#乐观锁" class="headerlink" title="乐观锁"></a>乐观锁</h4></div>
-
-			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
-			<script>
-			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
-			if (!isMobile) {
-			    var btw = new BTWPlugin();
-			    btw.init({
-			        "id": "vip-container",
-			        "blogId": "25071-1608261299158-736",
-			        "name": "Java一学习那些事",
-			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
-			        "keyword": "more"
-			    });
-			}
-			</script>
-		]]></content>
-      <categories>
-        <category>Java教程</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
       </tags>
   </entry>
   <entry>
@@ -1348,8 +1377,8 @@ JRE：JVM+类库
       </tags>
   </entry>
   <entry>
-    <title>SpringCloud gateway熔断限流</title>
-    <url>/SpringCloud%20gateway%E7%86%94%E6%96%AD%E9%99%90%E6%B5%81/</url>
+    <title>SpringCloud gateway异常处理</title>
+    <url>/SpringCloud%20gateway%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/</url>
     <content><![CDATA[<div id="vip-container"><!-- 展示图片 -->
 <p><img src="http://justyy.com/wp-content/uploads/2016/01/markdown-syntax-language.png" alt="Mou_icon"></p>
 </div>
@@ -1379,8 +1408,8 @@ JRE：JVM+类库
       </tags>
   </entry>
   <entry>
-    <title>SpringCloud gateway异常处理</title>
-    <url>/SpringCloud%20gateway%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/</url>
+    <title>SpringCloud gateway熔断限流</title>
+    <url>/SpringCloud%20gateway%E7%86%94%E6%96%AD%E9%99%90%E6%B5%81/</url>
     <content><![CDATA[<div id="vip-container"><!-- 展示图片 -->
 <p><img src="http://justyy.com/wp-content/uploads/2016/01/markdown-syntax-language.png" alt="Mou_icon"></p>
 </div>
@@ -1482,64 +1511,6 @@ JRE：JVM+类库
       </tags>
   </entry>
   <entry>
-    <title>SpringCloud 服务冲突和实例乱窜</title>
-    <url>/SpringCloud%20%E6%9C%8D%E5%8A%A1%E5%86%B2%E7%AA%81%E5%92%8C%E5%AE%9E%E4%BE%8B%E4%B9%B1%E7%AA%9C/</url>
-    <content><![CDATA[<div id="vip-container"></div>
-
-			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
-			<script>
-			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
-			if (!isMobile) {
-			    var btw = new BTWPlugin();
-			    btw.init({
-			        "id": "vip-container",
-			        "blogId": "25071-1608261299158-736",
-			        "name": "Java一学习那些事",
-			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
-			        "keyword": "more"
-			    });
-			}
-			</script>
-		]]></content>
-      <categories>
-        <category>框架</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>Spring</tag>
-        <tag>SpringCloud</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SpringMVC总结</title>
-    <url>/SpringMVC%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<div id="vip-container"><p><img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3833687770,1236182247&amp;fm=26&amp;gp=0.jpg" alt="Mou_icon"><br><a id="more"></a></p>
-</div>
-
-			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
-			<script>
-			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
-			if (!isMobile) {
-			    var btw = new BTWPlugin();
-			    btw.init({
-			        "id": "vip-container",
-			        "blogId": "25071-1608261299158-736",
-			        "name": "Java一学习那些事",
-			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
-			        "keyword": "more"
-			    });
-			}
-			</script>
-		]]></content>
-      <categories>
-        <category>框架</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>Spring</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>SpringCloud Nacos集群部署</title>
     <url>/SpringCloud%20nacos%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2/</url>
     <content><![CDATA[<div id="vip-container"><!-- 展示图片 -->
@@ -1600,6 +1571,64 @@ JRE：JVM+类库
       </tags>
   </entry>
   <entry>
+    <title>SpringCloud 服务冲突和实例乱窜</title>
+    <url>/SpringCloud%20%E6%9C%8D%E5%8A%A1%E5%86%B2%E7%AA%81%E5%92%8C%E5%AE%9E%E4%BE%8B%E4%B9%B1%E7%AA%9C/</url>
+    <content><![CDATA[<div id="vip-container"></div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "25071-1608261299158-736",
+			        "name": "Java一学习那些事",
+			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
+			        "keyword": "more"
+			    });
+			}
+			</script>
+		]]></content>
+      <categories>
+        <category>框架</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Spring</tag>
+        <tag>SpringCloud</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SpringMVC总结</title>
+    <url>/SpringMVC%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<div id="vip-container"><p><img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3833687770,1236182247&amp;fm=26&amp;gp=0.jpg" alt="Mou_icon"><br><a id="more"></a></p>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "25071-1608261299158-736",
+			        "name": "Java一学习那些事",
+			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
+			        "keyword": "more"
+			    });
+			}
+			</script>
+		]]></content>
+      <categories>
+        <category>框架</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Spring</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Spring总结</title>
     <url>/Spring%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<div id="vip-container"><p><img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3833687770,1236182247&amp;fm=26&amp;gp=0.jpg" alt="Mou_icon"><br><a id="more"></a></p>
@@ -1631,36 +1660,6 @@ JRE：JVM+类库
       <tags>
         <tag>Java</tag>
         <tag>Spring</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>centos修改主机名的正确方法</title>
-    <url>/centos%E4%BF%AE%E6%94%B9%E4%B8%BB%E6%9C%BA%E5%90%8D%E7%9A%84%E6%AD%A3%E7%A1%AE%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<div id="vip-container"><a id="more"></a>
-<h2 id="1-centos6下修改hostname"><a href="#1-centos6下修改hostname" class="headerlink" title="1.centos6下修改hostname"></a>1.centos6下修改hostname</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@centos6 ~]$ hostname                                              <span class="comment"># 查看当前的hostnmae</span></span><br><span class="line">centos6.magedu.com</span><br><span class="line">[root@centos6 ~]$ vim /etc/sysconfig/network                            <span class="comment"># 编辑network文件修改hostname行（重启生效）</span></span><br><span class="line">[root@centos6 ~]$ cat /etc/sysconfig/network                            <span class="comment"># 检查修改</span></span><br><span class="line">NETWORKING=yes</span><br><span class="line">HOSTNAME=lutao1726.top</span><br><span class="line">[root@centos6 ~]$ hostname lutao1726.top                                <span class="comment"># 设置当前的hostname(立即生效）</span></span><br><span class="line">[root@centos6 ~]$ vim /etc/hosts                                        <span class="comment"># 编辑hosts文件，给127.0.0.1添加hostname</span></span><br><span class="line">[root@centos6 ~]$ cat /etc/hosts                                        <span class="comment"># 检查</span></span><br><span class="line">127.0.0.1 localhost localhost.localdomain localhost4 localhost4.localdomain4 lutao1726.top</span><br><span class="line">::1 localhost localhost.localdomain localhost6 localhost6.localdomain6</span><br></pre></td></tr></table></figure>
-<h2 id="2-centos7下修改hostname"><a href="#2-centos7下修改hostname" class="headerlink" title="2.centos7下修改hostname"></a>2.centos7下修改hostname</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@centos7 ~]$ hostnamectl <span class="built_in">set</span>-hostname lutao1726.top                   <span class="comment"># 使用这个命令会立即生效且重启也生效</span></span><br><span class="line">[root@centos7 ~]$ hostname                                                 <span class="comment"># 查看下</span></span><br><span class="line">lutao1726.top</span><br><span class="line">[root@centos7 ~]$ vim /etc/hosts                                           <span class="comment"># 编辑下hosts文件， 给127.0.0.1添加hostname</span></span><br><span class="line">[root@centos7 ~]$ cat /etc/hosts                                           <span class="comment"># 检查</span></span><br><span class="line">127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4 lutao1726.top</span><br><span class="line">::1         localhost localhost.localdomain localhost6 localhost6.localdomain6</span><br></pre></td></tr></table></figure></div>
-
-			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
-			<script>
-			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
-			if (!isMobile) {
-			    var btw = new BTWPlugin();
-			    btw.init({
-			        "id": "vip-container",
-			        "blogId": "25071-1608261299158-736",
-			        "name": "Java一学习那些事",
-			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
-			        "keyword": "more"
-			    });
-			}
-			</script>
-		]]></content>
-      <categories>
-        <category>Linux教程</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>运维</tag>
       </tags>
   </entry>
   <entry>
@@ -1725,6 +1724,36 @@ JRE：JVM+类库
       </categories>
       <tags>
         <tag>Java</tag>
+        <tag>Linux</tag>
+        <tag>运维</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>centos修改主机名的正确方法</title>
+    <url>/centos%E4%BF%AE%E6%94%B9%E4%B8%BB%E6%9C%BA%E5%90%8D%E7%9A%84%E6%AD%A3%E7%A1%AE%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<div id="vip-container"><a id="more"></a>
+<h2 id="1-centos6下修改hostname"><a href="#1-centos6下修改hostname" class="headerlink" title="1.centos6下修改hostname"></a>1.centos6下修改hostname</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@centos6 ~]$ hostname                                              <span class="comment"># 查看当前的hostnmae</span></span><br><span class="line">centos6.magedu.com</span><br><span class="line">[root@centos6 ~]$ vim /etc/sysconfig/network                            <span class="comment"># 编辑network文件修改hostname行（重启生效）</span></span><br><span class="line">[root@centos6 ~]$ cat /etc/sysconfig/network                            <span class="comment"># 检查修改</span></span><br><span class="line">NETWORKING=yes</span><br><span class="line">HOSTNAME=lutao1726.top</span><br><span class="line">[root@centos6 ~]$ hostname lutao1726.top                                <span class="comment"># 设置当前的hostname(立即生效）</span></span><br><span class="line">[root@centos6 ~]$ vim /etc/hosts                                        <span class="comment"># 编辑hosts文件，给127.0.0.1添加hostname</span></span><br><span class="line">[root@centos6 ~]$ cat /etc/hosts                                        <span class="comment"># 检查</span></span><br><span class="line">127.0.0.1 localhost localhost.localdomain localhost4 localhost4.localdomain4 lutao1726.top</span><br><span class="line">::1 localhost localhost.localdomain localhost6 localhost6.localdomain6</span><br></pre></td></tr></table></figure>
+<h2 id="2-centos7下修改hostname"><a href="#2-centos7下修改hostname" class="headerlink" title="2.centos7下修改hostname"></a>2.centos7下修改hostname</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@centos7 ~]$ hostnamectl <span class="built_in">set</span>-hostname lutao1726.top                   <span class="comment"># 使用这个命令会立即生效且重启也生效</span></span><br><span class="line">[root@centos7 ~]$ hostname                                                 <span class="comment"># 查看下</span></span><br><span class="line">lutao1726.top</span><br><span class="line">[root@centos7 ~]$ vim /etc/hosts                                           <span class="comment"># 编辑下hosts文件， 给127.0.0.1添加hostname</span></span><br><span class="line">[root@centos7 ~]$ cat /etc/hosts                                           <span class="comment"># 检查</span></span><br><span class="line">127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4 lutao1726.top</span><br><span class="line">::1         localhost localhost.localdomain localhost6 localhost6.localdomain6</span><br></pre></td></tr></table></figure></div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "25071-1608261299158-736",
+			        "name": "Java一学习那些事",
+			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
+			        "keyword": "more"
+			    });
+			}
+			</script>
+		]]></content>
+      <categories>
+        <category>Linux教程</category>
+      </categories>
+      <tags>
         <tag>Linux</tag>
         <tag>运维</tag>
       </tags>
@@ -2018,22 +2047,14 @@ JRE：JVM+类库
       </tags>
   </entry>
   <entry>
-    <title>grafana+prometheus监控redis</title>
-    <url>/grafana+prometheus%E7%9B%91%E6%8E%A7redis/</url>
-    <content><![CDATA[<div id="vip-container"><h4 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h4><hr>
-<p>监控服务器状态是运维必不可少的一部分,这里给大家介绍的是一种监控系统grafana,grafana仅仅只是提供界面显示, 所以他需要从influxdb或prometheus中获取数据, 而influxdb或prometheus中的数据又需要从其他地方收集过来, 常用的收集工具是collectd和telegraf, 其中collectd这里不做介绍, 有些数据不是太适合, 而 influxdb 自身集成 telegraf插件, 不需要进行专门的配置</p>
-<h4 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h4><blockquote>
-<p>collectd/telegraf或prometheus插件(收集数据)  ——-&gt;   influxdb/prometheus(保存数据)  ——-&gt; grafana(显示数据)</p>
-</blockquote>
-<h6 id="下载redis-exporter插件"><a href="#下载redis-exporter插件" class="headerlink" title="下载redis_exporter插件"></a>下载redis_exporter插件</h6><p> <strong><em>代理插件不一定非要安装在redis端</em></strong><br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://github.com/oliver006/redis_exporter/releases/download/v0.30.0/redis_exporter-v0.30.0.linux-amd64.tar.gz</span><br></pre></td></tr></table></figure></p>
-<h6 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h6><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar xf redis_exporter-v0.30.0.linux-amd64.tar.gz</span><br></pre></td></tr></table></figure>
-<h6 id="启动redis-exporter登陆redis"><a href="#启动redis-exporter登陆redis" class="headerlink" title="启动redis_exporter登陆redis"></a>启动redis_exporter登陆redis</h6><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">## 无密码</span></span><br><span class="line">nohup ./redis_exporter -redis.addr 192.168.1.120:6379 &amp;</span><br><span class="line"><span class="comment">## 有密码</span></span><br><span class="line">nohup ./redis_exporter  -redis.addr 192.168.1.120:6379  -redis.password 123456</span><br></pre></td></tr></table></figure>
-<h6 id="查看redis-exporte是否开启"><a href="#查看redis-exporte是否开启" class="headerlink" title="查看redis_exporte是否开启"></a>查看redis_exporte是否开启</h6><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">netstat -lntp</span><br><span class="line">tcp6       0      0 :::9121               :::*              LISTEN      32407/redis_exporte</span><br></pre></td></tr></table></figure>
-<h6 id="修改prometheus配置文件"><a href="#修改prometheus配置文件" class="headerlink" title="修改prometheus配置文件"></a>修改prometheus配置文件</h6><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">- job_name: &apos;redis&apos;</span><br><span class="line">   static_configs:</span><br><span class="line">   - targets:</span><br><span class="line">     - &quot;localhost:9121&quot;   #redis_exporte在哪台服务器启动的就填哪台服务器ip</span><br></pre></td></tr></table></figure>
+    <title>grafana+prometheus监控nacos</title>
+    <url>/grafana+prometheus%E7%9B%91%E6%8E%A7nacos/</url>
+    <content><![CDATA[<div id="vip-container"><h6 id="安装Nacos"><a href="#安装Nacos" class="headerlink" title="安装Nacos"></a>安装<a href="http://lutao.tk/SpringCloud%20nacos%E8%87%AA%E5%AE%9A%E4%B9%89%E7%94%A8%E6%88%B7/">Nacos</a></h6><h6 id="修改配置文件-application-properties-暴露metrics数据"><a href="#修改配置文件-application-properties-暴露metrics数据" class="headerlink" title="修改配置文件 application.properties 暴露metrics数据"></a>修改配置文件 <strong><em>application.properties</em></strong> 暴露metrics数据</h6><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">management.endpoints.web.exposure.include=*</span><br></pre></td></tr></table></figure>
+<p>访问{ip}:8848/nacos/actuator/prometheus，看是否能访问到metrics数据</p>
+<h6 id="修改prometheus配置文件"><a href="#修改prometheus配置文件" class="headerlink" title="修改prometheus配置文件"></a>修改prometheus配置文件</h6><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">- job_name: nacos</span><br><span class="line">  metrics_path: &apos;/nacos/actuator/prometheus&apos;</span><br><span class="line">  static_configs:</span><br><span class="line">    - targets: [&apos;192.168.1.238:8848&apos;]</span><br></pre></td></tr></table></figure>
 <h6 id="重启prometheus"><a href="#重启prometheus" class="headerlink" title="重启prometheus"></a>重启prometheus</h6><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nohup ./prometheus --config.file=./prometheus.yml &amp;</span><br></pre></td></tr></table></figure>
 <h4 id="grafana配置"><a href="#grafana配置" class="headerlink" title="grafana配置"></a>grafana配置</h4><p>配置prometheus数据源<br>添加prometheus插件，然后配置<br><img src="http://blog.lutao1726.top/grafana-redis-01.png" alt="Mou_icon"><br><img src="http://blog.lutao1726.top/grafana-redis-02.png" alt="Mou_icon"><br><img src="http://blog.lutao1726.top/grafana-redis-03.png" alt="Mou_icon"></p>
-<h4 id="下载redis仪表盘模板"><a href="#下载redis仪表盘模板" class="headerlink" title="下载redis仪表盘模板"></a>下载redis仪表盘模板</h4><p><img src="http://blog.lutao1726.top/grafana-redis-04.png" alt="Mou_icon"></p>
-<h6 id="导入模板"><a href="#导入模板" class="headerlink" title="导入模板"></a>导入模板</h6><p><img src="http://blog.lutao1726.top/grafana-redis-05.png" alt="Mou_icon"><br><img src="http://blog.lutao1726.top/grafana-redis-06.png" alt="Mou_icon"></p>
+<h4 id="下载仪表盘模板"><a href="#下载仪表盘模板" class="headerlink" title="下载仪表盘模板"></a>下载<a href="https://github.com/nacos-group/nacos-template/blob/master/nacos-sync-grafana" target="_blank" rel="noopener">仪表盘模板</a></h4><h6 id="导入模板"><a href="#导入模板" class="headerlink" title="导入模板"></a>导入模板</h6><p><img src="http://blog.lutao1726.top/grafana-redis-05.png" alt="Mou_icon"><br><img src="http://blog.lutao1726.top/grafana-nacos-02.png" alt="Mou_icon"></p>
 </div>
 
 			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
@@ -2098,56 +2119,22 @@ JRE：JVM+类库
       </tags>
   </entry>
   <entry>
-    <title>grafana+prometheus监控nacos</title>
-    <url>/grafana+prometheus%E7%9B%91%E6%8E%A7nacos/</url>
-    <content><![CDATA[<div id="vip-container"><h6 id="安装Nacos"><a href="#安装Nacos" class="headerlink" title="安装Nacos"></a>安装<a href="http://lutao.tk/SpringCloud%20nacos%E8%87%AA%E5%AE%9A%E4%B9%89%E7%94%A8%E6%88%B7/">Nacos</a></h6><h6 id="修改配置文件-application-properties-暴露metrics数据"><a href="#修改配置文件-application-properties-暴露metrics数据" class="headerlink" title="修改配置文件 application.properties 暴露metrics数据"></a>修改配置文件 <strong><em>application.properties</em></strong> 暴露metrics数据</h6><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">management.endpoints.web.exposure.include=*</span><br></pre></td></tr></table></figure>
-<p>访问{ip}:8848/nacos/actuator/prometheus，看是否能访问到metrics数据</p>
-<h6 id="修改prometheus配置文件"><a href="#修改prometheus配置文件" class="headerlink" title="修改prometheus配置文件"></a>修改prometheus配置文件</h6><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">- job_name: nacos</span><br><span class="line">  metrics_path: &apos;/nacos/actuator/prometheus&apos;</span><br><span class="line">  static_configs:</span><br><span class="line">    - targets: [&apos;192.168.1.238:8848&apos;]</span><br></pre></td></tr></table></figure>
-<h6 id="重启prometheus"><a href="#重启prometheus" class="headerlink" title="重启prometheus"></a>重启prometheus</h6><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nohup ./prometheus --config.file=./prometheus.yml &amp;</span><br></pre></td></tr></table></figure>
-<h4 id="grafana配置"><a href="#grafana配置" class="headerlink" title="grafana配置"></a>grafana配置</h4><p>配置prometheus数据源<br>添加prometheus插件，然后配置<br><img src="http://blog.lutao1726.top/grafana-redis-01.png" alt="Mou_icon"><br><img src="http://blog.lutao1726.top/grafana-redis-02.png" alt="Mou_icon"><br><img src="http://blog.lutao1726.top/grafana-redis-03.png" alt="Mou_icon"></p>
-<h4 id="下载仪表盘模板"><a href="#下载仪表盘模板" class="headerlink" title="下载仪表盘模板"></a>下载<a href="https://github.com/nacos-group/nacos-template/blob/master/nacos-sync-grafana" target="_blank" rel="noopener">仪表盘模板</a></h4><h6 id="导入模板"><a href="#导入模板" class="headerlink" title="导入模板"></a>导入模板</h6><p><img src="http://blog.lutao1726.top/grafana-redis-05.png" alt="Mou_icon"><br><img src="http://blog.lutao1726.top/grafana-nacos-02.png" alt="Mou_icon"></p>
-</div>
-
-			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
-			<script>
-			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
-			if (!isMobile) {
-			    var btw = new BTWPlugin();
-			    btw.init({
-			        "id": "vip-container",
-			        "blogId": "25071-1608261299158-736",
-			        "name": "Java一学习那些事",
-			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
-			        "keyword": "more"
-			    });
-			}
-			</script>
-		]]></content>
-      <categories>
-        <category>Linux教程</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>运维</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>grafana+prometheus监控服务器</title>
-    <url>/grafana+prometheus%E7%9B%91%E6%8E%A7%E6%9C%8D%E5%8A%A1%E5%99%A8/</url>
+    <title>grafana+prometheus监控redis</title>
+    <url>/grafana+prometheus%E7%9B%91%E6%8E%A7redis/</url>
     <content><![CDATA[<div id="vip-container"><h4 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h4><hr>
 <p>监控服务器状态是运维必不可少的一部分,这里给大家介绍的是一种监控系统grafana,grafana仅仅只是提供界面显示, 所以他需要从influxdb或prometheus中获取数据, 而influxdb或prometheus中的数据又需要从其他地方收集过来, 常用的收集工具是collectd和telegraf, 其中collectd这里不做介绍, 有些数据不是太适合, 而 influxdb 自身集成 telegraf插件, 不需要进行专门的配置</p>
 <h4 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h4><blockquote>
 <p>collectd/telegraf或prometheus插件(收集数据)  ——-&gt;   influxdb/prometheus(保存数据)  ——-&gt; grafana(显示数据)</p>
 </blockquote>
-<h6 id="下载node-exporter插件"><a href="#下载node-exporter插件" class="headerlink" title="下载node_exporter插件"></a>下载<a href="http://blog.lutao1726.top/node_exporter" target="_blank" rel="noopener">node_exporter插件</a></h6><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://github.com/prometheus/node_exporter/releases/download/v0.18.1/node_exporter-0.18.1.linux-arm64.tar.gz</span><br></pre></td></tr></table></figure>
-<h6 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h6><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar xf node_exporter-*.tar.gz</span><br></pre></td></tr></table></figure>
-<h6 id="在对应机器上启动node-exporter"><a href="#在对应机器上启动node-exporter" class="headerlink" title="在对应机器上启动node_exporter"></a>在对应机器上启动node_exporter</h6><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">setsid ./node_exporter</span><br></pre></td></tr></table></figure>
-<h6 id="查看node-exporter是否开启"><a href="#查看node-exporter是否开启" class="headerlink" title="查看node_exporter是否开启"></a>查看node_exporter是否开启</h6><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">netstat -lntp</span><br><span class="line">tcp6       0      0 :::9100                 :::*                    LISTEN      62737/./node_export</span><br></pre></td></tr></table></figure>
-<h6 id="修改prometheus配置文件"><a href="#修改prometheus配置文件" class="headerlink" title="修改prometheus配置文件"></a>修改prometheus配置文件</h6><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">- job_name: &apos;node_exporter&apos;</span><br><span class="line">  static_configs:</span><br><span class="line">    - targets: [&apos;192.168.1.231:9100&apos;]</span><br><span class="line">      labels:</span><br><span class="line">        instance: sys-231  </span><br><span class="line">    - targets: [&apos;192.168.1.68:9100&apos;]</span><br><span class="line">       labels:</span><br><span class="line">         instance: sys-68</span><br></pre></td></tr></table></figure>
+<h6 id="下载redis-exporter插件"><a href="#下载redis-exporter插件" class="headerlink" title="下载redis_exporter插件"></a>下载redis_exporter插件</h6><p> <strong><em>代理插件不一定非要安装在redis端</em></strong><br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://github.com/oliver006/redis_exporter/releases/download/v0.30.0/redis_exporter-v0.30.0.linux-amd64.tar.gz</span><br></pre></td></tr></table></figure></p>
+<h6 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h6><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar xf redis_exporter-v0.30.0.linux-amd64.tar.gz</span><br></pre></td></tr></table></figure>
+<h6 id="启动redis-exporter登陆redis"><a href="#启动redis-exporter登陆redis" class="headerlink" title="启动redis_exporter登陆redis"></a>启动redis_exporter登陆redis</h6><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">## 无密码</span></span><br><span class="line">nohup ./redis_exporter -redis.addr 192.168.1.120:6379 &amp;</span><br><span class="line"><span class="comment">## 有密码</span></span><br><span class="line">nohup ./redis_exporter  -redis.addr 192.168.1.120:6379  -redis.password 123456</span><br></pre></td></tr></table></figure>
+<h6 id="查看redis-exporte是否开启"><a href="#查看redis-exporte是否开启" class="headerlink" title="查看redis_exporte是否开启"></a>查看redis_exporte是否开启</h6><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">netstat -lntp</span><br><span class="line">tcp6       0      0 :::9121               :::*              LISTEN      32407/redis_exporte</span><br></pre></td></tr></table></figure>
+<h6 id="修改prometheus配置文件"><a href="#修改prometheus配置文件" class="headerlink" title="修改prometheus配置文件"></a>修改prometheus配置文件</h6><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">- job_name: &apos;redis&apos;</span><br><span class="line">   static_configs:</span><br><span class="line">   - targets:</span><br><span class="line">     - &quot;localhost:9121&quot;   #redis_exporte在哪台服务器启动的就填哪台服务器ip</span><br></pre></td></tr></table></figure>
 <h6 id="重启prometheus"><a href="#重启prometheus" class="headerlink" title="重启prometheus"></a>重启prometheus</h6><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nohup ./prometheus --config.file=./prometheus.yml &amp;</span><br></pre></td></tr></table></figure>
 <h4 id="grafana配置"><a href="#grafana配置" class="headerlink" title="grafana配置"></a>grafana配置</h4><p>配置prometheus数据源<br>添加prometheus插件，然后配置<br><img src="http://blog.lutao1726.top/grafana-redis-01.png" alt="Mou_icon"><br><img src="http://blog.lutao1726.top/grafana-redis-02.png" alt="Mou_icon"><br><img src="http://blog.lutao1726.top/grafana-redis-03.png" alt="Mou_icon"></p>
-<h4 id="下载node-exporter仪表盘模板"><a href="#下载node-exporter仪表盘模板" class="headerlink" title="下载node_exporter仪表盘模板"></a>下载node_exporter仪表盘模板</h4><p><img src="http://blog.lutao1726.top/grafana-node-04.png" alt="Mou_icon"></p>
-<h6 id="导入模板"><a href="#导入模板" class="headerlink" title="导入模板"></a>导入模板</h6><p><img src="http://blog.lutao1726.top/grafana-redis-05.png" alt="Mou_icon"><br><img src="http://blog.lutao1726.top/grafana-node-06.png" alt="Mou_icon"></p>
+<h4 id="下载redis仪表盘模板"><a href="#下载redis仪表盘模板" class="headerlink" title="下载redis仪表盘模板"></a>下载redis仪表盘模板</h4><p><img src="http://blog.lutao1726.top/grafana-redis-04.png" alt="Mou_icon"></p>
+<h6 id="导入模板"><a href="#导入模板" class="headerlink" title="导入模板"></a>导入模板</h6><p><img src="http://blog.lutao1726.top/grafana-redis-05.png" alt="Mou_icon"><br><img src="http://blog.lutao1726.top/grafana-redis-06.png" alt="Mou_icon"></p>
 </div>
 
 			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
@@ -2209,10 +2196,23 @@ JRE：JVM+类库
       </tags>
   </entry>
   <entry>
-    <title>CentOS7安装</title>
-    <url>/linux_centos7%E5%AE%89%E8%A3%85/</url>
-    <content><![CDATA[<div id="vip-container"><a id="more"></a>
-<h1 id="CentOS7安装"><a href="#CentOS7安装" class="headerlink" title="CentOS7安装"></a>CentOS7安装</h1></div>
+    <title>grafana+prometheus监控服务器</title>
+    <url>/grafana+prometheus%E7%9B%91%E6%8E%A7%E6%9C%8D%E5%8A%A1%E5%99%A8/</url>
+    <content><![CDATA[<div id="vip-container"><h4 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h4><hr>
+<p>监控服务器状态是运维必不可少的一部分,这里给大家介绍的是一种监控系统grafana,grafana仅仅只是提供界面显示, 所以他需要从influxdb或prometheus中获取数据, 而influxdb或prometheus中的数据又需要从其他地方收集过来, 常用的收集工具是collectd和telegraf, 其中collectd这里不做介绍, 有些数据不是太适合, 而 influxdb 自身集成 telegraf插件, 不需要进行专门的配置</p>
+<h4 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h4><blockquote>
+<p>collectd/telegraf或prometheus插件(收集数据)  ——-&gt;   influxdb/prometheus(保存数据)  ——-&gt; grafana(显示数据)</p>
+</blockquote>
+<h6 id="下载node-exporter插件"><a href="#下载node-exporter插件" class="headerlink" title="下载node_exporter插件"></a>下载<a href="http://blog.lutao1726.top/node_exporter" target="_blank" rel="noopener">node_exporter插件</a></h6><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://github.com/prometheus/node_exporter/releases/download/v0.18.1/node_exporter-0.18.1.linux-arm64.tar.gz</span><br></pre></td></tr></table></figure>
+<h6 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h6><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar xf node_exporter-*.tar.gz</span><br></pre></td></tr></table></figure>
+<h6 id="在对应机器上启动node-exporter"><a href="#在对应机器上启动node-exporter" class="headerlink" title="在对应机器上启动node_exporter"></a>在对应机器上启动node_exporter</h6><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">setsid ./node_exporter</span><br></pre></td></tr></table></figure>
+<h6 id="查看node-exporter是否开启"><a href="#查看node-exporter是否开启" class="headerlink" title="查看node_exporter是否开启"></a>查看node_exporter是否开启</h6><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">netstat -lntp</span><br><span class="line">tcp6       0      0 :::9100                 :::*                    LISTEN      62737/./node_export</span><br></pre></td></tr></table></figure>
+<h6 id="修改prometheus配置文件"><a href="#修改prometheus配置文件" class="headerlink" title="修改prometheus配置文件"></a>修改prometheus配置文件</h6><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">- job_name: &apos;node_exporter&apos;</span><br><span class="line">  static_configs:</span><br><span class="line">    - targets: [&apos;192.168.1.231:9100&apos;]</span><br><span class="line">      labels:</span><br><span class="line">        instance: sys-231  </span><br><span class="line">    - targets: [&apos;192.168.1.68:9100&apos;]</span><br><span class="line">       labels:</span><br><span class="line">         instance: sys-68</span><br></pre></td></tr></table></figure>
+<h6 id="重启prometheus"><a href="#重启prometheus" class="headerlink" title="重启prometheus"></a>重启prometheus</h6><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nohup ./prometheus --config.file=./prometheus.yml &amp;</span><br></pre></td></tr></table></figure>
+<h4 id="grafana配置"><a href="#grafana配置" class="headerlink" title="grafana配置"></a>grafana配置</h4><p>配置prometheus数据源<br>添加prometheus插件，然后配置<br><img src="http://blog.lutao1726.top/grafana-redis-01.png" alt="Mou_icon"><br><img src="http://blog.lutao1726.top/grafana-redis-02.png" alt="Mou_icon"><br><img src="http://blog.lutao1726.top/grafana-redis-03.png" alt="Mou_icon"></p>
+<h4 id="下载node-exporter仪表盘模板"><a href="#下载node-exporter仪表盘模板" class="headerlink" title="下载node_exporter仪表盘模板"></a>下载node_exporter仪表盘模板</h4><p><img src="http://blog.lutao1726.top/grafana-node-04.png" alt="Mou_icon"></p>
+<h6 id="导入模板"><a href="#导入模板" class="headerlink" title="导入模板"></a>导入模板</h6><p><img src="http://blog.lutao1726.top/grafana-redis-05.png" alt="Mou_icon"><br><img src="http://blog.lutao1726.top/grafana-node-06.png" alt="Mou_icon"></p>
+</div>
 
 			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
 			<script>
@@ -2233,7 +2233,6 @@ JRE：JVM+类库
         <category>Linux教程</category>
       </categories>
       <tags>
-        <tag>Java</tag>
         <tag>Linux</tag>
         <tag>运维</tag>
       </tags>
@@ -2356,6 +2355,82 @@ JRE：JVM+类库
       </tags>
   </entry>
   <entry>
+    <title>CentOS7安装</title>
+    <url>/linux_centos7%E5%AE%89%E8%A3%85/</url>
+    <content><![CDATA[<div id="vip-container"><a id="more"></a>
+<h1 id="CentOS7安装"><a href="#CentOS7安装" class="headerlink" title="CentOS7安装"></a>CentOS7安装</h1></div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "25071-1608261299158-736",
+			        "name": "Java一学习那些事",
+			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
+			        "keyword": "more"
+			    });
+			}
+			</script>
+		]]></content>
+      <categories>
+        <category>Linux教程</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Linux</tag>
+        <tag>运维</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>linux加密脚本</title>
+    <url>/linux%E5%8A%A0%E5%AF%86%E8%84%9A%E6%9C%AC/</url>
+    <content><![CDATA[<div id="vip-container"><a id="more"></a>
+<h1 id="linux加密脚本"><a href="#linux加密脚本" class="headerlink" title="linux加密脚本"></a>linux加密脚本</h1><ul>
+<li>1.确保已经安装 bc 和 shc</li>
+<li>2.shc只能加密bash shell脚本，无法加密expect脚本<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">shc -v -r -f auto_deploy.sh</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>执行后会产生两个文件，分别是:<br><code>auto_deploy.sh.x</code>    可执行的二进制文件<br><code>auto_deploy.sh.x.c</code>  二进制文件的c源码，这个无用，必须删除以防止脚本流程泄露      </p>
+<p>接着将.sh.x改名<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mv auto_deploy.sh.x auto_deploy</span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line"><span class="comment">## shc相关资料</span></span><br><span class="line"><span class="comment">#### 简介</span></span><br><span class="line">shc是一个专业的加密shell脚本的工具.它的作用是把shell脚本转换为一个可执行的二进制文件，这个办法很好的解决了脚本中含有IP、密码等不希望公开的问题.</span><br><span class="line"></span><br><span class="line">shc的官网下载地址: </span><br><span class="line">`http://www.datsi.fi.upm.es/~frosal/sources/ `</span><br><span class="line"></span><br><span class="line"><span class="comment">#### 安装</span></span><br><span class="line">```bash</span><br><span class="line">tar xzvf shc-3.8.6.tgz</span><br><span class="line"><span class="built_in">cd</span> shc-3.8.6</span><br><span class="line">mkdir -p /usr/<span class="built_in">local</span>/man/man1</span><br></pre></td></tr></table></figure></p>
+<p>这步是必须的，不然安装过程中会报错，shc将安装命令到/usr/local/bin/目录下；将帮助文档存放在/usr/local/man/man1/目录下，如果系统中无此目录，安装时会报错，可创建此目录后再执行安装</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">make install</span><br></pre></td></tr></table></figure>
+<p>这是要回答yes或者y，不能直接回车，否则会报错<br>使用方法:<br>“-f”选项指定需要加密的程序</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># shc -r -f abc.sh </span></span><br><span class="line">[root@localhost ~]<span class="comment"># ll</span></span><br><span class="line">total 64</span><br><span class="line">-rw-r--r--. 1 root root    23 Nov 17 11:14 abc.sh</span><br><span class="line">-rwx--x--x. 1 root root 11520 Nov 17 11:14 abc.sh.x</span><br><span class="line">-rw-r--r--. 1 root root  9174 Nov 17 11:14 abc.sh.x.c</span><br><span class="line">drwxr-xr-x. 2 root root  4096 Nov 17 11:13 shc-3.8.7</span><br><span class="line">-rw-r--r--. 1 root root 20498 Nov 17 11:11 shc-3.8.7.tgz</span><br></pre></td></tr></table></figure>
+<p>运行后会生成两个文件,script-name.x 和 script-name.x.c. 其中script-name.x是加密后的可执行的二进制文件；用./script-name即可运行，script-name.x.c是生成script-name.x的原文件(c语言).<br>另shc还提供了一种设定有效执行期限的方法，可以首先使用shc将shell程序转化为二进制，并加上过期时间，如：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment">#  shc -e 18/10/2006 -m " It's too late to run this script " -f script.sh</span></span><br></pre></td></tr></table></figure>
+<p>题外：</p>
+<p>如果你仅仅是看不见内容就行了的话，不妨用<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gzexe a.sh</span><br></pre></td></tr></table></figure></p>
+<p>原来的 a.sh 就被存为 a.sh~，新的 a.sh 是乱码，但是可以用 sh 的方式运行</p>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "25071-1608261299158-736",
+			        "name": "Java一学习那些事",
+			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
+			        "keyword": "more"
+			    });
+			}
+			</script>
+		]]></content>
+      <categories>
+        <category>Linux教程</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Linux</tag>
+        <tag>运维</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>linux安装字体</title>
     <url>/linux%E5%AE%89%E8%A3%85%E5%AD%97%E4%BD%93/</url>
     <content><![CDATA[<div id="vip-container"><a id="more"></a>
@@ -2412,6 +2487,40 @@ JRE：JVM+类库
         <tag>Java</tag>
         <tag>Linux</tag>
         <tag>运维</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>redis使用总结</title>
+    <url>/redis%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<div id="vip-container"><!-- 展示图片 -->
+<p><img src="http://blog.lutao1726.top/redis-01.jpg" alt="Mou_icon"></p>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><blockquote>
+<p>Redis是一个开源的使用ANSI C语言编写、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，并提供多种语言的API。它支持存储的value类型相对更多，包括string(字符串)、list(链表)、set(集合)、zset(sorted set –有序集合)和hash（哈希类型）。这些数据类型都支持push/pop、add/remove及取交集并集和差集及更丰富的操作，而且这些操作都是原子性的。在此基础上，redis支持各种不同方式的排序。与memcached一样，为了保证效率，数据都是缓存在内存中。区别的是redis会周期性的把更新的数据写入磁盘或者把修改操作写入追加的记录文件，并且在此基础上实现了master-slave(主从)同步。</p>
+</blockquote>
+<h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><h4 id="String（字符串）"><a href="#String（字符串）" class="headerlink" title="String（字符串）"></a>String（字符串）</h4><h6 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h6><h6 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h6><h4 id="List-列表"><a href="#List-列表" class="headerlink" title="List(列表)"></a>List(列表)</h4><h6 id="常用命令-1"><a href="#常用命令-1" class="headerlink" title="常用命令"></a>常用命令</h6><h6 id="使用场景-1"><a href="#使用场景-1" class="headerlink" title="使用场景"></a>使用场景</h6><h4 id="Hash-哈希"><a href="#Hash-哈希" class="headerlink" title="Hash(哈希)"></a>Hash(哈希)</h4><h6 id="常用命令-2"><a href="#常用命令-2" class="headerlink" title="常用命令"></a>常用命令</h6><h6 id="使用场景-2"><a href="#使用场景-2" class="headerlink" title="使用场景"></a>使用场景</h6><h4 id="Set-集合"><a href="#Set-集合" class="headerlink" title="Set(集合)"></a>Set(集合)</h4><h6 id="常用命令-3"><a href="#常用命令-3" class="headerlink" title="常用命令"></a>常用命令</h6><h6 id="使用场景-3"><a href="#使用场景-3" class="headerlink" title="使用场景"></a>使用场景</h6><h4 id="ZSet-有序集合"><a href="#ZSet-有序集合" class="headerlink" title="ZSet(有序集合)"></a>ZSet(有序集合)</h4><h6 id="常用命令-4"><a href="#常用命令-4" class="headerlink" title="常用命令"></a>常用命令</h6><h6 id="使用场景-4"><a href="#使用场景-4" class="headerlink" title="使用场景"></a>使用场景</h6></div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "25071-1608261299158-736",
+			        "name": "Java一学习那些事",
+			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
+			        "keyword": "more"
+			    });
+			}
+			</script>
+		]]></content>
+      <categories>
+        <category>面试</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>微服务</tag>
+        <tag>分布式</tag>
       </tags>
   </entry>
   <entry>
@@ -2488,149 +2597,6 @@ JRE：JVM+类库
       </tags>
   </entry>
   <entry>
-    <title>redis使用总结</title>
-    <url>/redis%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<div id="vip-container"><!-- 展示图片 -->
-<p><img src="http://blog.lutao1726.top/redis-01.jpg" alt="Mou_icon"></p>
-<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><blockquote>
-<p>Redis是一个开源的使用ANSI C语言编写、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，并提供多种语言的API。它支持存储的value类型相对更多，包括string(字符串)、list(链表)、set(集合)、zset(sorted set –有序集合)和hash（哈希类型）。这些数据类型都支持push/pop、add/remove及取交集并集和差集及更丰富的操作，而且这些操作都是原子性的。在此基础上，redis支持各种不同方式的排序。与memcached一样，为了保证效率，数据都是缓存在内存中。区别的是redis会周期性的把更新的数据写入磁盘或者把修改操作写入追加的记录文件，并且在此基础上实现了master-slave(主从)同步。</p>
-</blockquote>
-<h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><h4 id="String（字符串）"><a href="#String（字符串）" class="headerlink" title="String（字符串）"></a>String（字符串）</h4><h6 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h6><h6 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h6><h4 id="List-列表"><a href="#List-列表" class="headerlink" title="List(列表)"></a>List(列表)</h4><h6 id="常用命令-1"><a href="#常用命令-1" class="headerlink" title="常用命令"></a>常用命令</h6><h6 id="使用场景-1"><a href="#使用场景-1" class="headerlink" title="使用场景"></a>使用场景</h6><h4 id="Hash-哈希"><a href="#Hash-哈希" class="headerlink" title="Hash(哈希)"></a>Hash(哈希)</h4><h6 id="常用命令-2"><a href="#常用命令-2" class="headerlink" title="常用命令"></a>常用命令</h6><h6 id="使用场景-2"><a href="#使用场景-2" class="headerlink" title="使用场景"></a>使用场景</h6><h4 id="Set-集合"><a href="#Set-集合" class="headerlink" title="Set(集合)"></a>Set(集合)</h4><h6 id="常用命令-3"><a href="#常用命令-3" class="headerlink" title="常用命令"></a>常用命令</h6><h6 id="使用场景-3"><a href="#使用场景-3" class="headerlink" title="使用场景"></a>使用场景</h6><h4 id="ZSet-有序集合"><a href="#ZSet-有序集合" class="headerlink" title="ZSet(有序集合)"></a>ZSet(有序集合)</h4><h6 id="常用命令-4"><a href="#常用命令-4" class="headerlink" title="常用命令"></a>常用命令</h6><h6 id="使用场景-4"><a href="#使用场景-4" class="headerlink" title="使用场景"></a>使用场景</h6></div>
-
-			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
-			<script>
-			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
-			if (!isMobile) {
-			    var btw = new BTWPlugin();
-			    btw.init({
-			        "id": "vip-container",
-			        "blogId": "25071-1608261299158-736",
-			        "name": "Java一学习那些事",
-			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
-			        "keyword": "more"
-			    });
-			}
-			</script>
-		]]></content>
-      <categories>
-        <category>面试</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>微服务</tag>
-        <tag>分布式</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>linux加密脚本</title>
-    <url>/linux%E5%8A%A0%E5%AF%86%E8%84%9A%E6%9C%AC/</url>
-    <content><![CDATA[<div id="vip-container"><a id="more"></a>
-<h1 id="linux加密脚本"><a href="#linux加密脚本" class="headerlink" title="linux加密脚本"></a>linux加密脚本</h1><ul>
-<li>1.确保已经安装 bc 和 shc</li>
-<li>2.shc只能加密bash shell脚本，无法加密expect脚本<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">shc -v -r -f auto_deploy.sh</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>执行后会产生两个文件，分别是:<br><code>auto_deploy.sh.x</code>    可执行的二进制文件<br><code>auto_deploy.sh.x.c</code>  二进制文件的c源码，这个无用，必须删除以防止脚本流程泄露      </p>
-<p>接着将.sh.x改名<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mv auto_deploy.sh.x auto_deploy</span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line"><span class="comment">## shc相关资料</span></span><br><span class="line"><span class="comment">#### 简介</span></span><br><span class="line">shc是一个专业的加密shell脚本的工具.它的作用是把shell脚本转换为一个可执行的二进制文件，这个办法很好的解决了脚本中含有IP、密码等不希望公开的问题.</span><br><span class="line"></span><br><span class="line">shc的官网下载地址: </span><br><span class="line">`http://www.datsi.fi.upm.es/~frosal/sources/ `</span><br><span class="line"></span><br><span class="line"><span class="comment">#### 安装</span></span><br><span class="line">```bash</span><br><span class="line">tar xzvf shc-3.8.6.tgz</span><br><span class="line"><span class="built_in">cd</span> shc-3.8.6</span><br><span class="line">mkdir -p /usr/<span class="built_in">local</span>/man/man1</span><br></pre></td></tr></table></figure></p>
-<p>这步是必须的，不然安装过程中会报错，shc将安装命令到/usr/local/bin/目录下；将帮助文档存放在/usr/local/man/man1/目录下，如果系统中无此目录，安装时会报错，可创建此目录后再执行安装</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">make install</span><br></pre></td></tr></table></figure>
-<p>这是要回答yes或者y，不能直接回车，否则会报错<br>使用方法:<br>“-f”选项指定需要加密的程序</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># shc -r -f abc.sh </span></span><br><span class="line">[root@localhost ~]<span class="comment"># ll</span></span><br><span class="line">total 64</span><br><span class="line">-rw-r--r--. 1 root root    23 Nov 17 11:14 abc.sh</span><br><span class="line">-rwx--x--x. 1 root root 11520 Nov 17 11:14 abc.sh.x</span><br><span class="line">-rw-r--r--. 1 root root  9174 Nov 17 11:14 abc.sh.x.c</span><br><span class="line">drwxr-xr-x. 2 root root  4096 Nov 17 11:13 shc-3.8.7</span><br><span class="line">-rw-r--r--. 1 root root 20498 Nov 17 11:11 shc-3.8.7.tgz</span><br></pre></td></tr></table></figure>
-<p>运行后会生成两个文件,script-name.x 和 script-name.x.c. 其中script-name.x是加密后的可执行的二进制文件；用./script-name即可运行，script-name.x.c是生成script-name.x的原文件(c语言).<br>另shc还提供了一种设定有效执行期限的方法，可以首先使用shc将shell程序转化为二进制，并加上过期时间，如：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment">#  shc -e 18/10/2006 -m " It's too late to run this script " -f script.sh</span></span><br></pre></td></tr></table></figure>
-<p>题外：</p>
-<p>如果你仅仅是看不见内容就行了的话，不妨用<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gzexe a.sh</span><br></pre></td></tr></table></figure></p>
-<p>原来的 a.sh 就被存为 a.sh~，新的 a.sh 是乱码，但是可以用 sh 的方式运行</p>
-</div>
-
-			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
-			<script>
-			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
-			if (!isMobile) {
-			    var btw = new BTWPlugin();
-			    btw.init({
-			        "id": "vip-container",
-			        "blogId": "25071-1608261299158-736",
-			        "name": "Java一学习那些事",
-			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
-			        "keyword": "more"
-			    });
-			}
-			</script>
-		]]></content>
-      <categories>
-        <category>Linux教程</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>Linux</tag>
-        <tag>运维</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>如何做技术选型？Sentinel 还是 Hystrix？</title>
-    <url>/%E5%A6%82%E4%BD%95%E5%81%9A%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B%EF%BC%9FSentinel%20%E8%BF%98%E6%98%AF%20Hystrix%EF%BC%9F/</url>
-    <content><![CDATA[<div id="vip-container"><!-- 展示图片 -->
-<p><img src="http://justyy.com/wp-content/uploads/2016/01/markdown-syntax-language.png" alt="Mou_icon"></p>
-<details><br><summary>Title</summary><br>content!!!<br></details>
-</div>
-
-			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
-			<script>
-			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
-			if (!isMobile) {
-			    var btw = new BTWPlugin();
-			    btw.init({
-			        "id": "vip-container",
-			        "blogId": "25071-1608261299158-736",
-			        "name": "Java一学习那些事",
-			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
-			        "keyword": "more"
-			    });
-			}
-			</script>
-		]]></content>
-      <categories>
-        <category>框架</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>Spring</tag>
-        <tag>SpringCloud</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>zookeeper使用总结</title>
-    <url>/zookeeper%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<div id="vip-container"><!-- 展示图片 -->
-<p><img src="http://justyy.com/wp-content/uploads/2016/01/markdown-syntax-language.png" alt="Mou_icon"></p>
-</div>
-
-			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
-			<script>
-			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
-			if (!isMobile) {
-			    var btw = new BTWPlugin();
-			    btw.init({
-			        "id": "vip-container",
-			        "blogId": "25071-1608261299158-736",
-			        "name": "Java一学习那些事",
-			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
-			        "keyword": "more"
-			    });
-			}
-			</script>
-		]]></content>
-      <categories>
-        <category>面试</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>微服务</tag>
-        <tag>分布式</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>springboot项目配置阿里云ssl证书</title>
     <url>/springboot%E9%A1%B9%E7%9B%AE%E9%85%8D%E7%BD%AE%E9%98%BF%E9%87%8C%E4%BA%91ssl%E8%AF%81%E4%B9%A6/</url>
     <content><![CDATA[<div id="vip-container"><p><img src="http://codeimages.lutao1726.top/springboot.jpg" alt="Mou_icon"><br><a id="more"></a></p>
@@ -2670,6 +2636,69 @@ JRE：JVM+类库
         <tag>Java</tag>
         <tag>Spring</tag>
         <tag>SpringBoot</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>zookeeper使用总结</title>
+    <url>/zookeeper%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<div id="vip-container"><!-- 展示图片 -->
+<p><img src="http://justyy.com/wp-content/uploads/2016/01/markdown-syntax-language.png" alt="Mou_icon"></p>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "25071-1608261299158-736",
+			        "name": "Java一学习那些事",
+			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
+			        "keyword": "more"
+			    });
+			}
+			</script>
+		]]></content>
+      <categories>
+        <category>面试</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>微服务</tag>
+        <tag>分布式</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何做技术选型？Sentinel 还是 Hystrix？</title>
+    <url>/%E5%A6%82%E4%BD%95%E5%81%9A%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B%EF%BC%9FSentinel%20%E8%BF%98%E6%98%AF%20Hystrix%EF%BC%9F/</url>
+    <content><![CDATA[<div id="vip-container"><!-- 展示图片 -->
+<p><img src="http://justyy.com/wp-content/uploads/2016/01/markdown-syntax-language.png" alt="Mou_icon"></p>
+<details><br><summary>Title</summary><br>content!!!<br></details>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "25071-1608261299158-736",
+			        "name": "Java一学习那些事",
+			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
+			        "keyword": "more"
+			    });
+			}
+			</script>
+		]]></content>
+      <categories>
+        <category>框架</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Spring</tag>
+        <tag>SpringCloud</tag>
       </tags>
   </entry>
   <entry>
@@ -2769,6 +2798,7 @@ JRE：JVM+类库
 <h2 id="postgresql"><a href="#postgresql" class="headerlink" title="postgresql"></a>postgresql</h2><p>mysql使用GROUP_CONCAT子查询多字符返回</p>
 <h2 id="需求描述"><a href="#需求描述" class="headerlink" title="需求描述"></a>需求描述</h2><p>一个订单有多个类型，数据库保存type_ids字段为多个id用，隔开，查询某个订单所属类型详情时，返回类型对应的名称，即返回type_names为多个名称用，隔开。<br>解决方案<br><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> i.id, order_id,type_ids,</span><br><span class="line">(<span class="keyword">SELECT</span> <span class="keyword">GROUP_CONCAT</span>(t.<span class="string">`name`</span>) <span class="keyword">FROM</span> t_gas_type t <span class="keyword">WHERE</span> FIND_IN_SET(t.id,type_ids)) <span class="keyword">AS</span> type_names</span><br><span class="line"><span class="keyword">FROM</span> t_inspect i</span><br></pre></td></tr></table></figure></p>
 <p>在一开始的应用中，使用了如下的解决方案，但是结果返回不正确。<br><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"> <span class="keyword">SELECT</span> i.id, order_id,gas_type_ids,</span><br><span class="line">(<span class="keyword">SELECT</span> <span class="keyword">GROUP_CONCAT</span>(t.<span class="string">`name`</span>) <span class="keyword">FROM</span> t_gas_type t <span class="keyword">WHERE</span> t.id <span class="keyword">in</span>(gas_type_ids)) <span class="keyword">AS</span> gas_type_names</span><br><span class="line"><span class="keyword">FROM</span> t_inspect i</span><br></pre></td></tr></table></figure></p>
+<h2 id="mysql转换表类型为utf8mb4生成语句"><a href="#mysql转换表类型为utf8mb4生成语句" class="headerlink" title="mysql转换表类型为utf8mb4生成语句"></a>mysql转换表类型为utf8mb4生成语句</h2><p>SELECT CONCAT(‘ALTER TABLE ‘,TABLE_NAME,’ CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;’) from information_schema.TABLES WHERE TABLE_SCHEMA = ‘dms_huizhou’;</p>
 </div>
 
 			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
@@ -4172,7 +4202,7 @@ _   底线
 </blockquote>
 <p>邮址的自动链接也很类似，只是 Markdown 会先做一个编码转换的过程，把文字字符转成 16 进位码的 HTML 实体，这样的格式可以糊弄一些不好的邮址收集机器人，例如：</p>
 <blockquote>
-<p><a href="mailto:&#97;&#x64;&#x64;&#114;&#x65;&#115;&#x73;&#64;&#x65;&#120;&#97;&#x6d;&#x70;&#x6c;&#x65;&#46;&#99;&#x6f;&#109;" target="_blank" rel="noopener">&#97;&#x64;&#x64;&#114;&#x65;&#115;&#x73;&#64;&#x65;&#120;&#97;&#x6d;&#x70;&#x6c;&#x65;&#46;&#99;&#x6f;&#109;</a></p>
+<p><a href="mailto:&#x61;&#x64;&#100;&#114;&#101;&#115;&#x73;&#x40;&#x65;&#120;&#97;&#x6d;&#112;&#108;&#101;&#46;&#x63;&#111;&#109;" target="_blank" rel="noopener">&#x61;&#x64;&#100;&#114;&#101;&#115;&#x73;&#x40;&#x65;&#120;&#97;&#x6d;&#112;&#108;&#101;&#46;&#x63;&#111;&#109;</a></p>
 </blockquote>
 <p>Markdown 会转成：</p>
 <blockquote>
@@ -5067,35 +5097,6 @@ _   底线
       <tags>
         <tag>Java</tag>
         <tag>Book</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java基础回顾-集合(1)</title>
-    <url>/Java%E5%9F%BA%E7%A1%80%E5%9B%9E%E9%A1%BE-%E9%9B%86%E5%90%88/</url>
-    <content><![CDATA[<div id="vip-container"><a id="more"></a>
-<h2 id="Java集合"><a href="#Java集合" class="headerlink" title=" Java集合"></a> Java集合</h2></div>
-
-			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
-			<script>
-			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
-			if (!isMobile) {
-			    var btw = new BTWPlugin();
-			    btw.init({
-			        "id": "vip-container",
-			        "blogId": "25071-1608261299158-736",
-			        "name": "Java一学习那些事",
-			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
-			        "keyword": "more"
-			    });
-			}
-			</script>
-		]]></content>
-      <categories>
-        <category>Java教程</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>Java基础</tag>
       </tags>
   </entry>
 </search>
