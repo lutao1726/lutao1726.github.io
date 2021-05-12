@@ -157,43 +157,6 @@
       </tags>
   </entry>
   <entry>
-    <title>设计模式(4)-单例模式</title>
-    <url>/DesignPatterns(4)/</url>
-    <content><![CDATA[<div id="vip-container"><a id="more"></a>
-<h2 id="单例模式（Singleton）"><a href="#单例模式（Singleton）" class="headerlink" title="单例模式（Singleton）"></a>单例模式（Singleton）</h2><p><code>单例对象（Singleton）是一种常用的设计模式。在Java应用中，单例对象能保证在一个JVM中，该对象只有一个实例存在。这样的模式有几个好处：</code></p>
-<blockquote>
-<p>1.某些类创建比较频繁，对于一些大型的对象，这是一笔很大的系统开销。<br>2.省去了new操作符，降低了系统内存的使用频率，减轻GC压力。<br>3.有些类如交易所的核心交易引擎，控制着交易流程，如果该类可以创建多个的话，系统完全乱了。（比如一个军队出现了多个司令员同时指挥，肯定会乱成一团），所以只有使用单例模式，才能保证核心交易服务器独立控制整个流程。</p>
-</blockquote>
-<p><code>饿汉式</code><br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Singleton singleton = <span class="keyword">new</span> Singleton();</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> singleton;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><code>懒汉式</code><br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Singleton singleton = <span class="keyword">null</span>;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(singleton==<span class="keyword">null</span>)</span><br><span class="line">            singleton= <span class="keyword">new</span> Single();</span><br><span class="line">        <span class="keyword">return</span> singleton;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><blockquote>
-</blockquote>
-</div>
-
-			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
-			<script>
-			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
-			if (!isMobile) {
-			    var btw = new BTWPlugin();
-			    btw.init({
-			        "id": "vip-container",
-			        "blogId": "25071-1608261299158-736",
-			        "name": "Java一学习那些事",
-			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
-			        "keyword": "more"
-			    });
-			}
-			</script>
-		]]></content>
-      <categories>
-        <category>设计模式教程</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>设计模式</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>设计模式(3)-抽象工厂模式</title>
     <url>/DesignPatterns(3)/</url>
     <content><![CDATA[<div id="vip-container"><a id="more"></a>
@@ -237,22 +200,17 @@
       </tags>
   </entry>
   <entry>
-    <title>Docker相关整理</title>
-    <url>/Docker%E7%9B%B8%E5%85%B3%E6%95%B4%E7%90%86/</url>
+    <title>设计模式(4)-单例模式</title>
+    <url>/DesignPatterns(4)/</url>
     <content><![CDATA[<div id="vip-container"><a id="more"></a>
-<h1 id="CentOS-Docker-安装"><a href="#CentOS-Docker-安装" class="headerlink" title="CentOS Docker 安装"></a>CentOS Docker 安装</h1><h2 id="使用-yum-安装"><a href="#使用-yum-安装" class="headerlink" title="使用 yum 安装"></a>使用 yum 安装</h2><p>Docker 要求 CentOS 系统的内核版本高于 3.10 ，查看本页面的前提条件来验证你的CentOS 版本是否支持 Docker 。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">uname -r</span><br></pre></td></tr></table></figure></p>
-<p><img src="http://www.runoob.com/wp-content/uploads/2016/05/docker08.png" alt></p>
-<h2 id="安装-Docker"><a href="#安装-Docker" class="headerlink" title="安装 Docker"></a>安装 Docker</h2><p>从 2017 年 3 月开始 docker 在原来的基础上分为两个分支版本: Docker CE 和 Docker EE。<br>Docker CE 即社区免费版，Docker EE 即企业版，强调安全，但需付费使用。<br>本文介绍 Docker CE 的安装使用。<br>移除旧的版本：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo yum remove docker \</span><br><span class="line">              docker-client \</span><br><span class="line">              docker-client-latest \</span><br><span class="line">              docker-common \</span><br><span class="line">              docker-latest \</span><br><span class="line">              docker-latest-logrotate \</span><br><span class="line">              docker-logrotate \</span><br><span class="line">              docker-selinux \</span><br><span class="line">              docker-engine-selinux \</span><br><span class="line">              docker-engine</span><br></pre></td></tr></table></figure></p>
-<p>安装一些必要的系统工具：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo yum install -y yum-utils device-mapper-persistent-data lvm2</span><br></pre></td></tr></table></figure></p>
-<p>添加软件源信息：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</span><br></pre></td></tr></table></figure></p>
-<p>更新 yum 缓存：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo yum makecache fast</span><br></pre></td></tr></table></figure></p>
-<p>安装docker-ce<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo yum -y install docker-ce</span><br></pre></td></tr></table></figure></p>
-<p>启动 Docker 后台服务<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo systemctl start docker</span><br></pre></td></tr></table></figure></p>
-<h1 id="解决非root用户使用docker的办法"><a href="#解决非root用户使用docker的办法" class="headerlink" title="解决非root用户使用docker的办法"></a>解决非root用户使用docker的办法</h1><p>创建docker组<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo groupadd docker</span><br></pre></td></tr></table></figure></p>
-<p>将当前用户加入docker组<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo gpasswd -a $&#123;USER&#125; docker</span><br></pre></td></tr></table></figure></p>
-<p>重新启动docker服务（下面是CentOS7的命令）<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo service docker restart或sudo systemctl restart docker</span><br></pre></td></tr></table></figure></p>
-<p>当前用户退出系统重新登陆即可</p>
-<p>dockerexec不同用户登入<br>docker exec -it –user root &lt;容器ID&gt; /bin/bash<br><img src="https://www.2cto.com/uploadfile/Collfiles/20180403/201804030931161219.png" alt></p>
+<h2 id="单例模式（Singleton）"><a href="#单例模式（Singleton）" class="headerlink" title="单例模式（Singleton）"></a>单例模式（Singleton）</h2><p><code>单例对象（Singleton）是一种常用的设计模式。在Java应用中，单例对象能保证在一个JVM中，该对象只有一个实例存在。这样的模式有几个好处：</code></p>
+<blockquote>
+<p>1.某些类创建比较频繁，对于一些大型的对象，这是一笔很大的系统开销。<br>2.省去了new操作符，降低了系统内存的使用频率，减轻GC压力。<br>3.有些类如交易所的核心交易引擎，控制着交易流程，如果该类可以创建多个的话，系统完全乱了。（比如一个军队出现了多个司令员同时指挥，肯定会乱成一团），所以只有使用单例模式，才能保证核心交易服务器独立控制整个流程。</p>
+</blockquote>
+<p><code>饿汉式</code><br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Singleton singleton = <span class="keyword">new</span> Singleton();</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> singleton;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><code>懒汉式</code><br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Singleton singleton = <span class="keyword">null</span>;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(singleton==<span class="keyword">null</span>)</span><br><span class="line">            singleton= <span class="keyword">new</span> Single();</span><br><span class="line">        <span class="keyword">return</span> singleton;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><blockquote>
+</blockquote>
 </div>
 
 			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
@@ -271,12 +229,11 @@
 			</script>
 		]]></content>
       <categories>
-        <category>Linux教程</category>
+        <category>设计模式教程</category>
       </categories>
       <tags>
         <tag>Java</tag>
-        <tag>Linux</tag>
-        <tag>运维</tag>
+        <tag>设计模式</tag>
       </tags>
   </entry>
   <entry>
@@ -375,35 +332,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Java读取xml的四种方法</title>
-    <url>/JavaReadXml/</url>
-    <content><![CDATA[<div id="vip-container"><a id="more"></a>
-</div>
-
-			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
-			<script>
-			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
-			if (!isMobile) {
-			    var btw = new BTWPlugin();
-			    btw.init({
-			        "id": "vip-container",
-			        "blogId": "25071-1608261299158-736",
-			        "name": "Java一学习那些事",
-			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
-			        "keyword": "more"
-			    });
-			}
-			</script>
-		]]></content>
-      <categories>
-        <category>Java教程</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>Xml</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>分布式-zookeeper与dubbo</title>
     <url>/Java-%E5%88%86%E5%B8%83%E5%BC%8F-1/</url>
     <content><![CDATA[<div id="vip-container"><a id="more"></a>
@@ -449,6 +377,78 @@
       <tags>
         <tag>Java</tag>
         <tag>分布式</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Docker相关整理</title>
+    <url>/Docker%E7%9B%B8%E5%85%B3%E6%95%B4%E7%90%86/</url>
+    <content><![CDATA[<div id="vip-container"><a id="more"></a>
+<h1 id="CentOS-Docker-安装"><a href="#CentOS-Docker-安装" class="headerlink" title="CentOS Docker 安装"></a>CentOS Docker 安装</h1><h2 id="使用-yum-安装"><a href="#使用-yum-安装" class="headerlink" title="使用 yum 安装"></a>使用 yum 安装</h2><p>Docker 要求 CentOS 系统的内核版本高于 3.10 ，查看本页面的前提条件来验证你的CentOS 版本是否支持 Docker 。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">uname -r</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://www.runoob.com/wp-content/uploads/2016/05/docker08.png" alt></p>
+<h2 id="安装-Docker"><a href="#安装-Docker" class="headerlink" title="安装 Docker"></a>安装 Docker</h2><p>从 2017 年 3 月开始 docker 在原来的基础上分为两个分支版本: Docker CE 和 Docker EE。<br>Docker CE 即社区免费版，Docker EE 即企业版，强调安全，但需付费使用。<br>本文介绍 Docker CE 的安装使用。<br>移除旧的版本：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo yum remove docker \</span><br><span class="line">              docker-client \</span><br><span class="line">              docker-client-latest \</span><br><span class="line">              docker-common \</span><br><span class="line">              docker-latest \</span><br><span class="line">              docker-latest-logrotate \</span><br><span class="line">              docker-logrotate \</span><br><span class="line">              docker-selinux \</span><br><span class="line">              docker-engine-selinux \</span><br><span class="line">              docker-engine</span><br></pre></td></tr></table></figure></p>
+<p>安装一些必要的系统工具：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo yum install -y yum-utils device-mapper-persistent-data lvm2</span><br></pre></td></tr></table></figure></p>
+<p>添加软件源信息：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</span><br></pre></td></tr></table></figure></p>
+<p>更新 yum 缓存：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo yum makecache fast</span><br></pre></td></tr></table></figure></p>
+<p>安装docker-ce<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo yum -y install docker-ce</span><br></pre></td></tr></table></figure></p>
+<p>启动 Docker 后台服务<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo systemctl start docker</span><br></pre></td></tr></table></figure></p>
+<h1 id="解决非root用户使用docker的办法"><a href="#解决非root用户使用docker的办法" class="headerlink" title="解决非root用户使用docker的办法"></a>解决非root用户使用docker的办法</h1><p>创建docker组<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo groupadd docker</span><br></pre></td></tr></table></figure></p>
+<p>将当前用户加入docker组<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo gpasswd -a $&#123;USER&#125; docker</span><br></pre></td></tr></table></figure></p>
+<p>重新启动docker服务（下面是CentOS7的命令）<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo service docker restart或sudo systemctl restart docker</span><br></pre></td></tr></table></figure></p>
+<p>当前用户退出系统重新登陆即可</p>
+<p>dockerexec不同用户登入<br>docker exec -it –user root &lt;容器ID&gt; /bin/bash<br><img src="https://www.2cto.com/uploadfile/Collfiles/20180403/201804030931161219.png" alt></p>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "25071-1608261299158-736",
+			        "name": "Java一学习那些事",
+			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
+			        "keyword": "more"
+			    });
+			}
+			</script>
+		]]></content>
+      <categories>
+        <category>Linux教程</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Linux</tag>
+        <tag>运维</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java读取xml的四种方法</title>
+    <url>/JavaReadXml/</url>
+    <content><![CDATA[<div id="vip-container"><a id="more"></a>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "25071-1608261299158-736",
+			        "name": "Java一学习那些事",
+			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
+			        "keyword": "more"
+			    });
+			}
+			</script>
+		]]></content>
+      <categories>
+        <category>Java教程</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Xml</tag>
       </tags>
   </entry>
   <entry>
@@ -509,7 +509,7 @@
   </entry>
   <entry>
     <title>Java分布式事务总结</title>
-    <url>/Java%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%E6%80%BB%E7%BB%93/</url>
+    <url>/Java%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<div id="vip-container"><!-- 展示图片 -->
 <p><img src="http://justyy.com/wp-content/uploads/2016/01/markdown-syntax-language.png" alt="Mou_icon"></p>
 </div>
@@ -540,7 +540,7 @@
   </entry>
   <entry>
     <title>Java分布式事务总结</title>
-    <url>/Java%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E6%80%BB%E7%BB%93/</url>
+    <url>/Java%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<div id="vip-container"><!-- 展示图片 -->
 <p><img src="http://justyy.com/wp-content/uploads/2016/01/markdown-syntax-language.png" alt="Mou_icon"></p>
 </div>
@@ -916,6 +916,43 @@ JRE：JVM+类库
       </tags>
   </entry>
   <entry>
+    <title>Java基础回顾-多线程(1)</title>
+    <url>/Java%E5%9F%BA%E7%A1%80%E5%9B%9E%E9%A1%BE-%E5%A4%9A%E7%BA%BF%E7%A8%8B(1)/</url>
+    <content><![CDATA[<div id="vip-container"><a id="more"></a>
+<h1 id="Java-实现多线程的3种方法-继承Thread类-实现Runnable接口-实现Callable接口"><a href="#Java-实现多线程的3种方法-继承Thread类-实现Runnable接口-实现Callable接口" class="headerlink" title=" Java 实现多线程的3种方法:继承Thread类;实现Runnable接口;实现Callable接口"></a> Java 实现多线程的3种方法:继承Thread类;实现Runnable接口;实现Callable接口</h1><p> 众所周知实现线程的方法具体有2种,但是还有一种,不是所有的人都知道。</p>
+<blockquote>
+<p>(1).继承Thread类，重写run()方法；<br>(2).实现Runnable接口，重写run()方法；<br>(3).实现Callable接口，重写call方法；</p>
+</blockquote>
+<h2 id="第一种实现方式：继承Thread类，重写run方法"><a href="#第一种实现方式：继承Thread类，重写run方法" class="headerlink" title="第一种实现方式：继承Thread类，重写run方法"></a>第一种实现方式：继承Thread类，重写run方法</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadWay</span> <span class="keyword">extends</span> <span class="title">Thread</span></span>&#123;</span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(;;)&#123;</span><br><span class="line">      <span class="keyword">try</span>&#123;</span><br><span class="line">        Thread.sleep(<span class="number">1000</span>);<span class="comment">//毫秒  </span></span><br><span class="line">        System.out.println(Thread.currentThread().getName() + <span class="string">"...extends way"</span>);</span><br><span class="line">      &#125;<span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">        e.printStackTrace();  </span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="第二种实现方式：实现Runnable接口，重写run-方法；"><a href="#第二种实现方式：实现Runnable接口，重写run-方法；" class="headerlink" title="第二种实现方式：实现Runnable接口，重写run()方法；   "></a>第二种实现方式：实现Runnable接口，重写run()方法；   </h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RunnableWay</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span>&#123;</span><br><span class="line">  <span class="meta">@Override</span>  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">        <span class="keyword">for</span> (; ; ) &#123;  </span><br><span class="line">            <span class="keyword">try</span> &#123;  </span><br><span class="line">                Thread.sleep(<span class="number">1000</span>);<span class="comment">//毫秒  </span></span><br><span class="line">                System.out.println(Thread.currentThread().getName() + <span class="string">"...implements Runnable way"</span>);  </span><br><span class="line">            &#125; <span class="keyword">catch</span> (Exception e) &#123;  </span><br><span class="line">                e.printStackTrace();  </span><br><span class="line">            &#125;  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="第三种实现方式：实现Callable接口，重写call方法；"><a href="#第三种实现方式：实现Callable接口，重写call方法；" class="headerlink" title="第三种实现方式：实现Callable接口，重写call方法；"></a>第三种实现方式：实现Callable接口，重写call方法；</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Callable和Runnable有几点不同：</span></span><br><span class="line"><span class="comment"> * （1）Callable规定的方法是call()，而Runnable规定的方法是run().</span></span><br><span class="line"><span class="comment"> * （2）Callable的任务执行后可返回值，而Runnable的任务是不能返回值的。</span></span><br><span class="line"><span class="comment"> * （3）call()方法可抛出异常，而run()方法是不能抛出异常的。</span></span><br><span class="line"><span class="comment"> * （4）运行Callable任务可拿到一个Future对象，</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;</span></span><br><span class="line"><span class="comment"> */</span>  </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CallableWay</span> <span class="keyword">implements</span> <span class="title">Callable</span>&lt;<span class="title">Integer</span>&gt; </span>&#123;  </span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span>  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> Integer <span class="title">call</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;  </span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;  </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;  </span><br><span class="line">            <span class="keyword">try</span> &#123;  </span><br><span class="line">                Thread.sleep(<span class="number">1000</span>);<span class="comment">//毫秒  </span></span><br><span class="line">                sum += <span class="number">1</span>;  </span><br><span class="line">                System.out.println(Thread.currentThread().getName() + <span class="string">"...implements Callable&lt;T&gt;..."</span> + sum);  </span><br><span class="line">            &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;  </span><br><span class="line">                e.printStackTrace();  </span><br><span class="line">            &#125;  </span><br><span class="line">        &#125;  </span><br><span class="line">        <span class="keyword">return</span> sum;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当然第三种并不常见，目前只是简单的记录下<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 线程测试（实现多线程的几种方式）</span></span><br><span class="line"><span class="comment"> * &lt;p&gt; </span></span><br><span class="line"><span class="comment"> */</span>  </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;  </span><br><span class="line">        newThreadWay1();<span class="comment">//实现Runnable接口  </span></span><br><span class="line">        <span class="comment">//newThreadWay2();//继承Thread类  </span></span><br><span class="line">        <span class="comment">//newThreadWay3();//实现Callable接口  </span></span><br><span class="line">        <span class="comment">//newThreadWay1_();//也就是个简单的匿名对象，直接实现Runnable接口，省去了新建个类的步骤  </span></span><br><span class="line">        <span class="comment">//newThreadWay1__();//一样也是实现Runnable接口，省去了新建个类的步骤，不过不是匿名对象而已  </span></span><br><span class="line">    &#125;  </span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 创建线程方式1实现</span></span><br><span class="line"><span class="comment">     * 实现Runnable接口，重写run方法</span></span><br><span class="line"><span class="comment">     * 实现接口的优点：可以方便扩展</span></span><br><span class="line"><span class="comment">     */</span>  </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">newThreadWay1</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">        ThreadWay1 threadWay1 = <span class="keyword">new</span> ThreadWay1();  </span><br><span class="line">        <span class="keyword">new</span> Thread(threadWay1).start();  </span><br><span class="line">        <span class="comment">//new Thread(new ThreadWay1()).start();//等于上面的2行代码  </span></span><br><span class="line">        System.out.println(Thread.currentThread().getName() + <span class="string">"...implements Runnable way"</span>);  </span><br><span class="line">    &#125;  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 创建线程方式2实现</span></span><br><span class="line"><span class="comment">     * 继承Thread类，重写run函数</span></span><br><span class="line"><span class="comment">     */</span>  </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">newThreadWay2</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">        ThreadWay2 threadWay2 = <span class="keyword">new</span> ThreadWay2();  </span><br><span class="line">        threadWay2.start();  </span><br><span class="line">        <span class="comment">//new ThreadWay2().start();//等于上面的2行代码  </span></span><br><span class="line">        System.out.println(Thread.currentThread().getName() + <span class="string">"...extends way"</span>);  </span><br><span class="line">    &#125;  </span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 创建线程方式3实现</span></span><br><span class="line"><span class="comment">     * 实现Callable接口，重写call方法</span></span><br><span class="line"><span class="comment">     */</span>  </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">newThreadWay3</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">        <span class="keyword">int</span> resultFromThread;  </span><br><span class="line">        <span class="keyword">try</span> &#123;  </span><br><span class="line">            ThreadWay3 threadWay3 = <span class="keyword">new</span> ThreadWay3();  </span><br><span class="line">            FutureTask&lt;Integer&gt; future = <span class="keyword">new</span> FutureTask&lt;&gt;(threadWay3);  </span><br><span class="line">            <span class="keyword">new</span> Thread(future).start();  </span><br><span class="line">            Thread.sleep(<span class="number">5000</span>);<span class="comment">// 可能做一些事情  </span></span><br><span class="line">            <span class="comment">//注意：  </span></span><br><span class="line">            <span class="comment">// 这个有个问题：主线程必须等子线程执行完，才可以继续执行，变成了同步啦，这就不太好啦。失去了多线程的意义啦。  </span></span><br><span class="line">            resultFromThread = future.get();  </span><br><span class="line">            System.out.println(Thread.currentThread().getName() + <span class="string">"...implements Callable&lt;T&gt;..."</span> + resultFromThread);  </span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;  </span><br><span class="line">            e.printStackTrace();  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 创建线程方式1实现</span></span><br><span class="line"><span class="comment">     * 实现Runnable接口，重写run方法</span></span><br><span class="line"><span class="comment">     * (匿名对象：new个线程对象直接开启)</span></span><br><span class="line"><span class="comment">     */</span>  </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">newThreadWay1_</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">        <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;  </span><br><span class="line">            <span class="meta">@Override</span>  </span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">                <span class="keyword">for</span> (; ; ) &#123;<span class="comment">//死循环  </span></span><br><span class="line">                    <span class="keyword">try</span> &#123;  </span><br><span class="line">                        Thread.sleep(<span class="number">1000</span>);<span class="comment">//毫秒  </span></span><br><span class="line">                        System.out.println(Thread.currentThread().getName() + <span class="string">"...new Runnable()匿名对象"</span>);  </span><br><span class="line">                    &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;  </span><br><span class="line">                        e.printStackTrace();  </span><br><span class="line">                    &#125;  </span><br><span class="line">                &#125;  </span><br><span class="line"></span><br><span class="line">            &#125;  </span><br><span class="line">        &#125;).start();  </span><br><span class="line">        System.out.println(Thread.currentThread().getName() + <span class="string">"......new Runnable()匿名对象"</span>);  </span><br><span class="line">    &#125;  </span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 创建线程方式1实现</span></span><br><span class="line"><span class="comment">     * 实现Runnable接口，重写run方法</span></span><br><span class="line"><span class="comment">     * (实例化一个线程对象，然后调用start方法开启线程)</span></span><br><span class="line"><span class="comment">     */</span>  </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">newThreadWay1__</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">        Thread thread = <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;  </span><br><span class="line">            <span class="meta">@Override</span>  </span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">                <span class="keyword">for</span> (; ; ) &#123;  </span><br><span class="line">                    <span class="keyword">try</span> &#123;  </span><br><span class="line">                        Thread.sleep(<span class="number">1000</span>);<span class="comment">//毫秒  </span></span><br><span class="line">                        System.out.println(Thread.currentThread().getName() + <span class="string">"...new Runnable()非匿名对象"</span>);  </span><br><span class="line">                    &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;  </span><br><span class="line">                        e.printStackTrace();  </span><br><span class="line">                    &#125;  </span><br><span class="line">                &#125;  </span><br><span class="line">            &#125;  </span><br><span class="line">        &#125;);  </span><br><span class="line">        thread.start();  </span><br><span class="line">        System.out.println(Thread.currentThread().getName() + <span class="string">"...new Runnable()非匿名对象"</span>);  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "25071-1608261299158-736",
+			        "name": "Java一学习那些事",
+			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
+			        "keyword": "more"
+			    });
+			}
+			</script>
+		]]></content>
+      <categories>
+        <category>Java教程</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Java基础</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java基础回顾-集合(1)</title>
     <url>/Java%E5%9F%BA%E7%A1%80%E5%9B%9E%E9%A1%BE-%E9%9B%86%E5%90%88/</url>
     <content><![CDATA[<div id="vip-container"><a id="more"></a>
@@ -942,36 +979,6 @@ JRE：JVM+类库
       <tags>
         <tag>Java</tag>
         <tag>Java基础</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java锁汇总</title>
-    <url>/Java%E9%94%81%E6%B1%87%E6%80%BB/</url>
-    <content><![CDATA[<div id="vip-container"><!-- 展示图片 -->
-<p><img src="http://justyy.com/wp-content/uploads/2016/01/markdown-syntax-language.png" alt="Mou_icon"></p>
-<h3 id="Java锁汇总"><a href="#Java锁汇总" class="headerlink" title="Java锁汇总"></a>Java锁汇总</h3><p>各种锁汇总，乐观锁、悲观锁、分布式锁、可重入锁、互斥锁、读写锁、分段锁、类锁、行级锁等</p>
-<h4 id="乐观锁"><a href="#乐观锁" class="headerlink" title="乐观锁"></a>乐观锁</h4></div>
-
-			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
-			<script>
-			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
-			if (!isMobile) {
-			    var btw = new BTWPlugin();
-			    btw.init({
-			        "id": "vip-container",
-			        "blogId": "25071-1608261299158-736",
-			        "name": "Java一学习那些事",
-			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
-			        "keyword": "more"
-			    });
-			}
-			</script>
-		]]></content>
-      <categories>
-        <category>Java教程</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
       </tags>
   </entry>
   <entry>
@@ -1037,18 +1044,12 @@ JRE：JVM+类库
       </tags>
   </entry>
   <entry>
-    <title>Java基础回顾-多线程(1)</title>
-    <url>/Java%E5%9F%BA%E7%A1%80%E5%9B%9E%E9%A1%BE-%E5%A4%9A%E7%BA%BF%E7%A8%8B(1)/</url>
-    <content><![CDATA[<div id="vip-container"><a id="more"></a>
-<h1 id="Java-实现多线程的3种方法-继承Thread类-实现Runnable接口-实现Callable接口"><a href="#Java-实现多线程的3种方法-继承Thread类-实现Runnable接口-实现Callable接口" class="headerlink" title=" Java 实现多线程的3种方法:继承Thread类;实现Runnable接口;实现Callable接口"></a> Java 实现多线程的3种方法:继承Thread类;实现Runnable接口;实现Callable接口</h1><p> 众所周知实现线程的方法具体有2种,但是还有一种,不是所有的人都知道。</p>
-<blockquote>
-<p>(1).继承Thread类，重写run()方法；<br>(2).实现Runnable接口，重写run()方法；<br>(3).实现Callable接口，重写call方法；</p>
-</blockquote>
-<h2 id="第一种实现方式：继承Thread类，重写run方法"><a href="#第一种实现方式：继承Thread类，重写run方法" class="headerlink" title="第一种实现方式：继承Thread类，重写run方法"></a>第一种实现方式：继承Thread类，重写run方法</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadWay</span> <span class="keyword">extends</span> <span class="title">Thread</span></span>&#123;</span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(;;)&#123;</span><br><span class="line">      <span class="keyword">try</span>&#123;</span><br><span class="line">        Thread.sleep(<span class="number">1000</span>);<span class="comment">//毫秒  </span></span><br><span class="line">        System.out.println(Thread.currentThread().getName() + <span class="string">"...extends way"</span>);</span><br><span class="line">      &#125;<span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">        e.printStackTrace();  </span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="第二种实现方式：实现Runnable接口，重写run-方法；"><a href="#第二种实现方式：实现Runnable接口，重写run-方法；" class="headerlink" title="第二种实现方式：实现Runnable接口，重写run()方法；   "></a>第二种实现方式：实现Runnable接口，重写run()方法；   </h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RunnableWay</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span>&#123;</span><br><span class="line">  <span class="meta">@Override</span>  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">        <span class="keyword">for</span> (; ; ) &#123;  </span><br><span class="line">            <span class="keyword">try</span> &#123;  </span><br><span class="line">                Thread.sleep(<span class="number">1000</span>);<span class="comment">//毫秒  </span></span><br><span class="line">                System.out.println(Thread.currentThread().getName() + <span class="string">"...implements Runnable way"</span>);  </span><br><span class="line">            &#125; <span class="keyword">catch</span> (Exception e) &#123;  </span><br><span class="line">                e.printStackTrace();  </span><br><span class="line">            &#125;  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="第三种实现方式：实现Callable接口，重写call方法；"><a href="#第三种实现方式：实现Callable接口，重写call方法；" class="headerlink" title="第三种实现方式：实现Callable接口，重写call方法；"></a>第三种实现方式：实现Callable接口，重写call方法；</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Callable和Runnable有几点不同：</span></span><br><span class="line"><span class="comment"> * （1）Callable规定的方法是call()，而Runnable规定的方法是run().</span></span><br><span class="line"><span class="comment"> * （2）Callable的任务执行后可返回值，而Runnable的任务是不能返回值的。</span></span><br><span class="line"><span class="comment"> * （3）call()方法可抛出异常，而run()方法是不能抛出异常的。</span></span><br><span class="line"><span class="comment"> * （4）运行Callable任务可拿到一个Future对象，</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;</span></span><br><span class="line"><span class="comment"> */</span>  </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CallableWay</span> <span class="keyword">implements</span> <span class="title">Callable</span>&lt;<span class="title">Integer</span>&gt; </span>&#123;  </span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span>  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> Integer <span class="title">call</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;  </span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;  </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;  </span><br><span class="line">            <span class="keyword">try</span> &#123;  </span><br><span class="line">                Thread.sleep(<span class="number">1000</span>);<span class="comment">//毫秒  </span></span><br><span class="line">                sum += <span class="number">1</span>;  </span><br><span class="line">                System.out.println(Thread.currentThread().getName() + <span class="string">"...implements Callable&lt;T&gt;..."</span> + sum);  </span><br><span class="line">            &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;  </span><br><span class="line">                e.printStackTrace();  </span><br><span class="line">            &#125;  </span><br><span class="line">        &#125;  </span><br><span class="line">        <span class="keyword">return</span> sum;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>当然第三种并不常见，目前只是简单的记录下<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 线程测试（实现多线程的几种方式）</span></span><br><span class="line"><span class="comment"> * &lt;p&gt; </span></span><br><span class="line"><span class="comment"> */</span>  </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;  </span><br><span class="line">        newThreadWay1();<span class="comment">//实现Runnable接口  </span></span><br><span class="line">        <span class="comment">//newThreadWay2();//继承Thread类  </span></span><br><span class="line">        <span class="comment">//newThreadWay3();//实现Callable接口  </span></span><br><span class="line">        <span class="comment">//newThreadWay1_();//也就是个简单的匿名对象，直接实现Runnable接口，省去了新建个类的步骤  </span></span><br><span class="line">        <span class="comment">//newThreadWay1__();//一样也是实现Runnable接口，省去了新建个类的步骤，不过不是匿名对象而已  </span></span><br><span class="line">    &#125;  </span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 创建线程方式1实现</span></span><br><span class="line"><span class="comment">     * 实现Runnable接口，重写run方法</span></span><br><span class="line"><span class="comment">     * 实现接口的优点：可以方便扩展</span></span><br><span class="line"><span class="comment">     */</span>  </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">newThreadWay1</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">        ThreadWay1 threadWay1 = <span class="keyword">new</span> ThreadWay1();  </span><br><span class="line">        <span class="keyword">new</span> Thread(threadWay1).start();  </span><br><span class="line">        <span class="comment">//new Thread(new ThreadWay1()).start();//等于上面的2行代码  </span></span><br><span class="line">        System.out.println(Thread.currentThread().getName() + <span class="string">"...implements Runnable way"</span>);  </span><br><span class="line">    &#125;  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 创建线程方式2实现</span></span><br><span class="line"><span class="comment">     * 继承Thread类，重写run函数</span></span><br><span class="line"><span class="comment">     */</span>  </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">newThreadWay2</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">        ThreadWay2 threadWay2 = <span class="keyword">new</span> ThreadWay2();  </span><br><span class="line">        threadWay2.start();  </span><br><span class="line">        <span class="comment">//new ThreadWay2().start();//等于上面的2行代码  </span></span><br><span class="line">        System.out.println(Thread.currentThread().getName() + <span class="string">"...extends way"</span>);  </span><br><span class="line">    &#125;  </span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 创建线程方式3实现</span></span><br><span class="line"><span class="comment">     * 实现Callable接口，重写call方法</span></span><br><span class="line"><span class="comment">     */</span>  </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">newThreadWay3</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">        <span class="keyword">int</span> resultFromThread;  </span><br><span class="line">        <span class="keyword">try</span> &#123;  </span><br><span class="line">            ThreadWay3 threadWay3 = <span class="keyword">new</span> ThreadWay3();  </span><br><span class="line">            FutureTask&lt;Integer&gt; future = <span class="keyword">new</span> FutureTask&lt;&gt;(threadWay3);  </span><br><span class="line">            <span class="keyword">new</span> Thread(future).start();  </span><br><span class="line">            Thread.sleep(<span class="number">5000</span>);<span class="comment">// 可能做一些事情  </span></span><br><span class="line">            <span class="comment">//注意：  </span></span><br><span class="line">            <span class="comment">// 这个有个问题：主线程必须等子线程执行完，才可以继续执行，变成了同步啦，这就不太好啦。失去了多线程的意义啦。  </span></span><br><span class="line">            resultFromThread = future.get();  </span><br><span class="line">            System.out.println(Thread.currentThread().getName() + <span class="string">"...implements Callable&lt;T&gt;..."</span> + resultFromThread);  </span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;  </span><br><span class="line">            e.printStackTrace();  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 创建线程方式1实现</span></span><br><span class="line"><span class="comment">     * 实现Runnable接口，重写run方法</span></span><br><span class="line"><span class="comment">     * (匿名对象：new个线程对象直接开启)</span></span><br><span class="line"><span class="comment">     */</span>  </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">newThreadWay1_</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">        <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;  </span><br><span class="line">            <span class="meta">@Override</span>  </span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">                <span class="keyword">for</span> (; ; ) &#123;<span class="comment">//死循环  </span></span><br><span class="line">                    <span class="keyword">try</span> &#123;  </span><br><span class="line">                        Thread.sleep(<span class="number">1000</span>);<span class="comment">//毫秒  </span></span><br><span class="line">                        System.out.println(Thread.currentThread().getName() + <span class="string">"...new Runnable()匿名对象"</span>);  </span><br><span class="line">                    &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;  </span><br><span class="line">                        e.printStackTrace();  </span><br><span class="line">                    &#125;  </span><br><span class="line">                &#125;  </span><br><span class="line"></span><br><span class="line">            &#125;  </span><br><span class="line">        &#125;).start();  </span><br><span class="line">        System.out.println(Thread.currentThread().getName() + <span class="string">"......new Runnable()匿名对象"</span>);  </span><br><span class="line">    &#125;  </span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 创建线程方式1实现</span></span><br><span class="line"><span class="comment">     * 实现Runnable接口，重写run方法</span></span><br><span class="line"><span class="comment">     * (实例化一个线程对象，然后调用start方法开启线程)</span></span><br><span class="line"><span class="comment">     */</span>  </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">newThreadWay1__</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">        Thread thread = <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;  </span><br><span class="line">            <span class="meta">@Override</span>  </span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">                <span class="keyword">for</span> (; ; ) &#123;  </span><br><span class="line">                    <span class="keyword">try</span> &#123;  </span><br><span class="line">                        Thread.sleep(<span class="number">1000</span>);<span class="comment">//毫秒  </span></span><br><span class="line">                        System.out.println(Thread.currentThread().getName() + <span class="string">"...new Runnable()非匿名对象"</span>);  </span><br><span class="line">                    &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;  </span><br><span class="line">                        e.printStackTrace();  </span><br><span class="line">                    &#125;  </span><br><span class="line">                &#125;  </span><br><span class="line">            &#125;  </span><br><span class="line">        &#125;);  </span><br><span class="line">        thread.start();  </span><br><span class="line">        System.out.println(Thread.currentThread().getName() + <span class="string">"...new Runnable()非匿名对象"</span>);  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</div>
+    <title>Java锁汇总</title>
+    <url>/Java%E9%94%81%E6%B1%87%E6%80%BB/</url>
+    <content><![CDATA[<div id="vip-container"><!-- 展示图片 -->
+<p><img src="http://justyy.com/wp-content/uploads/2016/01/markdown-syntax-language.png" alt="Mou_icon"></p>
+<h3 id="Java锁汇总"><a href="#Java锁汇总" class="headerlink" title="Java锁汇总"></a>Java锁汇总</h3><p>各种锁汇总，乐观锁、悲观锁、分布式锁、可重入锁、互斥锁、读写锁、分段锁、类锁、行级锁等</p>
+<h4 id="乐观锁"><a href="#乐观锁" class="headerlink" title="乐观锁"></a>乐观锁</h4></div>
 
 			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
 			<script>
@@ -1070,7 +1071,6 @@ JRE：JVM+类库
       </categories>
       <tags>
         <tag>Java</tag>
-        <tag>Java基础</tag>
       </tags>
   </entry>
   <entry>
@@ -1663,36 +1663,6 @@ JRE：JVM+类库
       </tags>
   </entry>
   <entry>
-    <title>centos修改主机名的正确方法</title>
-    <url>/centos%E4%BF%AE%E6%94%B9%E4%B8%BB%E6%9C%BA%E5%90%8D%E7%9A%84%E6%AD%A3%E7%A1%AE%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<div id="vip-container"><a id="more"></a>
-<h2 id="1-centos6下修改hostname"><a href="#1-centos6下修改hostname" class="headerlink" title="1.centos6下修改hostname"></a>1.centos6下修改hostname</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@centos6 ~]$ hostname                                              <span class="comment"># 查看当前的hostnmae</span></span><br><span class="line">centos6.magedu.com</span><br><span class="line">[root@centos6 ~]$ vim /etc/sysconfig/network                            <span class="comment"># 编辑network文件修改hostname行（重启生效）</span></span><br><span class="line">[root@centos6 ~]$ cat /etc/sysconfig/network                            <span class="comment"># 检查修改</span></span><br><span class="line">NETWORKING=yes</span><br><span class="line">HOSTNAME=lutao1726.top</span><br><span class="line">[root@centos6 ~]$ hostname lutao1726.top                                <span class="comment"># 设置当前的hostname(立即生效）</span></span><br><span class="line">[root@centos6 ~]$ vim /etc/hosts                                        <span class="comment"># 编辑hosts文件，给127.0.0.1添加hostname</span></span><br><span class="line">[root@centos6 ~]$ cat /etc/hosts                                        <span class="comment"># 检查</span></span><br><span class="line">127.0.0.1 localhost localhost.localdomain localhost4 localhost4.localdomain4 lutao1726.top</span><br><span class="line">::1 localhost localhost.localdomain localhost6 localhost6.localdomain6</span><br></pre></td></tr></table></figure>
-<h2 id="2-centos7下修改hostname"><a href="#2-centos7下修改hostname" class="headerlink" title="2.centos7下修改hostname"></a>2.centos7下修改hostname</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@centos7 ~]$ hostnamectl <span class="built_in">set</span>-hostname lutao1726.top                   <span class="comment"># 使用这个命令会立即生效且重启也生效</span></span><br><span class="line">[root@centos7 ~]$ hostname                                                 <span class="comment"># 查看下</span></span><br><span class="line">lutao1726.top</span><br><span class="line">[root@centos7 ~]$ vim /etc/hosts                                           <span class="comment"># 编辑下hosts文件， 给127.0.0.1添加hostname</span></span><br><span class="line">[root@centos7 ~]$ cat /etc/hosts                                           <span class="comment"># 检查</span></span><br><span class="line">127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4 lutao1726.top</span><br><span class="line">::1         localhost localhost.localdomain localhost6 localhost6.localdomain6</span><br></pre></td></tr></table></figure></div>
-
-			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
-			<script>
-			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
-			if (!isMobile) {
-			    var btw = new BTWPlugin();
-			    btw.init({
-			        "id": "vip-container",
-			        "blogId": "25071-1608261299158-736",
-			        "name": "Java一学习那些事",
-			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
-			        "keyword": "more"
-			    });
-			}
-			</script>
-		]]></content>
-      <categories>
-        <category>Linux教程</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>运维</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>centos7安装OpenResty代替nginx</title>
     <url>/centos7%E5%AE%89%E8%A3%85OpenResty%E4%BB%A3%E6%9B%BFnginx/</url>
     <content><![CDATA[<div id="vip-container"><!-- 展示图片 -->
@@ -1754,6 +1724,36 @@ JRE：JVM+类库
       </categories>
       <tags>
         <tag>Java</tag>
+        <tag>Linux</tag>
+        <tag>运维</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>centos修改主机名的正确方法</title>
+    <url>/centos%E4%BF%AE%E6%94%B9%E4%B8%BB%E6%9C%BA%E5%90%8D%E7%9A%84%E6%AD%A3%E7%A1%AE%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<div id="vip-container"><a id="more"></a>
+<h2 id="1-centos6下修改hostname"><a href="#1-centos6下修改hostname" class="headerlink" title="1.centos6下修改hostname"></a>1.centos6下修改hostname</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@centos6 ~]$ hostname                                              <span class="comment"># 查看当前的hostnmae</span></span><br><span class="line">centos6.magedu.com</span><br><span class="line">[root@centos6 ~]$ vim /etc/sysconfig/network                            <span class="comment"># 编辑network文件修改hostname行（重启生效）</span></span><br><span class="line">[root@centos6 ~]$ cat /etc/sysconfig/network                            <span class="comment"># 检查修改</span></span><br><span class="line">NETWORKING=yes</span><br><span class="line">HOSTNAME=lutao1726.top</span><br><span class="line">[root@centos6 ~]$ hostname lutao1726.top                                <span class="comment"># 设置当前的hostname(立即生效）</span></span><br><span class="line">[root@centos6 ~]$ vim /etc/hosts                                        <span class="comment"># 编辑hosts文件，给127.0.0.1添加hostname</span></span><br><span class="line">[root@centos6 ~]$ cat /etc/hosts                                        <span class="comment"># 检查</span></span><br><span class="line">127.0.0.1 localhost localhost.localdomain localhost4 localhost4.localdomain4 lutao1726.top</span><br><span class="line">::1 localhost localhost.localdomain localhost6 localhost6.localdomain6</span><br></pre></td></tr></table></figure>
+<h2 id="2-centos7下修改hostname"><a href="#2-centos7下修改hostname" class="headerlink" title="2.centos7下修改hostname"></a>2.centos7下修改hostname</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@centos7 ~]$ hostnamectl <span class="built_in">set</span>-hostname lutao1726.top                   <span class="comment"># 使用这个命令会立即生效且重启也生效</span></span><br><span class="line">[root@centos7 ~]$ hostname                                                 <span class="comment"># 查看下</span></span><br><span class="line">lutao1726.top</span><br><span class="line">[root@centos7 ~]$ vim /etc/hosts                                           <span class="comment"># 编辑下hosts文件， 给127.0.0.1添加hostname</span></span><br><span class="line">[root@centos7 ~]$ cat /etc/hosts                                           <span class="comment"># 检查</span></span><br><span class="line">127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4 lutao1726.top</span><br><span class="line">::1         localhost localhost.localdomain localhost6 localhost6.localdomain6</span><br></pre></td></tr></table></figure></div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "25071-1608261299158-736",
+			        "name": "Java一学习那些事",
+			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
+			        "keyword": "more"
+			    });
+			}
+			</script>
+		]]></content>
+      <categories>
+        <category>Linux教程</category>
+      </categories>
+      <tags>
         <tag>Linux</tag>
         <tag>运维</tag>
       </tags>
@@ -2047,40 +2047,6 @@ JRE：JVM+类库
       </tags>
   </entry>
   <entry>
-    <title>grafana+prometheus监控nacos</title>
-    <url>/grafana+prometheus%E7%9B%91%E6%8E%A7nacos/</url>
-    <content><![CDATA[<div id="vip-container"><h6 id="安装Nacos"><a href="#安装Nacos" class="headerlink" title="安装Nacos"></a>安装<a href="http://lutao.tk/SpringCloud%20nacos%E8%87%AA%E5%AE%9A%E4%B9%89%E7%94%A8%E6%88%B7/">Nacos</a></h6><h6 id="修改配置文件-application-properties-暴露metrics数据"><a href="#修改配置文件-application-properties-暴露metrics数据" class="headerlink" title="修改配置文件 application.properties 暴露metrics数据"></a>修改配置文件 <strong><em>application.properties</em></strong> 暴露metrics数据</h6><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">management.endpoints.web.exposure.include=*</span><br></pre></td></tr></table></figure>
-<p>访问{ip}:8848/nacos/actuator/prometheus，看是否能访问到metrics数据</p>
-<h6 id="修改prometheus配置文件"><a href="#修改prometheus配置文件" class="headerlink" title="修改prometheus配置文件"></a>修改prometheus配置文件</h6><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">- job_name: nacos</span><br><span class="line">  metrics_path: &apos;/nacos/actuator/prometheus&apos;</span><br><span class="line">  static_configs:</span><br><span class="line">    - targets: [&apos;192.168.1.238:8848&apos;]</span><br></pre></td></tr></table></figure>
-<h6 id="重启prometheus"><a href="#重启prometheus" class="headerlink" title="重启prometheus"></a>重启prometheus</h6><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nohup ./prometheus --config.file=./prometheus.yml &amp;</span><br></pre></td></tr></table></figure>
-<h4 id="grafana配置"><a href="#grafana配置" class="headerlink" title="grafana配置"></a>grafana配置</h4><p>配置prometheus数据源<br>添加prometheus插件，然后配置<br><img src="http://blog.lutao1726.top/grafana-redis-01.png" alt="Mou_icon"><br><img src="http://blog.lutao1726.top/grafana-redis-02.png" alt="Mou_icon"><br><img src="http://blog.lutao1726.top/grafana-redis-03.png" alt="Mou_icon"></p>
-<h4 id="下载仪表盘模板"><a href="#下载仪表盘模板" class="headerlink" title="下载仪表盘模板"></a>下载<a href="https://github.com/nacos-group/nacos-template/blob/master/nacos-sync-grafana" target="_blank" rel="noopener">仪表盘模板</a></h4><h6 id="导入模板"><a href="#导入模板" class="headerlink" title="导入模板"></a>导入模板</h6><p><img src="http://blog.lutao1726.top/grafana-redis-05.png" alt="Mou_icon"><br><img src="http://blog.lutao1726.top/grafana-nacos-02.png" alt="Mou_icon"></p>
-</div>
-
-			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
-			<script>
-			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
-			if (!isMobile) {
-			    var btw = new BTWPlugin();
-			    btw.init({
-			        "id": "vip-container",
-			        "blogId": "25071-1608261299158-736",
-			        "name": "Java一学习那些事",
-			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
-			        "keyword": "more"
-			    });
-			}
-			</script>
-		]]></content>
-      <categories>
-        <category>Linux教程</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>运维</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>grafana+prometheus监控postgresql</title>
     <url>/grafana+prometheus%E7%9B%91%E6%8E%A7postgresql/</url>
     <content><![CDATA[<div id="vip-container"><h6 id="下载postgres-exporter插件"><a href="#下载postgres-exporter插件" class="headerlink" title="下载postgres_exporter插件"></a>下载<a href="http://blog.lutao1726.top/postgres_exporter" target="_blank" rel="noopener">postgres_exporter插件</a></h6><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://github.com/wrouesnel/postgres_exporter/releases/download/v0.5.1/postgres_exporter_v0.5.1_linux-amd64.tar.gz</span><br></pre></td></tr></table></figure>
@@ -2093,48 +2059,6 @@ JRE：JVM+类库
 <h4 id="grafana配置"><a href="#grafana配置" class="headerlink" title="grafana配置"></a>grafana配置</h4><p>配置prometheus数据源<br>添加prometheus插件，然后配置<br><img src="http://blog.lutao1726.top/grafana-redis-01.png" alt="Mou_icon"><br><img src="http://blog.lutao1726.top/grafana-redis-02.png" alt="Mou_icon"><br><img src="http://blog.lutao1726.top/grafana-redis-03.png" alt="Mou_icon"></p>
 <h4 id="下载仪表盘模板"><a href="#下载仪表盘模板" class="headerlink" title="下载仪表盘模板"></a>下载仪表盘模板</h4><p><img src="http://blog.lutao1726.top/grafana-postgre-04.png" alt="Mou_icon"></p>
 <h6 id="导入模板"><a href="#导入模板" class="headerlink" title="导入模板"></a>导入模板</h6><p><img src="http://blog.lutao1726.top/grafana-redis-05.png" alt="Mou_icon"><br><img src="http://blog.lutao1726.top/grafana-postgre-06.png" alt="Mou_icon"></p>
-</div>
-
-			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
-			<script>
-			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
-			if (!isMobile) {
-			    var btw = new BTWPlugin();
-			    btw.init({
-			        "id": "vip-container",
-			        "blogId": "25071-1608261299158-736",
-			        "name": "Java一学习那些事",
-			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
-			        "keyword": "more"
-			    });
-			}
-			</script>
-		]]></content>
-      <categories>
-        <category>Linux教程</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>运维</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>grafana+prometheus监控服务器</title>
-    <url>/grafana+prometheus%E7%9B%91%E6%8E%A7%E6%9C%8D%E5%8A%A1%E5%99%A8/</url>
-    <content><![CDATA[<div id="vip-container"><h4 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h4><hr>
-<p>监控服务器状态是运维必不可少的一部分,这里给大家介绍的是一种监控系统grafana,grafana仅仅只是提供界面显示, 所以他需要从influxdb或prometheus中获取数据, 而influxdb或prometheus中的数据又需要从其他地方收集过来, 常用的收集工具是collectd和telegraf, 其中collectd这里不做介绍, 有些数据不是太适合, 而 influxdb 自身集成 telegraf插件, 不需要进行专门的配置</p>
-<h4 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h4><blockquote>
-<p>collectd/telegraf或prometheus插件(收集数据)  ——-&gt;   influxdb/prometheus(保存数据)  ——-&gt; grafana(显示数据)</p>
-</blockquote>
-<h6 id="下载node-exporter插件"><a href="#下载node-exporter插件" class="headerlink" title="下载node_exporter插件"></a>下载<a href="http://blog.lutao1726.top/node_exporter" target="_blank" rel="noopener">node_exporter插件</a></h6><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://github.com/prometheus/node_exporter/releases/download/v0.18.1/node_exporter-0.18.1.linux-arm64.tar.gz</span><br></pre></td></tr></table></figure>
-<h6 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h6><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar xf node_exporter-*.tar.gz</span><br></pre></td></tr></table></figure>
-<h6 id="在对应机器上启动node-exporter"><a href="#在对应机器上启动node-exporter" class="headerlink" title="在对应机器上启动node_exporter"></a>在对应机器上启动node_exporter</h6><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">setsid ./node_exporter</span><br></pre></td></tr></table></figure>
-<h6 id="查看node-exporter是否开启"><a href="#查看node-exporter是否开启" class="headerlink" title="查看node_exporter是否开启"></a>查看node_exporter是否开启</h6><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">netstat -lntp</span><br><span class="line">tcp6       0      0 :::9100                 :::*                    LISTEN      62737/./node_export</span><br></pre></td></tr></table></figure>
-<h6 id="修改prometheus配置文件"><a href="#修改prometheus配置文件" class="headerlink" title="修改prometheus配置文件"></a>修改prometheus配置文件</h6><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">- job_name: &apos;node_exporter&apos;</span><br><span class="line">  static_configs:</span><br><span class="line">    - targets: [&apos;192.168.1.231:9100&apos;]</span><br><span class="line">      labels:</span><br><span class="line">        instance: sys-231  </span><br><span class="line">    - targets: [&apos;192.168.1.68:9100&apos;]</span><br><span class="line">       labels:</span><br><span class="line">         instance: sys-68</span><br></pre></td></tr></table></figure>
-<h6 id="重启prometheus"><a href="#重启prometheus" class="headerlink" title="重启prometheus"></a>重启prometheus</h6><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nohup ./prometheus --config.file=./prometheus.yml &amp;</span><br></pre></td></tr></table></figure>
-<h4 id="grafana配置"><a href="#grafana配置" class="headerlink" title="grafana配置"></a>grafana配置</h4><p>配置prometheus数据源<br>添加prometheus插件，然后配置<br><img src="http://blog.lutao1726.top/grafana-redis-01.png" alt="Mou_icon"><br><img src="http://blog.lutao1726.top/grafana-redis-02.png" alt="Mou_icon"><br><img src="http://blog.lutao1726.top/grafana-redis-03.png" alt="Mou_icon"></p>
-<h4 id="下载node-exporter仪表盘模板"><a href="#下载node-exporter仪表盘模板" class="headerlink" title="下载node_exporter仪表盘模板"></a>下载node_exporter仪表盘模板</h4><p><img src="http://blog.lutao1726.top/grafana-node-04.png" alt="Mou_icon"></p>
-<h6 id="导入模板"><a href="#导入模板" class="headerlink" title="导入模板"></a>导入模板</h6><p><img src="http://blog.lutao1726.top/grafana-redis-05.png" alt="Mou_icon"><br><img src="http://blog.lutao1726.top/grafana-node-06.png" alt="Mou_icon"></p>
 </div>
 
 			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
@@ -2177,6 +2101,40 @@ JRE：JVM+类库
 <h4 id="grafana配置"><a href="#grafana配置" class="headerlink" title="grafana配置"></a>grafana配置</h4><p>配置prometheus数据源<br>添加prometheus插件，然后配置<br><img src="http://blog.lutao1726.top/grafana-redis-01.png" alt="Mou_icon"><br><img src="http://blog.lutao1726.top/grafana-redis-02.png" alt="Mou_icon"><br><img src="http://blog.lutao1726.top/grafana-redis-03.png" alt="Mou_icon"></p>
 <h4 id="下载redis仪表盘模板"><a href="#下载redis仪表盘模板" class="headerlink" title="下载redis仪表盘模板"></a>下载redis仪表盘模板</h4><p><img src="http://blog.lutao1726.top/grafana-redis-04.png" alt="Mou_icon"></p>
 <h6 id="导入模板"><a href="#导入模板" class="headerlink" title="导入模板"></a>导入模板</h6><p><img src="http://blog.lutao1726.top/grafana-redis-05.png" alt="Mou_icon"><br><img src="http://blog.lutao1726.top/grafana-redis-06.png" alt="Mou_icon"></p>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "25071-1608261299158-736",
+			        "name": "Java一学习那些事",
+			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
+			        "keyword": "more"
+			    });
+			}
+			</script>
+		]]></content>
+      <categories>
+        <category>Linux教程</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>运维</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>grafana+prometheus监控nacos</title>
+    <url>/grafana+prometheus%E7%9B%91%E6%8E%A7nacos/</url>
+    <content><![CDATA[<div id="vip-container"><h6 id="安装Nacos"><a href="#安装Nacos" class="headerlink" title="安装Nacos"></a>安装<a href="http://lutao.tk/SpringCloud%20nacos%E8%87%AA%E5%AE%9A%E4%B9%89%E7%94%A8%E6%88%B7/">Nacos</a></h6><h6 id="修改配置文件-application-properties-暴露metrics数据"><a href="#修改配置文件-application-properties-暴露metrics数据" class="headerlink" title="修改配置文件 application.properties 暴露metrics数据"></a>修改配置文件 <strong><em>application.properties</em></strong> 暴露metrics数据</h6><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">management.endpoints.web.exposure.include=*</span><br></pre></td></tr></table></figure>
+<p>访问{ip}:8848/nacos/actuator/prometheus，看是否能访问到metrics数据</p>
+<h6 id="修改prometheus配置文件"><a href="#修改prometheus配置文件" class="headerlink" title="修改prometheus配置文件"></a>修改prometheus配置文件</h6><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">- job_name: nacos</span><br><span class="line">  metrics_path: &apos;/nacos/actuator/prometheus&apos;</span><br><span class="line">  static_configs:</span><br><span class="line">    - targets: [&apos;192.168.1.238:8848&apos;]</span><br></pre></td></tr></table></figure>
+<h6 id="重启prometheus"><a href="#重启prometheus" class="headerlink" title="重启prometheus"></a>重启prometheus</h6><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nohup ./prometheus --config.file=./prometheus.yml &amp;</span><br></pre></td></tr></table></figure>
+<h4 id="grafana配置"><a href="#grafana配置" class="headerlink" title="grafana配置"></a>grafana配置</h4><p>配置prometheus数据源<br>添加prometheus插件，然后配置<br><img src="http://blog.lutao1726.top/grafana-redis-01.png" alt="Mou_icon"><br><img src="http://blog.lutao1726.top/grafana-redis-02.png" alt="Mou_icon"><br><img src="http://blog.lutao1726.top/grafana-redis-03.png" alt="Mou_icon"></p>
+<h4 id="下载仪表盘模板"><a href="#下载仪表盘模板" class="headerlink" title="下载仪表盘模板"></a>下载<a href="https://github.com/nacos-group/nacos-template/blob/master/nacos-sync-grafana" target="_blank" rel="noopener">仪表盘模板</a></h4><h6 id="导入模板"><a href="#导入模板" class="headerlink" title="导入模板"></a>导入模板</h6><p><img src="http://blog.lutao1726.top/grafana-redis-05.png" alt="Mou_icon"><br><img src="http://blog.lutao1726.top/grafana-nacos-02.png" alt="Mou_icon"></p>
 </div>
 
 			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
@@ -2352,6 +2310,48 @@ JRE：JVM+类库
         <tag>Linux</tag>
         <tag>运维</tag>
         <tag>Jenkins</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>grafana+prometheus监控服务器</title>
+    <url>/grafana+prometheus%E7%9B%91%E6%8E%A7%E6%9C%8D%E5%8A%A1%E5%99%A8/</url>
+    <content><![CDATA[<div id="vip-container"><h4 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h4><hr>
+<p>监控服务器状态是运维必不可少的一部分,这里给大家介绍的是一种监控系统grafana,grafana仅仅只是提供界面显示, 所以他需要从influxdb或prometheus中获取数据, 而influxdb或prometheus中的数据又需要从其他地方收集过来, 常用的收集工具是collectd和telegraf, 其中collectd这里不做介绍, 有些数据不是太适合, 而 influxdb 自身集成 telegraf插件, 不需要进行专门的配置</p>
+<h4 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h4><blockquote>
+<p>collectd/telegraf或prometheus插件(收集数据)  ——-&gt;   influxdb/prometheus(保存数据)  ——-&gt; grafana(显示数据)</p>
+</blockquote>
+<h6 id="下载node-exporter插件"><a href="#下载node-exporter插件" class="headerlink" title="下载node_exporter插件"></a>下载<a href="http://blog.lutao1726.top/node_exporter" target="_blank" rel="noopener">node_exporter插件</a></h6><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://github.com/prometheus/node_exporter/releases/download/v0.18.1/node_exporter-0.18.1.linux-arm64.tar.gz</span><br></pre></td></tr></table></figure>
+<h6 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h6><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar xf node_exporter-*.tar.gz</span><br></pre></td></tr></table></figure>
+<h6 id="在对应机器上启动node-exporter"><a href="#在对应机器上启动node-exporter" class="headerlink" title="在对应机器上启动node_exporter"></a>在对应机器上启动node_exporter</h6><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">setsid ./node_exporter</span><br></pre></td></tr></table></figure>
+<h6 id="查看node-exporter是否开启"><a href="#查看node-exporter是否开启" class="headerlink" title="查看node_exporter是否开启"></a>查看node_exporter是否开启</h6><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">netstat -lntp</span><br><span class="line">tcp6       0      0 :::9100                 :::*                    LISTEN      62737/./node_export</span><br></pre></td></tr></table></figure>
+<h6 id="修改prometheus配置文件"><a href="#修改prometheus配置文件" class="headerlink" title="修改prometheus配置文件"></a>修改prometheus配置文件</h6><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">- job_name: &apos;node_exporter&apos;</span><br><span class="line">  static_configs:</span><br><span class="line">    - targets: [&apos;192.168.1.231:9100&apos;]</span><br><span class="line">      labels:</span><br><span class="line">        instance: sys-231  </span><br><span class="line">    - targets: [&apos;192.168.1.68:9100&apos;]</span><br><span class="line">       labels:</span><br><span class="line">         instance: sys-68</span><br></pre></td></tr></table></figure>
+<h6 id="重启prometheus"><a href="#重启prometheus" class="headerlink" title="重启prometheus"></a>重启prometheus</h6><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nohup ./prometheus --config.file=./prometheus.yml &amp;</span><br></pre></td></tr></table></figure>
+<h4 id="grafana配置"><a href="#grafana配置" class="headerlink" title="grafana配置"></a>grafana配置</h4><p>配置prometheus数据源<br>添加prometheus插件，然后配置<br><img src="http://blog.lutao1726.top/grafana-redis-01.png" alt="Mou_icon"><br><img src="http://blog.lutao1726.top/grafana-redis-02.png" alt="Mou_icon"><br><img src="http://blog.lutao1726.top/grafana-redis-03.png" alt="Mou_icon"></p>
+<h4 id="下载node-exporter仪表盘模板"><a href="#下载node-exporter仪表盘模板" class="headerlink" title="下载node_exporter仪表盘模板"></a>下载node_exporter仪表盘模板</h4><p><img src="http://blog.lutao1726.top/grafana-node-04.png" alt="Mou_icon"></p>
+<h6 id="导入模板"><a href="#导入模板" class="headerlink" title="导入模板"></a>导入模板</h6><p><img src="http://blog.lutao1726.top/grafana-redis-05.png" alt="Mou_icon"><br><img src="http://blog.lutao1726.top/grafana-node-06.png" alt="Mou_icon"></p>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "25071-1608261299158-736",
+			        "name": "Java一学习那些事",
+			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
+			        "keyword": "more"
+			    });
+			}
+			</script>
+		]]></content>
+      <categories>
+        <category>Linux教程</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>运维</tag>
       </tags>
   </entry>
   <entry>
@@ -4203,7 +4203,7 @@ _   底线
 </blockquote>
 <p>邮址的自动链接也很类似，只是 Markdown 会先做一个编码转换的过程，把文字字符转成 16 进位码的 HTML 实体，这样的格式可以糊弄一些不好的邮址收集机器人，例如：</p>
 <blockquote>
-<p><a href="mailto:&#x61;&#100;&#x64;&#x72;&#101;&#115;&#x73;&#x40;&#101;&#x78;&#x61;&#x6d;&#x70;&#x6c;&#101;&#46;&#x63;&#111;&#x6d;" target="_blank" rel="noopener">&#x61;&#100;&#x64;&#x72;&#101;&#115;&#x73;&#x40;&#101;&#x78;&#x61;&#x6d;&#x70;&#x6c;&#101;&#46;&#x63;&#111;&#x6d;</a></p>
+<p><a href="mailto:&#x61;&#x64;&#100;&#x72;&#101;&#115;&#115;&#64;&#x65;&#x78;&#97;&#x6d;&#112;&#x6c;&#x65;&#46;&#x63;&#111;&#109;" target="_blank" rel="noopener">&#x61;&#x64;&#100;&#x72;&#101;&#115;&#115;&#64;&#x65;&#x78;&#97;&#x6d;&#112;&#x6c;&#x65;&#46;&#x63;&#111;&#109;</a></p>
 </blockquote>
 <p>Markdown 会转成：</p>
 <blockquote>
