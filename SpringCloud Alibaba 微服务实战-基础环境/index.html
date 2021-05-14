@@ -111,23 +111,23 @@
 
 
 
-<meta name="description" content="背景很多人可能会问，有了spring cloud这个微服务的框架，为什么又要使用spring cloud alibaba这个框架了？最重要的原因在于spring cloud中的几乎所有的组件都使用Netflix公司的产品，然后在其基础上做了一层封装。然而Netflix的服务发现组件Eureka已经停止更新，我们公司在使用的时候就发现过其一个细小的Bug；而其他的众多组件预计会在明年(即202">
+<meta name="description" content="背景很多人可能会问，有了spring cloud这个微服务的框架，为什么又要使用spring cloud alibaba这个框架了？最重要的原因在于spring cloud中的几乎所有的组件都使用Netflix公司的产品，然后在其基础上做了一层封装。然而Netflix的服务发现组件Eureka已经停止更新，我们公司在使用的时候就发现过其一个细小的Bug；而其他的众多组件预计会在明年(即2020">
 <meta name="keywords" content="Java,SpringCloud Alibaba,SpringCloud">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SpringCloud Alibaba 微服务实战-基础环境">
 <meta property="og:url" content="http://lutao.tk/SpringCloud Alibaba 微服务实战-基础环境/index.html">
 <meta property="og:site_name" content="LuTao">
-<meta property="og:description" content="背景很多人可能会问，有了spring cloud这个微服务的框架，为什么又要使用spring cloud alibaba这个框架了？最重要的原因在于spring cloud中的几乎所有的组件都使用Netflix公司的产品，然后在其基础上做了一层封装。然而Netflix的服务发现组件Eureka已经停止更新，我们公司在使用的时候就发现过其一个细小的Bug；而其他的众多组件预计会在明年(即202">
+<meta property="og:description" content="背景很多人可能会问，有了spring cloud这个微服务的框架，为什么又要使用spring cloud alibaba这个框架了？最重要的原因在于spring cloud中的几乎所有的组件都使用Netflix公司的产品，然后在其基础上做了一层封装。然而Netflix的服务发现组件Eureka已经停止更新，我们公司在使用的时候就发现过其一个细小的Bug；而其他的众多组件预计会在明年(即2020">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3276619383,3699355242&fm=26&gp=0.jpg">
+<meta property="og:image" content="https://gimg2.baidu.com/image_search/src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20181220%2F625a58b9a1d3449491d2ae9e396da5d8.jpeg&refer=http%3A%2F%2F5b0988e595225.cdn.sohucs.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1623575506&t=fe07c6007ebc786e268abb7e4480dc0e">
 <meta property="og:image" content="http://blog.lutao1726.top/nacos集群-01.png">
 <meta property="og:image" content="http://blog.lutao1726.top/nacos集群-02.png">
 <meta property="og:image" content="http://blog.lutao1726.top/nacos集群-03.png">
-<meta property="og:updated_time" content="2020-12-17T09:36:38.134Z">
+<meta property="og:updated_time" content="2021-05-14T09:12:21.656Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SpringCloud Alibaba 微服务实战-基础环境">
-<meta name="twitter:description" content="背景很多人可能会问，有了spring cloud这个微服务的框架，为什么又要使用spring cloud alibaba这个框架了？最重要的原因在于spring cloud中的几乎所有的组件都使用Netflix公司的产品，然后在其基础上做了一层封装。然而Netflix的服务发现组件Eureka已经停止更新，我们公司在使用的时候就发现过其一个细小的Bug；而其他的众多组件预计会在明年(即202">
-<meta name="twitter:image" content="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3276619383,3699355242&fm=26&gp=0.jpg">
+<meta name="twitter:description" content="背景很多人可能会问，有了spring cloud这个微服务的框架，为什么又要使用spring cloud alibaba这个框架了？最重要的原因在于spring cloud中的几乎所有的组件都使用Netflix公司的产品，然后在其基础上做了一层封装。然而Netflix的服务发现组件Eureka已经停止更新，我们公司在使用的时候就发现过其一个细小的Bug；而其他的众多组件预计会在明年(即2020">
+<meta name="twitter:image" content="https://gimg2.baidu.com/image_search/src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20181220%2F625a58b9a1d3449491d2ae9e396da5d8.jpeg&refer=http%3A%2F%2F5b0988e595225.cdn.sohucs.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1623575506&t=fe07c6007ebc786e268abb7e4480dc0e">
 
 
 
@@ -479,8 +479,7 @@
 
       
         <div id="vip-container"><!-- 展示图片 -->
-<center><img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3276619383,3699355242&amp;fm=26&amp;gp=0.jpg" alt="Mou_icon"></center>
-
+<p><img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20181220%2F625a58b9a1d3449491d2ae9e396da5d8.jpeg&amp;refer=http%3A%2F%2F5b0988e595225.cdn.sohucs.com&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=jpeg?sec=1623575506&amp;t=fe07c6007ebc786e268abb7e4480dc0e" alt="Mou_icon"></p>
 <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><pre><code>很多人可能会问，有了spring cloud这个微服务的框架，为什么又要使用spring cloud alibaba这个框架了？最重要的原因在于spring cloud中的几乎所有的组件都使用Netflix公司的产品，然后在其基础上做了一层封装。然而Netflix的服务发现组件Eureka已经停止更新，我们公司在使用的时候就发现过其一个细小的Bug；而其他的众多组件预计会在明年(即2020年)停止维护。所以急需其他的一些替代产品，也就是spring cloud alibaba，目前正处于蓬勃发展的态式。
 </code></pre><p><img src="http://blog.lutao1726.top/nacos集群-01.png" alt="Mou_icon"></p>
 <h4 id="MySQL数据源配置"><a href="#MySQL数据源配置" class="headerlink" title="MySQL数据源配置"></a>MySQL数据源配置</h4><p>在进行集群配置之前，先完成对MySQL数据源的初始化和配置。主要分以下两步：</p>
