@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://lutao.tk/%E5%B7%A5%E4%BD%9C%E4%B8%AD%E5%B8%B8%E7%94%A8sql%E6%95%B4%E7%90%86/</loc>
+    <lastmod>2021-05-17</lastmod>
+  </url>
+  <url>
+    <loc>http://lutao.tk/SpringCloud%20consul%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E4%B8%8E%E5%8F%91%E7%8E%B0/</loc>
+    <lastmod>2021-05-17</lastmod>
+  </url>
+  <url>
     <loc>http://lutao.tk/SpringCloud%20nacos%E8%87%AA%E5%AE%9A%E4%B9%89%E7%94%A8%E6%88%B7/</loc>
     <lastmod>2021-05-14</lastmod>
   </url>
@@ -10,10 +18,6 @@
   </url>
   <url>
     <loc>http://lutao.tk/SpringCloud%20nacos%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/</loc>
-    <lastmod>2021-05-14</lastmod>
-  </url>
-  <url>
-    <loc>http://lutao.tk/SpringCloud%20consul%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E4%B8%8E%E5%8F%91%E7%8E%B0/</loc>
     <lastmod>2021-05-14</lastmod>
   </url>
   <url>
@@ -39,10 +43,6 @@
   <url>
     <loc>http://lutao.tk/%E5%9C%A8github%E4%B8%8A%E9%85%8D%E7%BD%AEhexo%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D/</loc>
     <lastmod>2021-05-12</lastmod>
-  </url>
-  <url>
-    <loc>http://lutao.tk/%E5%B7%A5%E4%BD%9C%E4%B8%AD%E5%B8%B8%E7%94%A8sql%E6%95%B4%E7%90%86/</loc>
-    <lastmod>2021-05-08</lastmod>
   </url>
   <url>
     <loc>http://lutao.tk/Java%E5%9F%BA%E7%A1%80%E5%9B%9E%E9%A1%BE-%E9%9B%86%E5%90%88/</loc>
