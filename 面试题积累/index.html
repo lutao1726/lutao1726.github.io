@@ -119,7 +119,7 @@
 <meta property="og:site_name" content="LuTao">
 <meta property="og:description" content="面试题积累">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-05-20T05:18:33.531Z">
+<meta property="og:updated_time" content="2021-06-15T09:30:23.113Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面试题积累">
 <meta name="twitter:description" content="面试题积累">
@@ -439,7 +439,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  276
+                  1,750
                 </span>
               
 
@@ -455,7 +455,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  1
+                  7
                 </span>
               
             </div>
@@ -485,7 +485,18 @@
 </ul>
 <details><br>    <summary><mark><font color="darkred">点击查看运行结果</font></mark></summary><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">true</span><br><span class="line">false</span><br><span class="line">true</span><br><span class="line">true</span><br><span class="line">true</span><br><span class="line">false</span><br><span class="line">true</span><br></pre></td></tr></table></figure><br><br></details>
 
-<h2 id="Java集合"><a href="#Java集合" class="headerlink" title="Java集合"></a>Java集合</h2><h2 id="Java多线程"><a href="#Java多线程" class="headerlink" title="Java多线程"></a>Java多线程</h2><h2 id="JVM"><a href="#JVM" class="headerlink" title="JVM"></a>JVM</h2><h2 id="计算机基础"><a href="#计算机基础" class="headerlink" title="计算机基础"></a>计算机基础</h2><p></p><h4> TCP 三次握⼿和四次挥⼿</h4><p></p>
+
+<h2 id="Java集合"><a href="#Java集合" class="headerlink" title="Java集合"></a>Java集合</h2><h2 id="Java多线程"><a href="#Java多线程" class="headerlink" title="Java多线程"></a>Java多线程</h2><h2 id="JVM"><a href="#JVM" class="headerlink" title="JVM"></a>JVM</h2><ul>
+<li>JVM内存结构       <ul>
+<li>程序计数器：记录当前线程正在执行的那条字节码指令的地址，若当前线程正在执行的是本地方法此时程序计数器为Undefined</li>
+<li>Java虚拟机栈：</li>
+<li>本地方法栈：</li>
+<li>堆：</li>
+<li>方法区：<br>JDK1.8与JDK1.7差异：元数据区取代了永久代  （它两的最大区别：元数据空间并不在虚拟机中，而是使用本地内存）</li>
+</ul>
+</li>
+</ul>
+<h2 id="计算机基础"><a href="#计算机基础" class="headerlink" title="计算机基础"></a>计算机基础</h2><p></p><h4> TCP 三次握⼿和四次挥⼿</h4><p></p>
 <details><br>    <summary><mark><font color="darkred">点击查看详情</font></mark></summary><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">123</span><br></pre></td></tr></table></figure><br><br></details>
 
 <p></p><h4> TCP，UDP协议区别</h4><p></p>
@@ -505,6 +516,7 @@
 
 <h3>redis</h3>
 
+
 <h2 id="常用框架"><a href="#常用框架" class="headerlink" title="常用框架"></a>常用框架</h2><h3>Spring</h3>
 
 <h3>Mybatis</h3>
@@ -513,7 +525,63 @@
 
 <h3>SpringBoot</h3>
 
-<h2 id="分布式与微服务相关"><a href="#分布式与微服务相关" class="headerlink" title="分布式与微服务相关"></a>分布式与微服务相关</h2></div>
+<h3>SpringSecurity与Oauth2.0</h3>
+
+
+<h2 id="分布式与微服务相关"><a href="#分布式与微服务相关" class="headerlink" title="分布式与微服务相关"></a>分布式与微服务相关</h2><h3>SpringCloud</h3>
+
+<h5>zuul与gateway</h5>
+
+<h5>config</h5>
+
+<h5>eureka</h5>
+
+<h5>hystrix</h5>
+
+<h5>ribbon</h5>
+
+<h5>feign</h5>
+
+<h3>SpringCloud Alibaba</h3>
+
+<h5>Nacos</h5>
+
+<h5>Seate</h5>
+
+<h5>Sentinel</h5>
+
+<h3>Dubbo</h3>
+
+<h3>分布式事务</h3>
+
+<h3>分布式缓存</h3>
+
+<h3>分布式锁</h3>
+
+<h3>分布式会话(Session)</h3>
+
+<h3>分库分表</h3>
+
+
+<h2 id="系统设计"><a href="#系统设计" class="headerlink" title="系统设计"></a>系统设计</h2><h2 id="海量数据处理"><a href="#海量数据处理" class="headerlink" title="海量数据处理"></a>海量数据处理</h2><p>解决问题常用方法与策略</p>
+<blockquote>
+<p>1.分治策略(常用哈希分割)<br>  2.位图法<br>  3.前缀树<br>  4.HashMap统计频次<br>  5.堆排序       </p>
+</blockquote>
+<ul>
+<li>如何从大量的 URL 中找出相同的 URL？ <h5>给定 a、b 两个文件，各存放 50 亿个 URL，每个 URL 各占 64B，内存限制是 4G。请找出 a、b 两个文件共同的 URL。</h5></li>
+</ul>
+<ol>
+<li>分治策略<br> 分而治之，进行哈希取余；<br> 对每个子文件进行 HashSet 统计。</li>
+<li>前缀树<br> 利用字符串的公共前缀来降低存储成本，提高查询效率。  </li>
+</ol>
+<ul>
+<li>如何从大量数据中找出高频词？<br>  分而治之，进行哈希取余；<br>  使用 HashMap 统计频数；<br>  求解最大的 TopN 个，用小顶堆；求解最小的 TopN 个，用大顶堆。    </li>
+</ul>
+<h2 id="数据结构与算法"><a href="#数据结构与算法" class="headerlink" title="数据结构与算法"></a>数据结构与算法</h2><h2 id="项目经验"><a href="#项目经验" class="headerlink" title="项目经验"></a>项目经验</h2><p>项目经验一<br>项目名称：舆情督办系统</p>
+<p>项目介绍：舆情督办系统作为舆情信息综合管理的建设系统之一，是以维护社会稳定，辅助客户组织自主、科学、高效的应对网络舆情为目标，方便舆情事件快速反应、预警、分析、研判、处置；通过建设系统，实现舆情的及时发现、上报、反馈，并借助系统对于舆情处置进程的协调与监督作用，让舆情应对工作流程化、透明化，极大的调动了舆情处置工作者工作积极性，提高整体舆情处置效率；<br>     借助公司舆情大数据KYS与AMS软件，并配合与之相对的工作制度及供应商丰富的舆情工作经验，打造全面、高效、专业的高效闭环舆情处置工作流。<br>涉及技术：SpringBoot,SpringCloud,Mybatis,Nacos,SpringSecurity,Redis,mysql<br>设计技术：<br>我的职责：<br>    1.担任开发组长<br>    2.负责系统架构的升级与改造<br>    3.负责业务模块的代码实现<br>    4.编写系统的概要设计，数据库设计与接口设计文档<br>    5.负责系统的安全改造，对SpringSecurity进行登录扩展<br>项目收获：<br>    通过该项目</p>
+<p>项目经验二<br>项目名称：话机世界代理商业务管理系统<br>项目介绍：本系统是话机世界转售事业部委托我们信息部开发的用于代理商业务管理的系统，话机世界 APP 是    一款由话机世界集团股份有限公司开发供代理商使用的代理系统 APP,它实现业务办理及管理功能。能更有    效的开展代理业务,系统包括资源，订单，业务等系列模块。<br>涉及技术：<br>设计技术：该系统使用了 Java 企业级开发的开源框架 Spring 以及前端技术 Bootstrap 框架，表示层运用了     SpringMVC 架构，并实现了 REST 风格的请求；业务逻辑层运用了事务脚本模式，并通过AOP 实现事务，日    志和安全性等能，通过 Redis 实现缓存服务；持久层使用了 Mybatis 封装 CRUD 操作，底层使用 MySQL 实    现数据的存取。整个项目采用了快速原型开发模式，其中用到了 Zookeeper，Dubbo 等技术进行服务管理分    发。该系统的主要业务用户管理，靓号平台，白卡开户，白卡预开户，成卡开户，话费充值，账户充值等<br>我的职责：<br>项目收获：</p>
+<p>项目经验三<br>项目名称： 领筑电商（材料交易平台）<br>项目描述：领筑平台是专业的消防材料一站式采购平台，具有询价、报价、合同等功能，为消防采购商、供应商、上下游服务商提供一站式采购服务，货品库超 2 万余类，庞大的供应商库 100%覆盖采购需求，开创了“互联网+消防”的新时代。<br>涉及技术：SpringBoot，SpringCloud，JPA，JDBC，PostgreSQL，Zookeeper,elastic-job,ELK,Redis,RecketMQ等<br>设计技术：本系统是基于 SpringBoot 和 SpringCloud 作为底层微服务生态框架开发，搭配 apollo(后期换成Nacos) 分布式配置适用多开发环境，配合 Jenkins 与 docker 实现系统的自动化构建与部署，子系统服务涉及自动作业调度平台，采用zookeeper+ elastic-job 技术实现定时任务的分布式跑批。Grafana + ELK + skywalking + SpringBoot Admin 实现服务监控中心。在该系统中主要负责核心代码编写，搭建持续构建部署系统，服务 docker 化并将其构建打包到 docker 私有仓库（harbor），并通过搭建 Shipyard（后期换成Rancher）系统去管理 docker应用。<br>职责描述：<br>    1.负责公司领筑电商平台的开发与迭代。<br>    2.领筑电商平台开发文档编写与表结构设计。<br>    3.公司项目持续构建与维护。<br>    4.旧系统数据迁移到新系统。<br>    5.设计搭建 Devops 平台(技术栈采用 gitlab，dockers swarm，jenkins，maven，nexus，nodejs，webpack)。<br>    6.研究 eureka，consul，nacos，springCloud gateway 等技术来改造老系统。<br>    7.搭建 ELK 日志平台，收集日志定位问题。<br>    8.分解开发任务制定开发计划，分配任务给组员。<br>项目收获：  </p>
+</div>
 
 			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
 			<script>
@@ -821,7 +889,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java基础"><span class="nav-number">1.</span> <span class="nav-text">Java基础</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#vip-container"><span class="nav-number">1.0.1.</span> <span class="nav-text">装箱与拆箱</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#Java集合"><span class="nav-number">2.</span> <span class="nav-text">Java集合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java多线程"><span class="nav-number">3.</span> <span class="nav-text">Java多线程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JVM"><span class="nav-number">4.</span> <span class="nav-text">JVM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#计算机基础"><span class="nav-number">5.</span> <span class="nav-text">计算机基础</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#vip-container"><span class="nav-number">5.0.1.</span> <span class="nav-text"> TCP 三次握⼿和四次挥⼿</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vip-container"><span class="nav-number">5.0.2.</span> <span class="nav-text"> TCP，UDP协议区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vip-container"><span class="nav-number">5.0.3.</span> <span class="nav-text"> TCP 协议如何保证可靠传输</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vip-container"><span class="nav-number">5.0.4.</span> <span class="nav-text">  HTTP 和 HTTPS 的区别？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vip-container"><span class="nav-number">5.0.5.</span> <span class="nav-text"> 进程和线程的区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库"><span class="nav-number">6.</span> <span class="nav-text">数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#vip-container"><span class="nav-number">6.1.</span> <span class="nav-text">mysql</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vip-container"><span class="nav-number">6.2.</span> <span class="nav-text">redis</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用框架"><span class="nav-number">7.</span> <span class="nav-text">常用框架</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#vip-container"><span class="nav-number">7.1.</span> <span class="nav-text">Spring</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vip-container"><span class="nav-number">7.2.</span> <span class="nav-text">Mybatis</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vip-container"><span class="nav-number">7.3.</span> <span class="nav-text">Netty</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vip-container"><span class="nav-number">7.4.</span> <span class="nav-text">SpringBoot</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分布式与微服务相关"><span class="nav-number">8.</span> <span class="nav-text">分布式与微服务相关</span></a></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java基础"><span class="nav-number">1.</span> <span class="nav-text">Java基础</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#vip-container"><span class="nav-number">1.0.1.</span> <span class="nav-text">装箱与拆箱</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#Java集合"><span class="nav-number">2.</span> <span class="nav-text">Java集合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java多线程"><span class="nav-number">3.</span> <span class="nav-text">Java多线程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JVM"><span class="nav-number">4.</span> <span class="nav-text">JVM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#计算机基础"><span class="nav-number">5.</span> <span class="nav-text">计算机基础</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#vip-container"><span class="nav-number">5.0.1.</span> <span class="nav-text"> TCP 三次握⼿和四次挥⼿</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vip-container"><span class="nav-number">5.0.2.</span> <span class="nav-text"> TCP，UDP协议区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vip-container"><span class="nav-number">5.0.3.</span> <span class="nav-text"> TCP 协议如何保证可靠传输</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vip-container"><span class="nav-number">5.0.4.</span> <span class="nav-text">  HTTP 和 HTTPS 的区别？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vip-container"><span class="nav-number">5.0.5.</span> <span class="nav-text"> 进程和线程的区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库"><span class="nav-number">6.</span> <span class="nav-text">数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#vip-container"><span class="nav-number">6.1.</span> <span class="nav-text">mysql</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vip-container"><span class="nav-number">6.2.</span> <span class="nav-text">redis</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用框架"><span class="nav-number">7.</span> <span class="nav-text">常用框架</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#vip-container"><span class="nav-number">7.1.</span> <span class="nav-text">Spring</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vip-container"><span class="nav-number">7.2.</span> <span class="nav-text">Mybatis</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vip-container"><span class="nav-number">7.3.</span> <span class="nav-text">Netty</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vip-container"><span class="nav-number">7.4.</span> <span class="nav-text">SpringBoot</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vip-container"><span class="nav-number">7.5.</span> <span class="nav-text">SpringSecurity与Oauth2.0</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分布式与微服务相关"><span class="nav-number">8.</span> <span class="nav-text">分布式与微服务相关</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#vip-container"><span class="nav-number">8.1.</span> <span class="nav-text">SpringCloud</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#vip-container"><span class="nav-number">8.1.0.1.</span> <span class="nav-text">zuul与gateway</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#vip-container"><span class="nav-number">8.1.0.2.</span> <span class="nav-text">config</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#vip-container"><span class="nav-number">8.1.0.3.</span> <span class="nav-text">eureka</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#vip-container"><span class="nav-number">8.1.0.4.</span> <span class="nav-text">hystrix</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#vip-container"><span class="nav-number">8.1.0.5.</span> <span class="nav-text">ribbon</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#vip-container"><span class="nav-number">8.1.0.6.</span> <span class="nav-text">feign</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vip-container"><span class="nav-number">8.2.</span> <span class="nav-text">SpringCloud Alibaba</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#vip-container"><span class="nav-number">8.2.0.1.</span> <span class="nav-text">Nacos</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#vip-container"><span class="nav-number">8.2.0.2.</span> <span class="nav-text">Seate</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#vip-container"><span class="nav-number">8.2.0.3.</span> <span class="nav-text">Sentinel</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vip-container"><span class="nav-number">8.3.</span> <span class="nav-text">Dubbo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vip-container"><span class="nav-number">8.4.</span> <span class="nav-text">分布式事务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vip-container"><span class="nav-number">8.5.</span> <span class="nav-text">分布式缓存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vip-container"><span class="nav-number">8.6.</span> <span class="nav-text">分布式锁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vip-container"><span class="nav-number">8.7.</span> <span class="nav-text">分布式会话(Session)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vip-container"><span class="nav-number">8.8.</span> <span class="nav-text">分库分表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#系统设计"><span class="nav-number">9.</span> <span class="nav-text">系统设计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#海量数据处理"><span class="nav-number">10.</span> <span class="nav-text">海量数据处理</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#vip-container"><span class="nav-number">10.0.0.1.</span> <span class="nav-text">给定 a、b 两个文件，各存放 50 亿个 URL，每个 URL 各占 64B，内存限制是 4G。请找出 a、b 两个文件共同的 URL。</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据结构与算法"><span class="nav-number">11.</span> <span class="nav-text">数据结构与算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目经验"><span class="nav-number">12.</span> <span class="nav-text">项目经验</span></a></li></div>
             
 
           </div>

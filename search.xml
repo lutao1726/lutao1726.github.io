@@ -1541,6 +1541,23 @@ JRE：JVM+类库
 <p>Spring 是个java企业级应用的开源开发框架。Spring主要用来开发Java应用，但是有些扩展是针对构建J2EE平台的web应用。Spring 框架目标是简化Java企业级应用开发，并通过POJO为基础的编程模型促进良好的编程习惯。</p>
 </blockquote>
 <p><img src="https://gss0.bdstatic.com/-4o3dSag_xI4khGkpoWK1HF6hhy/baike/w%3D268%3Bg%3D0/sign=a1a1f9579058d109c4e3aeb4e963ab82/8b13632762d0f703ed7a0ff50afa513d2797c5cb.jpg" alt="Mou_icon"></p>
+<p>几个重要的模块：<br>Spring Core：核心类库，所有的功能都依赖该类库，提供IOC与DI服务<br>Spring AOP：AOP服务<br>Spring ORM：对现有的ORM框架的支持<br>Spring Web：为创建Web应用程序提供支持<br>Spring JDBC：Java数据库连接</p>
+<h3>IOC</h3>
+
+<p><img src="http://image.uc.cn/o/wemedia/s/upload/2021/fc83ea802e410d76b6713f81268a17be.png;,4,png;3,700x.png" alt><br>IOC 控制反转——————&gt;是依赖倒置原则的一种代码设计思路—-&gt;采用的方法是依赖注入<br>依赖注入的3种方式：</p>
+<ul>
+<li>构造方法传递</li>
+<li>Setting传递</li>
+<li>接口传递</li>
+</ul>
+<p>控制反转优点：</p>
+<ul>
+<li>降低重复代码</li>
+<li>隐藏细节</li>
+</ul>
+<p>IOC实现原理<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Fruit</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Apple</span> <span class="keyword">implements</span> <span class="title">Fruit</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Apple"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Orange</span> <span class="keyword">implements</span> <span class="title">Fruit</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Orange"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Factory</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Fruit <span class="title">getInstance</span><span class="params">(String ClassName)</span> </span>&#123;</span><br><span class="line">        Fruit f = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            f = (Fruit) Class.forName(ClassName).newInstance();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> f;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Client</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] a)</span> </span>&#123;</span><br><span class="line">        Fruit f = Factory.getInstance(<span class="string">"io.github.dunwu.spring.Apple"</span>);</span><br><span class="line">        <span class="keyword">if</span> (f != <span class="keyword">null</span>) &#123;</span><br><span class="line">            f.eat();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p></p><h3>AOP(面向切面编程)</h3><br>AOP的实现关键在代理模式，AOP代理分为静态代理（AspectJ基于字节码操作）与动态代理（Spring AOP基于代理）<p></p>
+<p></p><h3>Spring中的Bean的生命周期</h3><br>实例化Instantiation—&gt;属性赋值Populate—&gt;初始化Initialization —&gt; 销毁Destruction<br><img src="http://image.uc.cn/o/wemedia/s/upload/2021/a097fd438caecc310acad94ac255155b.png;,4,png;3,700x.png" alt><p></p>
 <p><a href="http://blog.lutao1726.top/Java%E9%9D%A2%E8%AF%95%E5%AE%9D%E5%85%B8Beta5.0.pdf" target="_blank" rel="noopener">Java面试宝典Beta5.0.pdf</a><br><a href="http://blog.lutao1726.top/%E7%BC%96%E7%A8%8B%E4%B9%8B%E7%BE%8E.pdf" target="_blank" rel="noopener">编程之美.pdf</a></p>
 </div>
 
@@ -4350,7 +4367,18 @@ _   底线
 </ul>
 <details><br>    <summary><mark><font color="darkred">点击查看运行结果</font></mark></summary><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">true</span><br><span class="line">false</span><br><span class="line">true</span><br><span class="line">true</span><br><span class="line">true</span><br><span class="line">false</span><br><span class="line">true</span><br></pre></td></tr></table></figure><br><br></details>
 
-<h2 id="Java集合"><a href="#Java集合" class="headerlink" title="Java集合"></a>Java集合</h2><h2 id="Java多线程"><a href="#Java多线程" class="headerlink" title="Java多线程"></a>Java多线程</h2><h2 id="JVM"><a href="#JVM" class="headerlink" title="JVM"></a>JVM</h2><h2 id="计算机基础"><a href="#计算机基础" class="headerlink" title="计算机基础"></a>计算机基础</h2><p></p><h4> TCP 三次握⼿和四次挥⼿</h4><p></p>
+
+<h2 id="Java集合"><a href="#Java集合" class="headerlink" title="Java集合"></a>Java集合</h2><h2 id="Java多线程"><a href="#Java多线程" class="headerlink" title="Java多线程"></a>Java多线程</h2><h2 id="JVM"><a href="#JVM" class="headerlink" title="JVM"></a>JVM</h2><ul>
+<li>JVM内存结构       <ul>
+<li>程序计数器：记录当前线程正在执行的那条字节码指令的地址，若当前线程正在执行的是本地方法此时程序计数器为Undefined</li>
+<li>Java虚拟机栈：</li>
+<li>本地方法栈：</li>
+<li>堆：</li>
+<li>方法区：<br>JDK1.8与JDK1.7差异：元数据区取代了永久代  （它两的最大区别：元数据空间并不在虚拟机中，而是使用本地内存）</li>
+</ul>
+</li>
+</ul>
+<h2 id="计算机基础"><a href="#计算机基础" class="headerlink" title="计算机基础"></a>计算机基础</h2><p></p><h4> TCP 三次握⼿和四次挥⼿</h4><p></p>
 <details><br>    <summary><mark><font color="darkred">点击查看详情</font></mark></summary><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">123</span><br></pre></td></tr></table></figure><br><br></details>
 
 <p></p><h4> TCP，UDP协议区别</h4><p></p>
@@ -4370,6 +4398,7 @@ _   底线
 
 <h3>redis</h3>
 
+
 <h2 id="常用框架"><a href="#常用框架" class="headerlink" title="常用框架"></a>常用框架</h2><h3>Spring</h3>
 
 <h3>Mybatis</h3>
@@ -4378,7 +4407,63 @@ _   底线
 
 <h3>SpringBoot</h3>
 
-<h2 id="分布式与微服务相关"><a href="#分布式与微服务相关" class="headerlink" title="分布式与微服务相关"></a>分布式与微服务相关</h2></div>
+<h3>SpringSecurity与Oauth2.0</h3>
+
+
+<h2 id="分布式与微服务相关"><a href="#分布式与微服务相关" class="headerlink" title="分布式与微服务相关"></a>分布式与微服务相关</h2><h3>SpringCloud</h3>
+
+<h5>zuul与gateway</h5>
+
+<h5>config</h5>
+
+<h5>eureka</h5>
+
+<h5>hystrix</h5>
+
+<h5>ribbon</h5>
+
+<h5>feign</h5>
+
+<h3>SpringCloud Alibaba</h3>
+
+<h5>Nacos</h5>
+
+<h5>Seate</h5>
+
+<h5>Sentinel</h5>
+
+<h3>Dubbo</h3>
+
+<h3>分布式事务</h3>
+
+<h3>分布式缓存</h3>
+
+<h3>分布式锁</h3>
+
+<h3>分布式会话(Session)</h3>
+
+<h3>分库分表</h3>
+
+
+<h2 id="系统设计"><a href="#系统设计" class="headerlink" title="系统设计"></a>系统设计</h2><h2 id="海量数据处理"><a href="#海量数据处理" class="headerlink" title="海量数据处理"></a>海量数据处理</h2><p>解决问题常用方法与策略</p>
+<blockquote>
+<p>1.分治策略(常用哈希分割)<br>  2.位图法<br>  3.前缀树<br>  4.HashMap统计频次<br>  5.堆排序       </p>
+</blockquote>
+<ul>
+<li>如何从大量的 URL 中找出相同的 URL？ <h5>给定 a、b 两个文件，各存放 50 亿个 URL，每个 URL 各占 64B，内存限制是 4G。请找出 a、b 两个文件共同的 URL。</h5></li>
+</ul>
+<ol>
+<li>分治策略<br> 分而治之，进行哈希取余；<br> 对每个子文件进行 HashSet 统计。</li>
+<li>前缀树<br> 利用字符串的公共前缀来降低存储成本，提高查询效率。  </li>
+</ol>
+<ul>
+<li>如何从大量数据中找出高频词？<br>  分而治之，进行哈希取余；<br>  使用 HashMap 统计频数；<br>  求解最大的 TopN 个，用小顶堆；求解最小的 TopN 个，用大顶堆。    </li>
+</ul>
+<h2 id="数据结构与算法"><a href="#数据结构与算法" class="headerlink" title="数据结构与算法"></a>数据结构与算法</h2><h2 id="项目经验"><a href="#项目经验" class="headerlink" title="项目经验"></a>项目经验</h2><p>项目经验一<br>项目名称：舆情督办系统</p>
+<p>项目介绍：舆情督办系统作为舆情信息综合管理的建设系统之一，是以维护社会稳定，辅助客户组织自主、科学、高效的应对网络舆情为目标，方便舆情事件快速反应、预警、分析、研判、处置；通过建设系统，实现舆情的及时发现、上报、反馈，并借助系统对于舆情处置进程的协调与监督作用，让舆情应对工作流程化、透明化，极大的调动了舆情处置工作者工作积极性，提高整体舆情处置效率；<br>     借助公司舆情大数据KYS与AMS软件，并配合与之相对的工作制度及供应商丰富的舆情工作经验，打造全面、高效、专业的高效闭环舆情处置工作流。<br>涉及技术：SpringBoot,SpringCloud,Mybatis,Nacos,SpringSecurity,Redis,mysql<br>设计技术：<br>我的职责：<br>    1.担任开发组长<br>    2.负责系统架构的升级与改造<br>    3.负责业务模块的代码实现<br>    4.编写系统的概要设计，数据库设计与接口设计文档<br>    5.负责系统的安全改造，对SpringSecurity进行登录扩展<br>项目收获：<br>    通过该项目</p>
+<p>项目经验二<br>项目名称：话机世界代理商业务管理系统<br>项目介绍：本系统是话机世界转售事业部委托我们信息部开发的用于代理商业务管理的系统，话机世界 APP 是    一款由话机世界集团股份有限公司开发供代理商使用的代理系统 APP,它实现业务办理及管理功能。能更有    效的开展代理业务,系统包括资源，订单，业务等系列模块。<br>涉及技术：<br>设计技术：该系统使用了 Java 企业级开发的开源框架 Spring 以及前端技术 Bootstrap 框架，表示层运用了     SpringMVC 架构，并实现了 REST 风格的请求；业务逻辑层运用了事务脚本模式，并通过AOP 实现事务，日    志和安全性等能，通过 Redis 实现缓存服务；持久层使用了 Mybatis 封装 CRUD 操作，底层使用 MySQL 实    现数据的存取。整个项目采用了快速原型开发模式，其中用到了 Zookeeper，Dubbo 等技术进行服务管理分    发。该系统的主要业务用户管理，靓号平台，白卡开户，白卡预开户，成卡开户，话费充值，账户充值等<br>我的职责：<br>项目收获：</p>
+<p>项目经验三<br>项目名称： 领筑电商（材料交易平台）<br>项目描述：领筑平台是专业的消防材料一站式采购平台，具有询价、报价、合同等功能，为消防采购商、供应商、上下游服务商提供一站式采购服务，货品库超 2 万余类，庞大的供应商库 100%覆盖采购需求，开创了“互联网+消防”的新时代。<br>涉及技术：SpringBoot，SpringCloud，JPA，JDBC，PostgreSQL，Zookeeper,elastic-job,ELK,Redis,RecketMQ等<br>设计技术：本系统是基于 SpringBoot 和 SpringCloud 作为底层微服务生态框架开发，搭配 apollo(后期换成Nacos) 分布式配置适用多开发环境，配合 Jenkins 与 docker 实现系统的自动化构建与部署，子系统服务涉及自动作业调度平台，采用zookeeper+ elastic-job 技术实现定时任务的分布式跑批。Grafana + ELK + skywalking + SpringBoot Admin 实现服务监控中心。在该系统中主要负责核心代码编写，搭建持续构建部署系统，服务 docker 化并将其构建打包到 docker 私有仓库（harbor），并通过搭建 Shipyard（后期换成Rancher）系统去管理 docker应用。<br>职责描述：<br>    1.负责公司领筑电商平台的开发与迭代。<br>    2.领筑电商平台开发文档编写与表结构设计。<br>    3.公司项目持续构建与维护。<br>    4.旧系统数据迁移到新系统。<br>    5.设计搭建 Devops 平台(技术栈采用 gitlab，dockers swarm，jenkins，maven，nexus，nodejs，webpack)。<br>    6.研究 eureka，consul，nacos，springCloud gateway 等技术来改造老系统。<br>    7.搭建 ELK 日志平台，收集日志定位问题。<br>    8.分解开发任务制定开发计划，分配任务给组员。<br>项目收获：  </p>
+</div>
 
 			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
 			<script>
