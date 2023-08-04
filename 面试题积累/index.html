@@ -1,0 +1,1668 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<!--<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>-->
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="RIZBC3TIHJ">
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="Java,interview">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="LuTao" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1">
+
+
+
+
+
+
+<meta name="description" content="面试题积累">
+<meta name="keywords" content="Java,interview">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面试题积累">
+<meta property="og:url" content="http://lutao.ml/面试题积累/index.html">
+<meta property="og:site_name" content="LuTao">
+<meta property="og:description" content="面试题积累">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2023-08-04T09:14:52.881Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="面试题积累">
+<meta name="twitter:description" content="面试题积累">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+<script>
+    (function(){
+        if('lt123456'){
+            if (prompt('请输入文章密码','') !== 'lt123456'){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+  <link rel="canonical" href="http://lutao.ml/面试题积累/">
+
+
+
+
+
+  <title>面试题积累 | LuTao</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?71b5afa085b24d5f55d3954c5449d77e";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">LuTao</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">Stay Hungry, Stay Foolish</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://lutao.ml/面试题积累/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LuTao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LuTao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">面试题积累</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-12T13:10:38+08:00">
+                2019-05-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/hexo教程/" itemprop="url" rel="index">
+                    <span itemprop="name">hexo教程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/面试题积累/" class="leancloud_visitors" data-flag-title="面试题积累">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度 </span>
+               
+                 <span class="leancloud-visitors-count">℃</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  3,632
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  14
+                </span>
+              
+            </div>
+          
+
+          
+              <div class="post-description">
+                  面试题积累
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div id="vip-container"><h2 id="Java基础"><a href="#Java基础" class="headerlink" title="Java基础"></a>Java基础</h2><p></p><h4>装箱与拆箱</h4><p></p>
+<ul>
+<li>装箱：将基本类型用它们对应的引用类型包装起来；</li>
+<li>拆箱：将包装类型转换为基本数据类型；<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        Integer a = <span class="number">1</span>;</span><br><span class="line">        Integer b = <span class="number">2</span>;</span><br><span class="line">        Integer c = <span class="number">3</span>;</span><br><span class="line">        Integer d = <span class="number">3</span>;</span><br><span class="line">        Integer e = <span class="number">321</span>;</span><br><span class="line">        Integer f = <span class="number">321</span>;</span><br><span class="line">        Long g = <span class="number">3L</span>;</span><br><span class="line">        Long h = <span class="number">2L</span>;</span><br><span class="line">        System.out.println(c==d);</span><br><span class="line">        System.out.println(e==f);</span><br><span class="line">        System.out.println(c==(a+b));</span><br><span class="line">        System.out.println(c.equals(a+b));</span><br><span class="line">        System.out.println(g==(a+b));</span><br><span class="line">        System.out.println(g.equals(a+b));</span><br><span class="line">        System.out.println(g.equals(a+h));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<details><br>    <summary><mark><font color="darkred">点击查看运行结果</font></mark></summary><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">true</span><br><span class="line">false</span><br><span class="line">true</span><br><span class="line">true</span><br><span class="line">true</span><br><span class="line">false</span><br><span class="line">true</span><br></pre></td></tr></table></figure><br><br></details>
+
+
+<h2 id="Java集合"><a href="#Java集合" class="headerlink" title="Java集合"></a>Java集合</h2><p>HashMap：</p>
+<pre><code>* HashMap与ConcurrentHashMap实现原理？ 
+
+* ConcurrentHashMap如何实现线程安全的？
+</code></pre><h2 id="Java多线程"><a href="#Java多线程" class="headerlink" title="Java多线程"></a>Java多线程</h2><p>线程池：核心参数有哪些：7个核心参数<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">ThreadPoolExecutor</span><span class="params">(<span class="keyword">int</span> corePoolSize,</span></span></span><br><span class="line"><span class="function"><span class="params">                              <span class="keyword">int</span> maximumPoolSize,</span></span></span><br><span class="line"><span class="function"><span class="params">                              <span class="keyword">long</span> keepAliveTime,</span></span></span><br><span class="line"><span class="function"><span class="params">                              TimeUnit unit,</span></span></span><br><span class="line"><span class="function"><span class="params">                              BlockingQueue&lt;Runnable&gt; workQueue)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>(corePoolSize, maximumPoolSize, keepAliveTime, unit, workQueue,</span><br><span class="line">             Executors.defaultThreadFactory(), defaultHandler);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<pre><code>*  corePoolSize 核心线程数
+*  maximumPoolSize 最大线程数
+*  keepAliveTime  空闲线程存活时间   
+*  unit  存活时间单位
+*  workQueue 任务队列
+*  threadFactory 线程工厂，用于创建线程
+*  handler 拒绝策略（4种：1.AbortPolicy 抛出异常（默认） 2.CallerRunsPolicy线程池没有被关闭，则由提交该任务的线程来执行 ，3. DiscardPolicy直接丢弃被拒绝的任务 4.DiscardOldestPolicy如果线程池没有被关闭，则丢弃队列首部的任务，提交这个新的任务）
+</code></pre><p>  常用线程池：</p>
+<pre><code>* newFixThreadPool    指定工作线程数量的线程池 （无任务时不释放）
+* newSingleThreadExecutor  创建一个单线程化的Executor,可保证顺序地执行各个任务
+* newCachedThreadPool   可缓存线程池（无任务时默认1分钟后释放）
+* newScheduleThreadPool  创建一个定长的线程池
+</code></pre><p>  任务执行流程</p>
+<pre><code>* 线程池刚创建时，里面没有一个线程。任务队列是作为参数传进来的。不过，就算队列里面有任务，线程池也不会马上执行它们
+* 当调用 execute() 方法添加一个任务时，线程池会做如下判断：
+   *  a) 如果正在运行的线程数量小于 corePoolSize，那么马上创建线程运行这个任务；
+   *  b) 如果正在运行的线程数量大于或等于 corePoolSize，那么将这个任务放入队列；
+   *  c) 如果这时候队列满了，而且正在运行的线程数量小于 maximumPoolSize，那么还是要创建非核心线程立刻运行这个任务；
+   *  d) 如果队列满了，而且正在运行的线程数量等于 maximumPoolSize，那么线程池会抛出异常 RejectExecutionException。
+* 当一个线程完成任务时，它会从队列中取下一个任务来执行。
+* 当一个线程无事可做，超过一定的时间（keepAliveTime）时，线程池会判断，如果当前运行的线程数大于 corePoolSize，那么这个线程就被停掉。所以线程池的所有任务完成后，它最终会收缩到 corePoolSize 的大小。  
+</code></pre><p>  任务拒绝策略</p>
+<pre><code>* 线程池中的线程已经用完了，无法继续为新任务服务，同时，等待队列也已经排满了，再也塞不下新任务了。这时候我们就需要拒绝策略机制合理的处理这个问题
+1.AbortPolicy 中止抛出异常策略
+2.CallerRunsPolicy 调用者运行策略
+3.DiscardOldestPolicy 抛弃最老策略
+4.DiscardPolicy 抛弃策略
+* 以上内置拒绝策略均实现了 RejectedExecutionHandler 接口，若以上策略仍无法满足实际需要，完全可以自己扩展 RejectedExecutionHandler 接口。
+</code></pre><p>锁：<br>  synchronized锁升级过程<br>        无锁-偏向锁-轻量锁-重量锁<br>  ReentrantLock</p>
+<pre><code>* 实现原理（AQS）
+* 公平锁如何实现
+* volatile特性      
+</code></pre><p>  CAS  </p>
+<h2 id="JVM"><a href="#JVM" class="headerlink" title="JVM"></a>JVM</h2><ul>
+<li>JVM内存结构       <ul>
+<li>程序计数器：记录当前线程正在执行的那条字节码指令的地址，若当前线程正在执行的是本地方法此时程序计数器为Undefined</li>
+<li>Java虚拟机栈：</li>
+<li>本地方法栈：</li>
+<li>堆：Eden空间、From Survivor空间、To Survivor空间,默认情况下年轻代按照8:1:1的比例来分配</li>
+<li>方法区：存储类信息、常量、静态变量等数据，是线程共享的区域<br>JDK1.8与JDK1.7差异：元数据区取代了永久代  （它两的最大区别：元数据空间并不在虚拟机中，而是使用本地内存）</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>类的生命周期</p>
+<ul>
+<li>加载：加载class文件进JVM</li>
+<li>验证：确保被加载的类的正确性（文件格式，元数据，字节码，符号引用）</li>
+<li>准备：为类中的静态变量分配内存，并将其初始化为默认值</li>
+<li>解析：把类中的符号引用转化为直接引用</li>
+<li>初始化：为类中的静态变量赋予初始值</li>
+<li>使用：</li>
+<li>卸载</li>
+</ul>
+</li>
+<li><p>类加载器：启动类加载器，扩展类加载器，应用类加载器，用户自定义加载器</p>
+</li>
+<li><p>双亲委派模型：如果一个类加载器收到了类加载的请求，它首先不会自己去尝试加载这个类，而是把请求委托给父加载器去完成，依次向上，因此，所有的类加载请求最终都应该被传递到顶层的启动类加载器中，只有当父加载器在它的搜索范围中没有找到所需的类时，即无法完成该加载，子加载器才会尝试自己去加载该类。<br>  目的：系统类防止内存中出现多份同样的字节码</p>
+</li>
+<li><p>Java类的加载机制</p>
+<ul>
+<li>全盘负责</li>
+<li>父类委托</li>
+<li>缓存机制</li>
+</ul>
+</li>
+<li><p>JVM调优控制参数</p>
+<ul>
+<li>Xms 设置堆的最小空间大小</li>
+<li>Xmx 设置堆的最大空间大小</li>
+<li>XX:NewSize 设置新生代最小空间大小    </li>
+<li>XX:MaxNewSize 设置新生代最大空间大小</li>
+<li>XX:PermSize 设置永久代最小空间大小</li>
+<li>XX:MaxPermSize 设置永久代最大空间大小</li>
+<li>Xss 设置每个线程的堆栈大小</li>
+</ul>
+</li>
+<li><p>运行时的内存划分</p>
+</li>
+<li>垃圾收集算法<ul>
+<li>标记清除</li>
+<li>复制回收</li>
+<li>标记-整理</li>
+<li>分代收集</li>
+</ul>
+</li>
+<li>一个对象的内存分配过程</li>
+<li>CMS收集器<ul>
+<li>收集过程</li>
+<li>哪个过程会有STW</li>
+<li>如何处理内存碎片问题</li>
+</ul>
+</li>
+<li><p>G1收集器</p>
+</li>
+<li><p>GC roots有哪些<br>   1、虚拟机栈（局部变量表中引用的对象）<br>   2、本地方法栈（本地方法引用的对象）<br>   3、方法区中静态属性引用的对象<br>   4、方法区中静态常量池中引用的对象</p>
+</li>
+<li>JVM 常用配置参数有哪些</li>
+<li>内存占用过多，如何排除        </li>
+</ul>
+<h2 id="计算机基础"><a href="#计算机基础" class="headerlink" title="计算机基础"></a>计算机基础</h2><p></p><h4> TCP 三次握⼿和四次挥⼿</h4><p></p>
+<details><br>    <summary><mark><font color="darkred">点击查看详情</font></mark></summary><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">123</span><br></pre></td></tr></table></figure><br><br></details>
+
+<p></p><h4> TCP，UDP协议区别</h4><p></p>
+<details><br>    <summary><mark><font color="darkred">点击查看详情</font></mark></summary><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">123</span><br></pre></td></tr></table></figure><br><br></details>
+
+<p></p><h4> TCP 协议如何保证可靠传输</h4><p></p>
+<details><br>    <summary><mark><font color="darkred">点击查看详情</font></mark></summary><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">123</span><br></pre></td></tr></table></figure><br><br></details>
+
+<p></p><h4>  HTTP 和 HTTPS 的区别？</h4><p></p>
+<details><br>    <summary><mark><font color="darkred">点击查看详情</font></mark></summary><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">123</span><br></pre></td></tr></table></figure><br><br></details>
+
+<p></p><h4> 进程和线程的区别</h4><p></p>
+<details><br>    <summary><mark><font color="darkred">点击查看详情</font></mark></summary><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1123</span><br></pre></td></tr></table></figure><br><br></details>
+
+
+<h2 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h2><p>mysql：</p>
+<pre><code>* 索引
+    * 分类？使用场景？
+    * InnoDB索引的结构是（B+树），为啥不用B树？
+    * 如何查看索引的使用情况？Explain关注哪些字段？
+        explain: type 
+</code></pre><ul>
+<li><p>事务</p>
+<ul>
+<li><p>ACID 原子性 一致性 隔离性 持久性</p>
+</li>
+<li><p>隔离级别（解决脏读，不可重复读，幻读）</p>
+<ul>
+<li>读未提交</li>
+<li>读已提交</li>
+<li>可重复读<ul>
+<li>MVCC多版本并发控制<ul>
+<li>InnoDB每行记录后面会有三个隐藏的列<ul>
+<li>DB_ROW_ID：行ID，随着插入新行而单调递增，如果有主键，则不会包含该列。</li>
+<li>DB_TRX_ID：记录插入或更新该行的事务的事务ID。</li>
+<li>DB_ROLL_PTR：回滚指针，指向 undo log 记录。</li>
+</ul>
+</li>
+<li>MVCC只作用于RC(读已提交)与RR(可重复读)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>串行化</li>
+</ul>
+</li>
+<li><p>RC/RR的实现原理</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>redis：</p>
+<pre><code>* 常见数据结构
+    * zset实现原理
+    * hash扩容过程
+* 常见缓存问题
+    * 缓存穿透，缓存击穿，缓存雪崩，热点key
+    * 如何解决上述问题    
+* 持久化 RDB与AOF二者的区别
+* redis为啥快？线程模型是什么？
+
+* redis的淘汰策略有哪些？
+* redis集群架构
+    * 主从
+    * 集群
+    * 哨兵
+</code></pre><p></p><h3>redis</h3><br><a href="https://zhuanlan.zhihu.com/p/91539644" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/91539644</a><br>Redis的数据类型：<br>    String<br>    Hash<br>    List<br>    Set<br>    SortedSet<br>(HyperLogLog,Geo,Pub/Sub,BloomFilter,RedisSearch,Redis-ML)<br>缓存雪崩：大量的key在同一时间过期<br>Redis分布式锁：setnx 来争抢锁 expire给锁加过期时间 在Redis2.6之前这个不是原子操作可能会存在过期时间未执行到就发生意外<p></p>
+<p>keys：Redis单线程会导致线程阻塞<br>scan:无阻塞的取出指定模式的key列表，但会有一定的重复，客户端需要做一次去重，时间消耗上比keys大，键值有可能被修改<br>smembers：可以返回集合键当前包含的所有元素</p>
+<p>Redis作异步队列：rpush生产消息，lpop消费消息，当lpop没有消息的时候，要适当sleep一会再重试<br>                也可以用blpop，在没有消息的时候，它会阻塞住直到消息到来<br>               使用pub/sub主题订阅者模式，可以实现 1:N 的消息队列。缺点当消费者下线，生产的消息会丢失</p>
+<p>Redis如何实现延时队列：使用sortedset，拿时间戳作为score，消息内容作为key调用zadd来生产消息，消费者用zrangebyscore指令获取N秒之前的数据轮询进行处理。               </p>
+<p>持久化：RDB(镜像全量持久化)与AOF(增量持久化)   不过Redis本身的机制是 AOF持久化开启且存在AOF文件时，优先加载AOF文件；AOF关闭或者AOF文件不存在时，加载RDB文件；加载AOF/RDB文件城后，Redis启动成功； AOF/RDB文件存在错误时，Redis启动失败并打印错误信息<br>RDB的原理是什么:fork和cow</p>
+<p>pipeline: 可以将多次IO往返的时间缩减为一次，前提是pipeline执行的指令之间没有因果相关性。使用redis-benchmark进行压测的时候可以发现影响redis的QPS峰值的一个重要因素是pipeline批次指令的数目。</p>
+<p>Redis的同步机制:Redis可以使用主从同步，从从同步。第一次同步时，主节点做一次bgsave，并同时将后续修改操作记录到内存buffer，待完成后将RDB文件全量同步到复制节点，复制节点接受完成后将RDB镜像加载到内存。加载完成后，再通知主节点将期间修改的操作记录同步到复制节点进行重放就完成了同步过程。后续的增量数据通过AOF日志同步即可，有点类似数据库的binlog。</p>
+<p>Redis集群:Redis Sentinal 着眼于高可用,在master宕机时会自动将slave提升为master，继续提供服务。<br>         Redis Cluster 着眼于扩展性，在单个redis内存不足时，使用Cluster进行分片存储。 </p>
+<p>Redis过期策略：定期删除+惰性删除<br>     内存淘汰机制：noeviction  返回错误当内存限制达到并且客户端尝试执行会让更多内存被使用的命令<br>                 allkeys-lru 尝试回收最少使用的键（LRU）<br>                 volatile-lru 尝试回收最少使用的键（LRU），但仅限于在过期集合的键<br>                 allkeys-random 回收随机的键<br>                 volatile-random 回收随机的过期键<br>                 volatile-ttl 回收在过期集合的键，并且优先回收存活时间（TTL）较短的键<br>     LRU近似算法：LinkedHashMap<br>     <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br></pre></td><td class="code"><pre><span class="line">        <span class="class"><span class="keyword">class</span> <span class="title">LRUCache</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; <span class="title">entends</span> <span class="title">LinkedHashMap</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt;</span>&#123;</span><br><span class="line">            <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> CACHE_SIZE;</span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="title">LRUCache</span><span class="params">(<span class="keyword">int</span> cacheSize)</span></span>&#123;</span><br><span class="line">                <span class="keyword">super</span>((<span class="keyword">int</span>) Math.cell(cacheSize/<span class="number">0.75</span>)+<span class="number">1</span>,<span class="number">0.75f</span>,<span class="keyword">true</span>);</span><br><span class="line">                CACHE_SIZE = cacheSize</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">protected</span> <span class="keyword">boolean</span> <span class="title">removeEldestEntry</span><span class="params">(Map.Entry&lt;K,V&gt; eldest)</span></span>&#123;</span><br><span class="line">                <span class="keyword">return</span> size() &gt; CACHE_SIZE</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">     ```            </span><br><span class="line"></span><br><span class="line">              </span><br><span class="line">              </span><br><span class="line">常用框架</span><br><span class="line">-------</span><br><span class="line">&lt;h3&gt;Spring&lt;/h3&gt;</span><br><span class="line">* AOP 与 IOC实现</span><br><span class="line">* 循环依赖问题</span><br><span class="line">* 事务传播特性，失效场景</span><br><span class="line">* JDK&amp;CGLIB的区别</span><br><span class="line"></span><br><span class="line">&lt;h3&gt;Mybatis&lt;/h3&gt;</span><br><span class="line"></span><br><span class="line">&lt;h3&gt;Netty&lt;/h3&gt;</span><br><span class="line"></span><br><span class="line">&lt;h3&gt;SpringBoot&lt;/h3&gt;</span><br><span class="line">* Spring Boot启动原理</span><br><span class="line">    </span><br><span class="line">* Spring 自动化配置</span><br><span class="line">    <span class="meta">@SpringBootApplication</span> </span><br><span class="line">        * <span class="meta">@ComponentScan</span>  ---<span class="meta">@ComponentScan</span></span><br><span class="line">        * <span class="meta">@SpringBootConfiguration</span> ---<span class="meta">@Configuration</span></span><br><span class="line">        * <span class="meta">@EnableAutoConfiguration</span>  ---<span class="meta">@Import</span> ---&gt;EnableAutoConfigurationImportSelector.class ---&gt;selectImports ---&gt;MATE-INF/spring.factories</span><br><span class="line">                    </span><br><span class="line">* 如何编写一个Starter</span><br><span class="line"></span><br><span class="line">&lt;h3&gt;SpringSecurity与Oauth2.0&lt;/h3&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">分布式与微服务相关</span><br><span class="line">------</span><br><span class="line">&lt;h3&gt;消息队列MQ&lt;/h3&gt;</span><br><span class="line">* RocketMQ </span><br><span class="line">    * 整体架构</span><br><span class="line">    * 如何保证消息的可靠性？</span><br><span class="line">    * 如何实现消息的顺序性？</span><br><span class="line">    * 消费者接口幂等性设计？</span><br><span class="line">    * 事务消息实现？</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;h3&gt;SpringCloud&lt;/h3&gt;</span><br><span class="line"></span><br><span class="line">&lt;h5&gt;zuul与gateway&lt;/h5&gt;</span><br><span class="line">Zuul，中文文件名乱码原因：因为上传用了zuul的servlet而不是springmvc</span><br><span class="line">    解决方法：<span class="number">1</span>.在调用的上传接口时加 <span class="string">"/zuul"</span> 这种</span><br><span class="line">            <span class="number">2</span>.</span><br><span class="line">&lt;h5&gt;config&lt;/h5&gt;</span><br><span class="line"></span><br><span class="line">&lt;h5&gt;eureka&lt;/h5&gt;</span><br><span class="line"></span><br><span class="line">&lt;h5&gt;hystrix&lt;/h5&gt;</span><br><span class="line"></span><br><span class="line">&lt;h5&gt;Ribbon&lt;/h5&gt;</span><br><span class="line"></span><br><span class="line">&lt;h5&gt;feign&lt;/h5&gt;</span><br><span class="line"></span><br><span class="line">&lt;h3&gt;SpringCloud Alibaba&lt;/h3&gt;</span><br><span class="line"></span><br><span class="line">&lt;h5&gt;Nacos&lt;/h5&gt;</span><br><span class="line"> nacos服务注册原理</span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">&lt;h5&gt;Seate&lt;/h5&gt;</span><br><span class="line"></span><br><span class="line">&lt;h5&gt;Sentinel&lt;/h5&gt;</span><br><span class="line"></span><br><span class="line">&lt;h3&gt;Dubbo&lt;/h3&gt;</span><br><span class="line">* Dubbo的架构</span><br><span class="line">* 负载均衡算法，容错策略，灰度测试</span><br><span class="line">* SPI机制</span><br><span class="line">* RPC调用过程</span><br><span class="line">* RPC与HTTP两者的区别与联系</span><br><span class="line">* Spring cloud为啥使用HTTP而不是RPC？</span><br><span class="line"></span><br><span class="line">&lt;h3&gt;分布式事务&lt;/h3&gt;</span><br><span class="line">* <span class="number">2</span>PC</span><br><span class="line">* <span class="number">3</span>PC</span><br><span class="line">* TCC</span><br><span class="line">* 可靠消息最终一致性</span><br><span class="line">* 最终一致性：MQ实现流程</span><br><span class="line">* 实现框架（Seata）</span><br><span class="line"></span><br><span class="line">&lt;h3&gt;分布式缓存&lt;/h3&gt;</span><br><span class="line"></span><br><span class="line">&lt;h3&gt;分布式锁&lt;/h3&gt;</span><br><span class="line">* Redis如何实现？命令？</span><br><span class="line">* Zookeeper如何实现？</span><br><span class="line">* 获取锁失败时如何处理？</span><br><span class="line"></span><br><span class="line">&lt;h3&gt;分布式会话(Session)&lt;/h3&gt;</span><br><span class="line"></span><br><span class="line">&lt;h3&gt;分库分表&lt;/h3&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">系统设计</span><br><span class="line">------</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">海量数据处理</span><br><span class="line">------</span><br><span class="line">解决问题常用方法与策略</span><br><span class="line">&gt; <span class="number">1</span>.分治策略(常用哈希分割)    </span><br><span class="line">  <span class="number">2</span>.位图法     </span><br><span class="line">  <span class="number">3</span>.前缀树     </span><br><span class="line">  <span class="number">4</span>.HashMap统计频次     </span><br><span class="line">  <span class="number">5</span>.堆排序       </span><br><span class="line"></span><br><span class="line">* 如何从大量的 URL 中找出相同的 URL？ </span><br><span class="line">&lt;h5&gt;给定 a、b 两个文件，各存放 50 亿个 URL，每个 URL 各占 64B，内存限制是 4G。请找出 a、b 两个文件共同的 URL。&lt;/h5&gt;</span><br><span class="line"><span class="number">1</span>. 分治策略     </span><br><span class="line">    分而治之，进行哈希取余；    </span><br><span class="line">    对每个子文件进行 HashSet 统计。</span><br><span class="line"><span class="number">2</span>. 前缀树</span><br><span class="line">    利用字符串的公共前缀来降低存储成本，提高查询效率。  </span><br><span class="line">     </span><br><span class="line">* 如何从大量数据中找出高频词？</span><br><span class="line">    分而治之，进行哈希取余；    </span><br><span class="line">    使用 HashMap 统计频数；    </span><br><span class="line">    求解最大的 TopN 个，用小顶堆；求解最小的 TopN 个，用大顶堆。    </span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">数据结构&amp;&amp;算法&amp;&amp;设计模式</span><br><span class="line">------</span><br><span class="line">排序： </span><br><span class="line">    * 冒泡</span><br><span class="line">```java</span><br></pre></td></tr></table></figure></p>
+<pre><code>* 快速排序
+</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">```   </span><br><span class="line"></span><br><span class="line">    * 堆排序</span><br><span class="line">     </span><br><span class="line">查找：</span><br><span class="line">    * 二分查找</span><br><span class="line">```java</span><br></pre></td></tr></table></figure>
+<p>链表：</p>
+<pre><code>* 链表反转
+</code></pre><p>设计模式：</p>
+<pre><code>* 单例 
+</code></pre><pre><code class="java">
+</code></pre>
+<h2 id="项目经验"><a href="#项目经验" class="headerlink" title="项目经验"></a>项目经验</h2></div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "25071-1608261299158-736",
+			        "name": "Java一学习那些事",
+			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
+			        "keyword": "more"
+			    });
+			}
+			</script>
+		
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/weixin.jpg" alt="LuTao WeChat Pay">
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/zhifubao.jpg" alt="LuTao Alipay">
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      LuTao
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://lutao.ml/面试题积累/" title="面试题积累">http://lutao.ml/面试题积累/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Interview/" rel="tag"># Interview</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/linux安装字体/" rel="next" title="linux安装字体">
+                <i class="fa fa-chevron-left"></i> linux安装字体
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/在github上配置hexo自定义域名/" rel="prev" title="在github上配置hexo自定义域名">
+                在github上配置hexo自定义域名 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTkwNC82NDY5"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="LuTao">
+          <p class="site-author-name" itemprop="name">LuTao</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">76</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/lutao1726" target="_blank" title="GitHub " rel="external nofollow">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/2599825050/profile?topnav=1&wvr=6&is_all=1" target="_blank" title="Weibo " rel="external nofollow">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://lutao1726.top:8082/" title="涛涛商城" target="_blank" rel="external nofollow">涛涛商城</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://git.oschina.net/lutao1726" title="码云" target="_blank" rel="external nofollow">码云</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.cnblogs.com/lt1726/" title="博客园" target="_blank" rel="external nofollow">博客园</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java基础"><span class="nav-number">1.</span> <span class="nav-text">Java基础</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#vip-container"><span class="nav-number">1.0.1.</span> <span class="nav-text">装箱与拆箱</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#Java集合"><span class="nav-number">2.</span> <span class="nav-text">Java集合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java多线程"><span class="nav-number">3.</span> <span class="nav-text">Java多线程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JVM"><span class="nav-number">4.</span> <span class="nav-text">JVM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#计算机基础"><span class="nav-number">5.</span> <span class="nav-text">计算机基础</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#vip-container"><span class="nav-number">5.0.1.</span> <span class="nav-text"> TCP 三次握⼿和四次挥⼿</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vip-container"><span class="nav-number">5.0.2.</span> <span class="nav-text"> TCP，UDP协议区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vip-container"><span class="nav-number">5.0.3.</span> <span class="nav-text"> TCP 协议如何保证可靠传输</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vip-container"><span class="nav-number">5.0.4.</span> <span class="nav-text">  HTTP 和 HTTPS 的区别？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vip-container"><span class="nav-number">5.0.5.</span> <span class="nav-text"> 进程和线程的区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库"><span class="nav-number">6.</span> <span class="nav-text">数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#vip-container"><span class="nav-number">6.1.</span> <span class="nav-text">redis</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目经验"><span class="nav-number">7.</span> <span class="nav-text">项目经验</span></a></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">
+  
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LuTao</span>
+</div>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i>
+<span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+<span class="post-meta-divider">|</span>
+<span id="busuanzi_container_site_uv">本站访客数:<span id="busuanzi_value_site_uv"></span>人</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io" rel="external nofollow">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" rel="external nofollow">
+    NexT.Mist
+  </a>
+</div>
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/three/three.min.js"></script>
+
+  
+  <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("SHkEzVF9JLXyG3ViGkb6QF6w-gzGzoHsz", "G5mg2sHbwBG7RSr6yXtMevT1");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+
+<div id="live2d-widget">
+		<canvas id="live2dcanvas" width="300" height="600" style="position: fixed; opacity: 0.7; left: 0px; bottom: -20px; z-index: 99999; pointer-events: none; border: 1px dashed rgb(204, 204, 204);"></canvas>
+	</div>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+<script type="text/javascript" src="/js/src/chuncai.js"></script>
+<script type="text/javascript" src="/js/src/L2Dwidget.min.js"></script>
+<script>
+	L2Dwidget.init();
+</script>
+    <script type="text/javascript">
+        $.chuncai();
+    </script>
+</body>
+</html>
