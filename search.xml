@@ -1,158 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>设计模式(2)-工厂模式</title>
-    <url>/DesignPatterns(2)/</url>
-    <content><![CDATA[<div id="vip-container"><a id="more"></a>
-<h2 id="工厂方法模式（Factory-Method）"><a href="#工厂方法模式（Factory-Method）" class="headerlink" title="工厂方法模式（Factory Method）"></a>工厂方法模式（Factory Method）</h2><p>工厂方法模式分为三种：</p>
-<ul>
-<li><code>普通工厂模式</code><blockquote>
-<p>就是建立一个工厂类，对实现了同一接口的一些类进行实例的创建。首先看下关系图：</p>
-</blockquote>
-</li>
-</ul>
-<p><img src="http://dl2.iteye.com/upload/attachment/0083/1180/421a1a3f-6777-3bca-85d7-00fc60c1ae8b.png?_=3023236" alt="Mou icon"><br>Sender代码:<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Sender</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Send</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>MailSender代码:<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MailSender</span> <span class="keyword">implements</span> <span class="title">Sender</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Send</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"this is MailSender"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>SmsSender代码:<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SmsSender</span> <span class="keyword">implements</span> <span class="title">Sender</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Send</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"this is SmsSender"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>SendFactory代码:<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SendFactory</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Sender <span class="title">produce</span><span class="params">(String type)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="string">"mail"</span>.equals(type))&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> MailSender();</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(<span class="string">"sms"</span>.equals(type))&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> SmsSender();</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            System.out.println(<span class="string">"请输入正确的类型!"</span>);</span><br><span class="line">            <span class="keyword">return</span>  <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>FactoryTest代码:<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FactoryTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span>  <span class="keyword">void</span>  <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        SendFactory factory = <span class="keyword">new</span> SendFactory();</span><br><span class="line">        Sender sender = factory.produce(<span class="string">"sms"</span>);</span><br><span class="line">        sender.Send();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li><code>多个工厂方法模式</code><blockquote>
-<p>是对普通工厂方法模式的改进，在普通工厂方法模式中，如果传递的字符串出错，则不能正确创建对象，而多个工厂方法模式是提供多个工厂方法，分别创建对象。关系图：</p>
-</blockquote>
-</li>
-</ul>
-<p><img src="http://dl2.iteye.com/upload/attachment/0083/1181/84673ccf-ef89-3774-b5cf-6d2523cd03e5.jpg?_=3023236" alt="Mou icon"><br>Sender代码:<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Sender</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Send</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>MailSender代码:<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MailSender</span> <span class="keyword">implements</span> <span class="title">Sender</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Send</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"this is MailSender"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>SmsSender代码:<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SmsSender</span> <span class="keyword">implements</span> <span class="title">Sender</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Send</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"this is SmsSender"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>SendFactory代码:<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SendFactory</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Sender <span class="title">produceMail</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> MailSender();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Sender <span class="title">produceSms</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> SmsSender();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>FactoryTest代码:<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FactoryTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span>  <span class="keyword">void</span>  <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        SendFactory factory = <span class="keyword">new</span> SendFactory();</span><br><span class="line">        Sender sender = factory.produceMail();</span><br><span class="line">        sender.Send();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li><code>静态工厂模式</code><blockquote>
-<p>将上面的多个工厂方法模式里的方法置为静态的，不需要创建实例，直接调用即可。</p>
-</blockquote>
-</li>
-</ul>
-<p>Sender代码:<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Sender</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Send</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>MailSender代码:<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MailSender</span> <span class="keyword">implements</span> <span class="title">Sender</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Send</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"this is MailSender"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>SmsSender代码:<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SmsSender</span> <span class="keyword">implements</span> <span class="title">Sender</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Send</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"this is SmsSender"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>SendFactory代码:<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SendFactory</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Sender <span class="title">produceMail</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> MailSender();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Sender <span class="title">produceSms</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> SmsSender();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>FactoryTest代码:<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FactoryTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span>  <span class="keyword">void</span>  <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        Sender sender = SendFactory.produceMail();</span><br><span class="line">        sender.Send();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><blockquote>
-<p>总体来说，工厂模式适合：凡是出现了大量的产品需要创建，并且具有共同的接口时，可以通过工厂方法模式进行创建。在以上的三种模式中，第一种如果传入的字符串有误，不能正确创建对象，第三种相对于第二种，不需要实例化工厂类，所以，大多数情况下，我们会选用第三种——静态工厂方法模式。</p>
-</blockquote>
-</div>
-
-			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
-			<script>
-			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
-			if (!isMobile) {
-			    var btw = new BTWPlugin();
-			    btw.init({
-			        "id": "vip-container",
-			        "blogId": "25071-1608261299158-736",
-			        "name": "Java一学习那些事",
-			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
-			        "keyword": "more"
-			    });
-			}
-			</script>
-		]]></content>
-      <categories>
-        <category>设计模式教程</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>设计模式</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Docker相关整理</title>
-    <url>/Docker%E7%9B%B8%E5%85%B3%E6%95%B4%E7%90%86/</url>
-    <content><![CDATA[<div id="vip-container"><a id="more"></a>
-<h1 id="CentOS-Docker-安装"><a href="#CentOS-Docker-安装" class="headerlink" title="CentOS Docker 安装"></a>CentOS Docker 安装</h1><h2 id="使用-yum-安装"><a href="#使用-yum-安装" class="headerlink" title="使用 yum 安装"></a>使用 yum 安装</h2><p>Docker 要求 CentOS 系统的内核版本高于 3.10 ，查看本页面的前提条件来验证你的CentOS 版本是否支持 Docker 。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">uname -r</span><br></pre></td></tr></table></figure></p>
-<p><img src="http://www.runoob.com/wp-content/uploads/2016/05/docker08.png" alt></p>
-<h2 id="安装-Docker"><a href="#安装-Docker" class="headerlink" title="安装 Docker"></a>安装 Docker</h2><p>从 2017 年 3 月开始 docker 在原来的基础上分为两个分支版本: Docker CE 和 Docker EE。<br>Docker CE 即社区免费版，Docker EE 即企业版，强调安全，但需付费使用。<br>本文介绍 Docker CE 的安装使用。<br>移除旧的版本：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo yum remove docker \</span><br><span class="line">              docker-client \</span><br><span class="line">              docker-client-latest \</span><br><span class="line">              docker-common \</span><br><span class="line">              docker-latest \</span><br><span class="line">              docker-latest-logrotate \</span><br><span class="line">              docker-logrotate \</span><br><span class="line">              docker-selinux \</span><br><span class="line">              docker-engine-selinux \</span><br><span class="line">              docker-engine</span><br></pre></td></tr></table></figure></p>
-<p>安装一些必要的系统工具：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo yum install -y yum-utils device-mapper-persistent-data lvm2</span><br></pre></td></tr></table></figure></p>
-<p>添加软件源信息：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</span><br></pre></td></tr></table></figure></p>
-<p>更新 yum 缓存：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo yum makecache fast</span><br></pre></td></tr></table></figure></p>
-<p>安装docker-ce<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo yum -y install docker-ce</span><br></pre></td></tr></table></figure></p>
-<p>启动 Docker 后台服务<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo systemctl start docker</span><br></pre></td></tr></table></figure></p>
-<h1 id="解决非root用户使用docker的办法"><a href="#解决非root用户使用docker的办法" class="headerlink" title="解决非root用户使用docker的办法"></a>解决非root用户使用docker的办法</h1><p>创建docker组<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo groupadd docker</span><br></pre></td></tr></table></figure></p>
-<p>将当前用户加入docker组<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo gpasswd -a $&#123;USER&#125; docker</span><br></pre></td></tr></table></figure></p>
-<p>重新启动docker服务（下面是CentOS7的命令）<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo service docker restart或sudo systemctl restart docker</span><br></pre></td></tr></table></figure></p>
-<p>当前用户退出系统重新登陆即可</p>
-<p>dockerexec不同用户登入<br>docker exec -it –user root &lt;容器ID&gt; /bin/bash<br><img src="https://www.2cto.com/uploadfile/Collfiles/20180403/201804030931161219.png" alt></p>
-</div>
-
-			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
-			<script>
-			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
-			if (!isMobile) {
-			    var btw = new BTWPlugin();
-			    btw.init({
-			        "id": "vip-container",
-			        "blogId": "25071-1608261299158-736",
-			        "name": "Java一学习那些事",
-			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
-			        "keyword": "more"
-			    });
-			}
-			</script>
-		]]></content>
-      <categories>
-        <category>Linux教程</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>Linux</tag>
-        <tag>运维</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>设计模式(3)-抽象工厂模式</title>
-    <url>/DesignPatterns(3)/</url>
-    <content><![CDATA[<div id="vip-container"><a id="more"></a>
-<h2 id="抽象工厂模式（Abstract-Factory）"><a href="#抽象工厂模式（Abstract-Factory）" class="headerlink" title="抽象工厂模式（Abstract Factory）"></a>抽象工厂模式（Abstract Factory）</h2><blockquote>
-<p>工厂方法模式有一个问题就是，类的创建依赖工厂类，也就是说，如果想要拓展程序，必须对工厂类进行修改，这违背了闭包原则，所以，从设计角度考虑，有一定的问题，如何解决？就用到抽象工厂模式，创建多个工厂类，这样一旦需要增加新的功能，直接增加新的工厂类就可以了，不需要修改之前的代码。因为抽象工厂不太好理解，我们先看看图，然后就和代码，就比较容易理解。</p>
-</blockquote>
-<p><img src="http://dl2.iteye.com/upload/attachment/0083/1185/34a0f8de-16e0-3cd5-9f69-257fcb2be742.jpg?_=3023236" alt="Mou icon"></p>
-<p>Sender代码:<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Sender</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Send</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>MailSender代码:<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MailSender</span> <span class="keyword">implements</span> <span class="title">Sender</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Send</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"this is MailSender"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>SmsSender代码:<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SmsSender</span> <span class="keyword">implements</span> <span class="title">Sender</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Send</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"this is SmsSender"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>Provider代码:<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Provider</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Sender <span class="title">produce</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>SendMailFactory代码:<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SendMailFactory</span> <span class="keyword">implements</span> <span class="title">Provider</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Sender <span class="title">produce</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> MailSender();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>SendSmsFactory代码:<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SendSmsFactory</span> <span class="keyword">implements</span> <span class="title">Provider</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Sender <span class="title">produce</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> SmsSender();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>Test代码:<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        Provider provider = <span class="keyword">new</span> SendMailFactory();</span><br><span class="line">        Sender sender = provider.produce();</span><br><span class="line">        sender.Send();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><blockquote>
-<p>其实这个模式的好处就是，如果你现在想增加一个功能：发及时信息，则只需做一个实现类，实现Sender接口，同时做一个工厂类，实现Provider接口，就OK了，无需去改动现成的代码。这样做，拓展性较好！</p>
-</blockquote>
-</div>
-
-			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
-			<script>
-			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
-			if (!isMobile) {
-			    var btw = new BTWPlugin();
-			    btw.init({
-			        "id": "vip-container",
-			        "blogId": "25071-1608261299158-736",
-			        "name": "Java一学习那些事",
-			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
-			        "keyword": "more"
-			    });
-			}
-			</script>
-		]]></content>
-      <categories>
-        <category>设计模式教程</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>设计模式</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>设计模式(1)-总览</title>
     <url>/DesignPatterns(1)/</url>
     <content><![CDATA[<div id="vip-container"><a id="more"></a>
@@ -243,6 +91,72 @@
       </tags>
   </entry>
   <entry>
+    <title>设计模式(2)-工厂模式</title>
+    <url>/DesignPatterns(2)/</url>
+    <content><![CDATA[<div id="vip-container"><a id="more"></a>
+<h2 id="工厂方法模式（Factory-Method）"><a href="#工厂方法模式（Factory-Method）" class="headerlink" title="工厂方法模式（Factory Method）"></a>工厂方法模式（Factory Method）</h2><p>工厂方法模式分为三种：</p>
+<ul>
+<li><code>普通工厂模式</code><blockquote>
+<p>就是建立一个工厂类，对实现了同一接口的一些类进行实例的创建。首先看下关系图：</p>
+</blockquote>
+</li>
+</ul>
+<p><img src="http://dl2.iteye.com/upload/attachment/0083/1180/421a1a3f-6777-3bca-85d7-00fc60c1ae8b.png?_=3023236" alt="Mou icon"><br>Sender代码:<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Sender</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Send</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>MailSender代码:<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MailSender</span> <span class="keyword">implements</span> <span class="title">Sender</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Send</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"this is MailSender"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>SmsSender代码:<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SmsSender</span> <span class="keyword">implements</span> <span class="title">Sender</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Send</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"this is SmsSender"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>SendFactory代码:<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SendFactory</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Sender <span class="title">produce</span><span class="params">(String type)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="string">"mail"</span>.equals(type))&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> MailSender();</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(<span class="string">"sms"</span>.equals(type))&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> SmsSender();</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            System.out.println(<span class="string">"请输入正确的类型!"</span>);</span><br><span class="line">            <span class="keyword">return</span>  <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>FactoryTest代码:<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FactoryTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span>  <span class="keyword">void</span>  <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        SendFactory factory = <span class="keyword">new</span> SendFactory();</span><br><span class="line">        Sender sender = factory.produce(<span class="string">"sms"</span>);</span><br><span class="line">        sender.Send();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><code>多个工厂方法模式</code><blockquote>
+<p>是对普通工厂方法模式的改进，在普通工厂方法模式中，如果传递的字符串出错，则不能正确创建对象，而多个工厂方法模式是提供多个工厂方法，分别创建对象。关系图：</p>
+</blockquote>
+</li>
+</ul>
+<p><img src="http://dl2.iteye.com/upload/attachment/0083/1181/84673ccf-ef89-3774-b5cf-6d2523cd03e5.jpg?_=3023236" alt="Mou icon"><br>Sender代码:<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Sender</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Send</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>MailSender代码:<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MailSender</span> <span class="keyword">implements</span> <span class="title">Sender</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Send</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"this is MailSender"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>SmsSender代码:<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SmsSender</span> <span class="keyword">implements</span> <span class="title">Sender</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Send</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"this is SmsSender"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>SendFactory代码:<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SendFactory</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Sender <span class="title">produceMail</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> MailSender();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Sender <span class="title">produceSms</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> SmsSender();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>FactoryTest代码:<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FactoryTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span>  <span class="keyword">void</span>  <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        SendFactory factory = <span class="keyword">new</span> SendFactory();</span><br><span class="line">        Sender sender = factory.produceMail();</span><br><span class="line">        sender.Send();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><code>静态工厂模式</code><blockquote>
+<p>将上面的多个工厂方法模式里的方法置为静态的，不需要创建实例，直接调用即可。</p>
+</blockquote>
+</li>
+</ul>
+<p>Sender代码:<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Sender</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Send</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>MailSender代码:<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MailSender</span> <span class="keyword">implements</span> <span class="title">Sender</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Send</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"this is MailSender"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>SmsSender代码:<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SmsSender</span> <span class="keyword">implements</span> <span class="title">Sender</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Send</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"this is SmsSender"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>SendFactory代码:<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SendFactory</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Sender <span class="title">produceMail</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> MailSender();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Sender <span class="title">produceSms</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> SmsSender();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>FactoryTest代码:<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FactoryTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span>  <span class="keyword">void</span>  <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        Sender sender = SendFactory.produceMail();</span><br><span class="line">        sender.Send();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><blockquote>
+<p>总体来说，工厂模式适合：凡是出现了大量的产品需要创建，并且具有共同的接口时，可以通过工厂方法模式进行创建。在以上的三种模式中，第一种如果传入的字符串有误，不能正确创建对象，第三种相对于第二种，不需要实例化工厂类，所以，大多数情况下，我们会选用第三种——静态工厂方法模式。</p>
+</blockquote>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "25071-1608261299158-736",
+			        "name": "Java一学习那些事",
+			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
+			        "keyword": "more"
+			    });
+			}
+			</script>
+		]]></content>
+      <categories>
+        <category>设计模式教程</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>设计模式</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>设计模式(4)-单例模式</title>
     <url>/DesignPatterns(4)/</url>
     <content><![CDATA[<div id="vip-container"><a id="more"></a>
@@ -277,6 +191,171 @@
       <tags>
         <tag>Java</tag>
         <tag>设计模式</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>设计模式(3)-抽象工厂模式</title>
+    <url>/DesignPatterns(3)/</url>
+    <content><![CDATA[<div id="vip-container"><a id="more"></a>
+<h2 id="抽象工厂模式（Abstract-Factory）"><a href="#抽象工厂模式（Abstract-Factory）" class="headerlink" title="抽象工厂模式（Abstract Factory）"></a>抽象工厂模式（Abstract Factory）</h2><blockquote>
+<p>工厂方法模式有一个问题就是，类的创建依赖工厂类，也就是说，如果想要拓展程序，必须对工厂类进行修改，这违背了闭包原则，所以，从设计角度考虑，有一定的问题，如何解决？就用到抽象工厂模式，创建多个工厂类，这样一旦需要增加新的功能，直接增加新的工厂类就可以了，不需要修改之前的代码。因为抽象工厂不太好理解，我们先看看图，然后就和代码，就比较容易理解。</p>
+</blockquote>
+<p><img src="http://dl2.iteye.com/upload/attachment/0083/1185/34a0f8de-16e0-3cd5-9f69-257fcb2be742.jpg?_=3023236" alt="Mou icon"></p>
+<p>Sender代码:<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Sender</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Send</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>MailSender代码:<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MailSender</span> <span class="keyword">implements</span> <span class="title">Sender</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Send</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"this is MailSender"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>SmsSender代码:<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SmsSender</span> <span class="keyword">implements</span> <span class="title">Sender</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Send</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"this is SmsSender"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Provider代码:<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Provider</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Sender <span class="title">produce</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>SendMailFactory代码:<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SendMailFactory</span> <span class="keyword">implements</span> <span class="title">Provider</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Sender <span class="title">produce</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> MailSender();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>SendSmsFactory代码:<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SendSmsFactory</span> <span class="keyword">implements</span> <span class="title">Provider</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Sender <span class="title">produce</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> SmsSender();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Test代码:<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        Provider provider = <span class="keyword">new</span> SendMailFactory();</span><br><span class="line">        Sender sender = provider.produce();</span><br><span class="line">        sender.Send();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><blockquote>
+<p>其实这个模式的好处就是，如果你现在想增加一个功能：发及时信息，则只需做一个实现类，实现Sender接口，同时做一个工厂类，实现Provider接口，就OK了，无需去改动现成的代码。这样做，拓展性较好！</p>
+</blockquote>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "25071-1608261299158-736",
+			        "name": "Java一学习那些事",
+			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
+			        "keyword": "more"
+			    });
+			}
+			</script>
+		]]></content>
+      <categories>
+        <category>设计模式教程</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>设计模式</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Docker相关整理</title>
+    <url>/Docker%E7%9B%B8%E5%85%B3%E6%95%B4%E7%90%86/</url>
+    <content><![CDATA[<div id="vip-container"><a id="more"></a>
+<h1 id="CentOS-Docker-安装"><a href="#CentOS-Docker-安装" class="headerlink" title="CentOS Docker 安装"></a>CentOS Docker 安装</h1><h2 id="使用-yum-安装"><a href="#使用-yum-安装" class="headerlink" title="使用 yum 安装"></a>使用 yum 安装</h2><p>Docker 要求 CentOS 系统的内核版本高于 3.10 ，查看本页面的前提条件来验证你的CentOS 版本是否支持 Docker 。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">uname -r</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://www.runoob.com/wp-content/uploads/2016/05/docker08.png" alt></p>
+<h2 id="安装-Docker"><a href="#安装-Docker" class="headerlink" title="安装 Docker"></a>安装 Docker</h2><p>从 2017 年 3 月开始 docker 在原来的基础上分为两个分支版本: Docker CE 和 Docker EE。<br>Docker CE 即社区免费版，Docker EE 即企业版，强调安全，但需付费使用。<br>本文介绍 Docker CE 的安装使用。<br>移除旧的版本：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo yum remove docker \</span><br><span class="line">              docker-client \</span><br><span class="line">              docker-client-latest \</span><br><span class="line">              docker-common \</span><br><span class="line">              docker-latest \</span><br><span class="line">              docker-latest-logrotate \</span><br><span class="line">              docker-logrotate \</span><br><span class="line">              docker-selinux \</span><br><span class="line">              docker-engine-selinux \</span><br><span class="line">              docker-engine</span><br></pre></td></tr></table></figure></p>
+<p>安装一些必要的系统工具：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo yum install -y yum-utils device-mapper-persistent-data lvm2</span><br></pre></td></tr></table></figure></p>
+<p>添加软件源信息：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</span><br></pre></td></tr></table></figure></p>
+<p>更新 yum 缓存：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo yum makecache fast</span><br></pre></td></tr></table></figure></p>
+<p>安装docker-ce<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo yum -y install docker-ce</span><br></pre></td></tr></table></figure></p>
+<p>启动 Docker 后台服务<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo systemctl start docker</span><br></pre></td></tr></table></figure></p>
+<h1 id="解决非root用户使用docker的办法"><a href="#解决非root用户使用docker的办法" class="headerlink" title="解决非root用户使用docker的办法"></a>解决非root用户使用docker的办法</h1><p>创建docker组<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo groupadd docker</span><br></pre></td></tr></table></figure></p>
+<p>将当前用户加入docker组<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo gpasswd -a $&#123;USER&#125; docker</span><br></pre></td></tr></table></figure></p>
+<p>重新启动docker服务（下面是CentOS7的命令）<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo service docker restart或sudo systemctl restart docker</span><br></pre></td></tr></table></figure></p>
+<p>当前用户退出系统重新登陆即可</p>
+<p>dockerexec不同用户登入<br>docker exec -it –user root &lt;容器ID&gt; /bin/bash<br><img src="https://www.2cto.com/uploadfile/Collfiles/20180403/201804030931161219.png" alt></p>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "25071-1608261299158-736",
+			        "name": "Java一学习那些事",
+			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
+			        "keyword": "more"
+			    });
+			}
+			</script>
+		]]></content>
+      <categories>
+        <category>Linux教程</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Linux</tag>
+        <tag>运维</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>分布式-zookeeper与dubbo</title>
+    <url>/Java-%E5%88%86%E5%B8%83%E5%BC%8F-1/</url>
+    <content><![CDATA[<div id="vip-container"><a id="more"></a>
+<h1 id="zookeeper和dubbo的关系"><a href="#zookeeper和dubbo的关系" class="headerlink" title="zookeeper和dubbo的关系"></a>zookeeper和dubbo的关系</h1><blockquote>
+<p>Dubbo建议使用Zookeeper作为服务的注册中心。</p>
+</blockquote>
+<p><strong>1、Zookeeper的作用</strong></p>
+<blockquote>
+<p>zookeeper用来注册服务和进行负载均衡，哪一个服务由哪一个机器来提供必需让调用者知道，简单来说就是ip地址和服务名称的对应关系。当然也可以通过硬编码的方式把这种对应关系在调用方业务代码中实现，但是如果提供服务的机器挂掉调用者无法知晓，如果不更改代码会继续请求挂掉的机器提供服务。zookeeper通过心跳机制可以检测挂掉的机器并将挂掉机器的ip和服务对应关系从列表中删除。至于支持高并发，简单来说就是横向扩展，在不更改代码的情况通过添加机器来提高运算能力。通过添加新的机器向zookeeper注册服务，服务的提供者多了能服务的客户就多了。</p>
+</blockquote>
+<p><strong>2、dubbo</strong></p>
+<blockquote>
+<p>是管理中间层的工具，在业务层到数据仓库间有非常多服务的接入和服务提供者需要调度，dubbo提供一个框架解决这个问题。<br>注意这里的dubbo只是一个框架，至于你架子上放什么是完全取决于你的，就像一个汽车骨架，你需要配你的轮子引擎。这个框架中要完成调度必须要有一个分布式的注册中心，储存所有服务的元数据，你可以用zk，也可以用别的，只是大家都用zk。</p>
+</blockquote>
+<p><strong>3、zookeeper和dubbo的关系</strong></p>
+<blockquote>
+<p>Dubbo的将注册中心进行抽象，是得它可以外接不同的存储媒介给注册中心提供服务，有ZooKeeper，Memcached，Redis等。<br>引入了ZooKeeper作为存储媒介，也就把ZooKeeper的特性引进来。首先是负载均衡，单注册中心的承载能力是有限的，在流量达到一定程度的时候就需要分流，负载均衡就是为了分流而存在的，一个ZooKeeper群配合相应的Web应用就可以很容易达到负载均衡；资源同步，单单有负载均衡还不够，节点之间的数据和资源需要同步，ZooKeeper集群就天然具备有这样的功能；命名服务，将树状结构用于维护全局的服务地址列表，服务提供者在启动的时候，向ZK上的指定节点/dubbo/${serviceName}/providers目录下写入自己的URL地址，这个操作就完成了服务的发布。其他特性还有Mast选举，分布式锁等。</p>
+</blockquote>
+<p><strong>4、zookeeper和dubbo的的配置</strong></p>
+<p><em>生产者配置</em><br><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dubbo:application</span> <span class="attr">name</span>=<span class="string">"dubbo_provider_resourcesw"</span>&gt;</span><span class="tag">&lt;/<span class="name">dubbo:application</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dubbo:protocol</span> <span class="attr">name</span>=<span class="string">"dubbo"</span> <span class="attr">port</span>=<span class="string">"20885"</span> /&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 使用zookeeper注册中心暴露服务地址 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dubbo:registry</span> <span class="attr">address</span>=<span class="string">"zookeeper://127.0.0.1:2181"</span> <span class="attr">check</span>=<span class="string">"false"</span> <span class="attr">subscribe</span>=<span class="string">"false"</span> <span class="attr">register</span>=<span class="string">""</span>&gt;</span><span class="tag">&lt;/<span class="name">dubbo:registry</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 要暴露的服务接口 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dubbo:service</span> <span class="attr">interface</span>=<span class="string">"com.cn.xxx.xxxControl"</span> <span class="attr">ref</span>=<span class="string">"xxxControl"</span> /&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p><em>消费者配置</em><br><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dubbo:application</span> <span class="attr">name</span>=<span class="string">"dubbo_consumer"</span>&gt;</span><span class="tag">&lt;/<span class="name">dubbo:application</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 使用zookeeper注册中心暴露服务地址 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dubbo:registry</span> <span class="attr">address</span>=<span class="string">"zookeeper://127.0.0.1:2181"</span> <span class="attr">check</span>=<span class="string">"false"</span>&gt;</span><span class="tag">&lt;/<span class="name">dubbo:registry</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 要引用的服务 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dubbo:reference</span> <span class="attr">interface</span>=<span class="string">"com.cn.xxx.xxxControl"</span> <span class="attr">id</span>=<span class="string">"xxxControl"</span> <span class="attr">timeout</span>=<span class="string">"180000"</span>&gt;</span><span class="tag">&lt;/<span class="name">dubbo:reference</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>总结小记</strong></p>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "25071-1608261299158-736",
+			        "name": "Java一学习那些事",
+			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
+			        "keyword": "more"
+			    });
+			}
+			</script>
+		]]></content>
+      <categories>
+        <category>Java分布式文档</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>分布式</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Dubbo使用总结</title>
+    <url>/Dubbo%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<div id="vip-container"><!-- 展示图片 -->
+<p><img src="http://justyy.com/wp-content/uploads/2016/01/markdown-syntax-language.png" alt="Mou_icon"></p>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "25071-1608261299158-736",
+			        "name": "Java一学习那些事",
+			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
+			        "keyword": "more"
+			    });
+			}
+			</script>
+		]]></content>
+      <categories>
+        <category>面试</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>分布式</tag>
+        <tag>微服务</tag>
       </tags>
   </entry>
   <entry>
@@ -341,85 +420,6 @@
         <tag>Java</tag>
         <tag>Linux</tag>
         <tag>运维</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Dubbo使用总结</title>
-    <url>/Dubbo%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<div id="vip-container"><!-- 展示图片 -->
-<p><img src="http://justyy.com/wp-content/uploads/2016/01/markdown-syntax-language.png" alt="Mou_icon"></p>
-</div>
-
-			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
-			<script>
-			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
-			if (!isMobile) {
-			    var btw = new BTWPlugin();
-			    btw.init({
-			        "id": "vip-container",
-			        "blogId": "25071-1608261299158-736",
-			        "name": "Java一学习那些事",
-			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
-			        "keyword": "more"
-			    });
-			}
-			</script>
-		]]></content>
-      <categories>
-        <category>面试</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>微服务</tag>
-        <tag>分布式</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>分布式-zookeeper与dubbo</title>
-    <url>/Java-%E5%88%86%E5%B8%83%E5%BC%8F-1/</url>
-    <content><![CDATA[<div id="vip-container"><a id="more"></a>
-<h1 id="zookeeper和dubbo的关系"><a href="#zookeeper和dubbo的关系" class="headerlink" title="zookeeper和dubbo的关系"></a>zookeeper和dubbo的关系</h1><blockquote>
-<p>Dubbo建议使用Zookeeper作为服务的注册中心。</p>
-</blockquote>
-<p><strong>1、Zookeeper的作用</strong></p>
-<blockquote>
-<p>zookeeper用来注册服务和进行负载均衡，哪一个服务由哪一个机器来提供必需让调用者知道，简单来说就是ip地址和服务名称的对应关系。当然也可以通过硬编码的方式把这种对应关系在调用方业务代码中实现，但是如果提供服务的机器挂掉调用者无法知晓，如果不更改代码会继续请求挂掉的机器提供服务。zookeeper通过心跳机制可以检测挂掉的机器并将挂掉机器的ip和服务对应关系从列表中删除。至于支持高并发，简单来说就是横向扩展，在不更改代码的情况通过添加机器来提高运算能力。通过添加新的机器向zookeeper注册服务，服务的提供者多了能服务的客户就多了。</p>
-</blockquote>
-<p><strong>2、dubbo</strong></p>
-<blockquote>
-<p>是管理中间层的工具，在业务层到数据仓库间有非常多服务的接入和服务提供者需要调度，dubbo提供一个框架解决这个问题。<br>注意这里的dubbo只是一个框架，至于你架子上放什么是完全取决于你的，就像一个汽车骨架，你需要配你的轮子引擎。这个框架中要完成调度必须要有一个分布式的注册中心，储存所有服务的元数据，你可以用zk，也可以用别的，只是大家都用zk。</p>
-</blockquote>
-<p><strong>3、zookeeper和dubbo的关系</strong></p>
-<blockquote>
-<p>Dubbo的将注册中心进行抽象，是得它可以外接不同的存储媒介给注册中心提供服务，有ZooKeeper，Memcached，Redis等。<br>引入了ZooKeeper作为存储媒介，也就把ZooKeeper的特性引进来。首先是负载均衡，单注册中心的承载能力是有限的，在流量达到一定程度的时候就需要分流，负载均衡就是为了分流而存在的，一个ZooKeeper群配合相应的Web应用就可以很容易达到负载均衡；资源同步，单单有负载均衡还不够，节点之间的数据和资源需要同步，ZooKeeper集群就天然具备有这样的功能；命名服务，将树状结构用于维护全局的服务地址列表，服务提供者在启动的时候，向ZK上的指定节点/dubbo/${serviceName}/providers目录下写入自己的URL地址，这个操作就完成了服务的发布。其他特性还有Mast选举，分布式锁等。</p>
-</blockquote>
-<p><strong>4、zookeeper和dubbo的的配置</strong></p>
-<p><em>生产者配置</em><br><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dubbo:application</span> <span class="attr">name</span>=<span class="string">"dubbo_provider_resourcesw"</span>&gt;</span><span class="tag">&lt;/<span class="name">dubbo:application</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dubbo:protocol</span> <span class="attr">name</span>=<span class="string">"dubbo"</span> <span class="attr">port</span>=<span class="string">"20885"</span> /&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 使用zookeeper注册中心暴露服务地址 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dubbo:registry</span> <span class="attr">address</span>=<span class="string">"zookeeper://127.0.0.1:2181"</span> <span class="attr">check</span>=<span class="string">"false"</span> <span class="attr">subscribe</span>=<span class="string">"false"</span> <span class="attr">register</span>=<span class="string">""</span>&gt;</span><span class="tag">&lt;/<span class="name">dubbo:registry</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 要暴露的服务接口 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dubbo:service</span> <span class="attr">interface</span>=<span class="string">"com.cn.xxx.xxxControl"</span> <span class="attr">ref</span>=<span class="string">"xxxControl"</span> /&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p><em>消费者配置</em><br><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dubbo:application</span> <span class="attr">name</span>=<span class="string">"dubbo_consumer"</span>&gt;</span><span class="tag">&lt;/<span class="name">dubbo:application</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 使用zookeeper注册中心暴露服务地址 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dubbo:registry</span> <span class="attr">address</span>=<span class="string">"zookeeper://127.0.0.1:2181"</span> <span class="attr">check</span>=<span class="string">"false"</span>&gt;</span><span class="tag">&lt;/<span class="name">dubbo:registry</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 要引用的服务 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dubbo:reference</span> <span class="attr">interface</span>=<span class="string">"com.cn.xxx.xxxControl"</span> <span class="attr">id</span>=<span class="string">"xxxControl"</span> <span class="attr">timeout</span>=<span class="string">"180000"</span>&gt;</span><span class="tag">&lt;/<span class="name">dubbo:reference</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p><strong>总结小记</strong></p>
-</div>
-
-			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
-			<script>
-			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
-			if (!isMobile) {
-			    var btw = new BTWPlugin();
-			    btw.init({
-			        "id": "vip-container",
-			        "blogId": "25071-1608261299158-736",
-			        "name": "Java一学习那些事",
-			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
-			        "keyword": "more"
-			    });
-			}
-			</script>
-		]]></content>
-      <categories>
-        <category>Java分布式文档</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>分布式</tag>
       </tags>
   </entry>
   <entry>
@@ -534,8 +534,8 @@
       </categories>
       <tags>
         <tag>Java</tag>
-        <tag>微服务</tag>
         <tag>分布式</tag>
+        <tag>微服务</tag>
       </tags>
   </entry>
   <entry>
@@ -565,8 +565,92 @@
       </categories>
       <tags>
         <tag>Java</tag>
-        <tag>微服务</tag>
         <tag>分布式</tag>
+        <tag>微服务</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java基础回顾(1)-开篇</title>
+    <url>/Java%E5%9F%BA%E7%A1%80%E5%9B%9E%E9%A1%BE(1)/</url>
+    <content><![CDATA[<div id="vip-container"><a id="more"></a>
+<h1 id="Java简介"><a href="#Java简介" class="headerlink" title="Java简介"></a>Java简介</h1><p>Java是由Sun Microsystems公司于1995年5月推出的Java面向对象程序设计语言和Java平台的总称。由James Gosling和同事们共同研发，并在1995年正式推出。<br>Java分为三个体系：</p>
+<ul>
+<li>JavaSE（J2SE）（Java2 Platform Standard Edition，java平台标准版）</li>
+<li>JavaEE(J2EE)(Java 2 Platform,Enterprise Edition，java平台企业版)</li>
+<li>JavaME(J2ME)(Java 2 Platform Micro Edition，java平台微型版)。</li>
+</ul>
+<h1 id="主要特性"><a href="#主要特性" class="headerlink" title="主要特性"></a>主要特性</h1><ul>
+<li>面向对象</li>
+<li>简单性</li>
+<li>分布式</li>
+<li>健壮性</li>
+<li>安全性</li>
+<li>可移植性<h1 id="发展历史"><a href="#发展历史" class="headerlink" title="发展历史"></a>发展历史</h1></li>
+<li>1995年5月23日，Java语言诞生</li>
+<li>1996年1月，第一个JDK-JDK1.0诞生</li>
+<li>1997年2月18日，JDK1.1发布</li>
+<li>1998年12月8日，JAVA2企业平台J2EE发布</li>
+<li>1999年6月，SUN公司发布Java的三个版本：标准版（JavaSE,以前是J2SE）、企业版（JavaEE以前是J2EE）和微型版（JavaME，以前是J2ME）</li>
+<li>2006年12月，SUN公司发布JRE6.0</li>
+<li>2009年04月20日，甲骨文74亿美元收购Sun。取得java的版权。</li>
+<li>2011年7月28日，甲骨文发布java7.0的正式版。</li>
+<li>2014年3月18日，Oracle公司发表Java SE 8。</li>
+</ul>
+<h1 id="Java开发工具"><a href="#Java开发工具" class="headerlink" title="Java开发工具"></a>Java开发工具</h1><ul>
+<li>Java JDK</li>
+<li>编辑器：notepad 等文本编辑器</li>
+<li>IDE： eclipse，idea 等</li>
+</ul>
+<h1 id="Java开发环境配置"><a href="#Java开发环境配置" class="headerlink" title="Java开发环境配置"></a>Java开发环境配置</h1><h2 id="下载JDK"><a href="#下载JDK" class="headerlink" title="下载JDK"></a>下载JDK</h2><p>下载地址：<a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank" rel="noopener">http://www.oracle.com/technetwork/java/javase/downloads/index.html</a></p>
+<h2 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h2><p>1.安装完成后，右击”我的电脑”，点击”属性”，选择”高级系统设置”；<br>2.选择”高级”选项卡，点击”环境变量”；<br>在”系统变量”中设置3项属性，JAVA_HOME,PATH,CLASSPATH(大小写无所谓),若已存在则点击”编辑”，不存在则点击”新建”。<br>变量设置参数如下：</p>
+<ul>
+<li>JAVA_HOME    变量值：C:\Program Files (x86)\Java\jdk1.8.0_91        // 要根据自己的实际路径配置</li>
+<li>CLASSPATH    变量值：.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;         //记得前面有个”.”.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;         //记得前面有个”.”</li>
+<li>Path  变量值：%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;</li>
+</ul>
+<blockquote>
+<p>path环境变量的作用:保证javac命令可以在任意目录下运行。<br>classpath环境变量的作用:保证class文件可以在任意目录下运行。</p>
+</blockquote>
+<p>测试环境配置是否成功：打开cmd 输入java ，javac ，java -verson 等都能判断是否配置成功</p>
+<h2 id="JDK-JRE-JVM的作用及关系"><a href="#JDK-JRE-JVM的作用及关系" class="headerlink" title="JDK,JRE,JVM的作用及关系"></a>JDK,JRE,JVM的作用及关系</h2><blockquote>
+<ul>
+<li>作用  <pre><code>JVM：保证Java语言跨平台   
+JRE：Java程序的运行环境   
+JDK：Java程序的开发环境   
+</code></pre></li>
+<li>关系  <pre><code>JDK：JRE+工具  
+JRE：JVM+类库
+</code></pre></li>
+</ul>
+</blockquote>
+<h2 id="第一个Java程序"><a href="#第一个Java程序" class="headerlink" title="第一个Java程序"></a>第一个Java程序</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"hello world!"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>程序解释：</p>
+<ul>
+<li>Java程序最基本的单位是类</li>
+</ul>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "25071-1608261299158-736",
+			        "name": "Java一学习那些事",
+			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
+			        "keyword": "more"
+			    });
+			}
+			</script>
+		]]></content>
+      <categories>
+        <category>Java教程</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Java基础</tag>
       </tags>
   </entry>
   <entry>
@@ -832,90 +916,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Java基础回顾(1)-开篇</title>
-    <url>/Java%E5%9F%BA%E7%A1%80%E5%9B%9E%E9%A1%BE(1)/</url>
-    <content><![CDATA[<div id="vip-container"><a id="more"></a>
-<h1 id="Java简介"><a href="#Java简介" class="headerlink" title="Java简介"></a>Java简介</h1><p>Java是由Sun Microsystems公司于1995年5月推出的Java面向对象程序设计语言和Java平台的总称。由James Gosling和同事们共同研发，并在1995年正式推出。<br>Java分为三个体系：</p>
-<ul>
-<li>JavaSE（J2SE）（Java2 Platform Standard Edition，java平台标准版）</li>
-<li>JavaEE(J2EE)(Java 2 Platform,Enterprise Edition，java平台企业版)</li>
-<li>JavaME(J2ME)(Java 2 Platform Micro Edition，java平台微型版)。</li>
-</ul>
-<h1 id="主要特性"><a href="#主要特性" class="headerlink" title="主要特性"></a>主要特性</h1><ul>
-<li>面向对象</li>
-<li>简单性</li>
-<li>分布式</li>
-<li>健壮性</li>
-<li>安全性</li>
-<li>可移植性<h1 id="发展历史"><a href="#发展历史" class="headerlink" title="发展历史"></a>发展历史</h1></li>
-<li>1995年5月23日，Java语言诞生</li>
-<li>1996年1月，第一个JDK-JDK1.0诞生</li>
-<li>1997年2月18日，JDK1.1发布</li>
-<li>1998年12月8日，JAVA2企业平台J2EE发布</li>
-<li>1999年6月，SUN公司发布Java的三个版本：标准版（JavaSE,以前是J2SE）、企业版（JavaEE以前是J2EE）和微型版（JavaME，以前是J2ME）</li>
-<li>2006年12月，SUN公司发布JRE6.0</li>
-<li>2009年04月20日，甲骨文74亿美元收购Sun。取得java的版权。</li>
-<li>2011年7月28日，甲骨文发布java7.0的正式版。</li>
-<li>2014年3月18日，Oracle公司发表Java SE 8。</li>
-</ul>
-<h1 id="Java开发工具"><a href="#Java开发工具" class="headerlink" title="Java开发工具"></a>Java开发工具</h1><ul>
-<li>Java JDK</li>
-<li>编辑器：notepad 等文本编辑器</li>
-<li>IDE： eclipse，idea 等</li>
-</ul>
-<h1 id="Java开发环境配置"><a href="#Java开发环境配置" class="headerlink" title="Java开发环境配置"></a>Java开发环境配置</h1><h2 id="下载JDK"><a href="#下载JDK" class="headerlink" title="下载JDK"></a>下载JDK</h2><p>下载地址：<a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank" rel="noopener">http://www.oracle.com/technetwork/java/javase/downloads/index.html</a></p>
-<h2 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h2><p>1.安装完成后，右击”我的电脑”，点击”属性”，选择”高级系统设置”；<br>2.选择”高级”选项卡，点击”环境变量”；<br>在”系统变量”中设置3项属性，JAVA_HOME,PATH,CLASSPATH(大小写无所谓),若已存在则点击”编辑”，不存在则点击”新建”。<br>变量设置参数如下：</p>
-<ul>
-<li>JAVA_HOME    变量值：C:\Program Files (x86)\Java\jdk1.8.0_91        // 要根据自己的实际路径配置</li>
-<li>CLASSPATH    变量值：.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;         //记得前面有个”.”.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;         //记得前面有个”.”</li>
-<li>Path  变量值：%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;</li>
-</ul>
-<blockquote>
-<p>path环境变量的作用:保证javac命令可以在任意目录下运行。<br>classpath环境变量的作用:保证class文件可以在任意目录下运行。</p>
-</blockquote>
-<p>测试环境配置是否成功：打开cmd 输入java ，javac ，java -verson 等都能判断是否配置成功</p>
-<h2 id="JDK-JRE-JVM的作用及关系"><a href="#JDK-JRE-JVM的作用及关系" class="headerlink" title="JDK,JRE,JVM的作用及关系"></a>JDK,JRE,JVM的作用及关系</h2><blockquote>
-<ul>
-<li>作用  <pre><code>JVM：保证Java语言跨平台   
-JRE：Java程序的运行环境   
-JDK：Java程序的开发环境   
-</code></pre></li>
-<li>关系  <pre><code>JDK：JRE+工具  
-JRE：JVM+类库
-</code></pre></li>
-</ul>
-</blockquote>
-<h2 id="第一个Java程序"><a href="#第一个Java程序" class="headerlink" title="第一个Java程序"></a>第一个Java程序</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"hello world!"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>程序解释：</p>
-<ul>
-<li>Java程序最基本的单位是类</li>
-</ul>
-</div>
-
-			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
-			<script>
-			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
-			if (!isMobile) {
-			    var btw = new BTWPlugin();
-			    btw.init({
-			        "id": "vip-container",
-			        "blogId": "25071-1608261299158-736",
-			        "name": "Java一学习那些事",
-			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
-			        "keyword": "more"
-			    });
-			}
-			</script>
-		]]></content>
-      <categories>
-        <category>Java教程</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>Java基础</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Java基础回顾-多线程(1)</title>
     <url>/Java%E5%9F%BA%E7%A1%80%E5%9B%9E%E9%A1%BE-%E5%A4%9A%E7%BA%BF%E7%A8%8B(1)/</url>
     <content><![CDATA[<div id="vip-container"><a id="more"></a>
@@ -1050,38 +1050,6 @@ JRE：JVM+类库
       </tags>
   </entry>
   <entry>
-    <title>MQ相关总结</title>
-    <url>/MQ%E7%9B%B8%E5%85%B3%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<div id="vip-container"><!-- 展示图片 -->
-<p><img src="http://blog.lutao1726.top/MQ-001.jpg" alt="Mou_icon"></p>
-<p>1.为什么使用消息队列？<br>通用回答是：我们公司有个什么业务场景，这个业务场景有什么技术挑战，如果不使用MQ可能会很麻烦，使用MQ之后带来了什么好处.<br>比较核心的有3个业务场景：解耦，异步，削峰<br>解耦场景：用户下单后，订单系统需要通知库存系统。<br>异步场景：用户注册后，需要发注册邮件和注册短信。<br>削峰场景：（秒杀或团抢活动）</p>
-</div>
-
-			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
-			<script>
-			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
-			if (!isMobile) {
-			    var btw = new BTWPlugin();
-			    btw.init({
-			        "id": "vip-container",
-			        "blogId": "25071-1608261299158-736",
-			        "name": "Java一学习那些事",
-			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
-			        "keyword": "more"
-			    });
-			}
-			</script>
-		]]></content>
-      <categories>
-        <category>面试</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>微服务</tag>
-        <tag>分布式</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Java锁汇总</title>
     <url>/Java%E9%94%81%E6%B1%87%E6%80%BB/</url>
     <content><![CDATA[<div id="vip-container"><!-- 展示图片 -->
@@ -1109,6 +1077,67 @@ JRE：JVM+类库
       </categories>
       <tags>
         <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MQ相关总结</title>
+    <url>/MQ%E7%9B%B8%E5%85%B3%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<div id="vip-container"><!-- 展示图片 -->
+<p><img src="http://blog.lutao1726.top/MQ-001.jpg" alt="Mou_icon"></p>
+<p>1.为什么使用消息队列？<br>通用回答是：我们公司有个什么业务场景，这个业务场景有什么技术挑战，如果不使用MQ可能会很麻烦，使用MQ之后带来了什么好处.<br>比较核心的有3个业务场景：解耦，异步，削峰<br>解耦场景：用户下单后，订单系统需要通知库存系统。<br>异步场景：用户注册后，需要发注册邮件和注册短信。<br>削峰场景：（秒杀或团抢活动）</p>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "25071-1608261299158-736",
+			        "name": "Java一学习那些事",
+			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
+			        "keyword": "more"
+			    });
+			}
+			</script>
+		]]></content>
+      <categories>
+        <category>面试</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>分布式</tag>
+        <tag>微服务</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MyBatis总结</title>
+    <url>/Mybatis%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<div id="vip-container"><p><img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fyuchen-blog-image.oss-ap-southeast-1.aliyuncs.com%2F19-2-4%2F207e3b1c0d9daae22a29b5e4a7f6b2b1.png&amp;refer=http%3A%2F%2Fyuchen-blog-image.oss-ap-southeast-1.aliyuncs.com&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=jpeg?sec=1623575381&amp;t=c810b99af8245f5b5fcf23d3ad643292" alt="Mou_icon"><br><a id="more"></a></p>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "25071-1608261299158-736",
+			        "name": "Java一学习那些事",
+			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
+			        "keyword": "more"
+			    });
+			}
+			</script>
+		]]></content>
+      <categories>
+        <category>框架</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Spring</tag>
       </tags>
   </entry>
   <entry>
@@ -1503,7 +1532,7 @@ _   底线
 </blockquote>
 <p>邮址的自动链接也很类似，只是 Markdown 会先做一个编码转换的过程，把文字字符转成 16 进位码的 HTML 实体，这样的格式可以糊弄一些不好的邮址收集机器人，例如：</p>
 <blockquote>
-<p><a href="mailto:&#97;&#x64;&#x64;&#114;&#x65;&#x73;&#x73;&#64;&#x65;&#120;&#97;&#109;&#112;&#x6c;&#x65;&#46;&#x63;&#x6f;&#x6d;" target="_blank" rel="noopener">&#97;&#x64;&#x64;&#114;&#x65;&#x73;&#x73;&#64;&#x65;&#120;&#97;&#109;&#112;&#x6c;&#x65;&#46;&#x63;&#x6f;&#x6d;</a></p>
+<p><a href="mailto:&#x61;&#x64;&#x64;&#x72;&#101;&#x73;&#x73;&#x40;&#101;&#120;&#97;&#x6d;&#112;&#108;&#x65;&#x2e;&#99;&#111;&#109;" target="_blank" rel="noopener">&#x61;&#x64;&#x64;&#x72;&#101;&#x73;&#x73;&#x40;&#101;&#120;&#97;&#x6d;&#112;&#108;&#x65;&#x2e;&#99;&#111;&#109;</a></p>
 </blockquote>
 <p>Markdown 会转成：</p>
 <blockquote>
@@ -1534,35 +1563,6 @@ _   底线
       <tags>
         <tag>hexo</tag>
         <tag>markdown</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>MyBatis总结</title>
-    <url>/Mybatis%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<div id="vip-container"><p><img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fyuchen-blog-image.oss-ap-southeast-1.aliyuncs.com%2F19-2-4%2F207e3b1c0d9daae22a29b5e4a7f6b2b1.png&amp;refer=http%3A%2F%2Fyuchen-blog-image.oss-ap-southeast-1.aliyuncs.com&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=jpeg?sec=1623575381&amp;t=c810b99af8245f5b5fcf23d3ad643292" alt="Mou_icon"><br><a id="more"></a></p>
-</div>
-
-			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
-			<script>
-			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
-			if (!isMobile) {
-			    var btw = new BTWPlugin();
-			    btw.init({
-			        "id": "vip-container",
-			        "blogId": "25071-1608261299158-736",
-			        "name": "Java一学习那些事",
-			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
-			        "keyword": "more"
-			    });
-			}
-			</script>
-		]]></content>
-      <categories>
-        <category>框架</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>Spring</tag>
       </tags>
   </entry>
   <entry>
@@ -1795,95 +1795,6 @@ _   底线
       </tags>
   </entry>
   <entry>
-    <title>SpringBoot总结</title>
-    <url>/SpringBoot%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<div id="vip-container"><p><img src="http://codeimages.lutao1726.top/springboot.jpg" alt="Mou_icon"><br><a id="more"></a></p>
-</div>
-
-			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
-			<script>
-			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
-			if (!isMobile) {
-			    var btw = new BTWPlugin();
-			    btw.init({
-			        "id": "vip-container",
-			        "blogId": "25071-1608261299158-736",
-			        "name": "Java一学习那些事",
-			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
-			        "keyword": "more"
-			    });
-			}
-			</script>
-		]]></content>
-      <categories>
-        <category>框架</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>Spring</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SpringCloud Alibaba 微服务实战-基础环境</title>
-    <url>/SpringCloud%20Alibaba%20%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AE%9E%E6%88%98-%E5%9F%BA%E7%A1%80%E7%8E%AF%E5%A2%83/</url>
-    <content><![CDATA[<div id="vip-container"><!-- 展示图片 -->
-<p><img src="http://gimg2.baidu.com/image_search/src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20181220%2F625a58b9a1d3449491d2ae9e396da5d8.jpeg&amp;refer=http%3A%2F%2F5b0988e595225.cdn.sohucs.com&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=jpeg?sec=1623575506&amp;t=fe07c6007ebc786e268abb7e4480dc0e" alt="Mou_icon"></p>
-<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><pre><code>很多人可能会问，有了spring cloud这个微服务的框架，为什么又要使用spring cloud alibaba这个框架了？最重要的原因在于spring cloud中的几乎所有的组件都使用Netflix公司的产品，然后在其基础上做了一层封装。然而Netflix的服务发现组件Eureka已经停止更新，我们公司在使用的时候就发现过其一个细小的Bug；而其他的众多组件预计会在明年(即2020年)停止维护。所以急需其他的一些替代产品，也就是spring cloud alibaba，目前正处于蓬勃发展的态式。
-</code></pre><p><img src="http://blog.lutao1726.top/nacos集群-01.png" alt="Mou_icon"></p>
-<h4 id="MySQL数据源配置"><a href="#MySQL数据源配置" class="headerlink" title="MySQL数据源配置"></a>MySQL数据源配置</h4><p>在进行集群配置之前，先完成对MySQL数据源的初始化和配置。主要分以下两步：</p>
-<ul>
-<li>1、初始化MySQL数据库，数据库初始化文件：<code>nacos-mysql.sql</code>，该文件可以在Nacos程序包下的conf目录下获得。</li>
-<li>2、修改<code>conf/application.properties</code>文件，增加支持MySQL数据源配置，添加（目前只支持mysql）数据源的url、用户名和密码。配置样例如下：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">spring.datasource.platform=mysql</span><br><span class="line">db.num=1</span><br><span class="line">db.url.0=jdbc:mysql://localhost:3306/nacos?characterEncoding=utf8&amp;connectTimeout=1000&amp;socketTimeout=3000&amp;autoReconnect=true</span><br><span class="line">db.user=root</span><br><span class="line">db.password=</span><br></pre></td></tr></table></figure>
-<h4 id="集群配置"><a href="#集群配置" class="headerlink" title="集群配置"></a>集群配置</h4><p>在Nacos的conf目录下有一个cluster.conf.example，可以直接把example扩展名去掉来使用，也可以单独创建一个<code>cluster.conf</code>文件，然后打开将后续要部署的Nacos实例地址配置在这里。</p>
-<p>本文以在本地不同端点启动3个Nacos服务端为例，可以如下配置：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">127.0.0.1:8841</span><br><span class="line">127.0.0.1:8842</span><br><span class="line">127.0.0.1:8843</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>注意：这里的例子仅用于本地学习测试使用，实际生产环境必须部署在不同的节点上，才能起到高可用的效果。另外，Nacos的集群需要3个或3个以上的节点，并且确保这三个节点之间是可以互相访问的。</p>
-</blockquote>
-<h4 id="本地测试"><a href="#本地测试" class="headerlink" title="本地测试"></a>本地测试</h4><p>本文中，在集群配置的时候，我们设定了3个Nacos的实例都在本地，只是以不同的端口区分，所以我们在启动Nacos的时候，需要修改不同的端口号。</p>
-<p>下面介绍一种方法来方便地启动Nacos的三个本地实例，我们可以将bin目录下的startup.sh脚本复制三份，分别用来启动三个不同端口的Nacos实例，为了可以方便区分不同实例的启动脚本，我们可以把端口号加入到脚本的命名中，比如：</p>
-<ul>
-<li>startup-8841.sh</li>
-<li>startup-8842.sh</li>
-<li>startup-8843.sh</li>
-</ul>
-<p>然后，分别修改这三个脚本中的参数，具体如下图的红色部分（端口号根据上面脚本命名分配）：</p>
-<p><img src="http://blog.lutao1726.top/nacos集群-02.png" alt="Mou_icon"></p>
-<p>修改完3个脚本配置之后，分别执行下面的命令就可以在本地启动Nacos集群了：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sh startup-8841.sh</span><br><span class="line">sh startup-8842.sh</span><br><span class="line">sh startup-8843.sh</span><br></pre></td></tr></table></figure>
-<h4 id="生产环境"><a href="#生产环境" class="headerlink" title="生产环境"></a>生产环境</h4><p>在实际生产环境部署的时候，由于每个实例分布在不同的节点上，我们可以直接使用默认的启动脚本（除非要调整一些JVM参数等才需要修改）。只需要在各个节点的Nacos的bin目录下执行<code>sh startup.sh</code>命令即可。</p>
-<h4 id="Proxy配置"><a href="#Proxy配置" class="headerlink" title="Proxy配置"></a>Proxy配置</h4><p>在Nacos的集群启动完毕之后，根据架构图所示，我们还需要提供一个统一的入口给我们用来维护以及给Spring Cloud应用访问。简单地说，就是我们需要为上面启动的的三个Nacos实例做一个可以为它们实现负载均衡的访问点。这个实现的方式非常多，这里就举个用Nginx来实现的简单例子吧。</p>
-<p>在Nginx配置文件的http段中，我们可以加入下面的配置内容：</p>
-<p><img src="http://blog.lutao1726.top/nacos集群-03.png" alt="Mou_icon"></p>
-</div>
-
-			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
-			<script>
-			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
-			if (!isMobile) {
-			    var btw = new BTWPlugin();
-			    btw.init({
-			        "id": "vip-container",
-			        "blogId": "25071-1608261299158-736",
-			        "name": "Java一学习那些事",
-			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
-			        "keyword": "more"
-			    });
-			}
-			</script>
-		]]></content>
-      <categories>
-        <category>SpringCloud Alibaba</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>SpringCloud Alibaba</tag>
-        <tag>SpringCloud</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>SpringCloud consul服务注册与发现</title>
     <url>/SpringCloud%20consul%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E4%B8%8E%E5%8F%91%E7%8E%B0/</url>
     <content><![CDATA[<div id="vip-container"><!-- 展示图片 -->
@@ -1945,6 +1856,35 @@ _   底线
         <tag>Java</tag>
         <tag>Spring</tag>
         <tag>SpringCloud</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SpringBoot总结</title>
+    <url>/SpringBoot%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<div id="vip-container"><p><img src="http://codeimages.lutao1726.top/springboot.jpg" alt="Mou_icon"><br><a id="more"></a></p>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "25071-1608261299158-736",
+			        "name": "Java一学习那些事",
+			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
+			        "keyword": "more"
+			    });
+			}
+			</script>
+		]]></content>
+      <categories>
+        <category>框架</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Spring</tag>
       </tags>
   </entry>
   <entry>
@@ -2023,6 +1963,66 @@ _   底线
       </tags>
   </entry>
   <entry>
+    <title>SpringCloud Alibaba 微服务实战-基础环境</title>
+    <url>/SpringCloud%20Alibaba%20%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AE%9E%E6%88%98-%E5%9F%BA%E7%A1%80%E7%8E%AF%E5%A2%83/</url>
+    <content><![CDATA[<div id="vip-container"><!-- 展示图片 -->
+<p><img src="http://gimg2.baidu.com/image_search/src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20181220%2F625a58b9a1d3449491d2ae9e396da5d8.jpeg&amp;refer=http%3A%2F%2F5b0988e595225.cdn.sohucs.com&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=jpeg?sec=1623575506&amp;t=fe07c6007ebc786e268abb7e4480dc0e" alt="Mou_icon"></p>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><pre><code>很多人可能会问，有了spring cloud这个微服务的框架，为什么又要使用spring cloud alibaba这个框架了？最重要的原因在于spring cloud中的几乎所有的组件都使用Netflix公司的产品，然后在其基础上做了一层封装。然而Netflix的服务发现组件Eureka已经停止更新，我们公司在使用的时候就发现过其一个细小的Bug；而其他的众多组件预计会在明年(即2020年)停止维护。所以急需其他的一些替代产品，也就是spring cloud alibaba，目前正处于蓬勃发展的态式。
+</code></pre><p><img src="http://blog.lutao1726.top/nacos集群-01.png" alt="Mou_icon"></p>
+<h4 id="MySQL数据源配置"><a href="#MySQL数据源配置" class="headerlink" title="MySQL数据源配置"></a>MySQL数据源配置</h4><p>在进行集群配置之前，先完成对MySQL数据源的初始化和配置。主要分以下两步：</p>
+<ul>
+<li>1、初始化MySQL数据库，数据库初始化文件：<code>nacos-mysql.sql</code>，该文件可以在Nacos程序包下的conf目录下获得。</li>
+<li>2、修改<code>conf/application.properties</code>文件，增加支持MySQL数据源配置，添加（目前只支持mysql）数据源的url、用户名和密码。配置样例如下：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">spring.datasource.platform=mysql</span><br><span class="line">db.num=1</span><br><span class="line">db.url.0=jdbc:mysql://localhost:3306/nacos?characterEncoding=utf8&amp;connectTimeout=1000&amp;socketTimeout=3000&amp;autoReconnect=true</span><br><span class="line">db.user=root</span><br><span class="line">db.password=</span><br></pre></td></tr></table></figure>
+<h4 id="集群配置"><a href="#集群配置" class="headerlink" title="集群配置"></a>集群配置</h4><p>在Nacos的conf目录下有一个cluster.conf.example，可以直接把example扩展名去掉来使用，也可以单独创建一个<code>cluster.conf</code>文件，然后打开将后续要部署的Nacos实例地址配置在这里。</p>
+<p>本文以在本地不同端点启动3个Nacos服务端为例，可以如下配置：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">127.0.0.1:8841</span><br><span class="line">127.0.0.1:8842</span><br><span class="line">127.0.0.1:8843</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：这里的例子仅用于本地学习测试使用，实际生产环境必须部署在不同的节点上，才能起到高可用的效果。另外，Nacos的集群需要3个或3个以上的节点，并且确保这三个节点之间是可以互相访问的。</p>
+</blockquote>
+<h4 id="本地测试"><a href="#本地测试" class="headerlink" title="本地测试"></a>本地测试</h4><p>本文中，在集群配置的时候，我们设定了3个Nacos的实例都在本地，只是以不同的端口区分，所以我们在启动Nacos的时候，需要修改不同的端口号。</p>
+<p>下面介绍一种方法来方便地启动Nacos的三个本地实例，我们可以将bin目录下的startup.sh脚本复制三份，分别用来启动三个不同端口的Nacos实例，为了可以方便区分不同实例的启动脚本，我们可以把端口号加入到脚本的命名中，比如：</p>
+<ul>
+<li>startup-8841.sh</li>
+<li>startup-8842.sh</li>
+<li>startup-8843.sh</li>
+</ul>
+<p>然后，分别修改这三个脚本中的参数，具体如下图的红色部分（端口号根据上面脚本命名分配）：</p>
+<p><img src="http://blog.lutao1726.top/nacos集群-02.png" alt="Mou_icon"></p>
+<p>修改完3个脚本配置之后，分别执行下面的命令就可以在本地启动Nacos集群了：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sh startup-8841.sh</span><br><span class="line">sh startup-8842.sh</span><br><span class="line">sh startup-8843.sh</span><br></pre></td></tr></table></figure>
+<h4 id="生产环境"><a href="#生产环境" class="headerlink" title="生产环境"></a>生产环境</h4><p>在实际生产环境部署的时候，由于每个实例分布在不同的节点上，我们可以直接使用默认的启动脚本（除非要调整一些JVM参数等才需要修改）。只需要在各个节点的Nacos的bin目录下执行<code>sh startup.sh</code>命令即可。</p>
+<h4 id="Proxy配置"><a href="#Proxy配置" class="headerlink" title="Proxy配置"></a>Proxy配置</h4><p>在Nacos的集群启动完毕之后，根据架构图所示，我们还需要提供一个统一的入口给我们用来维护以及给Spring Cloud应用访问。简单地说，就是我们需要为上面启动的的三个Nacos实例做一个可以为它们实现负载均衡的访问点。这个实现的方式非常多，这里就举个用Nginx来实现的简单例子吧。</p>
+<p>在Nginx配置文件的http段中，我们可以加入下面的配置内容：</p>
+<p><img src="http://blog.lutao1726.top/nacos集群-03.png" alt="Mou_icon"></p>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "25071-1608261299158-736",
+			        "name": "Java一学习那些事",
+			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
+			        "keyword": "more"
+			    });
+			}
+			</script>
+		]]></content>
+      <categories>
+        <category>SpringCloud Alibaba</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>SpringCloud</tag>
+        <tag>SpringCloud Alibaba</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>SpringCloud gateway初体验</title>
     <url>/SpringCloud%20gateway%E5%88%9D%E4%BD%93%E9%AA%8C/</url>
     <content><![CDATA[<div id="vip-container"><!-- 展示图片 -->
@@ -2067,68 +2067,6 @@ _   底线
   <entry>
     <title>SpringCloud gateway动态路由</title>
     <url>/SpringCloud%20gateway%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1/</url>
-    <content><![CDATA[<div id="vip-container"><!-- 展示图片 -->
-<p><img src="http://justyy.com/wp-content/uploads/2016/01/markdown-syntax-language.png" alt="Mou_icon"></p>
-</div>
-
-			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
-			<script>
-			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
-			if (!isMobile) {
-			    var btw = new BTWPlugin();
-			    btw.init({
-			        "id": "vip-container",
-			        "blogId": "25071-1608261299158-736",
-			        "name": "Java一学习那些事",
-			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
-			        "keyword": "more"
-			    });
-			}
-			</script>
-		]]></content>
-      <categories>
-        <category>框架</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>Spring</tag>
-        <tag>SpringCloud</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SpringCloud gateway异常处理</title>
-    <url>/SpringCloud%20gateway%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/</url>
-    <content><![CDATA[<div id="vip-container"><!-- 展示图片 -->
-<p><img src="http://justyy.com/wp-content/uploads/2016/01/markdown-syntax-language.png" alt="Mou_icon"></p>
-</div>
-
-			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
-			<script>
-			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
-			if (!isMobile) {
-			    var btw = new BTWPlugin();
-			    btw.init({
-			        "id": "vip-container",
-			        "blogId": "25071-1608261299158-736",
-			        "name": "Java一学习那些事",
-			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
-			        "keyword": "more"
-			    });
-			}
-			</script>
-		]]></content>
-      <categories>
-        <category>框架</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>Spring</tag>
-        <tag>SpringCloud</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SpringCloud gateway熔断限流</title>
-    <url>/SpringCloud%20gateway%E7%86%94%E6%96%AD%E9%99%90%E6%B5%81/</url>
     <content><![CDATA[<div id="vip-container"><!-- 展示图片 -->
 <p><img src="http://justyy.com/wp-content/uploads/2016/01/markdown-syntax-language.png" alt="Mou_icon"></p>
 </div>
@@ -2340,6 +2278,66 @@ _   底线
       </tags>
   </entry>
   <entry>
+    <title>SpringCloud Nacos集群部署</title>
+    <url>/SpringCloud%20nacos%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2/</url>
+    <content><![CDATA[<div id="vip-container"><!-- 展示图片 -->
+<p><img src="http://gimg2.baidu.com/image_search/src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20181220%2F625a58b9a1d3449491d2ae9e396da5d8.jpeg&amp;refer=http%3A%2F%2F5b0988e595225.cdn.sohucs.com&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=jpeg?sec=1623575506&amp;t=fe07c6007ebc786e268abb7e4480dc0e" alt="Mou_icon"></p>
+<h2 id="集群搭建"><a href="#集群搭建" class="headerlink" title="集群搭建"></a>集群搭建</h2><p>根据官方文档的介绍，Nacos的集群架构大致如下图所示</p>
+<p><img src="http://blog.lutao1726.top/nacos集群-01.png" alt="Mou_icon"></p>
+<h4 id="MySQL数据源配置"><a href="#MySQL数据源配置" class="headerlink" title="MySQL数据源配置"></a>MySQL数据源配置</h4><p>在进行集群配置之前，先完成对MySQL数据源的初始化和配置。主要分以下两步：</p>
+<ul>
+<li>1、初始化MySQL数据库，数据库初始化文件：<code>nacos-mysql.sql</code>，该文件可以在Nacos程序包下的conf目录下获得。</li>
+<li>2、修改<code>conf/application.properties</code>文件，增加支持MySQL数据源配置，添加（目前只支持mysql）数据源的url、用户名和密码。配置样例如下：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">spring.datasource.platform=mysql</span><br><span class="line">db.num=1</span><br><span class="line">db.url.0=jdbc:mysql://localhost:3306/nacos?characterEncoding=utf8&amp;connectTimeout=1000&amp;socketTimeout=3000&amp;autoReconnect=true</span><br><span class="line">db.user=root</span><br><span class="line">db.password=</span><br></pre></td></tr></table></figure>
+<h4 id="集群配置"><a href="#集群配置" class="headerlink" title="集群配置"></a>集群配置</h4><p>在Nacos的conf目录下有一个cluster.conf.example，可以直接把example扩展名去掉来使用，也可以单独创建一个<code>cluster.conf</code>文件，然后打开将后续要部署的Nacos实例地址配置在这里。</p>
+<p>本文以在本地不同端点启动3个Nacos服务端为例，可以如下配置：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">127.0.0.1:8841</span><br><span class="line">127.0.0.1:8842</span><br><span class="line">127.0.0.1:8843</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：这里的例子仅用于本地学习测试使用，实际生产环境必须部署在不同的节点上，才能起到高可用的效果。另外，Nacos的集群需要3个或3个以上的节点，并且确保这三个节点之间是可以互相访问的。</p>
+</blockquote>
+<h4 id="本地测试"><a href="#本地测试" class="headerlink" title="本地测试"></a>本地测试</h4><p>本文中，在集群配置的时候，我们设定了3个Nacos的实例都在本地，只是以不同的端口区分，所以我们在启动Nacos的时候，需要修改不同的端口号。</p>
+<p>下面介绍一种方法来方便地启动Nacos的三个本地实例，我们可以将bin目录下的startup.sh脚本复制三份，分别用来启动三个不同端口的Nacos实例，为了可以方便区分不同实例的启动脚本，我们可以把端口号加入到脚本的命名中，比如：</p>
+<ul>
+<li>startup-8841.sh</li>
+<li>startup-8842.sh</li>
+<li>startup-8843.sh</li>
+</ul>
+<p>然后，分别修改这三个脚本中的参数，具体如下图的红色部分（端口号根据上面脚本命名分配）：</p>
+<p><img src="http://blog.lutao1726.top/nacos集群-02.png" alt="Mou_icon"></p>
+<p>修改完3个脚本配置之后，分别执行下面的命令就可以在本地启动Nacos集群了：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sh startup-8841.sh</span><br><span class="line">sh startup-8842.sh</span><br><span class="line">sh startup-8843.sh</span><br></pre></td></tr></table></figure>
+<h4 id="生产环境"><a href="#生产环境" class="headerlink" title="生产环境"></a>生产环境</h4><p>在实际生产环境部署的时候，由于每个实例分布在不同的节点上，我们可以直接使用默认的启动脚本（除非要调整一些JVM参数等才需要修改）。只需要在各个节点的Nacos的bin目录下执行<code>sh startup.sh</code>命令即可。</p>
+<h4 id="Proxy配置"><a href="#Proxy配置" class="headerlink" title="Proxy配置"></a>Proxy配置</h4><p>在Nacos的集群启动完毕之后，根据架构图所示，我们还需要提供一个统一的入口给我们用来维护以及给Spring Cloud应用访问。简单地说，就是我们需要为上面启动的的三个Nacos实例做一个可以为它们实现负载均衡的访问点。这个实现的方式非常多，这里就举个用Nginx来实现的简单例子吧。</p>
+<p>在Nginx配置文件的http段中，我们可以加入下面的配置内容：</p>
+<p><img src="http://blog.lutao1726.top/nacos集群-03.png" alt="Mou_icon"></p>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "25071-1608261299158-736",
+			        "name": "Java一学习那些事",
+			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
+			        "keyword": "more"
+			    });
+			}
+			</script>
+		]]></content>
+      <categories>
+        <category>框架</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Spring</tag>
+        <tag>SpringCloud</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>SpringCloud Nacos配置中心</title>
     <url>/SpringCloud%20nacos%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/</url>
     <content><![CDATA[<div id="vip-container"><!-- 展示图片 -->
@@ -2385,66 +2383,6 @@ _   底线
 <blockquote>
 <p>Nacos使用注意<br><br> Nacos本身的相关配置必须都放在bootstrap.yml文件中<br> 如果在Nacos添加了应用的配置文件<br> 1. 应用读取配置后只会覆盖本地相同key的配置<br> 2. 应用读取配置后会缓存起来，就算停掉Nacos也会生效</p>
 </blockquote>
-</div>
-
-			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
-			<script>
-			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
-			if (!isMobile) {
-			    var btw = new BTWPlugin();
-			    btw.init({
-			        "id": "vip-container",
-			        "blogId": "25071-1608261299158-736",
-			        "name": "Java一学习那些事",
-			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
-			        "keyword": "more"
-			    });
-			}
-			</script>
-		]]></content>
-      <categories>
-        <category>框架</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>Spring</tag>
-        <tag>SpringCloud</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SpringCloud Nacos集群部署</title>
-    <url>/SpringCloud%20nacos%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2/</url>
-    <content><![CDATA[<div id="vip-container"><!-- 展示图片 -->
-<p><img src="http://gimg2.baidu.com/image_search/src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20181220%2F625a58b9a1d3449491d2ae9e396da5d8.jpeg&amp;refer=http%3A%2F%2F5b0988e595225.cdn.sohucs.com&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=jpeg?sec=1623575506&amp;t=fe07c6007ebc786e268abb7e4480dc0e" alt="Mou_icon"></p>
-<h2 id="集群搭建"><a href="#集群搭建" class="headerlink" title="集群搭建"></a>集群搭建</h2><p>根据官方文档的介绍，Nacos的集群架构大致如下图所示</p>
-<p><img src="http://blog.lutao1726.top/nacos集群-01.png" alt="Mou_icon"></p>
-<h4 id="MySQL数据源配置"><a href="#MySQL数据源配置" class="headerlink" title="MySQL数据源配置"></a>MySQL数据源配置</h4><p>在进行集群配置之前，先完成对MySQL数据源的初始化和配置。主要分以下两步：</p>
-<ul>
-<li>1、初始化MySQL数据库，数据库初始化文件：<code>nacos-mysql.sql</code>，该文件可以在Nacos程序包下的conf目录下获得。</li>
-<li>2、修改<code>conf/application.properties</code>文件，增加支持MySQL数据源配置，添加（目前只支持mysql）数据源的url、用户名和密码。配置样例如下：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">spring.datasource.platform=mysql</span><br><span class="line">db.num=1</span><br><span class="line">db.url.0=jdbc:mysql://localhost:3306/nacos?characterEncoding=utf8&amp;connectTimeout=1000&amp;socketTimeout=3000&amp;autoReconnect=true</span><br><span class="line">db.user=root</span><br><span class="line">db.password=</span><br></pre></td></tr></table></figure>
-<h4 id="集群配置"><a href="#集群配置" class="headerlink" title="集群配置"></a>集群配置</h4><p>在Nacos的conf目录下有一个cluster.conf.example，可以直接把example扩展名去掉来使用，也可以单独创建一个<code>cluster.conf</code>文件，然后打开将后续要部署的Nacos实例地址配置在这里。</p>
-<p>本文以在本地不同端点启动3个Nacos服务端为例，可以如下配置：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">127.0.0.1:8841</span><br><span class="line">127.0.0.1:8842</span><br><span class="line">127.0.0.1:8843</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>注意：这里的例子仅用于本地学习测试使用，实际生产环境必须部署在不同的节点上，才能起到高可用的效果。另外，Nacos的集群需要3个或3个以上的节点，并且确保这三个节点之间是可以互相访问的。</p>
-</blockquote>
-<h4 id="本地测试"><a href="#本地测试" class="headerlink" title="本地测试"></a>本地测试</h4><p>本文中，在集群配置的时候，我们设定了3个Nacos的实例都在本地，只是以不同的端口区分，所以我们在启动Nacos的时候，需要修改不同的端口号。</p>
-<p>下面介绍一种方法来方便地启动Nacos的三个本地实例，我们可以将bin目录下的startup.sh脚本复制三份，分别用来启动三个不同端口的Nacos实例，为了可以方便区分不同实例的启动脚本，我们可以把端口号加入到脚本的命名中，比如：</p>
-<ul>
-<li>startup-8841.sh</li>
-<li>startup-8842.sh</li>
-<li>startup-8843.sh</li>
-</ul>
-<p>然后，分别修改这三个脚本中的参数，具体如下图的红色部分（端口号根据上面脚本命名分配）：</p>
-<p><img src="http://blog.lutao1726.top/nacos集群-02.png" alt="Mou_icon"></p>
-<p>修改完3个脚本配置之后，分别执行下面的命令就可以在本地启动Nacos集群了：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sh startup-8841.sh</span><br><span class="line">sh startup-8842.sh</span><br><span class="line">sh startup-8843.sh</span><br></pre></td></tr></table></figure>
-<h4 id="生产环境"><a href="#生产环境" class="headerlink" title="生产环境"></a>生产环境</h4><p>在实际生产环境部署的时候，由于每个实例分布在不同的节点上，我们可以直接使用默认的启动脚本（除非要调整一些JVM参数等才需要修改）。只需要在各个节点的Nacos的bin目录下执行<code>sh startup.sh</code>命令即可。</p>
-<h4 id="Proxy配置"><a href="#Proxy配置" class="headerlink" title="Proxy配置"></a>Proxy配置</h4><p>在Nacos的集群启动完毕之后，根据架构图所示，我们还需要提供一个统一的入口给我们用来维护以及给Spring Cloud应用访问。简单地说，就是我们需要为上面启动的的三个Nacos实例做一个可以为它们实现负载均衡的访问点。这个实现的方式非常多，这里就举个用Nginx来实现的简单例子吧。</p>
-<p>在Nginx配置文件的http段中，我们可以加入下面的配置内容：</p>
-<p><img src="http://blog.lutao1726.top/nacos集群-03.png" alt="Mou_icon"></p>
 </div>
 
 			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
@@ -3347,36 +3285,6 @@ _   底线
       </tags>
   </entry>
   <entry>
-    <title>centos修改主机名的正确方法</title>
-    <url>/centos%E4%BF%AE%E6%94%B9%E4%B8%BB%E6%9C%BA%E5%90%8D%E7%9A%84%E6%AD%A3%E7%A1%AE%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<div id="vip-container"><a id="more"></a>
-<h2 id="1-centos6下修改hostname"><a href="#1-centos6下修改hostname" class="headerlink" title="1.centos6下修改hostname"></a>1.centos6下修改hostname</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@centos6 ~]$ hostname                                              <span class="comment"># 查看当前的hostnmae</span></span><br><span class="line">centos6.magedu.com</span><br><span class="line">[root@centos6 ~]$ vim /etc/sysconfig/network                            <span class="comment"># 编辑network文件修改hostname行（重启生效）</span></span><br><span class="line">[root@centos6 ~]$ cat /etc/sysconfig/network                            <span class="comment"># 检查修改</span></span><br><span class="line">NETWORKING=yes</span><br><span class="line">HOSTNAME=lutao1726.top</span><br><span class="line">[root@centos6 ~]$ hostname lutao1726.top                                <span class="comment"># 设置当前的hostname(立即生效）</span></span><br><span class="line">[root@centos6 ~]$ vim /etc/hosts                                        <span class="comment"># 编辑hosts文件，给127.0.0.1添加hostname</span></span><br><span class="line">[root@centos6 ~]$ cat /etc/hosts                                        <span class="comment"># 检查</span></span><br><span class="line">127.0.0.1 localhost localhost.localdomain localhost4 localhost4.localdomain4 lutao1726.top</span><br><span class="line">::1 localhost localhost.localdomain localhost6 localhost6.localdomain6</span><br></pre></td></tr></table></figure>
-<h2 id="2-centos7下修改hostname"><a href="#2-centos7下修改hostname" class="headerlink" title="2.centos7下修改hostname"></a>2.centos7下修改hostname</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@centos7 ~]$ hostnamectl <span class="built_in">set</span>-hostname lutao1726.top                   <span class="comment"># 使用这个命令会立即生效且重启也生效</span></span><br><span class="line">[root@centos7 ~]$ hostname                                                 <span class="comment"># 查看下</span></span><br><span class="line">lutao1726.top</span><br><span class="line">[root@centos7 ~]$ vim /etc/hosts                                           <span class="comment"># 编辑下hosts文件， 给127.0.0.1添加hostname</span></span><br><span class="line">[root@centos7 ~]$ cat /etc/hosts                                           <span class="comment"># 检查</span></span><br><span class="line">127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4 lutao1726.top</span><br><span class="line">::1         localhost localhost.localdomain localhost6 localhost6.localdomain6</span><br></pre></td></tr></table></figure></div>
-
-			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
-			<script>
-			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
-			if (!isMobile) {
-			    var btw = new BTWPlugin();
-			    btw.init({
-			        "id": "vip-container",
-			        "blogId": "25071-1608261299158-736",
-			        "name": "Java一学习那些事",
-			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
-			        "keyword": "more"
-			    });
-			}
-			</script>
-		]]></content>
-      <categories>
-        <category>Linux教程</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>运维</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>gitlab安装与汉化</title>
     <url>/gitLab%E5%AE%89%E8%A3%85/</url>
     <content><![CDATA[<div id="vip-container"><a id="more"></a>
@@ -3506,31 +3414,11 @@ _   底线
       </tags>
   </entry>
   <entry>
-    <title>grafana+influxdb+telegraf监控服务器cpu,内存和硬盘</title>
-    <url>/grafana+influxdb+telegraf%E7%9B%91%E6%8E%A7%E6%9C%8D%E5%8A%A1%E5%99%A8/</url>
-    <content><![CDATA[<div id="vip-container"><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>监控服务器状态是运维必不可少的一部分,这里给大家介绍的是一种监控系统grafana,grafana仅仅只是提供界面显示, 所以他需要从influxdb中获取数据, 而influxdb中的数据又需要从其他地方收集过来, 常用的收集工具是collectd和telegraf, 其中collectd这里不做介绍, 有些数据不是太适合, 而 influxdb 自身集成 telegraf插件, 不需要进行专门的配置</p>
-<p>流程</p>
-<blockquote>
-<p>collectd/telegraf(收集数据)  ——-&gt;   influxdb(保存数据)  ——-&gt; grafana(显示数据)</p>
-</blockquote>
-<h1 id="安装配置"><a href="#安装配置" class="headerlink" title="安装配置"></a>安装配置</h1><h2 id="grafana-3-x"><a href="#grafana-3-x" class="headerlink" title="grafana 3.x+"></a>grafana 3.x+</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /opt</span><br><span class="line"><span class="comment"># 下载速度很慢, 建议用迅雷下载, 然后通过ftp上载到服务器</span></span><br><span class="line">wget https://grafanarel.s3.amazonaws.com/builds/grafana-3.1.1-1470047149.x86_64.rpm</span><br><span class="line">yum localinstall grafana-3.1.1-1470047149.x86_64.rpm</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动服务 (centos6)</span></span><br><span class="line">service grafana-server start</span><br><span class="line"><span class="comment"># 添加开机启动 (centos6)</span></span><br><span class="line">chkconfig --add grafana-server</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动服务 (centos7)</span></span><br><span class="line">systemctl start grafana-server </span><br><span class="line"><span class="comment"># 添加开机启动 (centos7)</span></span><br><span class="line">systemctl <span class="built_in">enable</span> grafana-server</span><br></pre></td></tr></table></figure>
-<p>默认启动端口 3000, 账户密码默认都是 admin</p>
-<h2 id="influxdb-1-x"><a href="#influxdb-1-x" class="headerlink" title="influxdb 1.x+"></a>influxdb 1.x+</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /opt</span><br><span class="line"><span class="comment"># 下载速度很慢, 建议用迅雷下载, 然后通过ftp上载到服务器</span></span><br><span class="line">wget https://dl.influxdata.com/influxdb/releases/influxdb-1.0.2.x86_64.rpm  </span><br><span class="line">yum localinstall influxdb-1.0.2.x86_64.rpm</span><br><span class="line"><span class="comment"># 启动服务 (centos6)</span></span><br><span class="line">service influxdb start</span><br><span class="line"><span class="comment"># 启动服务 (centos7)</span></span><br><span class="line">systemctl start influxdb</span><br></pre></td></tr></table></figure>
-<p>管理后台默认端口: 8083, 我们可以直接访问后台管理数据<br>数据传递默认端口: 8086, 其他服务传递数据的端口</p>
-<h2 id="telegraf-1-x"><a href="#telegraf-1-x" class="headerlink" title="telegraf 1.x+"></a>telegraf 1.x+</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /opt</span><br><span class="line"><span class="comment"># 下载速度很慢, 建议用迅雷下载, 然后通过ftp上载到服务器</span></span><br><span class="line">wget https://dl.influxdata.com/telegraf/releases/telegraf-1.0.1.x86_64.rpm</span><br><span class="line">yum localinstall telegraf-1.0.1.x86_64.rpm</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> /etc/telegraf</span><br><span class="line"><span class="comment"># 设置将数据传递写入influxdb服务器</span></span><br><span class="line">vi telegraf.conf</span><br><span class="line"><span class="comment"># 将地址改成 influxdb 对应的服务器地址, 端口默认 8086, 默认数据库 telegraf</span></span><br><span class="line"><span class="comment">#如果只想收集cpu, 内存和硬盘的数据</span></span><br><span class="line">telegraf -sample-config -input-filter cpu:mem:disk -output-filter influxdb &gt; telegraf.conf</span><br><span class="line"><span class="comment"># 启动服务 (centos6)</span></span><br><span class="line">service telegraf start</span><br><span class="line"><span class="comment"># 启动服务 (centos7)</span></span><br><span class="line">systemctl start telegraf</span><br></pre></td></tr></table></figure>
-<h1 id="grafana-使用"><a href="#grafana-使用" class="headerlink" title="grafana 使用"></a>grafana 使用</h1><ul>
-<li>创建数据源<br><img src="https://static.oschina.net/uploads/img/201712/30005624_2ck6.png" alt="Mou_icon"><br><img src="https://static.oschina.net/uploads/img/201712/30005624_FPpU.png" alt="Mou_icon"></li>
-</ul>
-<ul>
-<li>创建显示面板<br><img src="https://static.oschina.net/uploads/img/201712/30005624_AqKx.png" alt="Mou_icon"></li>
-<li>添加单个面板<br><img src="https://static.oschina.net/uploads/img/201712/30005624_JvQt.png" alt="Mou_icon"></li>
-<li>选择定义数据源<br><img src="https://static.oschina.net/uploads/img/201712/30005624_orfY.png" alt="Mou_icon"></li>
-<li>从数据源中添加数据<br><img src="https://static.oschina.net/uploads/img/201712/30005624_ZiJM.png" alt="Mou_icon"></li>
-<li>最终显示结果:<br><img src="https://static.oschina.net/uploads/img/201712/30005624_9idB.png" alt="Mou_icon"></li>
-</ul>
-<h1 id="模板例子"><a href="#模板例子" class="headerlink" title="模板例子"></a>模板例子</h1><p>在<a href="https://grafana.com/dashboards" target="_blank" rel="noopener">grafana官网</a>上有许多模板<br><img src="http://blog.lutao1726.top/grafana-0001.jpg" alt><br><img src="http://blog.lutao1726.top/grafana-0002.jpg" alt><br>监控服务器模板链接<br><a href="http://blog.lutao1726.top/system_rev4.json" target="_blank" rel="noopener">http://blog.lutao1726.top/system_rev4.json</a></p>
-<p>效果图<br><img src="http://blog.lutao1726.top/grafana-0003.jpg" alt></p>
-</div>
+    <title>centos修改主机名的正确方法</title>
+    <url>/centos%E4%BF%AE%E6%94%B9%E4%B8%BB%E6%9C%BA%E5%90%8D%E7%9A%84%E6%AD%A3%E7%A1%AE%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<div id="vip-container"><a id="more"></a>
+<h2 id="1-centos6下修改hostname"><a href="#1-centos6下修改hostname" class="headerlink" title="1.centos6下修改hostname"></a>1.centos6下修改hostname</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@centos6 ~]$ hostname                                              <span class="comment"># 查看当前的hostnmae</span></span><br><span class="line">centos6.magedu.com</span><br><span class="line">[root@centos6 ~]$ vim /etc/sysconfig/network                            <span class="comment"># 编辑network文件修改hostname行（重启生效）</span></span><br><span class="line">[root@centos6 ~]$ cat /etc/sysconfig/network                            <span class="comment"># 检查修改</span></span><br><span class="line">NETWORKING=yes</span><br><span class="line">HOSTNAME=lutao1726.top</span><br><span class="line">[root@centos6 ~]$ hostname lutao1726.top                                <span class="comment"># 设置当前的hostname(立即生效）</span></span><br><span class="line">[root@centos6 ~]$ vim /etc/hosts                                        <span class="comment"># 编辑hosts文件，给127.0.0.1添加hostname</span></span><br><span class="line">[root@centos6 ~]$ cat /etc/hosts                                        <span class="comment"># 检查</span></span><br><span class="line">127.0.0.1 localhost localhost.localdomain localhost4 localhost4.localdomain4 lutao1726.top</span><br><span class="line">::1 localhost localhost.localdomain localhost6 localhost6.localdomain6</span><br></pre></td></tr></table></figure>
+<h2 id="2-centos7下修改hostname"><a href="#2-centos7下修改hostname" class="headerlink" title="2.centos7下修改hostname"></a>2.centos7下修改hostname</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@centos7 ~]$ hostnamectl <span class="built_in">set</span>-hostname lutao1726.top                   <span class="comment"># 使用这个命令会立即生效且重启也生效</span></span><br><span class="line">[root@centos7 ~]$ hostname                                                 <span class="comment"># 查看下</span></span><br><span class="line">lutao1726.top</span><br><span class="line">[root@centos7 ~]$ vim /etc/hosts                                           <span class="comment"># 编辑下hosts文件， 给127.0.0.1添加hostname</span></span><br><span class="line">[root@centos7 ~]$ cat /etc/hosts                                           <span class="comment"># 检查</span></span><br><span class="line">127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4 lutao1726.top</span><br><span class="line">::1         localhost localhost.localdomain localhost6 localhost6.localdomain6</span><br></pre></td></tr></table></figure></div>
 
 			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
 			<script>
@@ -3592,14 +3480,64 @@ _   底线
       </tags>
   </entry>
   <entry>
-    <title>grafana+prometheus监控jenkins</title>
-    <url>/grafana+prometheus%E7%9B%91%E6%8E%A7jenkins/</url>
-    <content><![CDATA[<div id="vip-container"><h6 id="在jenkins中下载prometheus-plugin"><a href="#在jenkins中下载prometheus-plugin" class="headerlink" title="在jenkins中下载prometheus-plugin"></a>在jenkins中下载prometheus-plugin</h6><p><img src="http://blog.lutao1726.top/grafana-jenkins-01.png" alt="Mou_icon"></p>
-<h6 id="修改prometheus配置文件"><a href="#修改prometheus配置文件" class="headerlink" title="修改prometheus配置文件"></a>修改prometheus配置文件</h6><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">- job_name: &apos;jenkins&apos;</span><br><span class="line">  metrics_path: &apos;/prometheus/&apos;</span><br><span class="line">  scheme: http</span><br><span class="line">  bearer_token: &lt;bearer_token&gt;</span><br><span class="line">  static_configs:</span><br><span class="line">  - targets: [&apos;192.168.1.68:8090&apos;]</span><br></pre></td></tr></table></figure>
+    <title>grafana+influxdb+telegraf监控服务器cpu,内存和硬盘</title>
+    <url>/grafana+influxdb+telegraf%E7%9B%91%E6%8E%A7%E6%9C%8D%E5%8A%A1%E5%99%A8/</url>
+    <content><![CDATA[<div id="vip-container"><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>监控服务器状态是运维必不可少的一部分,这里给大家介绍的是一种监控系统grafana,grafana仅仅只是提供界面显示, 所以他需要从influxdb中获取数据, 而influxdb中的数据又需要从其他地方收集过来, 常用的收集工具是collectd和telegraf, 其中collectd这里不做介绍, 有些数据不是太适合, 而 influxdb 自身集成 telegraf插件, 不需要进行专门的配置</p>
+<p>流程</p>
+<blockquote>
+<p>collectd/telegraf(收集数据)  ——-&gt;   influxdb(保存数据)  ——-&gt; grafana(显示数据)</p>
+</blockquote>
+<h1 id="安装配置"><a href="#安装配置" class="headerlink" title="安装配置"></a>安装配置</h1><h2 id="grafana-3-x"><a href="#grafana-3-x" class="headerlink" title="grafana 3.x+"></a>grafana 3.x+</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /opt</span><br><span class="line"><span class="comment"># 下载速度很慢, 建议用迅雷下载, 然后通过ftp上载到服务器</span></span><br><span class="line">wget https://grafanarel.s3.amazonaws.com/builds/grafana-3.1.1-1470047149.x86_64.rpm</span><br><span class="line">yum localinstall grafana-3.1.1-1470047149.x86_64.rpm</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动服务 (centos6)</span></span><br><span class="line">service grafana-server start</span><br><span class="line"><span class="comment"># 添加开机启动 (centos6)</span></span><br><span class="line">chkconfig --add grafana-server</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动服务 (centos7)</span></span><br><span class="line">systemctl start grafana-server </span><br><span class="line"><span class="comment"># 添加开机启动 (centos7)</span></span><br><span class="line">systemctl <span class="built_in">enable</span> grafana-server</span><br></pre></td></tr></table></figure>
+<p>默认启动端口 3000, 账户密码默认都是 admin</p>
+<h2 id="influxdb-1-x"><a href="#influxdb-1-x" class="headerlink" title="influxdb 1.x+"></a>influxdb 1.x+</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /opt</span><br><span class="line"><span class="comment"># 下载速度很慢, 建议用迅雷下载, 然后通过ftp上载到服务器</span></span><br><span class="line">wget https://dl.influxdata.com/influxdb/releases/influxdb-1.0.2.x86_64.rpm  </span><br><span class="line">yum localinstall influxdb-1.0.2.x86_64.rpm</span><br><span class="line"><span class="comment"># 启动服务 (centos6)</span></span><br><span class="line">service influxdb start</span><br><span class="line"><span class="comment"># 启动服务 (centos7)</span></span><br><span class="line">systemctl start influxdb</span><br></pre></td></tr></table></figure>
+<p>管理后台默认端口: 8083, 我们可以直接访问后台管理数据<br>数据传递默认端口: 8086, 其他服务传递数据的端口</p>
+<h2 id="telegraf-1-x"><a href="#telegraf-1-x" class="headerlink" title="telegraf 1.x+"></a>telegraf 1.x+</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /opt</span><br><span class="line"><span class="comment"># 下载速度很慢, 建议用迅雷下载, 然后通过ftp上载到服务器</span></span><br><span class="line">wget https://dl.influxdata.com/telegraf/releases/telegraf-1.0.1.x86_64.rpm</span><br><span class="line">yum localinstall telegraf-1.0.1.x86_64.rpm</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> /etc/telegraf</span><br><span class="line"><span class="comment"># 设置将数据传递写入influxdb服务器</span></span><br><span class="line">vi telegraf.conf</span><br><span class="line"><span class="comment"># 将地址改成 influxdb 对应的服务器地址, 端口默认 8086, 默认数据库 telegraf</span></span><br><span class="line"><span class="comment">#如果只想收集cpu, 内存和硬盘的数据</span></span><br><span class="line">telegraf -sample-config -input-filter cpu:mem:disk -output-filter influxdb &gt; telegraf.conf</span><br><span class="line"><span class="comment"># 启动服务 (centos6)</span></span><br><span class="line">service telegraf start</span><br><span class="line"><span class="comment"># 启动服务 (centos7)</span></span><br><span class="line">systemctl start telegraf</span><br></pre></td></tr></table></figure>
+<h1 id="grafana-使用"><a href="#grafana-使用" class="headerlink" title="grafana 使用"></a>grafana 使用</h1><ul>
+<li>创建数据源<br><img src="https://static.oschina.net/uploads/img/201712/30005624_2ck6.png" alt="Mou_icon"><br><img src="https://static.oschina.net/uploads/img/201712/30005624_FPpU.png" alt="Mou_icon"></li>
+</ul>
+<ul>
+<li>创建显示面板<br><img src="https://static.oschina.net/uploads/img/201712/30005624_AqKx.png" alt="Mou_icon"></li>
+<li>添加单个面板<br><img src="https://static.oschina.net/uploads/img/201712/30005624_JvQt.png" alt="Mou_icon"></li>
+<li>选择定义数据源<br><img src="https://static.oschina.net/uploads/img/201712/30005624_orfY.png" alt="Mou_icon"></li>
+<li>从数据源中添加数据<br><img src="https://static.oschina.net/uploads/img/201712/30005624_ZiJM.png" alt="Mou_icon"></li>
+<li>最终显示结果:<br><img src="https://static.oschina.net/uploads/img/201712/30005624_9idB.png" alt="Mou_icon"></li>
+</ul>
+<h1 id="模板例子"><a href="#模板例子" class="headerlink" title="模板例子"></a>模板例子</h1><p>在<a href="https://grafana.com/dashboards" target="_blank" rel="noopener">grafana官网</a>上有许多模板<br><img src="http://blog.lutao1726.top/grafana-0001.jpg" alt><br><img src="http://blog.lutao1726.top/grafana-0002.jpg" alt><br>监控服务器模板链接<br><a href="http://blog.lutao1726.top/system_rev4.json" target="_blank" rel="noopener">http://blog.lutao1726.top/system_rev4.json</a></p>
+<p>效果图<br><img src="http://blog.lutao1726.top/grafana-0003.jpg" alt></p>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "25071-1608261299158-736",
+			        "name": "Java一学习那些事",
+			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
+			        "keyword": "more"
+			    });
+			}
+			</script>
+		]]></content>
+      <categories>
+        <category>Linux教程</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>运维</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>grafana+prometheus监控nacos</title>
+    <url>/grafana+prometheus%E7%9B%91%E6%8E%A7nacos/</url>
+    <content><![CDATA[<div id="vip-container"><h6 id="安装Nacos"><a href="#安装Nacos" class="headerlink" title="安装Nacos"></a>安装<a href="http://lutao.tk/SpringCloud%20nacos%E8%87%AA%E5%AE%9A%E4%B9%89%E7%94%A8%E6%88%B7/" target="_blank" rel="noopener">Nacos</a></h6><h6 id="修改配置文件-application-properties-暴露metrics数据"><a href="#修改配置文件-application-properties-暴露metrics数据" class="headerlink" title="修改配置文件 application.properties 暴露metrics数据"></a>修改配置文件 <strong><em>application.properties</em></strong> 暴露metrics数据</h6><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">management.endpoints.web.exposure.include=*</span><br></pre></td></tr></table></figure>
+<p>访问{ip}:8848/nacos/actuator/prometheus，看是否能访问到metrics数据</p>
+<h6 id="修改prometheus配置文件"><a href="#修改prometheus配置文件" class="headerlink" title="修改prometheus配置文件"></a>修改prometheus配置文件</h6><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">- job_name: nacos</span><br><span class="line">  metrics_path: &apos;/nacos/actuator/prometheus&apos;</span><br><span class="line">  static_configs:</span><br><span class="line">    - targets: [&apos;192.168.1.238:8848&apos;]</span><br></pre></td></tr></table></figure>
 <h6 id="重启prometheus"><a href="#重启prometheus" class="headerlink" title="重启prometheus"></a>重启prometheus</h6><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nohup ./prometheus --config.file=./prometheus.yml &amp;</span><br></pre></td></tr></table></figure>
 <h4 id="grafana配置"><a href="#grafana配置" class="headerlink" title="grafana配置"></a>grafana配置</h4><p>配置prometheus数据源<br>添加prometheus插件，然后配置<br><img src="http://blog.lutao1726.top/grafana-redis-01.png" alt="Mou_icon"><br><img src="http://blog.lutao1726.top/grafana-redis-02.png" alt="Mou_icon"><br><img src="http://blog.lutao1726.top/grafana-redis-03.png" alt="Mou_icon"></p>
-<h4 id="下载node-exporter仪表盘模板"><a href="#下载node-exporter仪表盘模板" class="headerlink" title="下载node_exporter仪表盘模板"></a>下载node_exporter仪表盘模板</h4><p><img src="http://blog.lutao1726.top/grafana-jenkins-02.png" alt="Mou_icon"></p>
-<h6 id="导入模板"><a href="#导入模板" class="headerlink" title="导入模板"></a>导入模板</h6><p><img src="http://blog.lutao1726.top/grafana-redis-05.png" alt="Mou_icon"><br><img src="http://blog.lutao1726.top/grafana-jenkins-03.png" alt="Mou_icon"></p>
+<h4 id="下载仪表盘模板"><a href="#下载仪表盘模板" class="headerlink" title="下载仪表盘模板"></a>下载<a href="https://github.com/nacos-group/nacos-template/blob/master/nacos-sync-grafana" target="_blank" rel="noopener">仪表盘模板</a></h4><h6 id="导入模板"><a href="#导入模板" class="headerlink" title="导入模板"></a>导入模板</h6><p><img src="http://blog.lutao1726.top/grafana-redis-05.png" alt="Mou_icon"><br><img src="http://blog.lutao1726.top/grafana-nacos-02.png" alt="Mou_icon"></p>
 </div>
 
 			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
@@ -3639,40 +3577,6 @@ _   底线
 <h4 id="grafana配置"><a href="#grafana配置" class="headerlink" title="grafana配置"></a>grafana配置</h4><p>配置prometheus数据源<br>添加prometheus插件，然后配置<br><img src="http://blog.lutao1726.top/grafana-redis-01.png" alt="Mou_icon"><br><img src="http://blog.lutao1726.top/grafana-redis-02.png" alt="Mou_icon"><br><img src="http://blog.lutao1726.top/grafana-redis-03.png" alt="Mou_icon"></p>
 <h4 id="下载仪表盘模板"><a href="#下载仪表盘模板" class="headerlink" title="下载仪表盘模板"></a>下载仪表盘模板</h4><p><img src="http://blog.lutao1726.top/grafana-mysql-01.png" alt="Mou_icon"></p>
 <h6 id="导入模板"><a href="#导入模板" class="headerlink" title="导入模板"></a>导入模板</h6><p><img src="http://blog.lutao1726.top/grafana-redis-05.png" alt="Mou_icon"><br><img src="http://blog.lutao1726.top/grafana-mysql-02.png" alt="Mou_icon"></p>
-</div>
-
-			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
-			<script>
-			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
-			if (!isMobile) {
-			    var btw = new BTWPlugin();
-			    btw.init({
-			        "id": "vip-container",
-			        "blogId": "25071-1608261299158-736",
-			        "name": "Java一学习那些事",
-			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
-			        "keyword": "more"
-			    });
-			}
-			</script>
-		]]></content>
-      <categories>
-        <category>Linux教程</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>运维</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>grafana+prometheus监控nacos</title>
-    <url>/grafana+prometheus%E7%9B%91%E6%8E%A7nacos/</url>
-    <content><![CDATA[<div id="vip-container"><h6 id="安装Nacos"><a href="#安装Nacos" class="headerlink" title="安装Nacos"></a>安装<a href="http://lutao.tk/SpringCloud%20nacos%E8%87%AA%E5%AE%9A%E4%B9%89%E7%94%A8%E6%88%B7/" target="_blank" rel="noopener">Nacos</a></h6><h6 id="修改配置文件-application-properties-暴露metrics数据"><a href="#修改配置文件-application-properties-暴露metrics数据" class="headerlink" title="修改配置文件 application.properties 暴露metrics数据"></a>修改配置文件 <strong><em>application.properties</em></strong> 暴露metrics数据</h6><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">management.endpoints.web.exposure.include=*</span><br></pre></td></tr></table></figure>
-<p>访问{ip}:8848/nacos/actuator/prometheus，看是否能访问到metrics数据</p>
-<h6 id="修改prometheus配置文件"><a href="#修改prometheus配置文件" class="headerlink" title="修改prometheus配置文件"></a>修改prometheus配置文件</h6><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">- job_name: nacos</span><br><span class="line">  metrics_path: &apos;/nacos/actuator/prometheus&apos;</span><br><span class="line">  static_configs:</span><br><span class="line">    - targets: [&apos;192.168.1.238:8848&apos;]</span><br></pre></td></tr></table></figure>
-<h6 id="重启prometheus"><a href="#重启prometheus" class="headerlink" title="重启prometheus"></a>重启prometheus</h6><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nohup ./prometheus --config.file=./prometheus.yml &amp;</span><br></pre></td></tr></table></figure>
-<h4 id="grafana配置"><a href="#grafana配置" class="headerlink" title="grafana配置"></a>grafana配置</h4><p>配置prometheus数据源<br>添加prometheus插件，然后配置<br><img src="http://blog.lutao1726.top/grafana-redis-01.png" alt="Mou_icon"><br><img src="http://blog.lutao1726.top/grafana-redis-02.png" alt="Mou_icon"><br><img src="http://blog.lutao1726.top/grafana-redis-03.png" alt="Mou_icon"></p>
-<h4 id="下载仪表盘模板"><a href="#下载仪表盘模板" class="headerlink" title="下载仪表盘模板"></a>下载<a href="https://github.com/nacos-group/nacos-template/blob/master/nacos-sync-grafana" target="_blank" rel="noopener">仪表盘模板</a></h4><h6 id="导入模板"><a href="#导入模板" class="headerlink" title="导入模板"></a>导入模板</h6><p><img src="http://blog.lutao1726.top/grafana-redis-05.png" alt="Mou_icon"><br><img src="http://blog.lutao1726.top/grafana-nacos-02.png" alt="Mou_icon"></p>
 </div>
 
 			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
@@ -3779,6 +3683,41 @@ _   底线
       </tags>
   </entry>
   <entry>
+    <title>Hello World</title>
+    <url>/hello-world/</url>
+    <content><![CDATA[<div id="vip-container"><a id="more"></a>
+<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "25071-1608261299158-736",
+			        "name": "Java一学习那些事",
+			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
+			        "keyword": "more"
+			    });
+			}
+			</script>
+		]]></content>
+      <tags>
+        <tag>Java</tag>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>grafana+prometheus监控服务器</title>
     <url>/grafana+prometheus%E7%9B%91%E6%8E%A7%E6%9C%8D%E5%8A%A1%E5%99%A8/</url>
     <content><![CDATA[<div id="vip-container"><h4 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h4><hr>
@@ -3818,41 +3757,6 @@ _   底线
       <tags>
         <tag>Linux</tag>
         <tag>运维</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/hello-world/</url>
-    <content><![CDATA[<div id="vip-container"><a id="more"></a>
-<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-</div>
-
-			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
-			<script>
-			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
-			if (!isMobile) {
-			    var btw = new BTWPlugin();
-			    btw.init({
-			        "id": "vip-container",
-			        "blogId": "25071-1608261299158-736",
-			        "name": "Java一学习那些事",
-			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
-			        "keyword": "more"
-			    });
-			}
-			</script>
-		]]></content>
-      <tags>
-        <tag>Java</tag>
-        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -3973,36 +3877,6 @@ _   底线
       </tags>
   </entry>
   <entry>
-    <title>CentOS7安装</title>
-    <url>/linux_centos7%E5%AE%89%E8%A3%85/</url>
-    <content><![CDATA[<div id="vip-container"><a id="more"></a>
-<h1 id="CentOS7安装"><a href="#CentOS7安装" class="headerlink" title="CentOS7安装"></a>CentOS7安装</h1></div>
-
-			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
-			<script>
-			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
-			if (!isMobile) {
-			    var btw = new BTWPlugin();
-			    btw.init({
-			        "id": "vip-container",
-			        "blogId": "25071-1608261299158-736",
-			        "name": "Java一学习那些事",
-			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
-			        "keyword": "more"
-			    });
-			}
-			</script>
-		]]></content>
-      <categories>
-        <category>Linux教程</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>Linux</tag>
-        <tag>运维</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>linux下如何批量杀JAVA进程或某个进程方法</title>
     <url>/linux%E4%B8%8B%E5%A6%82%E4%BD%95%E6%89%B9%E9%87%8F%E6%9D%80JAVA%E8%BF%9B%E7%A8%8B%E6%88%96%E6%9F%90%E4%B8%AA%E8%BF%9B%E7%A8%8B%E6%96%B9%E6%B3%95/</url>
     <content><![CDATA[<div id="vip-container"><h2 id="linux下如何批量杀JAVA进程或某个进程方法"><a href="#linux下如何批量杀JAVA进程或某个进程方法" class="headerlink" title="linux下如何批量杀JAVA进程或某个进程方法"></a>linux下如何批量杀JAVA进程或某个进程方法</h2><p>linux下如何批量杀JAVA进程或某个进程方法 </p>
@@ -4035,6 +3909,36 @@ _   底线
 			}
 			</script>
 		]]></content>
+  </entry>
+  <entry>
+    <title>CentOS7安装</title>
+    <url>/linux_centos7%E5%AE%89%E8%A3%85/</url>
+    <content><![CDATA[<div id="vip-container"><a id="more"></a>
+<h1 id="CentOS7安装"><a href="#CentOS7安装" class="headerlink" title="CentOS7安装"></a>CentOS7安装</h1></div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "25071-1608261299158-736",
+			        "name": "Java一学习那些事",
+			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
+			        "keyword": "more"
+			    });
+			}
+			</script>
+		]]></content>
+      <categories>
+        <category>Linux教程</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Linux</tag>
+        <tag>运维</tag>
+      </tags>
   </entry>
   <entry>
     <title>linux加密脚本</title>
@@ -4244,8 +4148,39 @@ _   底线
       </categories>
       <tags>
         <tag>Java</tag>
-        <tag>微服务</tag>
         <tag>分布式</tag>
+        <tag>微服务</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>zookeeper使用总结</title>
+    <url>/zookeeper%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<div id="vip-container"><!-- 展示图片 -->
+<p><img src="http://justyy.com/wp-content/uploads/2016/01/markdown-syntax-language.png" alt="Mou_icon"></p>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "25071-1608261299158-736",
+			        "name": "Java一学习那些事",
+			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
+			        "keyword": "more"
+			    });
+			}
+			</script>
+		]]></content>
+      <categories>
+        <category>面试</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>分布式</tag>
+        <tag>微服务</tag>
       </tags>
   </entry>
   <entry>
@@ -4291,10 +4226,14 @@ _   底线
       </tags>
   </entry>
   <entry>
-    <title>zookeeper使用总结</title>
-    <url>/zookeeper%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<div id="vip-container"><!-- 展示图片 -->
-<p><img src="http://justyy.com/wp-content/uploads/2016/01/markdown-syntax-language.png" alt="Mou_icon"></p>
+    <title>grafana+prometheus监控jenkins</title>
+    <url>/grafana+prometheus%E7%9B%91%E6%8E%A7jenkins/</url>
+    <content><![CDATA[<div id="vip-container"><h6 id="在jenkins中下载prometheus-plugin"><a href="#在jenkins中下载prometheus-plugin" class="headerlink" title="在jenkins中下载prometheus-plugin"></a>在jenkins中下载prometheus-plugin</h6><p><img src="http://blog.lutao1726.top/grafana-jenkins-01.png" alt="Mou_icon"></p>
+<h6 id="修改prometheus配置文件"><a href="#修改prometheus配置文件" class="headerlink" title="修改prometheus配置文件"></a>修改prometheus配置文件</h6><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">- job_name: &apos;jenkins&apos;</span><br><span class="line">  metrics_path: &apos;/prometheus/&apos;</span><br><span class="line">  scheme: http</span><br><span class="line">  bearer_token: &lt;bearer_token&gt;</span><br><span class="line">  static_configs:</span><br><span class="line">  - targets: [&apos;192.168.1.68:8090&apos;]</span><br></pre></td></tr></table></figure>
+<h6 id="重启prometheus"><a href="#重启prometheus" class="headerlink" title="重启prometheus"></a>重启prometheus</h6><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nohup ./prometheus --config.file=./prometheus.yml &amp;</span><br></pre></td></tr></table></figure>
+<h4 id="grafana配置"><a href="#grafana配置" class="headerlink" title="grafana配置"></a>grafana配置</h4><p>配置prometheus数据源<br>添加prometheus插件，然后配置<br><img src="http://blog.lutao1726.top/grafana-redis-01.png" alt="Mou_icon"><br><img src="http://blog.lutao1726.top/grafana-redis-02.png" alt="Mou_icon"><br><img src="http://blog.lutao1726.top/grafana-redis-03.png" alt="Mou_icon"></p>
+<h4 id="下载node-exporter仪表盘模板"><a href="#下载node-exporter仪表盘模板" class="headerlink" title="下载node_exporter仪表盘模板"></a>下载node_exporter仪表盘模板</h4><p><img src="http://blog.lutao1726.top/grafana-jenkins-02.png" alt="Mou_icon"></p>
+<h6 id="导入模板"><a href="#导入模板" class="headerlink" title="导入模板"></a>导入模板</h6><p><img src="http://blog.lutao1726.top/grafana-redis-05.png" alt="Mou_icon"><br><img src="http://blog.lutao1726.top/grafana-jenkins-03.png" alt="Mou_icon"></p>
 </div>
 
 			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
@@ -4313,12 +4252,11 @@ _   底线
 			</script>
 		]]></content>
       <categories>
-        <category>面试</category>
+        <category>Linux教程</category>
       </categories>
       <tags>
-        <tag>Java</tag>
-        <tag>微服务</tag>
-        <tag>分布式</tag>
+        <tag>Linux</tag>
+        <tag>运维</tag>
       </tags>
   </entry>
   <entry>
@@ -5596,6 +5534,68 @@ _   底线
       </categories>
       <tags>
         <tag>Interview</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SpringCloud gateway异常处理</title>
+    <url>/SpringCloud%20gateway%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/</url>
+    <content><![CDATA[<div id="vip-container"><!-- 展示图片 -->
+<p><img src="http://justyy.com/wp-content/uploads/2016/01/markdown-syntax-language.png" alt="Mou_icon"></p>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "25071-1608261299158-736",
+			        "name": "Java一学习那些事",
+			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
+			        "keyword": "more"
+			    });
+			}
+			</script>
+		]]></content>
+      <categories>
+        <category>框架</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Spring</tag>
+        <tag>SpringCloud</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SpringCloud gateway熔断限流</title>
+    <url>/SpringCloud%20gateway%E7%86%94%E6%96%AD%E9%99%90%E6%B5%81/</url>
+    <content><![CDATA[<div id="vip-container"><!-- 展示图片 -->
+<p><img src="http://justyy.com/wp-content/uploads/2016/01/markdown-syntax-language.png" alt="Mou_icon"></p>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "25071-1608261299158-736",
+			        "name": "Java一学习那些事",
+			        "qrcode": "http://blog.lutao1726.top/qrcode_for_gzh.jpg",
+			        "keyword": "more"
+			    });
+			}
+			</script>
+		]]></content>
+      <categories>
+        <category>框架</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Spring</tag>
+        <tag>SpringCloud</tag>
       </tags>
   </entry>
 </search>
