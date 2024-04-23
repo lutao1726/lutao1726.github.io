@@ -1,0 +1,235 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><title>MQ相关总结 | Lutao</title><noscript>开启JavaScript才能访问本站哦~</noscript><link rel="icon" href="/img/pwa/favicon.ico"><!-- index.css--><link rel="stylesheet" href="/css/index.css?v=1.8.9"><!-- inject head--><link rel="stylesheet" href="https://cdn2.codesign.qq.com/icons/7pOrz0WXB5ZWJPX/latest/iconfont.css"><!-- aplayer--><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.css"><!-- swiper--><!-- fancybox ui--><!-- katex--><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css"><!-- Open Graph--><meta name="description" content="1.为什么使用消息队列？通用回答是：我们公司有个什么业务场景，这个业务场景有什么技术挑战，如果不使用MQ可能会很麻烦，使用MQ之后带来了什么好处.比较核心的有3个业务场景：解耦，异步，削峰解耦场景：用户下单后，订单系统需要通知库存系统。异步场景：用户注册后，需要发注册邮件和注册短信。削峰场景：（"><!-- pwa--><meta name="apple-mobile-web-app-capable" content="Lutao"><meta name="theme-color" content="var(--efu-main)"><meta name="apple-mobile-web-app-status-bar-style" content="var(--efu-main)"><link rel="bookmark" href="/img/pwa/favicon.ico"><link rel="apple-touch-icon" href="/img/pwa/favicon.ico" sizes="180x180"><script>console.log(
+    "%c Program: Hexo %c Theme: Solitude %c Version: v1.8.9",
+    "border-radius:5px 0 0 5px;padding: 5px 10px;color:white;background:#ff3842;",
+    "padding: 5px 10px;color:white;background:#3e9f50;",
+    "border-radius:0 5px 5px 0;padding: 5px 10px;background:#0084ff;color:white;"
+);
+</script><script>(()=>{
+        const saveToLocal = {
+            set: function setWithExpiry(key, value, ttl) {
+                if (ttl === 0)
+                    return
+                const now = new Date()
+                const expiryDay = ttl * 86400000
+                const item = {
+                    value: value,
+                    expiry: now.getTime() + expiryDay
+                }
+                localStorage.setItem(key, JSON.stringify(item))
+            },
+            get: function getWithExpiry(key) {
+                const itemStr = localStorage.getItem(key)
+    
+                if (!itemStr) {
+                    return undefined
+                }
+                const item = JSON.parse(itemStr)
+                const now = new Date()
+    
+                if (now.getTime() > item.expiry) {
+                    localStorage.removeItem(key)
+                    return undefined
+                }
+                return item.value
+            }
+        };
+        window.utils = {
+            saveToLocal: saveToLocal,
+            getCSS: (url, id = false) => new Promise((resolve, reject) => {
+              const link = document.createElement('link')
+              link.rel = 'stylesheet'
+              link.href = url
+              if (id) link.id = id
+              link.onerror = reject
+              link.onload = link.onreadystatechange = function() {
+                const loadState = this.readyState
+                if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+                link.onload = link.onreadystatechange = null
+                resolve()
+              }
+              document.head.appendChild(link)
+            }),
+            getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+              const script = document.createElement('script')
+              script.src = url
+              script.async = true
+              script.onerror = reject
+              script.onload = script.onreadystatechange = function() {
+                const loadState = this.readyState
+                if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+                script.onload = script.onreadystatechange = null
+                resolve()
+              }
+    
+              Object.keys(attr).forEach(key => {
+                script.setAttribute(key, attr[key])
+              })
+    
+              document.head.appendChild(script)
+            }),
+            addGlobalFn: (key, fn, name = false, parent = window) => {
+                const globalFn = parent.globalFn || {}
+                const keyObj = globalFn[key] || {}
+        
+                if (name && keyObj[name]) return
+        
+                name = name || Object.keys(keyObj).length
+                keyObj[name] = fn
+                globalFn[key] = keyObj
+                parent.globalFn = globalFn
+            },
+        }
+    })()</script><!-- global head--><script>const GLOBAL_CONFIG = {
+    root: '/',
+    algolia: undefined,
+    localsearch: {"preload":false,"path":"/search.xml"},
+    runtime: '2023-04-20 00:00:00',
+    lazyload: {
+        enable: false,
+        error: '/img/error_load.png'
+    },
+    copyright: {"limit":50,"author":"作者: 鲁涛(Jackie)","link":"链接: ","source":"来源: Lutao","info":"著作权归作者所有。 商业转载请联系作者获得授权，非商业转载请注明出处。"},
+    highlight: {
+        enable: true,
+        limit: 200,
+        expand: true,
+        copy: true,
+        syntax: 'highlight.js'
+    },
+    randomlink: false,
+    lang: {"theme":{"dark":"已切换至深色模式","light":"已切换至浅色模式"},"copy":{"success":"复制成功","error":"复制失败"},"backtop":"返回顶部","time":{"day":"天前","hour":"小时前","just":"刚刚","min":"分钟前","month":"个月前"},"f12":"开发者模式已打开，请遵循GPL协议。","totalk":"无需删除空行，直接输入评论即可","search":{"empty":"找不到你查询的内容：${query}","hit":"找到 ${hits} 条结果，用时 ${time} 毫秒","placeholder":"输入关键词快速查找","count":"共 <b>${count}</b> 条结果。"}},
+    aside: {
+        sayhello: {
+            morning: '一日之计在于晨',
+            noon: '吃饱了才有力气干活',
+            afternoon: '集中精力，攻克难关',
+            night: '不要太劳累了，早睡更健康',
+            goodnight: '睡个好觉，保证精力充沛',
+        },
+        sayhello2: ["🤖️ 数码科技爱好者","🔍 分享与热心帮助","🔨 设计开发一条龙","🤝 专修交互与设计","🏃 脚踏实地行动派","🧱 团队小组发动机","🎮 电竞游戏爱好者"],
+    },
+    covercolor: {
+        enable: true
+    },
+    comment: false,
+    lightbox: 'null',
+    post_ai: {"key":null,"talk":null,"randomPost":false},
+    right_menu: false,
+};</script><!-- page-config head--><script id="config-diff">var PAGE_CONFIG = {
+    is_post: true,
+    is_page: false,
+    is_home: false,
+    page: '',
+    toc: true,
+    comment: true,
+    ai_text: false,
+}</script><meta name="generator" content="Hexo 7.2.0"></head><body id="body"><!-- universe--><canvas id="universe"></canvas><!-- loading--><!-- console--><div id="console"><div class="close-btn" onclick="sco.hideConsole()"><i class="solitude st-close-fill"></i></div><div class="button-group"><div class="console-btn-item"><span class="darkmode_switchbutton" onclick="sco.switchDarkMode()" title="昼夜切换"><i class="solitude st-moon-clear-fill"></i></span></div><div class="console-btn-item" id="consoleHideAside"><span class="asideSwitch" onclick="sco.switchHideAside()" title="边栏显示控制"><i class="solitude st-side-bar-fill"></i></span></div><div class="console-btn-item" id="consoleMusic" onclick="sco.musicToggle()"><span class="music-switch" title="音乐开关"><i class="solitude st-disc-fill"></i></span></div></div><div class="console-mask" onclick="sco.hideConsole()"></div></div><!-- sidebar--><div id="sidebar" style="zoom: 1;"><div id="menu-mask" style="display: none;"></div><div id="sidebar-menus"><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">76</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">14</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">24</div></a></div></div></div><span class="sidebar-menu-item-title">功能</span><div class="sidebar-menu-item"><span class="darkmode_switchbutton menu-child" onclick="sco.switchDarkMode()"><i class="solitude st-moon-clear-fill"></i><span>显示模式</span></span></div><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">Solitude</div><div class="back-menu-list"><a class="back-menu-item" href="/archives/" title="文章"><img class="nolazyload back-menu-item-icon" src="/img/pwa/favicon.ico" alt="文章"><span class="back-menu-item-text">文章</span></a></div></div></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><span>首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span>文库</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="solitude  st-folder-fill"></i><span>文章列表</span></a></li><li><a class="site-page child" href="/categories/"><i class="solitude  st-checkbox-multiple-blank-fill"></i><span>全部分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="solitude  st-price-tag-fill"></i><span>全部标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span>关于</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="solitude  st-contacts-fill"></i><span>关于本站</span></a></li></ul></div></div><span class="sidebar-menu-item-title">标签</span><div class="card-widget card-tags card-archives card-webinfo card-allinfo"><div class="card-tag-cloud"><a href="/tags/Java/">Java<sup>58</sup></a><a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式<sup>4</sup></a><a href="/tags/Linux/">Linux<sup>22</sup></a><a href="/tags/%E8%BF%90%E7%BB%B4/">运维<sup>22</sup></a><a href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务<sup>6</sup></a><a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/">分布式<sup>7</sup></a><a href="/tags/Xml/">Xml<sup>1</sup></a><a href="/tags/Java%E5%9F%BA%E7%A1%80/">Java基础<sup>6</sup></a><a href="/tags/%E7%AE%97%E6%B3%95/">算法<sup>2</sup></a><a href="/tags/hexo/">hexo<sup>3</sup></a><a href="/tags/markdown/">markdown<sup>2</sup></a><a href="/tags/Spring/">Spring<sup>19</sup></a><a href="/tags/Mysql/">Mysql<sup>5</sup></a><a href="/tags/SSM/">SSM<sup>1</sup></a><a href="/tags/Excel/">Excel<sup>1</sup></a><a href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/">中间件<sup>1</sup></a><a href="/tags/PostgreSql/">PostgreSql<sup>1</sup></a><a href="/tags/SpringBoot/">SpringBoot<sup>3</sup></a><a href="/tags/SpringCloud-Alibaba/">SpringCloud Alibaba<sup>1</sup></a><a href="/tags/SpringCloud/">SpringCloud<sup>13</sup></a><a href="/tags/Jenkins/">Jenkins<sup>1</sup></a><a href="/tags/sql/">sql<sup>1</sup></a><a href="/tags/Book/">Book<sup>1</sup></a><a href="/tags/Interview/">Interview<sup>3</sup></a></div></div></div></div><!-- keyboard--><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav class="show" id="nav"><div id="nav-group"><div id="blog_name"><div class="back-home-button" tabindex="-1"><i class="back-home-button-icon solitude st-more-fill"></i><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">Solitude</div><div class="back-menu-list"><a class="back-menu-item" href="/archives/" title="文章"><img class="nolazyload back-menu-item-icon" src="/img/pwa/favicon.ico" alt="文章"><span class="back-menu-item-text">文章</span></a></div></div></div></div><a id="site-name" href="/" title="返回博客主页"><span class="title">Lutao</span></a></div><div id="page-name-mask"><div id="page-name"><a id="page-name-text" onclick="sco.toTop()">MQ相关总结</a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><span>首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span>文库</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="solitude  st-folder-fill"></i><span>文章列表</span></a></li><li><a class="site-page child" href="/categories/"><i class="solitude  st-checkbox-multiple-blank-fill"></i><span>全部分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="solitude  st-price-tag-fill"></i><span>全部标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span>关于</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="solitude  st-contacts-fill"></i><span>关于本站</span></a></li></ul></div></div></div><div id="nav-left"></div><div id="nav-right"><div class="nav-button" id="travellings_button"><a class="site-page" target="_blank" rel="noopener" href="https://www.travellings.cn/go.html" title=""><i class="solitude st-train-line"></i></a></div><div class="nav-button" id="search-button"><a class="site-page social-icon search" href="javascript:void(0);" title="搜索"><i class="solitude st-search-line"></i></a></div><div class="nav-button" id="nav-totop" onclick="sco.toTop()"><a class="totopbtn"><i class="solitude st-arrow-up-line"></i><span id="percent">0</span></a></div><div id="toggle-menu"><a class="site-page"><i class="solitude st-menu-line"></i></a></div></div></div></nav><div class="coverdiv" id="coverdiv"><img class="nolazyload" id="post-cover" src="https://img1.baidu.com/it/u=3227283675,3799574461&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=640&amp;h=327" alt="MQ相关总结"></div><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original" title="该文章为原创文章，注意版权协议">原创</a><span class="post-meta-categories"><a class="post-meta-categories" href="/categories/%E9%9D%A2%E8%AF%95/">面试</a></span><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Java/"><span class="tags-name tags-punctuation">Java</span></a><a class="post-meta__tags" href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/"><span class="tags-name tags-punctuation">微服务</span></a><a class="post-meta__tags" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/"><span class="tags-name tags-punctuation">分布式</span></a></div></div></div></div><h1 class="post-title">MQ相关总结</h1><div id="post-meta"><div class="meta-secondline"></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section></header><main class="layout" id="content-inner"><div id="post"><div class="post-ai"><div class="ai-title"><div class="ai-title-left"><i class="ai-title-icon solitude st-robot-fill"></i><div class="ai-title-text">文章摘要</div></div><div class="ai-tag" id="ai-tag">Jackie-GPT</div></div><div class="ai-explanation" style="display: block;"></div><div class="ai-suggestions"></div><div class="ai-bottom"><div class="ai-tips"></div><a class="ai-report" title="投诉" target="_blank" rel="noopener" href="https://efu.me/">投诉</a></div></div><article class="post-content" id="article-container"><!-- 展示图片 -->
+<p><img src="http://blog.lutao1726.top/MQ-001.jpg" alt="Mou_icon"></p>
+<p>1.为什么使用消息队列？<br>通用回答是：我们公司有个什么业务场景，这个业务场景有什么技术挑战，如果不使用MQ可能会很麻烦，使用MQ之后带来了什么好处.<br>比较核心的有3个业务场景：解耦，异步，削峰<br>解耦场景：用户下单后，订单系统需要通知库存系统。<br>异步场景：用户注册后，需要发注册邮件和注册短信。<br>削峰场景：（秒杀或团抢活动）</p>
+</article><div class="post-copyright"><div class="post-copyright__author_group"><a class="post-copyright__author_img" href="/about/"><img class="post-copyright__author_img_front" src="/img/pwa/favicon.ico"></a><div class="post-copyright__author_name">Lutao</div><div class="post-copyright__author_desc">Stay Hungry, Stay Foolish</div></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div id="quit-box" onclick="RemoveRewardMask()"></div><div class="post-reward" onclick="AddRewardMask()"><div class="reward-button" title="赞赏作者"><i class="solitude st-hand-heart-fill"></i>赞赏作者</div><div class="reward-main"><ul class="reward-all"><span class="reward-title">感谢您的赞赏。</span><ul class="reward-group"><li class="reward-item"><img class="post-qr-code-img nolazyload" src="/img/zhifubao.jpg" alt="支付宝" style="border-color: var(--efu-blue)"><div class="post-qr-code-desc">支付宝</div></li><li class="reward-item"><img class="post-qr-code-img nolazyload" src="/img/weixin.jpg" alt="微信" style="border-color: var(--efu-blue)"><div class="post-qr-code-desc">微信</div></li></ul><a class="reward-main-btn" href="/about"><div class="reward-text">赞赏名单</div><div class="reward-dec">因为有你们的支持，我才体会到写文章的价值。</div></a></ul></div></div><script>function RemoveRewardMask() {
+    let rewardMainElements = document.querySelectorAll(".reward-main");
+    let quitBoxElement = document.querySelector("#quit-box");
+
+    console.log("RemoveRewardMask")
+
+    rewardMainElements.forEach(element => {
+        element.style.display = "none";
+    });
+
+    if (quitBoxElement) {
+        quitBoxElement.style.display = "none";
+    }
+}
+
+function AddRewardMask() {
+    let rewardMainElements = document.querySelectorAll(".reward-main");
+    let quitBoxElement = document.querySelector("#quit-box");
+
+    console.log("AddRewardMask")
+
+    rewardMainElements.forEach(element => {
+        element.style.display = "flex";
+    });
+
+    if (quitBoxElement) {
+        quitBoxElement.style.display = "flex";
+    }
+}</script></div></div><div class="post-copyright__notice"><span class="post-copyright-info">本文是原创文章，采用<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0</a>协议，完整转载请注明来自<a href="/">Lutao</a></span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Java/"><span class="tags-punctuation"></span>Java<span class="tagsPageCount">58</span></a><a class="post-meta__tags" href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/"><span class="tags-punctuation"></span>微服务<span class="tagsPageCount">6</span></a><a class="post-meta__tags" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/"><span class="tags-punctuation"></span>分布式<span class="tagsPageCount">7</span></a></div></div></div><nav class="needEndHide pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2018/05/19/DesignPatterns(1)/"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">设计模式(1)-总览</div></div></a></div><div class="next-post pull-right"><a href="/2018/05/17/redis%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">redis使用总结</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="solitude st-star-smile-fill"></i><span>喜欢这篇的人也看了</span><div class="relatedPosts-link"><a onclick="event.preventDefault(); toRandomPost();" href="javascript:void(0);" rel="external nofollow" data-pjax-state="">随便逛逛</a></div></div><div class="relatedPosts-list"><div><a href="/2018/05/19/Dubbo%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/" title="Dubbo使用总结"><img class="cover" src="https://img-blog.csdnimg.cn/c5262f958e7246828a886007e800c02d.png" alt="cover"><div class="content is-center"><div class="title">Dubbo使用总结</div></div></a></div><div><a href="/2018/05/17/redis%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/" title="redis使用总结"><img class="cover" src="https://pic1.zhimg.com/v2-68ba5c63fb878f074c4ac91e944b24a4_1440w.jpg?source=172ae18b" alt="cover"><div class="content is-center"><div class="title">redis使用总结</div></div></a></div></div></div><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="solitude st-chat-fill"></i><span> 评论</span></div></div><div class="comment-wrap"><div class="vcomment" id="vcomment"></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><div class="author-info__top-group"><div class="author-info__sayhi" id="author-info__sayhi" onclick="sco.changeSayHelloText()">sayhello.morning</div></div></div><div class="avatar-img-group"><img class="avatar-img" alt="头像" src="/img/avatar.png"><div class="avatar-sticker"><img class="avatar-sticker-img" src="https://7.isyangs.cn/34/65f2e4e0423cc-34.png" alt="心情贴纸"></div></div><div class="author-info__description_group"><div class="author-info__description">分享自己对编程的<b>热爱</b>，对美好生活的<b>向往</b>，对知识海洋<b>探索历程</b>。</div><div class="author-info__description2">相信你可以在这里找到对你有用的知识和教程。</div></div><div class="author-info__bottom-group"><a class="author-info__bottom-group-left" href="/about/"><div class="author-info__name">鲁涛(Jackie)</div><div class="author-info__desc">Stay Hungry, Stay Foolish</div></a><div class="card-info-social-icons is-center"><a class="social-icon" target="_blank" rel="noopener" href="https://github.com/lutao1726" title="Github"><i class="solitude  st-github-line"></i></a></div></div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="solitude st-menu-line"></i><span>文章目录</span></div><div class="toc-content" id="toc-content"></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="solitude st-map-line"></i><span>最近发布</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/04/23/hello-world/" title="Hello World"><img alt="Hello World" src="/img/default.png"></a><div class="content"><a class="title" href="/2024/04/23/hello-world/" title="Hello World">Hello World</a></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/03/01/%E5%B8%B8%E8%A7%81%E9%99%90%E6%B5%81%E7%AE%97%E6%B3%95/" title="常见限流算法"><img alt="常见限流算法" src="/img/default.png"></a><div class="content"><a class="title" href="/2023/03/01/%E5%B8%B8%E8%A7%81%E9%99%90%E6%B5%81%E7%AE%97%E6%B3%95/" title="常见限流算法">常见限流算法</a><a class="article-recent_post_categories" href="/2023/03/01/%E5%B8%B8%E8%A7%81%E9%99%90%E6%B5%81%E7%AE%97%E6%B3%95/">算法教程</a></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/18/Redis%E6%80%BB%E7%BB%93/" title="Redis总结"><img alt="Redis总结" src="https://pic1.zhimg.com/v2-68ba5c63fb878f074c4ac91e944b24a4_1440w.jpg?source=172ae18b"></a><div class="content"><a class="title" href="/2022/11/18/Redis%E6%80%BB%E7%BB%93/" title="Redis总结">Redis总结</a><a class="article-recent_post_categories" href="/2022/11/18/Redis%E6%80%BB%E7%BB%93/">框架</a></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/15/%E9%9D%A2%E8%AF%95%E7%B3%BB%E5%88%97-JVM%E8%B0%83%E4%BC%98/" title="JVM调优"><img alt="JVM调优" src="/img/default.png"></a><div class="content"><a class="title" href="/2022/11/15/%E9%9D%A2%E8%AF%95%E7%B3%BB%E5%88%97-JVM%E8%B0%83%E4%BC%98/" title="JVM调优">JVM调优</a><a class="article-recent_post_categories" href="/2022/11/15/%E9%9D%A2%E8%AF%95%E7%B3%BB%E5%88%97-JVM%E8%B0%83%E4%BC%98/">面试系列</a></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/06/10/SpringCloud%20Alibaba%20%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AE%9E%E6%88%98-%E5%9F%BA%E7%A1%80%E7%8E%AF%E5%A2%83/" title="SpringCloud Alibaba 微服务实战-基础环境"><img alt="SpringCloud Alibaba 微服务实战-基础环境" src="https://img0.baidu.com/it/u=384551593,3776153747&amp;fm=253&amp;fmt=auto&amp;app=120&amp;f=JPEG?w=750&amp;h=500"></a><div class="content"><a class="title" href="/2020/06/10/SpringCloud%20Alibaba%20%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AE%9E%E6%88%98-%E5%9F%BA%E7%A1%80%E7%8E%AF%E5%A2%83/" title="SpringCloud Alibaba 微服务实战-基础环境">SpringCloud Alibaba 微服务实战-基础环境</a><a class="article-recent_post_categories" href="/2020/06/10/SpringCloud%20Alibaba%20%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AE%9E%E6%88%98-%E5%9F%BA%E7%A1%80%E7%8E%AF%E5%A2%83/">SpringCloud Alibaba</a></div></div></div></div></div></div></main><footer id="footer"><div id="st-footer-bar"><div class="footer-logo"><span class="solitude">Lutao</span></div><div class="footer-bar-description">来自Lutao - Stay Hungry, Stay Foolish的文章</div><a class="footer-bar-link" href="/">了解更多</a></div><div id="footer_deal"><a class="deal_link" target="_blank" rel="noopener" href="https://github.com/lutao1726" title="Github"><i class="solitude  st-github-line"></i></a><a class="deal_link" href="/lutao1726@qq.com" title="Mail"><i class="solitude  st-mail-line"></i></a><a class="deal_link" target="_blank" rel="noopener" href="https://space.bilibili.com/13476193651" title="Bilibili"><i class="solitude  st-bilibili-line"></i></a><a class="deal_link" target="_blank" rel="noopener" href="https://v.douyin.com/iJsLc8jt/" title="抖音"><i class="solitude  st-douyin-fill"></i></a></div><div id="st-footer"><div class="footer-group"><h3 class="footer-title">导航</h3><div class="footer-links"><a class="footer-item" href="/archives/" title="归档">归档</a><a class="footer-item" href="/categories/" title="分类">分类</a><a class="footer-item" href="/tags/" title="标签">标签</a></div></div><div class="footer-group"><h3 class="footer-title">服务</h3><div class="footer-links"><a class="footer-item" target="_blank" rel="noopener" href="https://aliyun.com/" title="阿里云">阿里云</a><a class="footer-item" target="_blank" rel="noopener" href="https://v6.51.la/" title="51la统计">51la统计</a><a class="footer-item" target="_blank" rel="noopener" href="https://tongji.baidu.com/" title="百度统计">百度统计</a></div></div><div class="footer-group"><h3 class="footer-title">支持</h3><div class="footer-links"><a class="footer-item" href="/about/" title="打赏记录">打赏记录</a></div></div><div class="footer-group"><h3 class="footer-title">协议</h3><div class="footer-links"><a class="footer-item" href="/cookies/" title="Cookies">Cookies</a><a class="footer-item" href="/privacy/" title="用户协议">用户协议</a><a class="footer-item" href="/copyright/" title="版权协议">版权协议</a></div></div></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div class="copyright">© 2023 - 2024 By&nbsp;<a class="footer-bar-link" href="/">鲁涛(Jackie)</a></div></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" rel="noopener" href="https://git.oschina.net/lutao1726" alt="码云">码云</a><a class="footer-bar-link" target="_blank" rel="noopener" href="http://www.cnblogs.com/lt1726/" alt="博客园">博客园</a><a class="footer-bar-link cc" href="/null" aria-label="copyright"><i class="solitude st-copyright-line"></i><i class="solitude st-creative-commons-by-line"></i><i class="solitude st-creative-commons-nc-line"></i><i class="solitude st-creative-commons-nd-line"></i></a></div></div></div></footer></div><!-- right_menu--><!-- inject body--><div><script src="/js/utils.js?v=1.8.9"></script><script src="/js/main.js?v=1.8.9"></script><script src="/js/third_party/waterfall.min.js?v=1.8.9"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pjax/0.2.8/pjax.min.js"></script><script src="/js/third_party/universe.min.js?v=1.8.9"></script><script>dark()
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/node-snackbar/0.1.16/snackbar.min.js"></script><script src="/js/third_party/efu_ai.min.js?v=1.8.9"></script><script>var meting_api = 'https://meting.qjqq.cn/?server=:server&type=:type&id=:id&auth=:auth&r=:r';</script><script src="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/meting/2.0.1/Meting.min.js"></script><script src="/js/covercolor/local.js?v=1.8.9"></script><script src="/js/music.js?v=1.8.9"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js"></script><div class="js-pjax"><script>(() => {
+    const initValine = () => {
+        const valine = new Valine({
+            el: '#vcomment',
+            appId: 'SHkEzVF9JLXyG3ViGkb6QF6w-gzGzoHsz',
+            appKey: 'G5mg2sHbwBG7RSr6yXtMevT1',
+            avatar: '',
+            serverURLs: '',
+            emojiMaps: "",
+            path: window.location.pathname,
+            visitor: false,
+            ...null
+        })
+        GLOBAL_CONFIG.lightbox && utils.lightbox(document.querySelectorAll('#comment .vcontent img:not(.vemoji)'))
+        sco.owoBig({body: '.vwrap', item: '.vemojis i'})
+    }
+    const loadValine = async () => {
+        if (typeof Valine === 'function') setTimeout(initValine, 0)
+        else {
+            await utils.getScript('https://cdnjs.cloudflare.com/ajax/libs/valine/1.5.1/Valine.min.js').then(initValine)
+        }
+        false && barrageValine()
+    }
+    if ('Valine' === 'Valine' || false) {
+        if (false) utils.loadComment(document.getElementById('vcomment'), loadValine)
+        else loadValine()
+    } else {
+        window.loadTwoComment = loadValine
+    }
+})()
+</script></div></div><!-- newest comment--><!-- pjax--><script>const pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: ['title','#body-wrap','#site-config','meta[name="description"]','.js-pjax','meta[property^="og:"]','#config-diff'],
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+})
+
+document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+})
+
+document.addEventListener('pjax:complete', () => {
+    window.refreshFn()
+
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+        const newScript = document.createElement('script')
+        const content = item.text || item.textContent || item.innerHTML || ""
+        Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+        newScript.appendChild(document.createTextNode(content))
+        item.parentNode.replaceChild(newScript, item)
+    })
+
+    GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+})
+
+document.addEventListener('pjax:error', (e) => {
+    if (e.request.status === 404) {
+        pjax.loadUrl('/404.html')
+    }
+})</script><!-- theme--><script>initTheme = () => {
+    let isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const cachedMode = utils.saveToLocal.get('theme');
+    if (cachedMode === undefined) {
+        const nowMode =
+            isDarkMode ? 'dark' : 'light'
+        document.documentElement.setAttribute('data-theme', nowMode);
+    } else {
+        document.documentElement.setAttribute('data-theme', cachedMode);
+    }
+    is_rm && rm.mode(cachedMode === 'dark' && isDarkMode)
+}
+initTheme()</script><!-- google adsense--><!-- search--><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><button class="search-close-button"><i class="solitude st-close-fill"></i></button></nav><div class="search-wrap"><div class="search-box"><input class="search-box-input" id="search-input" type="text" autocomplete="off" spellcheck="false" autocorrect="off" autocapitalize="off" placeholder="输入关键词快速查找"></div><div id="search-results"><div id="search-hits"><a class="tag-list" href="javascript:void(0);" onclick="pjax.loadUrl('/tags/Solitude/')">Solitude</a><a class="tag-list" href="javascript:void(0);" onclick="pjax.loadUrl('/tags/Hexo/')">Hexo</a></div></div><div id="search-pagination"></div><div id="search-tips"></div></div></div><div id="search-mask"></div></div><script src="/js/search/local.js?v=1.8.9"></script><!-- music--><div class="needEndHide" id="nav-music" onclick="sco.musicToggle()"><div id="nav-music-hoverTips">音乐已暂停</div><meting-js id="8407304077" server="netease" type="playlist" mutex="true" preload="none" data-lrctype="0" order="random" theme="var(--efu-main)"></meting-js></div></body></html><script>const posts=["2024/04/23/hello-world/","2023/03/01/常见限流算法/","2022/11/18/Redis总结/","2022/11/15/面试系列-JVM调优/","2020/06/10/SpringCloud Alibaba 微服务实战-基础环境/","2019/11/15/Java锁汇总/","2019/11/15/如何做技术选型？Sentinel 还是 Hystrix？/","2019/09/29/Java关于远程调试程序教程/","2019/08/28/记一次生产问题 elastic-job/","2019/08/03/grafana+prometheus监控Jvm/","2019/07/28/grafana+prometheus监控jenkins/","2019/07/21/grafana+prometheus监控mysql/","2019/07/15/grafana+prometheus监控nacos/","2019/07/09/grafana+prometheus监控postgresql/","2019/07/05/grafana+prometheus监控服务器/","2019/06/25/grafana+prometheus监控redis/","2019/06/25/grafana+influxdb+telegraf监控服务器/","2019/06/19/centos7安装OpenResty代替nginx/","2019/06/18/linux加密脚本/","2019/06/13/SpringCloud nacos配置中心/","2019/06/10/SpringCloud nacos自定义用户/","2019/06/10/SpringCloud nacos集群部署/","2019/06/01/SpringCloud nacos服务注册与发现/","2019/05/24/linux下如何批量杀JAVA进程或某个进程方法/","2019/05/22/SpringCloud consul服务注册与发现/","2019/05/16/SpringCloud eureka服务注册与发现/","2019/05/15/SpringCloud gateway异常处理/","2019/05/15/SpringCloud gateway动态路由/","2019/05/15/SpringCloud gateway熔断限流/","2019/05/14/SpringCloud gateway初体验/","2019/05/12/在github上配置hexo自定义域名/","2019/05/12/面试题积累/","2019/04/18/linux安装字体/","2019/03/18/linux常用命令/","2019/01/23/深入理解java虚拟机总结/","2019/01/18/Mybatis总结/","2019/01/18/Mysql总结/","2019/01/18/SpringBoot总结/","2019/01/18/SpringMVC总结/","2019/01/18/Spring总结/","2019/01/01/SpringBoot之使用Druid连接池以及SQL监控/","2019/01/01/springboot项目配置阿里云ssl证书/","2018/09/27/完全卸载删除gitlab/","2018/09/16/jenkins安装/","2018/08/27/PostgreSQL 实现按月按年，按日统计 分组统计/","2018/08/20/搭建ELK日志分析平台/","2018/08/16/工作中常用sql整理/","2018/07/28/Swagger注解释义与SpringBoot的集成/","2018/07/05/gitLab安装/","2018/06/30/Docker管理容器/","2018/06/25/Docker相关整理/","2018/06/19/centos修改主机名的正确方法/","2018/06/11/SpringCloud 服务冲突和实例乱窜/","2018/06/05/DesignPatterns(4)/","2018/05/30/DesignPatterns(3)/","2018/05/25/DesignPatterns(2)/","2018/05/19/Dubbo使用总结/","2018/05/19/DesignPatterns(1)/","2018/05/18/MQ相关总结/","2018/05/17/redis使用总结/","2018/05/16/Java分布式锁总结/","2018/05/16/Java常用算法汇总/","2018/05/16/zookeeper使用总结/","2018/05/15/Java分布式事务总结/","2018/04/15/linux_centos7安装/","2018/01/18/非技术相关面试/","2017/09/25/Java基础回顾-多线程(1)/","2017/09/25/Java基础回顾-集合/","2017/09/20/Java基础回顾(2)/","2017/09/16/Java基础回顾(1)/","2017/08/29/JavaReadXml/","2017/08/27/POIExcel/","2017/08/12/SpringRead-write-separation/","2017/08/03/Markdown/","2017/08/03/中文技术文档的写作规范/","2017/06/19/Java-分布式-1/"];function toRandomPost(){ pjax.loadUrl('/'+posts[Math.floor(Math.random()*posts.length)]); }</script>

@@ -1,0 +1,514 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><title>中文技术文档的写作规范 | Lutao</title><noscript>开启JavaScript才能访问本站哦~</noscript><link rel="icon" href="/img/pwa/favicon.ico"><!-- index.css--><link rel="stylesheet" href="/css/index.css?v=1.8.9"><!-- inject head--><link rel="stylesheet" href="https://cdn2.codesign.qq.com/icons/7pOrz0WXB5ZWJPX/latest/iconfont.css"><!-- aplayer--><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.css"><!-- swiper--><!-- fancybox ui--><!-- katex--><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css"><!-- Open Graph--><meta name="description" content="本文转载自 ruanyf&amp;#x2F;document-style-guide 目录 1. 标题2. 文本3. 段落4. 数值5. 标点符号6. 文档体系7. 参考链接 标题层级标题分为四级。 一级标题：文章的标题 二级标题：文章主要部分的大标题 三级标题：二级标题下面一级的小标题 四级标题："><!-- pwa--><meta name="apple-mobile-web-app-capable" content="Lutao"><meta name="theme-color" content="var(--efu-main)"><meta name="apple-mobile-web-app-status-bar-style" content="var(--efu-main)"><link rel="bookmark" href="/img/pwa/favicon.ico"><link rel="apple-touch-icon" href="/img/pwa/favicon.ico" sizes="180x180"><script>console.log(
+    "%c Program: Hexo %c Theme: Solitude %c Version: v1.8.9",
+    "border-radius:5px 0 0 5px;padding: 5px 10px;color:white;background:#ff3842;",
+    "padding: 5px 10px;color:white;background:#3e9f50;",
+    "border-radius:0 5px 5px 0;padding: 5px 10px;background:#0084ff;color:white;"
+);
+</script><script>(()=>{
+        const saveToLocal = {
+            set: function setWithExpiry(key, value, ttl) {
+                if (ttl === 0)
+                    return
+                const now = new Date()
+                const expiryDay = ttl * 86400000
+                const item = {
+                    value: value,
+                    expiry: now.getTime() + expiryDay
+                }
+                localStorage.setItem(key, JSON.stringify(item))
+            },
+            get: function getWithExpiry(key) {
+                const itemStr = localStorage.getItem(key)
+    
+                if (!itemStr) {
+                    return undefined
+                }
+                const item = JSON.parse(itemStr)
+                const now = new Date()
+    
+                if (now.getTime() > item.expiry) {
+                    localStorage.removeItem(key)
+                    return undefined
+                }
+                return item.value
+            }
+        };
+        window.utils = {
+            saveToLocal: saveToLocal,
+            getCSS: (url, id = false) => new Promise((resolve, reject) => {
+              const link = document.createElement('link')
+              link.rel = 'stylesheet'
+              link.href = url
+              if (id) link.id = id
+              link.onerror = reject
+              link.onload = link.onreadystatechange = function() {
+                const loadState = this.readyState
+                if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+                link.onload = link.onreadystatechange = null
+                resolve()
+              }
+              document.head.appendChild(link)
+            }),
+            getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+              const script = document.createElement('script')
+              script.src = url
+              script.async = true
+              script.onerror = reject
+              script.onload = script.onreadystatechange = function() {
+                const loadState = this.readyState
+                if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+                script.onload = script.onreadystatechange = null
+                resolve()
+              }
+    
+              Object.keys(attr).forEach(key => {
+                script.setAttribute(key, attr[key])
+              })
+    
+              document.head.appendChild(script)
+            }),
+            addGlobalFn: (key, fn, name = false, parent = window) => {
+                const globalFn = parent.globalFn || {}
+                const keyObj = globalFn[key] || {}
+        
+                if (name && keyObj[name]) return
+        
+                name = name || Object.keys(keyObj).length
+                keyObj[name] = fn
+                globalFn[key] = keyObj
+                parent.globalFn = globalFn
+            },
+        }
+    })()</script><!-- global head--><script>const GLOBAL_CONFIG = {
+    root: '/',
+    algolia: undefined,
+    localsearch: {"preload":false,"path":"/search.xml"},
+    runtime: '2023-04-20 00:00:00',
+    lazyload: {
+        enable: false,
+        error: '/img/error_load.png'
+    },
+    copyright: {"limit":50,"author":"作者: 鲁涛(Jackie)","link":"链接: ","source":"来源: Lutao","info":"著作权归作者所有。 商业转载请联系作者获得授权，非商业转载请注明出处。"},
+    highlight: {
+        enable: true,
+        limit: 200,
+        expand: true,
+        copy: true,
+        syntax: 'highlight.js'
+    },
+    randomlink: false,
+    lang: {"theme":{"dark":"已切换至深色模式","light":"已切换至浅色模式"},"copy":{"success":"复制成功","error":"复制失败"},"backtop":"返回顶部","time":{"day":"天前","hour":"小时前","just":"刚刚","min":"分钟前","month":"个月前"},"f12":"开发者模式已打开，请遵循GPL协议。","totalk":"无需删除空行，直接输入评论即可","search":{"empty":"找不到你查询的内容：${query}","hit":"找到 ${hits} 条结果，用时 ${time} 毫秒","placeholder":"输入关键词快速查找","count":"共 <b>${count}</b> 条结果。"}},
+    aside: {
+        sayhello: {
+            morning: '一日之计在于晨',
+            noon: '吃饱了才有力气干活',
+            afternoon: '集中精力，攻克难关',
+            night: '不要太劳累了，早睡更健康',
+            goodnight: '睡个好觉，保证精力充沛',
+        },
+        sayhello2: ["🤖️ 数码科技爱好者","🔍 分享与热心帮助","🔨 设计开发一条龙","🤝 专修交互与设计","🏃 脚踏实地行动派","🧱 团队小组发动机","🎮 电竞游戏爱好者"],
+    },
+    covercolor: {
+        enable: true
+    },
+    comment: false,
+    lightbox: 'null',
+    post_ai: {"key":null,"talk":null,"randomPost":false},
+    right_menu: false,
+};</script><!-- page-config head--><script id="config-diff">var PAGE_CONFIG = {
+    is_post: true,
+    is_page: false,
+    is_home: false,
+    page: '',
+    toc: true,
+    comment: true,
+    ai_text: false,
+}</script><meta name="generator" content="Hexo 7.2.0"></head><body id="body"><!-- universe--><canvas id="universe"></canvas><!-- loading--><!-- console--><div id="console"><div class="close-btn" onclick="sco.hideConsole()"><i class="solitude st-close-fill"></i></div><div class="button-group"><div class="console-btn-item"><span class="darkmode_switchbutton" onclick="sco.switchDarkMode()" title="昼夜切换"><i class="solitude st-moon-clear-fill"></i></span></div><div class="console-btn-item" id="consoleHideAside"><span class="asideSwitch" onclick="sco.switchHideAside()" title="边栏显示控制"><i class="solitude st-side-bar-fill"></i></span></div><div class="console-btn-item" id="consoleMusic" onclick="sco.musicToggle()"><span class="music-switch" title="音乐开关"><i class="solitude st-disc-fill"></i></span></div></div><div class="console-mask" onclick="sco.hideConsole()"></div></div><!-- sidebar--><div id="sidebar" style="zoom: 1;"><div id="menu-mask" style="display: none;"></div><div id="sidebar-menus"><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">76</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">14</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">24</div></a></div></div></div><span class="sidebar-menu-item-title">功能</span><div class="sidebar-menu-item"><span class="darkmode_switchbutton menu-child" onclick="sco.switchDarkMode()"><i class="solitude st-moon-clear-fill"></i><span>显示模式</span></span></div><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">Solitude</div><div class="back-menu-list"><a class="back-menu-item" href="/archives/" title="文章"><img class="nolazyload back-menu-item-icon" src="/img/pwa/favicon.ico" alt="文章"><span class="back-menu-item-text">文章</span></a></div></div></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><span>首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span>文库</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="solitude  st-folder-fill"></i><span>文章列表</span></a></li><li><a class="site-page child" href="/categories/"><i class="solitude  st-checkbox-multiple-blank-fill"></i><span>全部分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="solitude  st-price-tag-fill"></i><span>全部标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span>关于</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="solitude  st-contacts-fill"></i><span>关于本站</span></a></li></ul></div></div><span class="sidebar-menu-item-title">标签</span><div class="card-widget card-tags card-archives card-webinfo card-allinfo"><div class="card-tag-cloud"><a href="/tags/Java/">Java<sup>58</sup></a><a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式<sup>4</sup></a><a href="/tags/Linux/">Linux<sup>22</sup></a><a href="/tags/%E8%BF%90%E7%BB%B4/">运维<sup>22</sup></a><a href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务<sup>6</sup></a><a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/">分布式<sup>7</sup></a><a href="/tags/Xml/">Xml<sup>1</sup></a><a href="/tags/Java%E5%9F%BA%E7%A1%80/">Java基础<sup>6</sup></a><a href="/tags/%E7%AE%97%E6%B3%95/">算法<sup>2</sup></a><a href="/tags/hexo/">hexo<sup>3</sup></a><a href="/tags/markdown/">markdown<sup>2</sup></a><a href="/tags/Spring/">Spring<sup>19</sup></a><a href="/tags/Mysql/">Mysql<sup>5</sup></a><a href="/tags/SSM/">SSM<sup>1</sup></a><a href="/tags/Excel/">Excel<sup>1</sup></a><a href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/">中间件<sup>1</sup></a><a href="/tags/PostgreSql/">PostgreSql<sup>1</sup></a><a href="/tags/SpringBoot/">SpringBoot<sup>3</sup></a><a href="/tags/SpringCloud-Alibaba/">SpringCloud Alibaba<sup>1</sup></a><a href="/tags/SpringCloud/">SpringCloud<sup>13</sup></a><a href="/tags/Jenkins/">Jenkins<sup>1</sup></a><a href="/tags/sql/">sql<sup>1</sup></a><a href="/tags/Book/">Book<sup>1</sup></a><a href="/tags/Interview/">Interview<sup>3</sup></a></div></div></div></div><!-- keyboard--><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav class="show" id="nav"><div id="nav-group"><div id="blog_name"><div class="back-home-button" tabindex="-1"><i class="back-home-button-icon solitude st-more-fill"></i><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">Solitude</div><div class="back-menu-list"><a class="back-menu-item" href="/archives/" title="文章"><img class="nolazyload back-menu-item-icon" src="/img/pwa/favicon.ico" alt="文章"><span class="back-menu-item-text">文章</span></a></div></div></div></div><a id="site-name" href="/" title="返回博客主页"><span class="title">Lutao</span></a></div><div id="page-name-mask"><div id="page-name"><a id="page-name-text" onclick="sco.toTop()">中文技术文档的写作规范</a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><span>首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span>文库</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="solitude  st-folder-fill"></i><span>文章列表</span></a></li><li><a class="site-page child" href="/categories/"><i class="solitude  st-checkbox-multiple-blank-fill"></i><span>全部分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="solitude  st-price-tag-fill"></i><span>全部标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span>关于</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="solitude  st-contacts-fill"></i><span>关于本站</span></a></li></ul></div></div></div><div id="nav-left"></div><div id="nav-right"><div class="nav-button" id="travellings_button"><a class="site-page" target="_blank" rel="noopener" href="https://www.travellings.cn/go.html" title=""><i class="solitude st-train-line"></i></a></div><div class="nav-button" id="search-button"><a class="site-page social-icon search" href="javascript:void(0);" title="搜索"><i class="solitude st-search-line"></i></a></div><div class="nav-button" id="nav-totop" onclick="sco.toTop()"><a class="totopbtn"><i class="solitude st-arrow-up-line"></i><span id="percent">0</span></a></div><div id="toggle-menu"><a class="site-page"><i class="solitude st-menu-line"></i></a></div></div></div></nav><div class="coverdiv" id="coverdiv"><img class="nolazyload" id="post-cover" src="/img/default.png" alt="中文技术文档的写作规范"></div><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original" title="该文章为原创文章，注意版权协议">原创</a><span class="post-meta-categories"><a class="post-meta-categories" href="/categories/hexo%E6%95%99%E7%A8%8B/">hexo教程</a></span><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/hexo/"><span class="tags-name tags-punctuation">hexo</span></a><a class="post-meta__tags" href="/tags/markdown/"><span class="tags-name tags-punctuation">markdown</span></a></div></div></div></div><h1 class="post-title">中文技术文档的写作规范</h1><div id="post-meta"><div class="meta-secondline"></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section></header><main class="layout" id="content-inner"><div id="post"><div class="post-ai"><div class="ai-title"><div class="ai-title-left"><i class="ai-title-icon solitude st-robot-fill"></i><div class="ai-title-text">文章摘要</div></div><div class="ai-tag" id="ai-tag">Jackie-GPT</div></div><div class="ai-explanation" style="display: block;"></div><div class="ai-suggestions"></div><div class="ai-bottom"><div class="ai-tips"></div><a class="ai-report" title="投诉" target="_blank" rel="noopener" href="https://efu.me/">投诉</a></div></div><article class="post-content" id="article-container"><p><img src="http://codeimages.lutao1726.top/markdown.png" alt="Mou icon"></p>
+<span id="more"></span>
+
+<p>本文转载自 <a target="_blank" rel="noopener" href="https://github.com/ruanyf/document-style-guide">ruanyf&#x2F;document-style-guide</a></p>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><blockquote>
+<h6 id="1-标题"><a href="#1-标题" class="headerlink" title="1. 标题"></a><strong>1. <a href="#%E6%A0%87%E9%A2%98">标题</a></strong></h6><h6 id="2-文本"><a href="#2-文本" class="headerlink" title="2. 文本"></a><strong>2. <a href="#%E6%96%87%E6%9C%AC">文本</a></strong></h6><h6 id="3-段落"><a href="#3-段落" class="headerlink" title="3. 段落"></a><strong>3. <a href="#%E6%AE%B5%E8%90%BD">段落</a></strong></h6><h6 id="4-数值"><a href="#4-数值" class="headerlink" title="4. 数值"></a><strong>4. <a href="#%E6%95%B0%E5%80%BC">数值</a></strong></h6><h6 id="5-标点符号"><a href="#5-标点符号" class="headerlink" title="5. 标点符号"></a><strong>5. <a href="#%E6%A0%87%E7%82%B9%E7%AC%A6%E5%8F%B7">标点符号</a></strong></h6><h6 id="6-文档体系"><a href="#6-文档体系" class="headerlink" title="6. 文档体系"></a><strong>6. <a href="#%E6%96%87%E6%A1%A3%E4%BD%93%E7%B3%BB">文档体系</a></strong></h6><h6 id="7-参考链接"><a href="#7-参考链接" class="headerlink" title="7. 参考链接"></a><strong>7. <a href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5">参考链接</a></strong></h6></blockquote>
+<h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><h4 id="层级"><a href="#层级" class="headerlink" title="层级"></a>层级</h4><p>标题分为四级。</p>
+<ul>
+<li>一级标题：文章的标题</li>
+<li>二级标题：文章主要部分的大标题</li>
+<li>三级标题：二级标题下面一级的小标题</li>
+<li>四级标题：三级标题下面某一方面的小标题</li>
+</ul>
+<p>下面是示例。</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># 一级标题</span></span><br><span class="line"></span><br><span class="line"><span class="section">## 二级标题</span></span><br><span class="line"></span><br><span class="line"><span class="section">### 三级标题</span></span><br><span class="line"></span><br><span class="line"><span class="section">#### 四级标题</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="原则"><a href="#原则" class="headerlink" title="原则"></a>原则</h4><p>（1）一级标题下，不能直接出现三级标题。</p>
+<p>示例：下面的文章结构，缺少二级标题。</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># 一级标题</span></span><br><span class="line"></span><br><span class="line"><span class="section">### 三级标题</span></span><br></pre></td></tr></table></figure>
+
+<p>（2）标题要避免孤立编号（即同级标题只有一个）。</p>
+<p>示例：下面的文章结构，<code>二级标题 A</code>只包含一个三级标题，完全可以省略<code>三级标题 A</code>。</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">## 二级标题 A</span></span><br><span class="line"></span><br><span class="line"><span class="section">### 三级标题 A</span></span><br><span class="line"></span><br><span class="line"><span class="section">## 二级标题 B</span></span><br></pre></td></tr></table></figure>
+
+<p>（3）下级标题不重复上一级标题的名字。</p>
+<p>示例：下面的文章结构，二级标题与下属的三级标题同名，建议避免。</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">## 概述</span></span><br><span class="line"></span><br><span class="line"><span class="section">### 概述</span></span><br></pre></td></tr></table></figure>
+
+<p>（4）谨慎使用四级标题，尽量避免出现，保持层级的简单，防止出现过于复杂的章节。</p>
+<p>如果三级标题下有并列性的内容，建议只使用项目列表（Item list）。</p>
+<p>示例：下面的结构二要好于结构一。结构一适用的场景，主要是较长篇幅的内容。</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">结构一</span><br><span class="line"></span><br><span class="line"><span class="section">### 三级标题</span></span><br><span class="line"></span><br><span class="line"><span class="section">#### 四级标题 A</span></span><br><span class="line"></span><br><span class="line"><span class="section">#### 四级标题 B</span></span><br><span class="line"></span><br><span class="line"><span class="section">#### 四级标题 C</span></span><br><span class="line"></span><br><span class="line">结构二</span><br><span class="line"></span><br><span class="line"><span class="section">### 三级标题</span></span><br><span class="line"></span><br><span class="line"><span class="strong">**（1）A**</span></span><br><span class="line"></span><br><span class="line"><span class="strong">**（2）B**</span></span><br><span class="line"></span><br><span class="line"><span class="strong">**（3）C**</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="文本"><a href="#文本" class="headerlink" title="文本"></a>文本</h2><h4 id="字间距"><a href="#字间距" class="headerlink" title="字间距"></a>字间距</h4><p>（1）全角中文字符与半角英文字符之间，应有一个半角空格。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">错误：本文介绍如何快速启动Windows系统。</span><br><span class="line"></span><br><span class="line">正确：本文介绍如何快速启动 Windows 系统。</span><br></pre></td></tr></table></figure>
+
+<p>（2）全角中文字符与半角阿拉伯数字之间，有没有半角空格都可，但必须保证风格统一，不能两种风格混杂。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">正确：2011年5月15日，我订购了5台笔记本电脑与10台平板电脑。</span><br><span class="line"></span><br><span class="line">正确：2011 年 5 月 15 日，我订购了 5 台笔记本电脑与 10 台平板电脑。</span><br></pre></td></tr></table></figure>
+
+<p>半角的百分号，视同阿拉伯数字。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">正确：今年我国经济增长率是6.5%。</span><br><span class="line"></span><br><span class="line">正确：今年我国经济增长率是 6.5%。</span><br></pre></td></tr></table></figure>
+
+<p>（3）英文单位若不翻译，单位前的阿拉伯数字与单位间不留空格。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">错误：一部容量为 16 GB 的智能手机</span><br><span class="line"></span><br><span class="line">正确：一部容量为 16GB 的智能手机</span><br></pre></td></tr></table></figure>
+
+<p>（4）半角英文字符和半角阿拉伯数字，与全角标点符号之间不留空格。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">错误：他的电脑是 MacBook Air 。</span><br><span class="line"></span><br><span class="line">正确：他的电脑是 MacBook Air。</span><br></pre></td></tr></table></figure>
+
+<h4 id="句子"><a href="#句子" class="headerlink" title="句子"></a>句子</h4><p>（1）避免使用长句。</p>
+<p>不包含任何标点符号的单个句子，或者以逗号分隔的句子构件，长度尽量保持在 20 个字以内；20～29 个字的句子，可以接受；30～39 个字的句子，语义必须明确，才能接受；多于 40 个字的句子，任何情况下都不能接受。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">错误：本产品适用于从由一台服务器进行动作控制的单一节点结构到由多台服务器进行动作控制的并行处理程序结构等多种体系结构。</span><br><span class="line"></span><br><span class="line">正确：本产品适用于多种体系结构。无论是由一台服务器（单一节点结构），还是由多台服务器（并行处理结构）进行动作控制，均可以使用本产品。</span><br></pre></td></tr></table></figure>
+
+<p>逗号分割的长句，总长度不应该超过 100 字或者正文的 3 行。</p>
+<p>（2）尽量使用简单句和并列句，避免使用复合句。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">并列句：他昨天生病了，没有参加会议。</span><br><span class="line"></span><br><span class="line">复合句：那个昨天生病的人没有参加会议。</span><br></pre></td></tr></table></figure>
+
+<p>（3）同样一个意思，尽量使用肯定句表达，不使用否定句表达。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">错误：请确认没有接通装置的电源。</span><br><span class="line"></span><br><span class="line">正确：请确认装置的电源已关闭。</span><br></pre></td></tr></table></figure>
+
+<p>（4）避免使用双重否定句。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">错误：没有删除权限的用户，不能删除此文件。</span><br><span class="line"></span><br><span class="line">正确：用户必须拥有删除权限，才能删除此文件。</span><br></pre></td></tr></table></figure>
+
+<h4 id="写作风格"><a href="#写作风格" class="headerlink" title="写作风格"></a>写作风格</h4><p>（1）尽量不使用被动语态，改为使用主动语态。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">错误：假如此软件尚未被安装，</span><br><span class="line"></span><br><span class="line">正确：假如尚未安装这个软件，</span><br></pre></td></tr></table></figure>
+
+<p>（2）不使用非正式的语言风格。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">错误：Lady Gaga 的演唱会真是酷毙了，从没看过这么给力的表演！！！</span><br><span class="line"></span><br><span class="line">正确：无法参加本次活动，我深感遗憾。</span><br></pre></td></tr></table></figure>
+
+<p>（3）不使用冷僻、生造或者文言文的词语，而要使用现代汉语的常用表达方式。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">错误：这是唯二的快速启动的方法。</span><br><span class="line"></span><br><span class="line">正确：这是仅有的两种快速启动的方法。</span><br></pre></td></tr></table></figure>
+
+<p>（4）用对“的”、“地”、“得”。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">她露出了开心的笑容。</span><br><span class="line">（形容词＋的＋名词）</span><br><span class="line"></span><br><span class="line">她开心地笑了。</span><br><span class="line">（副词＋地＋动词）</span><br><span class="line"></span><br><span class="line">她笑得很开心。</span><br><span class="line">（动词＋得＋副词）</span><br></pre></td></tr></table></figure>
+
+<p>（5）使用代词时（比如“其”、“该”、“此”、“这”等词），必须明确指代的内容，保证只有一个含义。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">错误：从管理系统可以监视中继系统和受其直接控制的分配系统。</span><br><span class="line"></span><br><span class="line">正确：从管理系统可以监视两个系统：中继系统和受中继系统直接控制的分配系统。</span><br></pre></td></tr></table></figure>
+
+<p>（6）名词前不要使用过多的形容词。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">错误：此设备的使用必须在接受过本公司举办的正式的设备培训的技师的指导下进行。</span><br><span class="line"></span><br><span class="line">正确：此设备必须在技师的指导下使用，且指导技师必须接受过由本公司举办的正式设备培训。</span><br></pre></td></tr></table></figure>
+
+<h4 id="英文处理"><a href="#英文处理" class="headerlink" title="英文处理"></a>英文处理</h4><p>（1）英文原文如果使用了复数形式，翻译成中文时，应该将其还原为单数形式。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">英文：⋯information stored in random access memory (RAMs)⋯</span><br><span class="line"></span><br><span class="line">中文：……存储在随机存取存储器（RAM）里的信息……</span><br></pre></td></tr></table></figure>
+
+<p>（2）外文缩写可以使用半角圆点(<code>.</code>)表示缩写。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">U.S.A.</span><br><span class="line">Apple, Inc.</span><br></pre></td></tr></table></figure>
+
+<p>（3）表示中文时，英文省略号（<code>⋯</code>）应改为中文省略号（<code>……</code>）。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">英文：5 minutes later⋯</span><br><span class="line"></span><br><span class="line">中文：5 分钟过去了……</span><br></pre></td></tr></table></figure>
+
+<p>（4）英文书名或电影名改用中文表达时，双引号应改为书名号。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">英文：He published an article entitled &quot;The Future of the Aviation&quot;.</span><br><span class="line"></span><br><span class="line">中文：他发表了一篇名为《航空业的未来》的文章。</span><br></pre></td></tr></table></figure>
+
+<p>（5）第一次出现英文词汇时，在括号中给出中文标注。此后再次出现时，直接使用英文缩写即可。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">IOC（International Olympic Committee，国际奥林匹克委员会）。这样定义后，便可以直接使用“IOC”了。</span><br></pre></td></tr></table></figure>
+
+<p>（6）专有名词中每个词第一个字母均应大写，非专有名词则不需要大写。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">“American Association of Physicists in Medicine”（美国医学物理学家协会）是专有名词，需要大写。</span><br><span class="line"></span><br><span class="line">“online transaction processing”（在线事务处理）不是专有名词，不应大写。</span><br></pre></td></tr></table></figure>
+
+
+
+
+<h2 id="段落"><a href="#段落" class="headerlink" title="段落"></a>段落</h2><h4 id="原则-1"><a href="#原则-1" class="headerlink" title="原则"></a>原则</h4><ul>
+<li>一个段落只能有一个主题，或一个中心句子。</li>
+<li>段落的中心句子放在段首，对全段内容进行概述。后面陈述的句子为核心句服务。</li>
+<li>一个段落的长度不能超过七行，最佳段落长度小于等于四行。</li>
+<li>段落的句子语气要使用陈述和肯定语气，避免使用感叹语气。</li>
+<li>段落之间使用一个空行隔开。</li>
+<li>段落开头不要留出空白字符。</li>
+</ul>
+<h4 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h4><p>引用第三方内容时，应注明出处。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">One man’s constant is another man’s variable. — Alan Perlis</span><br></pre></td></tr></table></figure>
+
+<p>如果是全篇转载，请在全文开头显著位置注明作者和出处，并链接至原文。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">本文转载自 WikiQuote</span><br></pre></td></tr></table></figure>
+
+<p>使用外部图片时，必须在图片下方或文末标明来源。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">本文部分图片来自 Wikipedia</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="数值"><a href="#数值" class="headerlink" title="数值"></a>数值</h2><h4 id="半角数字"><a href="#半角数字" class="headerlink" title="半角数字"></a>半角数字</h4><p>阿拉伯数字一律使用半角形式，不得使用全角形式。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">错误： 这件商品的价格是１０００元。</span><br><span class="line"></span><br><span class="line">正确： 这件商品的价格是 1000 元。</span><br></pre></td></tr></table></figure>
+
+<h4 id="千分号"><a href="#千分号" class="headerlink" title="千分号"></a>千分号</h4><p>数值为千位以上，应添加千分号（半角逗号）。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">XXX 公司的实收资本为 ￥1,258,000 人民币。</span><br></pre></td></tr></table></figure>
+
+<p>对于 4 位以下的数值，千分号是选用的，比如<code>1000</code>和<code>1,000</code>都可以接受。对于 4 位以上的数值，千分号是必须的。</p>
+<h4 id="货币"><a href="#货币" class="headerlink" title="货币"></a>货币</h4><p>货币应为阿拉伯数字，并在数字前写出货币符号，或在数字后写出货币中文名称。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$1,000</span><br><span class="line">1,000 美元</span><br></pre></td></tr></table></figure>
+
+<p>英文的货币名称，建议参考国际标准 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>。</p>
+<h4 id="数值范围"><a href="#数值范围" class="headerlink" title="数值范围"></a>数值范围</h4><p>表示数值范围时，用<code>～</code>或<code>——</code>连接。参见《标点符号》一节的“连接号”部分。</p>
+<p>带有单位或百分号时，两个数字建议都要加上单位或百分号。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">132kg～234kg</span><br><span class="line"></span><br><span class="line">67%～89%</span><br></pre></td></tr></table></figure>
+
+<h4 id="变化程度的表示法"><a href="#变化程度的表示法" class="headerlink" title="变化程度的表示法"></a>变化程度的表示法</h4><p>数字的增加要使用“增加了”、“增加到”。“了”表示增量，“到”表示定量。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">增加到过去的两倍</span><br><span class="line">（过去为一，现在为二）</span><br><span class="line"></span><br><span class="line">增加了两倍</span><br><span class="line">（过去为一，现在为三）</span><br></pre></td></tr></table></figure>
+
+<p>数字的减少要使用“降低了”、“降低到”。“了”表示增量，“到”表示定量。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">降低到百分之八十</span><br><span class="line">（定额是一百，现在是八十）</span><br><span class="line"></span><br><span class="line">降低了百分之八十</span><br><span class="line">（原来是一百，现在是二十）</span><br></pre></td></tr></table></figure>
+
+<p>不能用“降低 N 倍”或“减少 N 倍”的表示法，要用“降低百分之几”或“减少百分之几”。因为减少（或降低）一倍表示数值原来为一百，现在等于零。</p>
+<h2 id="标点符号"><a href="#标点符号" class="headerlink" title="标点符号"></a>标点符号</h2><h4 id="原则-2"><a href="#原则-2" class="headerlink" title="原则"></a>原则</h4><p>（1）中文语句的标点符号，均应该采取全角符号，这样可以与全角文字保持视觉的一致。</p>
+<p>（2）如果整句为英文，则该句使用英文&#x2F;半角标点。</p>
+<p>（3）句号、问号、叹号、逗号、顿号、分号和冒号不得出现在一行之首。</p>
+<h4 id="句号"><a href="#句号" class="headerlink" title="句号"></a>句号</h4><p>（1）中文语句的结尾处应该用全角句号（<code>。</code>）。</p>
+<p>（2）句子末尾用括号加注时，句号应在括号之外。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">错误：关于文件的输出，请参照第 1.3 节（见第 26 页。）</span><br><span class="line"></span><br><span class="line">正确：关于文件的输出，请参照第 1.3 节（见第 26 页）。</span><br></pre></td></tr></table></figure>
+
+<h4 id="逗号"><a href="#逗号" class="headerlink" title="逗号"></a>逗号</h4><p>（1）逗号（<code>，</code>）表示句子内部的一般性停顿。</p>
+<p>（2）注意避免“一逗到底”，即整个段落除了结尾，全部停顿都使用逗号。</p>
+<h4 id="顿号"><a href="#顿号" class="headerlink" title="顿号"></a>顿号</h4><p>（1）句子内部的并列词，应该用全角顿号(<code>、</code>) 分隔，而不用逗号，即使并列词是英语也是如此。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">错误：我最欣赏的科技公司有 Google, Facebook, 腾讯, 阿里和百度等。</span><br><span class="line"></span><br><span class="line">正确：我最欣赏的科技公司有 Google、Facebook、腾讯、阿里和百度等。</span><br></pre></td></tr></table></figure>
+
+<p>（2）英文句子中，并列词语之间使用半角逗号（<code>,</code>）分隔。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">例句：Microsoft Office includes Word, Excel, PowerPoint, Outlook and other components.</span><br></pre></td></tr></table></figure>
+
+<h4 id="分号"><a href="#分号" class="headerlink" title="分号"></a>分号</h4><p>（1）分号（<code>；</code>）表示复句内部并列分句之间的停顿。</p>
+<h4 id="引号"><a href="#引号" class="headerlink" title="引号"></a>引号</h4><p>（1）引用时，应该使用全角双引号（<code>“ ”</code>），注意前后双引号不同。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">例句：许多人都认为客户服务的核心是“友好”和“专业”。</span><br></pre></td></tr></table></figure>
+
+<p>（2）引号里面还要用引号时，外面一层用双引号，里面一层用单引号（<code>‘ ’</code>），注意前后单引号不同。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">例句：鲍勃解释道：“我要放音乐，可萨利说，‘不行！’。”</span><br></pre></td></tr></table></figure>
+
+<h4 id="括号"><a href="#括号" class="headerlink" title="括号"></a>括号</h4><p>（1）补充说明时，使用全角圆括号（<code>（）</code>），括号前后不加空格。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">例句：请确认所有的连接（电缆和接插件）均安装牢固。</span><br></pre></td></tr></table></figure>
+
+<p>（2）几种括号的中英文名称。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th align="center">英文</th>
+<th align="right">中文</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>&#123; &#125;</code></td>
+<td align="center">braces 或 curly brackets</td>
+<td align="right">大括号</td>
+</tr>
+<tr>
+<td><code>[ ]</code></td>
+<td align="center">square brackets 或 brackets</td>
+<td align="right">方括号</td>
+</tr>
+<tr>
+<td><code>&lt; &gt;</code></td>
+<td align="center">angled brackets</td>
+<td align="right">尖括号</td>
+</tr>
+<tr>
+<td><code>( )</code></td>
+<td align="center">parentheses</td>
+<td align="right">圆括号</td>
+</tr>
+</tbody></table>
+<h4 id="冒号"><a href="#冒号" class="headerlink" title="冒号"></a>冒号</h4><p>（1）全角冒号（<code>：</code>）常用在需要解释的词语后边，引出解释和说明。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">例句：请确认以下几项内容：时间、地点、活动名称，以及来宾数量。</span><br></pre></td></tr></table></figure>
+
+<p>（2）表示时间时，应使用半角冒号（<code>:</code>）。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">例句：早上 8:00</span><br></pre></td></tr></table></figure>
+
+<h4 id="省略号"><a href="#省略号" class="headerlink" title="省略号"></a>省略号</h4><p>（1）省略号（<code>……</code>）表示语句未完、或者语气的不连续。</p>
+<p>（2）省略号占两个汉字空间、包含六个省略点，不要使用<code>。。。</code>或<code>...</code>等非标准形式。</p>
+<p>（3）省略号不应与“等”这个词一起使用。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">错误：我们为会餐准备了香蕉、苹果、梨…等各色水果。</span><br><span class="line"></span><br><span class="line">正确：我们为会餐准备了各色水果，有香蕉、苹果、梨……</span><br><span class="line"></span><br><span class="line">正确：我们为会餐准备了香蕉、苹果、梨等各色水果。</span><br></pre></td></tr></table></figure>
+
+<h4 id="感叹号"><a href="#感叹号" class="headerlink" title="感叹号"></a>感叹号</h4><p>（1）应该使用平静的语气叙述，尽量避免使用感叹号（<code>！</code>）。</p>
+<p>（2）不得多个感叹号连用，比如<code>！！</code>和<code>!!!</code>。</p>
+<h4 id="破折号"><a href="#破折号" class="headerlink" title="破折号"></a>破折号</h4><p>（1）破折号<code>————</code>一般用于进一步解释。</p>
+<p>（2）破折号应占两个汉字的位置。如果破折号本身只占一个汉字的位置，那么前后应该留出一个半角空格。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">例句：直觉————尽管它并不总是可靠的————告诉我，这事可能出了些问题。</span><br><span class="line"></span><br><span class="line">例句：直觉 —— 尽管它并不总是可靠的 —— 告诉我，这事可能出了些问题。</span><br></pre></td></tr></table></figure>
+
+<h4 id="连接号"><a href="#连接号" class="headerlink" title="连接号"></a>连接号</h4><p>（1）连接号用于连接两个类似的词。</p>
+<p>（2）以下场合应该使用直线连接号（<code>-</code>），占一个半角字符的位置。</p>
+<ul>
+<li>两个名词的复合</li>
+<li>图表编号</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">例句：氧化-还原反应</span><br><span class="line"></span><br><span class="line">例句：图 1-1</span><br></pre></td></tr></table></figure>
+
+<p>（3）数值范围（例如日期、时间或数字）应该使用波浪连接号（<code>～</code>），占一个全角字符的位置。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">例句：2009 年～2011 年</span><br></pre></td></tr></table></figure>
+
+<p>注意，波浪连接号前后两个值都应该加上单位。</p>
+<p>（4）波浪连接号也可以用汉字“至”代替。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">例句：周围温度：-20°C 至 -10°C</span><br></pre></td></tr></table></figure>
+
+<h2 id="文档体系"><a href="#文档体系" class="headerlink" title="文档体系"></a>文档体系</h2><h4 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h4><p>软件手册是一部完整的书，建议采用下面的结构。</p>
+<ul>
+<li><strong>简介</strong>（Introduction）： [必备] [文件] 提供对产品和文档本身的总体的、扼要的说明</li>
+<li><strong>快速上手</strong>（Getting Started）：[可选] [文件] 如何最快速地使用产品</li>
+<li><strong>入门篇</strong>（Basics）： [必备] [目录] 又称”使用篇“，提供初级的使用教程<ul>
+<li><strong>环境准备</strong>（Prerequisite）：[必备] [文件] 软件使用需要满足的前置条件</li>
+<li><strong>安装</strong>（Installation）：[可选] [文件] 软件的安装方法</li>
+<li><strong>设置</strong>（Configuration）：[必备] [文件] 软件的设置</li>
+</ul>
+</li>
+<li><strong>进阶篇</strong>（Advanced)：[可选] [目录] 又称”开发篇“，提供中高级的开发教程</li>
+<li><strong>API</strong>（Reference）：[可选] [目录|文件] 软件 API 的逐一介绍</li>
+<li><strong>FAQ</strong>：[可选] [文件] 常见问题解答</li>
+<li><strong>附录</strong>（Appendix）：[可选] [目录] 不属于教程本身、但对阅读教程有帮助的内容<ul>
+<li><strong>Glossary</strong>：[可选] [文件] 名词解释</li>
+<li><strong>Recipes</strong>：[可选] [文件] 最佳实践</li>
+<li><strong>Troubleshooting</strong>：[可选] [文件] 故障处理</li>
+<li><strong>ChangeLog</strong>：[可选] [文件] 版本说明</li>
+<li><strong>Feedback</strong>：[可选] [文件] 反馈方式</li>
+</ul>
+</li>
+</ul>
+<p>下面是两个真实范例，可参考。</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://redux.js.org/index.html">Redux 手册</a></li>
+<li><a target="_blank" rel="noopener" href="http://flight-manual.atom.io/">Atom 手册</a></li>
+</ul>
+<h4 id="文件名"><a href="#文件名" class="headerlink" title="文件名"></a>文件名</h4><p>文档的文件名不得含有空格。</p>
+<p>文件名必须使用半角字符，不得使用全角字符。这也意味着，中文不能用于文件名。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">错误： 名词解释.md</span><br><span class="line"></span><br><span class="line">正确： glossary.md</span><br></pre></td></tr></table></figure>
+
+<p>文件名建议只使用小写字母，不使用大写字母。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">错误：TroubleShooting.md</span><br><span class="line"></span><br><span class="line">正确：troubleshooting.md </span><br></pre></td></tr></table></figure>
+
+<p>为了醒目，某些说明文件的文件名，可以使用大写字母，比如<code>README</code>、<code>LICENSE</code>。</p>
+<p>文件名包含多个单词时，单词之间建议使用半角的连词线（<code>-</code>）分隔。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">不佳：advanced_usage.md</span><br><span class="line"></span><br><span class="line">正确：advanced-usage.md</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<li><a target="_blank" rel="noopener" href="http://wenku.baidu.com/view/23cc1a6527d3240c8447efbf.html">产品手册中文写作规范</a>, by 华为</li>
+<li><a target="_blank" rel="noopener" href="http://guide.daocloud.io/dcs/%E5%86%99%E4%BD%9C%E8%A7%84%E8%8C%83%E5%92%8C%E6%A0%BC%E5%BC%8F%E8%A7%84%E8%8C%83-9153803.html">写作规范和格式规范</a>, by DaoCloud</li>
+<li><a target="_blank" rel="noopener" href="http://www.hitachi-tc.co.jp/company/thesis/thesis.pdf">技术写作技巧在日汉翻译中的应用</a>, by 刘方</li>
+<li><a target="_blank" rel="noopener" href="https://www.lengoo.de/documents/styleguides/lengoo_styleguide_ZH.pdf">简体中文规范指南</a>, by lengoo</li>
+<li><a target="_blank" rel="noopener" href="https://open.leancloud.cn/copywriting-style-guide.html">文档风格指南</a>, by LeanCloud</li>
+<li><a target="_blank" rel="noopener" href="https://docs.google.com/document/d/1R8lMCPf6zCD5KEA8ekZ5knK77iw9J-vJ6vEopPemqZM/edit">豌豆荚文案风格指南</a>, by 豌豆荚</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/sparanoid/chinese-copywriting-guidelines">中文文案排版指北</a>, by sparanoid</li>
+<li><a target="_blank" rel="noopener" href="http://w3c.github.io/clreq/">中文排版需求</a>, by W3C</li>
+<li><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2017/02/filename-should-be-lowercase.html">为什么文件名要小写？</a>, by 阮一峰</li>
+<li><a target="_blank" rel="noopener" href="https://developers.google.com/style/">Google Developer Documentation Style Guide</a>, by Google</li>
+<li><a target="_blank" rel="noopener" href="http://www.moe.gov.cn/ewebeditor/uploadfile/2015/01/13/20150113091154536.pdf">出版物上数字用法的规定（国家标准GBT15835－2011）</a></li>
+<li><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E4%B8%AD%E5%8D%8E%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9B%BD%E5%9B%BD%E5%AE%B6%E6%A0%87%E5%87%86%E5%87%BA%E7%89%88%E7%89%A9%E6%95%B0%E5%AD%97%E7%94%A8%E6%B3%95">中华人民共和国国家标准出版物数字用法</a></li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author_group"><a class="post-copyright__author_img" href="/about/"><img class="post-copyright__author_img_front" src="/img/pwa/favicon.ico"></a><div class="post-copyright__author_name">Lutao</div><div class="post-copyright__author_desc">Stay Hungry, Stay Foolish</div></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div id="quit-box" onclick="RemoveRewardMask()"></div><div class="post-reward" onclick="AddRewardMask()"><div class="reward-button" title="赞赏作者"><i class="solitude st-hand-heart-fill"></i>赞赏作者</div><div class="reward-main"><ul class="reward-all"><span class="reward-title">感谢您的赞赏。</span><ul class="reward-group"><li class="reward-item"><img class="post-qr-code-img nolazyload" src="/img/zhifubao.jpg" alt="支付宝" style="border-color: var(--efu-blue)"><div class="post-qr-code-desc">支付宝</div></li><li class="reward-item"><img class="post-qr-code-img nolazyload" src="/img/weixin.jpg" alt="微信" style="border-color: var(--efu-blue)"><div class="post-qr-code-desc">微信</div></li></ul><a class="reward-main-btn" href="/about"><div class="reward-text">赞赏名单</div><div class="reward-dec">因为有你们的支持，我才体会到写文章的价值。</div></a></ul></div></div><script>function RemoveRewardMask() {
+    let rewardMainElements = document.querySelectorAll(".reward-main");
+    let quitBoxElement = document.querySelector("#quit-box");
+
+    console.log("RemoveRewardMask")
+
+    rewardMainElements.forEach(element => {
+        element.style.display = "none";
+    });
+
+    if (quitBoxElement) {
+        quitBoxElement.style.display = "none";
+    }
+}
+
+function AddRewardMask() {
+    let rewardMainElements = document.querySelectorAll(".reward-main");
+    let quitBoxElement = document.querySelector("#quit-box");
+
+    console.log("AddRewardMask")
+
+    rewardMainElements.forEach(element => {
+        element.style.display = "flex";
+    });
+
+    if (quitBoxElement) {
+        quitBoxElement.style.display = "flex";
+    }
+}</script></div></div><div class="post-copyright__notice"><span class="post-copyright-info">本文是原创文章，采用<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0</a>协议，完整转载请注明来自<a href="/">Lutao</a></span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/hexo/"><span class="tags-punctuation"></span>hexo<span class="tagsPageCount">3</span></a><a class="post-meta__tags" href="/tags/markdown/"><span class="tags-punctuation"></span>markdown<span class="tagsPageCount">2</span></a></div></div></div><nav class="needEndHide pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2017/08/03/Markdown/"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Markdown语法</div></div></a></div><div class="next-post pull-right"><a href="/2017/06/19/Java-%E5%88%86%E5%B8%83%E5%BC%8F-1/"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">分布式-zookeeper与dubbo</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="solitude st-star-smile-fill"></i><span>喜欢这篇的人也看了</span><div class="relatedPosts-link"><a onclick="event.preventDefault(); toRandomPost();" href="javascript:void(0);" rel="external nofollow" data-pjax-state="">随便逛逛</a></div></div><div class="relatedPosts-list"><div><a href="/2017/08/03/Markdown/" title="Markdown语法"><img class="cover" src="/img/default.png" alt="cover"><div class="content is-center"><div class="title">Markdown语法</div></div></a></div><div><a href="/2019/05/12/%E5%9C%A8github%E4%B8%8A%E9%85%8D%E7%BD%AEhexo%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D/" title="在github上配置hexo自定义域名"><img class="cover" src="https://img2.baidu.com/it/u=2291523502,2282313581&fm=253&fmt=auto&app=138&f=JPEG?w=1000&h=500" alt="cover"><div class="content is-center"><div class="title">在github上配置hexo自定义域名</div></div></a></div></div></div><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="solitude st-chat-fill"></i><span> 评论</span></div></div><div class="comment-wrap"><div class="vcomment" id="vcomment"></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><div class="author-info__top-group"><div class="author-info__sayhi" id="author-info__sayhi" onclick="sco.changeSayHelloText()">sayhello.morning</div></div></div><div class="avatar-img-group"><img class="avatar-img" alt="头像" src="/img/avatar.png"><div class="avatar-sticker"><img class="avatar-sticker-img" src="https://7.isyangs.cn/34/65f2e4e0423cc-34.png" alt="心情贴纸"></div></div><div class="author-info__description_group"><div class="author-info__description">分享自己对编程的<b>热爱</b>，对美好生活的<b>向往</b>，对知识海洋<b>探索历程</b>。</div><div class="author-info__description2">相信你可以在这里找到对你有用的知识和教程。</div></div><div class="author-info__bottom-group"><a class="author-info__bottom-group-left" href="/about/"><div class="author-info__name">鲁涛(Jackie)</div><div class="author-info__desc">Stay Hungry, Stay Foolish</div></a><div class="card-info-social-icons is-center"><a class="social-icon" target="_blank" rel="noopener" href="https://github.com/lutao1726" title="Github"><i class="solitude  st-github-line"></i></a></div></div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="solitude st-menu-line"></i><span>文章目录</span></div><div class="toc-content" id="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95"><span class="toc-text">目录</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1-%E6%A0%87%E9%A2%98"><span class="toc-text">1. 标题</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2-%E6%96%87%E6%9C%AC"><span class="toc-text">2. 文本</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#3-%E6%AE%B5%E8%90%BD"><span class="toc-text">3. 段落</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#4-%E6%95%B0%E5%80%BC"><span class="toc-text">4. 数值</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#5-%E6%A0%87%E7%82%B9%E7%AC%A6%E5%8F%B7"><span class="toc-text">5. 标点符号</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#6-%E6%96%87%E6%A1%A3%E4%BD%93%E7%B3%BB"><span class="toc-text">6. 文档体系</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#7-%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="toc-text">7. 参考链接</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%87%E9%A2%98"><span class="toc-text">标题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B1%82%E7%BA%A7"><span class="toc-text">层级</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8E%9F%E5%88%99"><span class="toc-text">原则</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E6%9C%AC"><span class="toc-text">文本</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%97%E9%97%B4%E8%B7%9D"><span class="toc-text">字间距</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%A5%E5%AD%90"><span class="toc-text">句子</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%99%E4%BD%9C%E9%A3%8E%E6%A0%BC"><span class="toc-text">写作风格</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8B%B1%E6%96%87%E5%A4%84%E7%90%86"><span class="toc-text">英文处理</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AE%B5%E8%90%BD"><span class="toc-text">段落</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8E%9F%E5%88%99-1"><span class="toc-text">原则</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%95%E7%94%A8"><span class="toc-text">引用</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E5%80%BC"><span class="toc-text">数值</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%8A%E8%A7%92%E6%95%B0%E5%AD%97"><span class="toc-text">半角数字</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%83%E5%88%86%E5%8F%B7"><span class="toc-text">千分号</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B4%A7%E5%B8%81"><span class="toc-text">货币</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E5%80%BC%E8%8C%83%E5%9B%B4"><span class="toc-text">数值范围</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%98%E5%8C%96%E7%A8%8B%E5%BA%A6%E7%9A%84%E8%A1%A8%E7%A4%BA%E6%B3%95"><span class="toc-text">变化程度的表示法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%87%E7%82%B9%E7%AC%A6%E5%8F%B7"><span class="toc-text">标点符号</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8E%9F%E5%88%99-2"><span class="toc-text">原则</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%A5%E5%8F%B7"><span class="toc-text">句号</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%97%E5%8F%B7"><span class="toc-text">逗号</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A1%BF%E5%8F%B7"><span class="toc-text">顿号</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E5%8F%B7"><span class="toc-text">分号</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%95%E5%8F%B7"><span class="toc-text">引号</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8B%AC%E5%8F%B7"><span class="toc-text">括号</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%92%E5%8F%B7"><span class="toc-text">冒号</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9C%81%E7%95%A5%E5%8F%B7"><span class="toc-text">省略号</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%84%9F%E5%8F%B9%E5%8F%B7"><span class="toc-text">感叹号</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A0%B4%E6%8A%98%E5%8F%B7"><span class="toc-text">破折号</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%9E%E6%8E%A5%E5%8F%B7"><span class="toc-text">连接号</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E6%A1%A3%E4%BD%93%E7%B3%BB"><span class="toc-text">文档体系</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%93%E6%9E%84"><span class="toc-text">结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E5%90%8D"><span class="toc-text">文件名</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="toc-text">参考链接</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="solitude st-map-line"></i><span>最近发布</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/04/23/hello-world/" title="Hello World"><img alt="Hello World" src="/img/default.png"></a><div class="content"><a class="title" href="/2024/04/23/hello-world/" title="Hello World">Hello World</a></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/03/01/%E5%B8%B8%E8%A7%81%E9%99%90%E6%B5%81%E7%AE%97%E6%B3%95/" title="常见限流算法"><img alt="常见限流算法" src="/img/default.png"></a><div class="content"><a class="title" href="/2023/03/01/%E5%B8%B8%E8%A7%81%E9%99%90%E6%B5%81%E7%AE%97%E6%B3%95/" title="常见限流算法">常见限流算法</a><a class="article-recent_post_categories" href="/2023/03/01/%E5%B8%B8%E8%A7%81%E9%99%90%E6%B5%81%E7%AE%97%E6%B3%95/">算法教程</a></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/18/Redis%E6%80%BB%E7%BB%93/" title="Redis总结"><img alt="Redis总结" src="https://pic1.zhimg.com/v2-68ba5c63fb878f074c4ac91e944b24a4_1440w.jpg?source=172ae18b"></a><div class="content"><a class="title" href="/2022/11/18/Redis%E6%80%BB%E7%BB%93/" title="Redis总结">Redis总结</a><a class="article-recent_post_categories" href="/2022/11/18/Redis%E6%80%BB%E7%BB%93/">框架</a></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/15/%E9%9D%A2%E8%AF%95%E7%B3%BB%E5%88%97-JVM%E8%B0%83%E4%BC%98/" title="JVM调优"><img alt="JVM调优" src="/img/default.png"></a><div class="content"><a class="title" href="/2022/11/15/%E9%9D%A2%E8%AF%95%E7%B3%BB%E5%88%97-JVM%E8%B0%83%E4%BC%98/" title="JVM调优">JVM调优</a><a class="article-recent_post_categories" href="/2022/11/15/%E9%9D%A2%E8%AF%95%E7%B3%BB%E5%88%97-JVM%E8%B0%83%E4%BC%98/">面试系列</a></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/06/10/SpringCloud%20Alibaba%20%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AE%9E%E6%88%98-%E5%9F%BA%E7%A1%80%E7%8E%AF%E5%A2%83/" title="SpringCloud Alibaba 微服务实战-基础环境"><img alt="SpringCloud Alibaba 微服务实战-基础环境" src="https://img0.baidu.com/it/u=384551593,3776153747&amp;fm=253&amp;fmt=auto&amp;app=120&amp;f=JPEG?w=750&amp;h=500"></a><div class="content"><a class="title" href="/2020/06/10/SpringCloud%20Alibaba%20%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AE%9E%E6%88%98-%E5%9F%BA%E7%A1%80%E7%8E%AF%E5%A2%83/" title="SpringCloud Alibaba 微服务实战-基础环境">SpringCloud Alibaba 微服务实战-基础环境</a><a class="article-recent_post_categories" href="/2020/06/10/SpringCloud%20Alibaba%20%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AE%9E%E6%88%98-%E5%9F%BA%E7%A1%80%E7%8E%AF%E5%A2%83/">SpringCloud Alibaba</a></div></div></div></div></div></div></main><footer id="footer"><div id="st-footer-bar"><div class="footer-logo"><span class="solitude">Lutao</span></div><div class="footer-bar-description">来自Lutao - Stay Hungry, Stay Foolish的文章</div><a class="footer-bar-link" href="/">了解更多</a></div><div id="footer_deal"><a class="deal_link" target="_blank" rel="noopener" href="https://github.com/lutao1726" title="Github"><i class="solitude  st-github-line"></i></a><a class="deal_link" href="/lutao1726@qq.com" title="Mail"><i class="solitude  st-mail-line"></i></a><a class="deal_link" target="_blank" rel="noopener" href="https://space.bilibili.com/13476193651" title="Bilibili"><i class="solitude  st-bilibili-line"></i></a><a class="deal_link" target="_blank" rel="noopener" href="https://v.douyin.com/iJsLc8jt/" title="抖音"><i class="solitude  st-douyin-fill"></i></a></div><div id="st-footer"><div class="footer-group"><h3 class="footer-title">导航</h3><div class="footer-links"><a class="footer-item" href="/archives/" title="归档">归档</a><a class="footer-item" href="/categories/" title="分类">分类</a><a class="footer-item" href="/tags/" title="标签">标签</a></div></div><div class="footer-group"><h3 class="footer-title">服务</h3><div class="footer-links"><a class="footer-item" target="_blank" rel="noopener" href="https://aliyun.com/" title="阿里云">阿里云</a><a class="footer-item" target="_blank" rel="noopener" href="https://v6.51.la/" title="51la统计">51la统计</a><a class="footer-item" target="_blank" rel="noopener" href="https://tongji.baidu.com/" title="百度统计">百度统计</a></div></div><div class="footer-group"><h3 class="footer-title">支持</h3><div class="footer-links"><a class="footer-item" href="/about/" title="打赏记录">打赏记录</a></div></div><div class="footer-group"><h3 class="footer-title">协议</h3><div class="footer-links"><a class="footer-item" href="/cookies/" title="Cookies">Cookies</a><a class="footer-item" href="/privacy/" title="用户协议">用户协议</a><a class="footer-item" href="/copyright/" title="版权协议">版权协议</a></div></div></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div class="copyright">© 2023 - 2024 By&nbsp;<a class="footer-bar-link" href="/">鲁涛(Jackie)</a></div></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" rel="noopener" href="https://git.oschina.net/lutao1726" alt="码云">码云</a><a class="footer-bar-link" target="_blank" rel="noopener" href="http://www.cnblogs.com/lt1726/" alt="博客园">博客园</a><a class="footer-bar-link cc" href="/null" aria-label="copyright"><i class="solitude st-copyright-line"></i><i class="solitude st-creative-commons-by-line"></i><i class="solitude st-creative-commons-nc-line"></i><i class="solitude st-creative-commons-nd-line"></i></a></div></div></div></footer></div><!-- right_menu--><!-- inject body--><div><script src="/js/utils.js?v=1.8.9"></script><script src="/js/main.js?v=1.8.9"></script><script src="/js/third_party/waterfall.min.js?v=1.8.9"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pjax/0.2.8/pjax.min.js"></script><script src="/js/third_party/universe.min.js?v=1.8.9"></script><script>dark()
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/node-snackbar/0.1.16/snackbar.min.js"></script><script src="/js/third_party/efu_ai.min.js?v=1.8.9"></script><script>var meting_api = 'https://meting.qjqq.cn/?server=:server&type=:type&id=:id&auth=:auth&r=:r';</script><script src="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/meting/2.0.1/Meting.min.js"></script><script src="/js/covercolor/local.js?v=1.8.9"></script><script src="/js/music.js?v=1.8.9"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js"></script><div class="js-pjax"><script>(() => {
+    const initValine = () => {
+        const valine = new Valine({
+            el: '#vcomment',
+            appId: 'SHkEzVF9JLXyG3ViGkb6QF6w-gzGzoHsz',
+            appKey: 'G5mg2sHbwBG7RSr6yXtMevT1',
+            avatar: '',
+            serverURLs: '',
+            emojiMaps: "",
+            path: window.location.pathname,
+            visitor: false,
+            ...null
+        })
+        GLOBAL_CONFIG.lightbox && utils.lightbox(document.querySelectorAll('#comment .vcontent img:not(.vemoji)'))
+        sco.owoBig({body: '.vwrap', item: '.vemojis i'})
+    }
+    const loadValine = async () => {
+        if (typeof Valine === 'function') setTimeout(initValine, 0)
+        else {
+            await utils.getScript('https://cdnjs.cloudflare.com/ajax/libs/valine/1.5.1/Valine.min.js').then(initValine)
+        }
+        false && barrageValine()
+    }
+    if ('Valine' === 'Valine' || false) {
+        if (false) utils.loadComment(document.getElementById('vcomment'), loadValine)
+        else loadValine()
+    } else {
+        window.loadTwoComment = loadValine
+    }
+})()
+</script></div></div><!-- newest comment--><!-- pjax--><script>const pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: ['title','#body-wrap','#site-config','meta[name="description"]','.js-pjax','meta[property^="og:"]','#config-diff'],
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+})
+
+document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+})
+
+document.addEventListener('pjax:complete', () => {
+    window.refreshFn()
+
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+        const newScript = document.createElement('script')
+        const content = item.text || item.textContent || item.innerHTML || ""
+        Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+        newScript.appendChild(document.createTextNode(content))
+        item.parentNode.replaceChild(newScript, item)
+    })
+
+    GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+})
+
+document.addEventListener('pjax:error', (e) => {
+    if (e.request.status === 404) {
+        pjax.loadUrl('/404.html')
+    }
+})</script><!-- theme--><script>initTheme = () => {
+    let isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const cachedMode = utils.saveToLocal.get('theme');
+    if (cachedMode === undefined) {
+        const nowMode =
+            isDarkMode ? 'dark' : 'light'
+        document.documentElement.setAttribute('data-theme', nowMode);
+    } else {
+        document.documentElement.setAttribute('data-theme', cachedMode);
+    }
+    is_rm && rm.mode(cachedMode === 'dark' && isDarkMode)
+}
+initTheme()</script><!-- google adsense--><!-- search--><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><button class="search-close-button"><i class="solitude st-close-fill"></i></button></nav><div class="search-wrap"><div class="search-box"><input class="search-box-input" id="search-input" type="text" autocomplete="off" spellcheck="false" autocorrect="off" autocapitalize="off" placeholder="输入关键词快速查找"></div><div id="search-results"><div id="search-hits"><a class="tag-list" href="javascript:void(0);" onclick="pjax.loadUrl('/tags/Solitude/')">Solitude</a><a class="tag-list" href="javascript:void(0);" onclick="pjax.loadUrl('/tags/Hexo/')">Hexo</a></div></div><div id="search-pagination"></div><div id="search-tips"></div></div></div><div id="search-mask"></div></div><script src="/js/search/local.js?v=1.8.9"></script><!-- music--><div class="needEndHide" id="nav-music" onclick="sco.musicToggle()"><div id="nav-music-hoverTips">音乐已暂停</div><meting-js id="8407304077" server="netease" type="playlist" mutex="true" preload="none" data-lrctype="0" order="random" theme="var(--efu-main)"></meting-js></div></body></html><script>const posts=["2024/04/23/hello-world/","2023/03/01/常见限流算法/","2022/11/18/Redis总结/","2022/11/15/面试系列-JVM调优/","2020/06/10/SpringCloud Alibaba 微服务实战-基础环境/","2019/11/15/Java锁汇总/","2019/11/15/如何做技术选型？Sentinel 还是 Hystrix？/","2019/09/29/Java关于远程调试程序教程/","2019/08/28/记一次生产问题 elastic-job/","2019/08/03/grafana+prometheus监控Jvm/","2019/07/28/grafana+prometheus监控jenkins/","2019/07/21/grafana+prometheus监控mysql/","2019/07/15/grafana+prometheus监控nacos/","2019/07/09/grafana+prometheus监控postgresql/","2019/07/05/grafana+prometheus监控服务器/","2019/06/25/grafana+prometheus监控redis/","2019/06/25/grafana+influxdb+telegraf监控服务器/","2019/06/19/centos7安装OpenResty代替nginx/","2019/06/18/linux加密脚本/","2019/06/13/SpringCloud nacos配置中心/","2019/06/10/SpringCloud nacos自定义用户/","2019/06/10/SpringCloud nacos集群部署/","2019/06/01/SpringCloud nacos服务注册与发现/","2019/05/24/linux下如何批量杀JAVA进程或某个进程方法/","2019/05/22/SpringCloud consul服务注册与发现/","2019/05/16/SpringCloud eureka服务注册与发现/","2019/05/15/SpringCloud gateway异常处理/","2019/05/15/SpringCloud gateway动态路由/","2019/05/15/SpringCloud gateway熔断限流/","2019/05/14/SpringCloud gateway初体验/","2019/05/12/在github上配置hexo自定义域名/","2019/05/12/面试题积累/","2019/04/18/linux安装字体/","2019/03/18/linux常用命令/","2019/01/23/深入理解java虚拟机总结/","2019/01/18/Mybatis总结/","2019/01/18/Mysql总结/","2019/01/18/SpringBoot总结/","2019/01/18/SpringMVC总结/","2019/01/18/Spring总结/","2019/01/01/SpringBoot之使用Druid连接池以及SQL监控/","2019/01/01/springboot项目配置阿里云ssl证书/","2018/09/27/完全卸载删除gitlab/","2018/09/16/jenkins安装/","2018/08/27/PostgreSQL 实现按月按年，按日统计 分组统计/","2018/08/20/搭建ELK日志分析平台/","2018/08/16/工作中常用sql整理/","2018/07/28/Swagger注解释义与SpringBoot的集成/","2018/07/05/gitLab安装/","2018/06/30/Docker管理容器/","2018/06/25/Docker相关整理/","2018/06/19/centos修改主机名的正确方法/","2018/06/11/SpringCloud 服务冲突和实例乱窜/","2018/06/05/DesignPatterns(4)/","2018/05/30/DesignPatterns(3)/","2018/05/25/DesignPatterns(2)/","2018/05/19/Dubbo使用总结/","2018/05/19/DesignPatterns(1)/","2018/05/18/MQ相关总结/","2018/05/17/redis使用总结/","2018/05/16/Java分布式锁总结/","2018/05/16/Java常用算法汇总/","2018/05/16/zookeeper使用总结/","2018/05/15/Java分布式事务总结/","2018/04/15/linux_centos7安装/","2018/01/18/非技术相关面试/","2017/09/25/Java基础回顾-多线程(1)/","2017/09/25/Java基础回顾-集合/","2017/09/20/Java基础回顾(2)/","2017/09/16/Java基础回顾(1)/","2017/08/29/JavaReadXml/","2017/08/27/POIExcel/","2017/08/12/SpringRead-write-separation/","2017/08/03/Markdown/","2017/08/03/中文技术文档的写作规范/","2017/06/19/Java-分布式-1/"];function toRandomPost(){ pjax.loadUrl('/'+posts[Math.floor(Math.random()*posts.length)]); }</script>
